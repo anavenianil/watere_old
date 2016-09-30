@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.incometax.dto.IncomeTaxArrearsDTO" table="PAY_DA_ARREARS_DETAILS" >
+		<id name="id" type="int" column="ID">
+			<generator class="sequence">
+				<param name="sequence">PAY_DA_ARREARS_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="daFrom" column="DA_OLD" />
+		<property name="daTo" column="DA_NEW"  />
+		<property name="daDrawn" column="DA_DRAWN"  />
+		<property name="daDue" column="DA_DUE"  />
+		<property name="daDiff" column="DA_DIFF"  />
+		<property name="daTypeFlag" column="DA_TYPE_FLAG"  />
+		<property name="tptDue" column="TPT_DUE"  />
+		<property name="tptDrawn" column="TPT_DRAWN"  />
+		<property name="tptDiff" column="TPT_DIFF"  />
+		<property name="cpf" column="CPF"  />
+		<property name="itRec" column="IT_REC"  />
+		<property name="sfid" column="SFID"  />
+		<property name="month" column="MONTH"  />	
+		<property name="dateFrom" column="DATE_FROM"  />	
+		<property name="dateTo" column="DATE_TO"  />		
+		<property name="creationDate" column="CREATION_DATE"/>
+		<property name="createdBy" column="CREATED_BY"/>
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE"  />
+		<property name="lastModifiedBy" column="LAST_MODIFIED_BY"  />
+		<property name="status" column="STATUS" />
+</class>
+</hibernate-mapping>

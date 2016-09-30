@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.callippus.web.incometax.dto.PayBillCreditsMigrationDTO" table="MIS_CREDITS" >
+		<id name="id" type="int" column="ID">
+			<generator class="sequence">
+				<param name="sequence">MIS_CREDITS_SEQ</param>
+			</generator>
+		</id>
+
+		<property name="F_CPERSNO" column="F_CPERSNO" />
+		<property name="F_CIDNO" column="F_CIDNO"  />
+		<property name="F_VC2NAME" column="F_VC2NAME"  />
+		<property name="F_VC2DESIG" column="F_VC2DESIG" />
+		<property name="F_CSEX" column="F_CSEX" />
+		<property name="F_VC2BANKACCNO" column="F_VC2BANKACCNO"  />
+		<property name="F_VC2GPFACCNO" column="F_VC2GPFACCNO"  />
+		<property name="F_DTOFBIRTH" column="F_DTOFBIRTH" />
+		<property name="F_DTMONTHYEAR" column="F_DTMONTHYEAR" />
+		<property name="F_CDESTYPE" column="F_CDESTYPE"  />
+		<property name="F_NTOTALQRTS" column="F_NTOTALQRTS"  />
+		<property name="F_NPRESENTQRTS" column="F_NPRESENTQRTS"  />
+		<property name="F_NBASIC" column="F_NBASIC"  />
+		<property name="F_NFPAY" column="F_NFPAY"  />
+		<property name="F_NSPAY" column="F_NSPAY"  />
+		<property name="F_NDA" column="F_NDA"  />
+		<property name="F_NDPAY" column="F_NDPAY"  />
+		<property name="F_NHRA" column="F_NHRA"  />
+		<property name="F_NCCA" column="F_NCCA"  />
+		<property name="F_NTPT" column="F_NTPT"  />
+		<property name="F_NDISALL" column="F_NDISALL"  />
+		<property name="F_NWASHALL" column="F_NWASHALL"  />
+		<property name="F_NDEPALL" column="F_NDEPALL"  />
+		<property name="F_NCREDIT1" column="F_NCREDIT1"  />
+		<property name="F_NCREDIT2" column="F_NCREDIT2"  />
+		<property name="F_NCREDIT3" column="F_NCREDIT3"  />
+		<property name="F_NCREDIT4" column="F_NCREDIT4"  />
+		<property name="F_NCREDIT5" column="F_NCREDIT5"  />
+		<property name="F_NJCDA" column="F_NJCDA"  />
+		<property name="F_NTOTCREDITS" column="F_NTOTCREDITS"  />
+		<property name="F_NGROSSPAY" column="F_NGROSSPAY"  />
+		<property name="F_DTLASTINCR" column="F_DTLASTINCR"  />
+		<property name="F_DTDNI" column="F_DTDNI"  />
+		<property name="F_VC2REMARK" column="F_VC2REMARK"  />
+		
+		</class>
+</hibernate-mapping>
+
+
+
+
+
+
+
+

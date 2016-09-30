@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+		<class name="com.callippus.web.beans.requests.LoanHBARequestProcessBean" table="loan_hba_request_details" >
+			<id name="id" type="int" column="ID">
+				<generator class="sequence">
+				<param name="sequence">LOAN_HBA_REQUEST_DETAILS_SEQ</param>
+			</generator>
+			</id>
+		<property name="requestID" column="REQUEST_ID" />
+		<property name="sfID" column="SFID" type="java.lang.String"/>
+		<property name="designationID" column="DESIGNATION_ID" type="java.lang.String" not-null="true" />
+		<many-to-one name="designationDetails"
+			class="com.callippus.web.beans.dto.DesignationDTO" column="DESIGNATION_ID"
+			not-null="true" lazy="false" update="false" insert="false"/>
+		<property name="departmentID" column="DEPARTMENT_ID" type="int" not-null="true"/>
+		<many-to-one name="departmentDetails"
+			class="com.callippus.web.beans.dto.DepartmentsDTO" column="DEPARTMENT_ID"
+			not-null="true" lazy="false" update="false" insert="false"/>			
+		<property name="employeeType" column="EMPLOYEE_TYPE"  type="int" not-null="true"/>
+		<many-to-one name="employmentDetails"
+			class="com.callippus.web.beans.dto.EmploymentDTO" column="EMPLOYEE_TYPE"
+			lazy="false" update="false" insert="false"/>
+		<property name="locationWithAddress" column="LOCATION_ADDRESS" type="java.lang.String" not-null="true"/>
+		<property name="ruralOrUrban" column="RURAL_OR_URBAN" type="java.lang.String" />
+		<property name="demarAndDev" column="DEMARCATED_AND_DEVELOPED" type="java.lang.String" />
+		<property name="approximateArea" column="APPROXIMATE_AREA" type="float" />
+		<property name="cost" column="COST" type="float" />
+		<property name="amountPaid" column="AMOUNT_PAID" type="float" />
+		<property name="proposedAcquire" column="PROPOSED_TO_BE_ACQUIRED" type="java.util.Date" />
+		<property name="unExPortionLease" column="UNEXPIRED_PORTION_OF_LEASE" type="java.lang.String" />
+		<property name="floorType" column="FLOOR_TYPE" type="int" />
+		<property name="estimatedCost" column="ESTIMATED_COST" type="float" />
+		<property name="advanceReq" column="ADVANCE_REQUIRED" type="float" not-null="true"/>
+		<property name="noOfInstalPrinciple" column="NO_OF_INST_PRINCIPLE" type="int" not-null="true"/>
+		<property name="noOfInstalInterest" column="NO_OF_INST_INTEREST" type="int" not-null="true"/>
+		<property name="plinthArea" column="PLINTH_AREA" type="float" />
+		<property name="pliProposedEnlarge" column="PLINTH_AREA_PROPOSED_ENLARGE" type="float" />
+		<property name="costAcquisition" column="COST_OR_ACQUISITION" type="float" />
+		<property name="costProposed" column="COST_PROPOSED" type="float" />
+		<property name="totalPlinth" column="TOTAL_PLINTH" type="float" />
+		<property name="totalCost" column="TOTAL_COST" type="float" />
+		<property name="whenConstructed" column="WHEN_CONSTRUCTED" type="java.util.Date" />
+		<property name="priceSettled" column="PRICE_SETTLED" type="float" />
+		<property name="agencyFrmPurchased" column="AGENCY_FROM_WHOM_PURCHASED" type="java.lang.String" />
+		<property name="amtAlreadyPaid" column="AMOUNT_ALREADY_PAID" type="float" />
+		<property name="amtToPaid" column="AMOUNT_TO_BE_PAID" type="float" />
+		<property name="plinthAreaFW" column="PLINTH_AREA_FW" type="float" />
+		<property name="presentMarketValue" column="PRESENT_MARKET_VALUE" type="float" />
+		<property name="reasons" column="REASONS" type="java.lang.String" />
+		<property name="ipAddress" column="IP_ADDRESS" type="java.lang.String" not-null="true"/>
+		<property name="requestedBy" column="REQUESTED_BY" type="java.lang.String" not-null="true"/>
+		<property name="requestedDate" column="REQUESTED_DATE" type="java.util.Date" not-null="true"/>
+		<property name="status" column="STATUS" type="int" not-null="true"/>
+		<property name="basicPay" column="basic_pay"  type="float" not-null="true"/>
+		<property name="gradePay" column="grade_pay"  type="float" not-null="true"/>
+		<property name="miscFlag" column="misc_flag" type="java.lang.String" not-null="true" />
+		<property name="miscLocationAddress" column="MISC_LOCATION_ADDRESS" type="java.lang.String"></property>
+		<property name="interestRate" column="INTEREST_RATE" type="float" not-null="true" />
+		<property name="pfFlag" column="PF_FLAG" type="java.lang.String" not-null="true" />
+		
+	</class>
+</hibernate-mapping>

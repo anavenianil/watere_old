@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.leave.dto.EmpLeaveSpellsDTO" table="leave_emp_spells">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">LEAVE_EMP_SPELLS_SEQ</param>
+			</generator>
+		</id>
+		<property name="sfID" column="sfid" />		
+		<property name="leaveTypeID" column="leave_type_id" />	
+		<property name="yearSpellsCount" column="year_spells_count" />
+		<property name="serviceSpellsCount" column="service_spells_count" />	
+		<property name="ltcEncashmentDays" column="ltc_encashment_days" />	
+		<property name="leavesCount" column="leaves_wo_mc_count" />	
+	</class>
+</hibernate-mapping>

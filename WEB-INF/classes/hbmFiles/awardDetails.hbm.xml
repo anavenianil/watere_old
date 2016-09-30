@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.award.AwardDetails" table="award_details">
+		<id name="id" column="id">
+		<!-- commented by bkr 04/04/2016 -->
+			<!-- <generator class="sequence">
+				<param name="sequence">AWARD_DETAILS_SEQ</param>
+			</generator> -->
+		</id>
+		<property name="sfid" column="sfid" />
+		<property name="year" column="awarded_year_id" />
+		<property name="status" column="status" />
+		<property name="awardDescription" column="award_description" />
+		<property name="organization" column="organization" />
+		<property name="detailsOfWork" column="details_of_work" />
+		<property name="cash" column="awarded_cash" />
+		<property name="medallion" column="medallion" />
+		<property name="citation" column="citation" />
+		<property name="certificate" column="certificate" />
+		<property name="awardCategory" column="award_category_id" />
+		<property name="remarks" column="remarks" />
+		<property name="creationDate" column="creation_date" update="false"/>
+		<property name="lastModifiedDate" column="last_modified_date" />
+	</class>
+</hibernate-mapping>

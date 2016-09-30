@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.dto.WorkflowTxnDTO" table="workflow_txn_details">
+		<id name="txnID" column="id"></id>
+		<property name="requestTypeID" column="request_type_id" />
+		<property name="requestID" column="request_id" />
+		<property name="referenceNumber" column="reference_number" />
+		<property name="rowNumber" column="row_number" />
+		<property name="columnName" column="column_name" />
+		<property name="previousValue" column="previous_value" />
+		<property name="newValue" column="new_value" />
+		<property name="ipAddress" column="ip_address" />
+		<property name="description" column="description" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.paybill.dto.PayBillLoanDTO" table="PAY_LOAN_DETAILS">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">PAY_LOAN_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="loanType" column="loan_type" insert="true" update="true"/>
+		<property name="sfid" column="sfid" />
+		<property name="emi" column="emi" />
+		<property name="totalAmt" column="tot_amount" />
+		<property name="presentInst" column="present_inst" />
+		<property name="totalInst" column="tot_inst" />
+		<property name="outStandAmt" column="OUT_STAND_AMT" />
+		<property name="loanDeduType" column="loan_dedu_type" />
+		<property name="status" column="status" />
+		<property name="createdBy" column="created_by" update="false"/>
+		<property name="creationTime" column="creation_date" update="false"/>
+		<property name="lastModifiedBy" column="modified_by" />
+		<property name="lastModifiedTime" column="modified_date" />
+		<property name="referenceId" column="REFERENCE_ID" />
+		<property name="runId" column="RUN_ID" />
+		<property name="loanRefId" column="LOAN_REF_ID" />
+		<property name="recoveryStartDate" column="RECOVERY_START_DATE" />
+		<property name="interestRate" column="interest_rate" type="float"/>
+		<many-to-one name="loanMasterDetails"
+			class="com.callippus.web.loan.beans.dto.LoanTypeMasterDTO" column="loan_type" 
+			not-null="true" update="false" unique="true" lazy="false" insert="false"/>		
+			
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.mmg.cashbuildup.dto.StockDetailsDTO" table="MMG_B_STOCK_DETAILS">
+		<id name="id" column="ID">
+			<generator class="sequence">
+				<param name="sequence">MMG_B_STOCK_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="inventoryNo" column="INVENTORY_NO" />
+		<property name="materialCode" column="MATERIAL_CODE" />
+		<property name="minStock" column="MIN_STOCK_LEVEL" />
+		<property name="maxStock" column="MAX_STOCK_LEVEL" />
+		<property name="stockHeld" column="STOCK_HELD" />
+		<property name="uom" column="UOM" />
+		<property name="cflag" column="CONSUMABLE_FLAG" />
+		<property name="voucherNo" column="INVOICE_RECEIPT_NO" />
+		<property name="voucherDate" column="RECEIPT_DATE" />
+		<property name="unitRate" column="UNIT_RATE" />
+		<property name="status" column="STATUS" />
+		<property name="creationDate" column="CREATION_DATE" />
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" />
+   </class>
+</hibernate-mapping>

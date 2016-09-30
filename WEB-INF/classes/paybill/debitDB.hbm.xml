@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.callippus.web.incometax.dto.PayBillDebitsMigrationDTO" table="MIS_DEBITS" >
+		<id name="id" type="int" column="ID">
+			<generator class="sequence">
+				<param name="sequence">MIS_DEBITS_SEQ</param>
+			</generator>
+		</id>
+		<property name="F_CPERSNO" column="F_CPERSNO" />
+		<property name="F_CIDNO" column="F_CIDNO"  />
+		<property name="F_VC2NAME" column="F_VC2NAME"  />
+		<property name="F_VC2DESIG" column="F_VC2DESIG" />
+		<property name="F_CSEX" column="F_CSEX" />
+		<property name="F_VC2BANKACCNO" column="F_VC2BANKACCNO"  />
+		<property name="F_VC2GPFACCNO" column="F_VC2GPFACCNO"  />
+		<property name="F_CDESTYPE" column="F_CDESTYPE" />
+		<property name="F_DTMONTHYEAR" column="F_DTMONTHYEAR" />
+		<property name="F_NCGHS" column="F_NCGHS"  />
+		<property name="F_NCGEIS" column="F_NCGEIS"  />
+		<property name="F_NGPFC" column="F_NGPFC"  />
+		<property name="F_NGPFR" column="F_NGPFR"  />
+		<property name="F_NPROFTAX" column="F_NPROFTAX"  />
+		<property name="F_NHBA" column="F_NHBA"  />
+		<property name="F_NCONV" column="F_NCONV"  />
+		<property name="F_NRENT" column="F_NRENT"  />
+		<property name="F_NELEC" column="F_NELEC"  />
+		<property name="F_NWATER" column="F_NWATER"  />
+		<property name="F_NFURNITURE" column="F_NFURNITURE"  />
+		<property name="F_NITAX" column="F_NITAX"  />
+		<property name="F_NITAXSURCHARGE" column="F_NITAXSURCHARGE"  />
+		<property name="F_NPLI" column="F_NPLI"  />
+		<property name="F_NFADV" column="F_NFADV"  />
+		<property name="F_NTADA" column="F_NTADA"  />
+		<property name="F_NMEDICAL" column="F_NMEDICAL"  />
+		<property name="F_NLTC" column="F_NLTC"  />
+		<property name="F_NPC" column="F_NPC" />
+		<property name="F_NCAR" column="F_NCAR"  />
+		<property name="F_NEOLHPL" column="F_NEOLHPL"  />
+		<property name="F_NDEBIT1" column="F_NDEBIT1"  />
+		<property name="F_NDEBIT2" column="F_NDEBIT2"  />
+		<property name="F_NDEBIT3" column="F_NDEBIT3"  />
+		<property name="F_NDEBIT4" column="F_NDEBIT4"  />
+		<property name="F_NDEBIT5" column="F_NDEBIT5"  />
+		<property name="F_NJCDA_DISALW" column="F_NJCDA_DISALW"  />
+		<property name="F_NTOTDEBITS" column="F_NTOTDEBITS"  />
+		<property name="F_NGROSSPAY" column="F_NGROSSPAY"  />
+		<property name="F_NNETPAY" column="F_NNETPAY"  />
+		<property name="F_NBASIC" column="F_NBASIC"  />
+		<property name="F_VC2GPFINST" column="F_VC2GPFINST"  />
+		<property name="F_VC2CONVINST" column="F_VC2CONVINST"  />
+		<property name="F_VC2FADVINST" column="F_VC2FADVINST"  />
+		<property name="F_VC2HBAINST" column="F_VC2HBAINST"  />
+		<property name="F_VC2PCINST" column="F_VC2PCINST"  />
+		<property name="F_VC2CARINST" column="F_VC2CARINST"  />
+		<property name="F_VC2REMARK" column="F_VC2REMARK"  />
+		<property name="F_VC2GPFSA" column="F_VC2GPFSA"  />
+		<property name="F_VC2CYCLEINST" column="F_VC2CYCLEINST"  />
+		<property name="F_VC2PRAN" column="F_VC2PRAN"  />
+		
+		</class>
+</hibernate-mapping>
+
+
+
+
+
+
+
+

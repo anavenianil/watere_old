@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.dto.DispensaryNumberDTO" table="Dispensary_mapping">
+		<id name="id" column="id"></id>
+		<property name="dispensaryNumber" column="dispensary_number" />
+		<property name="dispensaryLocationId" column="dispensary_location_id" />
+		<property name="status" column="status" />
+		<property name="description" column="description" />
+		<property name="creationDate" column="creation_date" update="false"/>
+		<property name="lastModifiedDate" column="last_modified_date" />
+	</class>
+</hibernate-mapping>

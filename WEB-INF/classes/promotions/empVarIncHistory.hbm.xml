@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.promotions.dto.EmpVarIncHistoryDTO" table="EMP_VAR_INC_HISTORY">
+		
+		<id name="id" column="id">
+			<generator class="sequence">
+				<param name="sequence">EMP_VAR_INC_HISTORY_SEQ</param>
+			</generator>
+		</id>
+		<property name="gradePayId" column="GRADE_PAY_ID" />
+		<property name="varIncPt" column="VARIABLE_INCREMENT_POINTS" insert="true" update="true" type="int" not-null="true"/>	
+		<property name="vatIncStartDate" column="VAR_INC_START_DATE" />
+		<property name="varIncEndDate" column="VAR_INC_END_DATE" />
+		<property name="status" column="status" type="int" not-null="true" />	
+		<property name="createdBy" column="created_by" update="false" type="java.lang.String" not-null="true"/>
+		<property name="creationTime" column="creation_date" update="false" type="java.util.Date" not-null="true"/>
+		<property name="lastModifiedBy" column="last_modified_by" type="java.lang.String" not-null="true" />
+		<property name="lastModifiedTime" column="last_modified_date" type="java.util.Date" not-null="true" />
+	</class>
+</hibernate-mapping>
+

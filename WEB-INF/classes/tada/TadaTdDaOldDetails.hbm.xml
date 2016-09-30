@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.tada.dto.TadaTdDaOldDetailsDTO" table="tada_td_da_old_details">
+		<id name="id" column="id">
+			<generator class="sequence">
+				<param name="sequence">TADA_TD_DA_OLD_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="settlementRequestId" column="settlement_request_id" />
+		<property name="daOldDate" column="da_old_date" />
+		<property name="jdaDays" column="jda_days" />
+		<property name="jdaAmount" column="jda_amount" />
+		<property name="totalJdaAmount" column="total_jda_amount" />
+		<property name="sdaDays" column="sda_days" />
+		<property name="sdaAmount" column="sda_amount" />
+		<property name="totalSdaAmount" column="total_sda_amount" />
+		<property name="requestType" column="request_type" />
+		<property name="daTypeRate" column="da_type_rate"/>
+	</class>
+</hibernate-mapping>

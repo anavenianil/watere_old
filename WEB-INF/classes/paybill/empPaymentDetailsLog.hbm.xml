@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.paybill.dto.EmpPaymentDetailsLogDTO" table="EMP_PAY_MASTER_LOG">
+		<id name="id" type="int" column="ID">
+			<generator class="increment" />
+		</id>
+		<property name="sfID" column="SFID" />
+		<property name="basicPay" column="BASIC_PAY"  />
+		<property name="gPay" column="GRADE_PAY"  />
+		<property name="twoAddIncr" column="TWO_ADDL_INCR"  />
+		<property name="tptFlag" column="TRA_ELIGIBLE_FLAG"  />
+		<property name="varIncrPts" column="VAR_INCR_POINTS" />
+		<property name="fpaGradePay" column="FPA_GRADEPAY"  />
+		<property name="gpfSubAmt" column="GPF_SUBS_AMT"  />
+		<property name="cgeisGroupID" column="CGEIS_GROUP_ID"  />
+		<property name="cgeisMemFlag" column="CGEIS_MEM_STATUS"  />
+		<property name="ccsSubAmt" column="CCS_SUB"  />
+		<property name="ccsNo" column="CCS_NO" />
+		<property name="categoryID" column="CATEGORY_ID"  />
+		<property name="payStopFlag" column="PAY_STOP"  />
+		<property name="incomeTaxAmt" column="INCOME_TAX"  />
+		<property name="panCardNo" column="PAN_CARD_NO"  />
+		<property name="gpfFlag" column="GPF_FLAG" />
+		<property name="branchCode" column="BANK_BRANCH_CODE" />
+		<property name="bankFlag" column="BANK_ACCT_FLAG" />
+		<property name="bankAccNo" column="BANK_ACCT_NO" />
+		<property name="bankBranch" column="BANK_BRANCH_NO" />
+		<property name="ccsMemFlag" column="CCS_FLAG" />
+		<property name="cghsFlag" column="CGHS_FLAG" />
+		<property name="status" column="STATUS" />
+		<property name="payDesignationId" column="PAY_DESIGNATION_ID" />
+		<property name="washAllwFlag" column="WASH_ALLW_FLAG" />
+		<property name="basicId" column="BASIC_ID" />
+		<property name="gradeId" column="GRADE_ID" />
+		<property name="basicRefId" column="BASIC_REF_ID" />
+		<property name="gradeRefId" column="GRADE_REF_ID" />
+		<property name="payStopRemarks" column="PAY_STOP_REMARKS"/>
+		<property name="runId" column="RUN_ID"/>
+		
+		<property name="creationDate" column="creation_date" update="false"/>
+		<property name="createdBy" column="created_by" update="false"/>
+		
+	</class>
+</hibernate-mapping>

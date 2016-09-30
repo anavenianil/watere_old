@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	    <class name="com.callippus.web.incometax.dto.IncomeTaxStageDTO" table="PAY_IT_TAX_SLAB_MASTER">
+		   <id name="id" column="id">
+		    <generator class="sequence">
+				<param name="sequence">PAY_IT_TAX_SLAB_MASTER_SEQ</param>
+			</generator>
+		   </id>
+		   <property name="taxableFlag" column="TAX_FLAG" />
+		   <property name="age" column="AGE" />
+		   <property name="to" column="TO_TAX" />
+		   <property name="from" column="FROM_TAX" />
+		   <property name="tax" column="TAX" />
+		   <property name="rebate" column="REBATE" />
+		   <property name="surcharge" column="SURCHARGE" />
+		   <property name="educationCess" column="EDUCATION_CESS" />
+		   <property name="secHigherEducation" column="SEC_HIGHER_EDUCATION" />
+		   <property name="stageId" column="STAGE_ID"/>
+		   <property name="selectedFYear" column="FIN_YEAR_ID" />
+		   <property name="status" column="STATUS" />
+		   <property name="createdBy" column="created_by" />
+		   <property name="creationDate" column="creation_date" />
+		   <property name="lastModifiedBy" column="last_modified_by" />
+		   <property name="lastModifiedDate" column="last_modified_date" />
+	   </class>
+    </hibernate-mapping>

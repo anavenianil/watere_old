@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.tada.dto.TadaTdReqJourneyDTO" table="tada_td_req_journey_details">
+		<id name="id" column="id">
+			<generator class="sequence">
+				<param name="sequence">TADA_TD_REQ_JOURNEY_SEQ</param>
+			</generator>
+		</id>
+		<property name="referenceId" column="reference_id" />
+		<property name="departureDate" column="departure_date" />
+		<property name="strDepartureDate" column="departure_date" insert="false" update="false" formula="to_char(departure_date,'dd-Mon-yyyy')"/>
+		<property name="arrivalDate" column="arrival_date" />
+		<property name="strArrivalDate" column="arrival_date" insert="false" update="false" formula="to_char(arrival_date,'dd-Mon-yyyy')"/>
+		<property name="fromPlace" column="from_place" />
+		<property name="toPlace" column="to_place" />
+		<property name="noOfDays" column="no_of_days"/>
+		<property name="conveyanceMode" column="conveyance_mode" />
+		<property name="classOfEntitlement" column="class_of_entitlement" />
+		<property name="tatkalQuota" column="tatkal_quota" />
+		<property name="ticketFare" column="ticket_fare" />
+		<property name="ticketFareAftRes" column="ticket_fare_aft_res" />
+	</class>
+</hibernate-mapping>

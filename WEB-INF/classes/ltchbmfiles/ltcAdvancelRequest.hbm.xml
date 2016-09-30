@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.ltc.dto.LtcAdvanceRequestDTO" table="LTC_ADVANCE_REQUEST_DETAILS_B">
+		<id name="requestId" column="REQUEST_ID" />
+		<!--commented by bkr 07/04/2016  -->
+		<!-- <generator class="assigned"></generator> 
+		
+		</id>-->
+		<property name="sfID" column="SFID" />
+		<property name="designationId" column="DESIGNATION_ID" />
+		<property name="departmentId" column="DEPARTMENT_ID" />
+		<property name="phoneNum" column="PHONE_NUMBER" />
+		<property name="referenceRequestID" column="reference_Request_ID" />
+		<property name="gradePay" column="GRADE_PAY" />
+		<property name="employmentTypeId" column="EMPLOYMENT_TYPE_ID" />
+		<property name="ltcTypeId" column="LTC_TYPE_ID" />
+		<property name="ltcBlockYearId" column="LTC_BLOCK_YEAR_ID" />
+		<property name="leaveRequestId" column="LEAVE_REQUEST_ID" />
+		<property name="placeOfVisit" column="PLACE_OF_VISIT" />
+		<property name="departureDate" column="DEPARTURE_DATE"/>
+		<property name="addressId" column="ADDRESS_ID"/>
+		<property name="returnDate" column="RETURN_DATE"/>
+		<!--<property name="amountClaimed" column="AMOUNT_CLAIMED" />--> 
+		<property name="nearestRlyStation" column="NEAREST_RAILWAY_STATION" />
+		<property name="nearesrAirport" column="NEAREST_AIRPORT" />
+		<property name="amountPerPerson" column="AMOUNT_PER_PERSON" />
+		<property name="noOfTickets" column="NO_OF_TICKETS" />
+		<property name="issuedAmount" column="ISSUED_AMOUNT" />
+		<property name="status" column="STATUS" />
+		<property name="appliedDate" column="APPLIED_DATE" update="false" />
+		<property name="encashTypeId" column="ENCASH_LEAVE_TYPE_ID" />
+		<property name="encashmentDays" column="ENCASHMENT_DAYS" />
+		<property name="doPartId" column="do_part_id" />
+		<!--<property name="ipAddress" column="IP_ADDRESS" />-->
+		<property name="billNo" column="BILL_NO"/>
+		<property name="sanctionNo" column="SANCTION_NO"/>
+		<property name="cdaAmount" column="CDA_AMOUNT"/>
+		<property name="dvNo" column="DV_NO"/>
+		<property name="dvDate" column="DV_DATE" />
+		<property name="settlementAmount" column="SETTLEMENT_AMOUNT" />
+		<property name="accountentSign" column="ACCOUNTENT_SIGN"/>
+		<property name="ltcRequestType" column="REQUEST_TYPE" />
+		<property name="amendmentRefRequestID" column="AMENDMENT_REF_REQUEST_ID"/>
+		<property name="amountPerEachInfant" column="AMOUNT_PER_EACH_INFANT" />
+		<property name="noOfInfantTickets" column="NO_OF_INFANT_TICKETS"/>
+		<property name="escortDetails" column="ESCORT_DETAILS" />
+		<property name="excessAmount" column="EXCESS_AMOUNT"/>
+		<property name="excessAmountFine" column="EXCESS_AMOUNT_FINE"/>
+		<property name="MROPaidNo" column="MRO_PAID_NO"/>
+		<property name="MROPaidDate" column="MRO_PAID_DATE"/>
+		<property name="encashmentAmount" column="ENCASHMENT_AMOUNT"/>
+		
+	</class>
+</hibernate-mapping>

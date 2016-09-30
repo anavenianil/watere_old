@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.passport.MovablePropertyDTO" table="PROPERTY_DETAILS">
+		<id name="id" column="ID">
+			<generator class="sequence">
+				<param name="sequence">PROPERTY_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		
+		<property name="sfID" column="SFID" />
+			
+		<property name="acqOrDis" column="ACQUIRED_DISPOSED" />
+		<property name="acqOrDisDate" column="ACQUISITION_DATE"/>
+		<property name="propertyActualDate" column="PROPERTY_ACTUAL_DATE"/>
+		<property name="description" column="DESCRIPTION" />
+		<property name="modeOfReg" column="MODE_OF_REG" />
+		<property name="modeOfAcquisition" column="MODE_OF_ACQUISITION" />
+		<property name="saleOrPurchasePrice" column="SALE_OR_PURCHASEPRICE" />
+		<property name="source" column="SOURCE" />
+		<property name="personalSavings" column="PERSONAL_SAVINGS" />
+		<property name="otherSource" column="OTHER_SOURCE" />
+		<property name="remarks" column="REMARKS" />
+		<property name="partyName" column="PARTY_NAME" />
+		<property name="applicantDealings" column="APPLICANT_DEALINGS" />
+		<property name="officialDealings" column="OFFICIAL_DEALINGS" />
+		<property name="transaction" column="TRANSACTION" />
+		<property name="acqByGift" column="ACQ_BY_GIFT" />
+		<property name="relationship" column="RELATIONSHIP" />
+		<property name="purpose" column="PURPOSE" />
+		<property name="propertyType" column="PROPERTY_TYPE" />
+		
+		<property name="status" column="STATUS" />
+		<property name="creationTime" column="CREATION_DATE" />
+		<property name="lastModifiedTime" column="LAST_MODIFIED_DATE" />
+		<property name="requestID" column="REQUEST_ID" />
+		<property name="wfStatus" column="WF_STATUS" type="int"/>
+		
+		
+	</class>
+</hibernate-mapping>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

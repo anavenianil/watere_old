@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.tada.dto.TadaTdRMAKmDTO" table="tada_td_rma_km_details">
+		<id name="id" column="id">
+			<generator class="sequence">
+				<param name="sequence">TADA_TD_RMA_KM_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="settlementRequestId" column="settlement_request_id" />
+		<property name="dateRMAKm" column="da_rma_date" />
+		<property name="fromPlace" column="from_place" />
+		<property name="toPlace" column="to_place" />
+		<property name="travelBy" column="travel_by"/>
+		<property name="distance" column="distance"/>
+		<property name="distanceAftRes" column="distance_aft_res"/>
+		<property name="amountPerKm" column="amount_per_km"/>
+		<property name="amountPerKmAftRes" column="amount_per_km_aft_res"/>
+		<property name="totalRMAKmAmount" column="total_rma_km_amount"/>
+		<property name="type" column="request_type"/>
+		<property name="amountAftRestriction" column="amount_aft_restriction"/>
+	</class>
+</hibernate-mapping>

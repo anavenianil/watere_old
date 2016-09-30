@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.MT.MTJourneyDetailsDTO" table="MT_VEHICLE_JOURNEY_DETAILS">
+		<id name="id" type="int" column="ID">
+			<generator class="sequence">
+				<param name="sequence">MT_VEHICLE_JOURNEY_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="referenceID" column="REFERENCE_ID" />
+		<property name="noOfPeople" column="NO_OF_PEOPLE" />
+		<property name="nameWithDesignation" column="NAME_WITH_DESIGNATION" />
+		<property name="departureDate" column="DEPARTURE_DATE" />
+		<property name="departureDateString" insert="false" update="false" formula="(select to_char(DEPARTURE_DATE,'dd-Mon-yyyy') from MT_VEHICLE_JOURNEY_DETAILS mtvjd where mtvjd.id=id AND mtvjd.REFERENCE_ID=REFERENCE_ID)" />
+		<property name="departureTime" column="DEPARTURE_TIME" />
+		<property name="estimatedDate" column="ESTIMATED_DATE" />
+		<property name="estimatedDateString"  insert="false" update="false" formula="(select to_char(ESTIMATED_DATE,'dd-Mon-yyyy') from MT_VEHICLE_JOURNEY_DETAILS mtvjd where mtvjd.id=id AND mtvjd.REFERENCE_ID=REFERENCE_ID)"  />
+		<property name="estimatedTime" column="ESTIMATED_TIME" />
+	    <property name="requestFromDate" column="REQUESTED_FROM_DATE" />
+		<property name="requestToDate" column="REQUESTED_TO_DATE" />
+		<property name="pickupPoint" column="PICKUP_POINT" />
+		<property name="pickupPlace" column="PICKUP_PLACE" />
+		<property name="dropPoint" column="DROP_POINT" />
+		<property name="dropPlace" column="DROP_PLACE" />
+		<property name="accommReqFlag" column="ACCOMMODATION_REQUIRED_FLAG" />
+		<property name="accommPlace" column="ACCOMMODATION_PLACE" />
+		<property name="articleCarryFlag" column="ARTICLE_CARRY_FLAG" />
+		<property name="journeyTypeFlag" column="JOURNEY_TYPE_FLAG" />
+		<property name="remarks" column="REMARKS" />
+		<property name="status" column="STATUS" />
+		<property name="allocId" column="ALLOCATION_ID" />
+		
+		
+		
+		<many-to-one name="mtPickAddressDetails"
+			class="com.callippus.web.beans.MT.AddressDetailsBean" column="PICKUP_POINT"
+			lazy="false" insert="false" update="false" />
+		<many-to-one name="mtDropAddressDetails"
+			class="com.callippus.web.beans.MT.AddressDetailsBean" column="DROP_POINT"
+			lazy="false" insert="false" update="false"/>
+		
+	</class>
+</hibernate-mapping>

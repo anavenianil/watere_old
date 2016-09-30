@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.hrdg.training.beans.dto.CourseDesignationsDTO"
+		table="HRDG_COURSE_DESIGNATION_MASTER">
+		<composite-id>
+		<key-property name="courseId" column="course_id" />
+		<key-property name="categoryId" column="category_id" />
+		<key-property name="designationId" column="designation_id" />
+		</composite-id>
+		
+
+	</class>
+</hibernate-mapping>

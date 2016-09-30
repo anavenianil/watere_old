@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.tutionFee.TutionFeeRequestDetailsDTO" table="TUTION_FEE_REQUEST_DETAILS" >
+		<id name="id" type="int" column="ID">
+			<generator class="sequence">
+				<param name="sequence">TUTION_FEE_REQUEST_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="sfid" column="SFID" />
+		<property name="requestID" column="REQUEST_ID" />
+		<property name="grandToatal" column="GRAND_TOTAL" />
+		<property name="createdBy" column="CREATED_BY" />
+		<property name="lastModifiedBy" column="LAST_MODIFIED_BY" />
+		<property name="creationDate" column="CREATION_DATE" />
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" />
+		<property name="status" column="STATUS" />
+		<property name="requestTypeID" column="REQUEST_TYPE_ID" />
+		<property name="requestType" column="REQUEST_TYPE" />
+		<property name="sanctionedDate" column="SANCTIONED_DATE" />
+		<property name="sanctionedAmount" column="SANCTIONED_AMOUNT" />
+		<property name="ipAddress" column="IP_ADDRESS" />
+		<property name="claimTypeId" column="CLAIM_TYPE_ID" />
+		<property name="fromDate" column="FROM_DATE" />
+		<property name="toDate" column="TO_DATE" />
+		<property name="financialYearId" column="FINANCIAL_YEAR_ID" />
+		<property name="cashAssignmentAmount" column="CASH_ASSIGNMENT_AMOUNT" />
+		<property name="missingClaimRemarks" column="MISSING_CLAIM_REMARKS" />
+		<property name="missingPeriodFrom" column="MISSING_PERIOD_FROM" update="false"/>
+		<property name="missingPeriodTo" column="MISSING_PERIOD_TO" update="false" />
+		<property name="taskHolderRemarks" column="TASKHOLDER_REMARKS" />
+		<property name="userRemarks" column="USER_REMARKS" />
+	</class>
+</hibernate-mapping>

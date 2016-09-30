@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.leave.beans.management.LeaveManagementBean" table="leave_type_details">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">LEAVE_TYPE_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<many-to-one name="leaveTypeDetails"
+			class="com.callippus.web.leave.dto.LeaveTypeDTO" column="leave_type_id"
+			not-null="true" unique="true" lazy="false" update="false" insert="false"/>
+		<property name="leaveTypeId" column="leave_type_id"  update="true" insert="true"/>
+		<property name="eligibilityFlag" column="eligibility_flag" />
+		<property name="priorApprovalFlag" column="prior_approval_flag" />
+		<property name="holidayIntFlag" column="holidays_intervening_flag" />
+		<property name="halfDayFlag" column="half_day_flag" />
+		<property name="noticePeriodFlag" column="notice_period_flag" />
+		<property name="viewFlag" column="view_flag" />
+		<property name="maxShownFlag" column="max_shown_flag" />
+		<property name="maxLeaves" column="max_leaves" />
+		<property name="offlineFlag" column="offline_leave_entry_flag" />
+		<property name="availWOLeaves" column="available_wo_leaves" />
+		<property name="directDebitFlag" column="direct_debit_flag" />
+		<property name="debitMappingID" column="debit_mapping_id" />
+		<property name="debitMappingLeaves" column="debit_mapping_leaves" />
+		<property name="medicalCertFlag" column="medical_certificate_flag" />
+		<property name="fitnessCertFlag" column="fitness_certificate_flag" />
+		<property name="otherCertFlag" column="other_certificate_flag" />
+		<property name="certificateName" column="certificate_name" />
+		<property name="otherCreditCheck" column="other_credit_check" />
+		<property name="leaveCancellation" column="leave_cancellation" />
+		<property name="leaveConversion" column="leave_conversion" />
+		<property name="doPartFlag" column="do_part_flag" />
+		<property name="serviceBookFlag" column="service_book_flag" />
+		<property name="familyImpactFlag" column="family_impact_flag" />
+		<property name="encashmentFlag" column="encashment_flag" />
+		<property name="leaveCredits" column="leave_credits" />
+		
+		<many-to-one name="leaveDurationDetails"
+					class="com.callippus.web.leave.dto.LeaveDurationDTO" column="leave_duration_id"
+					lazy="false" update="false" insert="false"/>
+		<property name="leaveDurationID" column="leave_duration_id" update="true" insert="true"/>			
+		<property name="noOfDays" column="no_of_days" />
+		<property name="spellsInService" column="no_of_spells_in_service" />
+		<property name="spellsPerYear" column="no_of_spells_per_year" />
+		<property name="minPerSpell" column="min_days_per_spell" />
+		<property name="maxPerSPell" column="max_days_per_spell" />
+		<property name="status" column="status" />
+		<property name="createdBy" column="created_by" update="false"/>
+		<property name="creationDate" column="creation_date" update="false"/>
+		<property name="lastModifiedBy" column="last_modified_by" />
+		<property name="lastModifiedDate" column="last_modified_date" />
+		<property name="ltcAvailFlag" column="ltc_availability_flag" />	
+		<property name="newEmpAvailLeaves" column="NEW_EMPLOYEE_AVAIL_LEAVES" />	
+		
+			
+	</class>
+</hibernate-mapping>

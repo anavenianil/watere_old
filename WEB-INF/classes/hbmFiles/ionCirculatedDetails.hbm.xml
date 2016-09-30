@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.letterNumberFormat.IonCirculatedDetailsDTO" table="ION_CIRCULATED_DETAILS">
+		<id name="id" column="ID">
+			<generator class="sequence">
+				<param name="sequence">ION_CIRCULATED_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="sfid" column="SFID" />
+		<property name="refOrgRoleId" column="REF_ORG_ROLE_ID" />
+		<property name="remarks" column="REMARKS" />
+		<property name="ionId" column="ION_ID" />
+		<property name="forwardOrReplayOrFile" column="FORWARD_REPLAY_FILE" />
+		
+		
+		<property name="status" column="status" />
+		<property name="creationDate" column="creation_Date" update="false"/>
+		<property name="createdBy" column="created_by" update="false"/>
+		<property name="lastModifiedDate" column="last_modified_date" />
+		<property name="lastModifiedBy" column="last_modified_by" />
+
+
+	</class>
+</hibernate-mapping>

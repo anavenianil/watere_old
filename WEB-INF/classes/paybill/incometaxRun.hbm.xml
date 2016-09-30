@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.incometax.dto.IncomeTaxRunDTO" table="INCOME_TAX_TXN_DETAILS" >
+		<id name="id" type="int" column="ID">
+			<generator class="sequence">
+				<param name="sequence">INCOME_TAX_TXN_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="sfid" column="SFID" />
+		<property name="finYearId" column="FIN_YEAR_ID" />
+		<property name="totSal" column="TOT_SAL"  />
+		<property name="totHra" column="TOT_HRA"  />
+		<property name="totCghs" column="TOT_CGHS"  />
+		<property name="totCegis" column="TOT_CEGIS"  />
+		<property name="totPTax" column="TOT_PTAX"  />
+		<property name="traAllw" column="TRA_ALLW"  />
+		<property name="arrearsPaid" column="ARREARS_PAID"  />
+		<property name="lessHraEolHpl" column="LESS_HBA_EOL_HPL"  />
+		<property name="govtSubs" column="GOVT_SUB"  />
+		<property name="hraExempted" column="HRA_EXEMPTED"  />
+		<property name="prUpallw" column="PR_UPD_ALLW"  />
+		<property name="taxableIncome" column="TAXABLE_INCOME"  />	
+		<property name="roundedOff" column="ROUNDED_OFF"  />	
+		<property name="totIncomeTax" column="TOT_INCOME_TAX"  />		
+		<property name="taxRecovered" column="TAX_RECOVERED"  />
+		<property name="taxToBeRecovered" column="TAX_TO_BE_RECD"  />
+		<property name="taxPerMonth" column="TAX_PER_MONTH"  />
+		<property name="addEduCess" column="ADD_EDD_CESS"  />
+		<property name="da1" column="DA1"  />
+		<property name="da2" column="DA2"  />
+		<property name="cpf" column="CPF"  />
+		<property name="ITaxRec" column="ITAX_REC"  />
+		<property name="effMonth" column="TAX_EFF_MONTH"  />
+		<property name="runType" column="RUN_TYPE"  />
+		<property name="totRentPaid" column="TOT_RENT_PAID"  />
+		<property name="totOtherIncome" column="TOT_OTHER_INCOME"  />
+		<property name="totSavings" column="TOT_SAVINGS"  />
+		<property name="totExemptions" column="TOT_EXEMPTIONS"  />
+		<property name="creationTime" column="CREATION_DATE"/>
+		<property name="createdBy" column="CREATED_BY"/>
+		<property name="lastModifiedTime" column="LAST_MODIFIED_DATE"  />
+		<property name="lastModifiedBy" column="LAST_MODIFIED_BY"  />
+		<property name="status" column="STATUS" />
+		<property name="runId" column="RUN_ID" />
+		<property name="totPli" column="TOT_PLI" />
+		<property name="totalDeductions" column="TOT_DEDUCTIONS" />
+		<property name="payFixationArrears" column="PAY_FIXATION_ARREARS" />
+		<property name="fpaArrears" column="FPA_ARREARS" />
+		<property name="annIncrArrears" column="ANN_INCR_ARREARS" />
+		        	
+		        	
+		
+</class>
+</hibernate-mapping>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.tada.dto.TaEntitleExemptionDTO" table="TADA_TA_ENTITLE_EXEMPTION">
+		<id name="id" column="id">
+			<generator class="sequence">
+				<param name="sequence">TADA_TA_ENTITLE_EXEMPTION_SEQ</param>
+			</generator>
+		</id>
+		<property name="sfID" column="sfid" />
+		<property name="projectName" column="project_name" />
+		<many-to-one name="entitleTypeDetails"
+			class="com.callippus.web.tada.dto.TravelTypeDTO" column="id"
+			lazy="false" insert="false" update="false"/>
+		<property name="entitleTypeId" column="entitle_type_id" />
+		<property name="programCode" column="program_code" />
+		<property name="remarks" column="remarks" />
+		<property name="status" column="status" />
+		<property name="creationDate" column="creation_date" update="false"/>
+		<property name="createdBy" column="created_by" update="false"/>
+		<property name="lastModifiedDate" column="last_modified_date" />
+		<property name="lastModifiedBy" column="last_modified_by" />
+	</class>
+</hibernate-mapping>

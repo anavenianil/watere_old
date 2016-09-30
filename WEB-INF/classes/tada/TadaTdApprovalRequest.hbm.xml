@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.tada.dto.TadaApprovalRequestDTO" table="TADA_TD_REQUEST_DETAILS">
+		<id name="requestId" column="REQUEST_ID">
+			<generator class="assigned">
+				
+			</generator>
+		</id>
+		<property name="sfID" column="SFID" />
+		<property name="desigId" column="DESIGNATION_ID" />
+		<property name="departmentId" column="DEPARTMENT_ID" />
+		<property name="status" column="STATUS" />
+		<property name="phnNo" column="PHONE_NUMBER" />
+		<property name="departureDate" column="DEPARTURE_DATE" />
+		<property name="arrivalDate" column="ARRIVAL_DATE" />
+		<property name="departureDateOne" column="DEPARTURE_DATE" insert="false" update="false" formula="to_char(DEPARTURE_DATE,'dd-Mon-yyyy')"/>
+		<property name="ticketCancelCharges" column="TICKET_CANCEL_CHARGES" />
+		<property name="ticketCancelReason" column="TICKET_CANCEL_REASON" />
+		<property name="stayDuration" column="STAY_DURATION" />
+		<property name="tdWorkPlace" column="TD_WORK_PLACE" />
+		<property name="authorizedMove" column="AUTHORIZED_MOVE_ID" />
+		<property name="daType" column="DA_TYPE" />
+		<property name="entitleExemption" column="ENTITLE_EXEMPTION" />
+		<property name="ammendementId" column="AMMENDEMENT_ID" />
+		<property name="ipAddress" column="IP_ADDRESS" />
+		<property name="advanceFlag" column="ADVANCE_FLAG" />
+		<property name="workingPlace" column="WORKING_PLACE" />
+		<property name="purpose" column="PURPOSE" />
+		<property name="reimFlag" column="REIM_FLAG" />
+		<property name="settFlag" column="SETT_FLAG" />
+		<property name="applyDate" column="APPLY_DATE" />
+		<property name="movementOrderNo" column="MOVEMENT_ORDER_NO" />
+		<property name="projectName" column="PROJECT_NAME" />
+		<property name="reason" column="REMARKS" />
+	</class>
+</hibernate-mapping>

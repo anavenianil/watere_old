@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.dto.NomineeAddressDTO" table="nominee_address_details">
+		<id name="id" column="id"></id>
+		<property name="nomineeID" column="nominee_id" />
+		<property name="address1" column="address1" />
+		<property name="address2" column="address2" />
+		<property name="address3" column="address3" />
+		<property name="city" column="city" />
+		<property name="stateID" column="state_id" />
+		<property name="districtID" column="district_id" />
+		<property name="pincode" column="pincode" />
+	</class>		
+</hibernate-mapping>

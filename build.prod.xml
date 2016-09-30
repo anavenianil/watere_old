@@ -1,0 +1,35 @@
+	<project name="ASL" default="compile">
+		<!-- Setting the properties needed to successfully build ear file. -->
+		<property name="sourcedir" value="java" />
+		<property name="destdir" value="WEB-INF/classes" />
+		<property name="wardir" value="Deployment" />
+		<property name="tomcat.home" value="/home/watererp/Appplications/apache-tomcat-7.0.70" />
+		
+		<target name="compile">		
+			<javac srcdir="${sourcedir}" destdir="${destdir}" debug="on" includeantruntime="true">
+				<classpath>
+					<pathelement path="${java.class.path};" />
+					<fileset dir="WEB-INF/lib">
+						<include name="**/*.jar" />
+					</fileset>
+					<fileset dir="${tomcat.home}/lib">
+						<include name="**/*.jar" />
+					</fileset>
+				</classpath>
+			</javac>
+		</target>
+
+
+
+
+		<!-- Build the war file -->
+		<target name="war" depends="compile">
+			<tstamp />
+			<echo message="Begining execution of the bat file" />
+			<war destfile="${wardir}/essnew.war" webxml="WEB-INF/web.xml">
+				<fileset dir=".">
+				</fileset>
+			</war>
+		</target>
+	</project>
+

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.requests.CGHSRequestProcessBean" table="cghs_request_details">
+		<id name="requestID" column="request_id">
+			<!-- <generator class="sequence">
+				<param name="sequence">CGHS_REQUEST_DETAILS_SEQ</param>
+			</generator> -->
+		</id>
+		
+		<property name="sfID" column="sfid" insert="true" />
+		<many-to-one name="empMasterDetails"
+			class="com.callippus.web.beans.employee.EmployeeBean" column="sfid"
+			not-null="true" lazy="false" update="false" insert="false"/>
+			
+			
+		<!--<property name="designationId" column="designation_id" />
+		<property name="departmentId" column="department_id" />
+		
+		--><many-to-one name="familyMemberDetails"
+			class="com.callippus.web.beans.family.FamilyBean" column="family_member_id"
+			not-null="true" lazy="false" update="false" insert="false"/>
+		<property name="familyMemberId" column="family_member_id" insert="true"/>
+		
+		<!-- <property name="disease" column="disease" /> -->
+		<property name="prescriptionDate" column="prescription_date" />
+		
+		<many-to-one name="requestTypeDetails"
+			class="com.callippus.web.cghs.beans.dto.RequestTypeDTO" column="cghs_request_type_id"
+			not-null="true" lazy="false" update="false" insert="false"/>
+		<property name="cghsRequestTypeId" column="cghs_request_type_id" insert="true"/>
+	
+		<!-- <property name="referredDoctor" column="referred_doctor"/> 
+		<property name="cghsCardNumber" column="cghs_card_number" />
+		<property name="basicPay" column="basic_pay" />
+		<property name="gradePay" column="grade_pay" />
+		<property name="address" column="address"/>
+	
+		--><property name="referralHospitalId" column="referral_hospital_id" insert="true"/>
+		<many-to-one name="referralHospitalDetails"
+			class="com.callippus.web.cghs.beans.dto.ReferralHospitalDTO" column="referral_hospital_id"
+			not-null="true" lazy="false" insert="false" update="false"/>
+	
+		<!-- <property name="referenceSpecialist" column="reference_specialist" /> -->
+		<property name="prescriptionFile" column="prescription_file_name" />
+		<!--<property name="permissionFile" column="permission_letter" />
+		<property name="requestFormFile" column="request_form" />
+		--><property name="status" column="status" />
+		<property name="appliedDate" column="applied_date" />
+		<property name="referenceNumber" column="reference_number" />
+		<property name="approvedBy" column="approved_by"/>
+<property name="cghscardref" column="cghscardref"/>
+		<!-- <property name="prescriptionReceivedFlag" column="prescription_received_flag" /> -->
+	
+		<property name="wardTypeId" column="ward_type_id" insert="true"/>
+		<many-to-one name="wardTypeDetails"
+			class="com.callippus.web.cghs.beans.dto.WardTypeDTO" column="ward_type_id"
+			not-null="true" lazy="false" update="false" insert="false"/>
+			
+		<property name="approvedDate" column="approved_date"/>
+		<property name="ipAddress" column="ip_address"/>
+		<property name="requestedBy" column="requested_By" update="false"/>
+		
+		
+	</class>
+</hibernate-mapping>

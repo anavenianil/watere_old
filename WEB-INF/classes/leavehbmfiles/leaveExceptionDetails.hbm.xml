@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.leave.dto.LeaveExceptionDetailsDTO" table="leave_exception_details">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">LEAVE_EXCEPTION_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<many-to-one name="exceptionTypeDetails"
+			class="com.callippus.web.leave.dto.ExceptionTypeMasterDTO" column="exception_type_id"
+			not-null="true" lazy="false" update="false" insert="false"/>
+		<property name="exceptionTypeId" column="exception_type_id" insert="true" update="true"/>
+		<property name="status" column="status" />
+		<property name="createdBy" column="created_by" update="false"/>
+		<property name="creationDate" column="creation_date" update="false"/>
+		<property name="lastModifiedBy" column="last_modified_by" />
+		<property name="lastModifiedDate" column="last_modified_date" />
+		<property name="description" column="description" />
+		<property name="leaveTypeID" column="leave_type_id" insert="true" update="true"/>
+		
+		
+		<many-to-one name="leaveTypeDetails"
+			class="com.callippus.web.leave.dto.LeaveTypeDTO" column="leave_type_id"
+			not-null="true" lazy="false" insert="false" update="false"/>
+		
+		<property name="leaveSubTypeID" column="leave_sub_type_id" insert="true" update="true"/>
+		<many-to-one name="specialLeaveDetails"
+			class="com.callippus.web.leave.dto.SpecialCasualLeaveDTO" column="leave_sub_type_id"
+			lazy="false" insert="false" update="false"/>
+			
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.ltc.dto.LtcRefundRequestDTO" table="LTC_REFUND_REQUEST">
+		<id name="requestID" column="REQUEST_ID"></id>
+		<property name="referenceID"  column="REFERENCE_ID" />
+		<property name="status"  column="STATUS" />
+		<property name="requestDate" column="REQUESTED_DATE" />
+		<property name="ipAddress" column="IPADDRESS" />
+		<property name="remarks" column="REMARKS" />
+		
+		<property name="billNo" column="BILL_NO"/>
+		<property name="sanctionNo" column="SANCTION_NO"/>
+		<property name="accountentSign" column="ACCOUNTENT_SIGN"/>
+		<property name="doPartID" column="DO_PART_ID" />
+	</class>
+</hibernate-mapping>

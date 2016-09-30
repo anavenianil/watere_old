@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.address.AddressBean" table="address_details_master">
+		<id name="id" column="id">
+		</id>
+		<many-to-one name="districtDetails"
+			class="com.callippus.web.beans.dto.DistrictTypeDTO" column="district"
+			not-null="true"  lazy="false" update="false" insert="false"/>
+		<many-to-one name="stateDetails"
+			class="com.callippus.web.beans.dto.StateTypeDTO" column="state"
+			not-null="true"  lazy="false" update="false" insert="false"/>			
+		<property name="addressTypeId" column="address_type_id" />
+		<property name="address1" column="address1" />
+		<property name="address2" column="address2" />
+		<property name="address3" column="address3" />
+		<property name="careOfAddress" column="CARE_OF_ADDRESS" />
+		<property name="city" column="city" />
+		<property name="district" column="district" insert="true" update="true"/>
+		<property name="state" column="state" insert="true" update="true"/>
+		<property name="pincode" column="pincode" />
+		<property name="phone" column="phone_number" />
+		<property name="mobile" column="mobile_number" />
+		<property name="email" column="email" />
+		<property name="nearestRyStation" column="nearest_rly_stn" />
+		<property name="nearestAirport" column="nearest_airport" />
+		<property name="dispensaryNumber" column="dispensary_number" />
+		<property name="creationDate" column="creation_date" update="false" />
+		<property name="status" column="status" />
+		<property name="remarks" column="remarks" />
+		<property name="lastModifiedDate" column="last_modified_date" />
+		<property name="sfid" column="sfid" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.training.TrainingBean"
+		table="TRAINING_DETAILS">
+		<id name="id" column="id"></id>
+		<property name="sfid" column="sfid" />
+		<property name="course" column="course" />
+		<property name="subject" column="subject" />
+		<property name="area" column="training_area" />
+		<property name="institute" column="institute" />
+		<property name="yearId" column="year" />
+		<property name="duration" column="duration" />
+		<property name="fromDate" column="from_date" />
+		<property name="toDate" column="to_date" />
+		<property name="status" column="status" />
+		<property name="creationDate" column="creation_Date" update="false"/>
+		<property name="lastModifiedDate" column="last_modified_date" />
+
+
+	</class>
+</hibernate-mapping>

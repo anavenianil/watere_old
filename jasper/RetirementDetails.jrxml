@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RetirementDetails" pageWidth="1120" pageHeight="842" columnWidth="1080" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5081bda0-c96f-4335-b86e-d503697f7b2c">
+	<property name="ireport.zoom" value="1.100000000000005"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select sysdate,SFID,EMP_NAME,EMP_TYPE,TRANSPORT_AMT,RETRIMENT_AMT,NO_OF_TONS,LUGGAGE_AMT,RETRIMENT_DATE ,TOT_AMT ,ISSUED_BY,
+( case status when 2 then 'completed' else 'waiting' end)status ,status
+from RETRIMENT_REQUEST_DETAILS where status IN( 1,2) order by RETRIMENT_DATE]]>
+	</queryString>
+	<field name="SYSDATE" class="java.sql.Timestamp"/>
+	<field name="SFID" class="java.lang.String"/>
+	<field name="EMP_NAME" class="java.lang.String"/>
+	<field name="EMP_TYPE" class="java.lang.String"/>
+	<field name="TRANSPORT_AMT" class="java.math.BigDecimal"/>
+	<field name="RETRIMENT_AMT" class="java.math.BigDecimal"/>
+	<field name="NO_OF_TONS" class="java.math.BigDecimal"/>
+	<field name="LUGGAGE_AMT" class="java.math.BigDecimal"/>
+	<field name="RETRIMENT_DATE" class="java.sql.Timestamp"/>
+	<field name="TOT_AMT" class="java.math.BigDecimal"/>
+	<field name="ISSUED_BY" class="java.lang.String"/>
+	<field name="STATUS" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="83" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="275" y="17" width="551" height="23" backcolor="#006699" uuid="58305230-7411-46e6-b251-6896166c2d1c"/>
+				<staticText>
+					<reportElement x="0" y="0" width="551" height="21" forecolor="#FFFFFF" uuid="42cd2186-cc40-4eae-a72b-4da5a9c190ea"/>
+					<textElement>
+						<font size="13" isBold="true" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[   SUMBAWANGA URBAN WATER SUPPLY AND SANITATION AUTHORITY ]]></text>
+				</staticText>
+			</frame>
+			<image>
+				<reportElement x="-1" y="0" width="309" height="83" uuid="660afb72-bc90-4866-b2af-45a6916975e2"/>
+				<imageExpression><![CDATA["../images/watererp.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="51" splitType="Stretch">
+			<staticText>
+				<reportElement x="446" y="0" width="254" height="22" uuid="50d0ef81-8e9f-4374-b435-67d8c839e1bd"/>
+				<textElement>
+					<font size="13" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Employee Retirement Details]]></text>
+			</staticText>
+			<textField pattern="MMMM d ,YYYY">
+				<reportElement x="50" y="29" width="354" height="14" uuid="f470bc9e-9af6-4bf8-a6c6-9bd37bd38444"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SYSDATE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="29" width="50" height="14" uuid="0176e510-b3d0-4393-a5a2-c6486d6c0197"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Printed :]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="38" splitType="Stretch">
+			<line>
+				<reportElement x="274" y="0" width="1" height="37" uuid="151d850c-301a-402e-a40e-21184bbd2c11"/>
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="70" y="5" width="101" height="17" uuid="0de489d9-7d52-42b4-9276-d3e5ca6eca40"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Employee Name]]></text>
+			</staticText>
+			<line>
+				<reportElement x="183" y="1" width="1" height="36" uuid="6a020c5f-54a6-40ea-b40a-3479ebb9453b"/>
+			</line>
+			<staticText>
+				<reportElement x="188" y="5" width="120" height="17" uuid="5cbdf18b-1232-4218-ac63-fb7e383b9ce1"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Employee Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="270" y="5" width="123" height="17" uuid="e1c9733e-024c-49f8-987e-e5f2811acb9a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Transport Amount]]></text>
+			</staticText>
+			<line>
+				<reportElement x="67" y="0" width="1" height="37" uuid="f8ebdf52-a529-4e26-9f68-1c412a0a706d"/>
+			</line>
+			<line>
+				<reportElement x="0" y="1" width="1" height="36" uuid="26295764-b4da-400a-9201-966109698c9c"/>
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="2" y="5" width="87" height="17" uuid="88916cbd-66be-4f6a-ab8a-195948846b6a"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Employee Id]]></text>
+			</staticText>
+			<line>
+				<reportElement x="513" y="1" width="1" height="37" uuid="1dff8382-8153-4599-81bd-629ccfde68f0"/>
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="381" y="5" width="140" height="17" uuid="07724be0-0cd3-41cc-bb65-f2a0badcc12c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Retirement Amount]]></text>
+			</staticText>
+			<line>
+				<reportElement x="590" y="1" width="1" height="37" uuid="e9d0c469-4fad-43a2-95cc-ed0097f2247f"/>
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="511" y="5" width="78" height="17" uuid="0db2ac47-712f-4054-be96-e908129b1b9b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO OF TONS]]></text>
+			</staticText>
+			<line>
+				<reportElement x="799" y="0" width="1" height="37" uuid="a6831d89-42e9-4652-b2ea-778ae7008c44"/>
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="593" y="5" width="97" height="17" uuid="e59a7a7d-4736-4481-9ba4-ca6969f13421"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Luggage AMT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="800" y="5" width="77" height="17" uuid="bfd15424-a754-4848-8e8a-4f8c77ef307a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Issued By]]></text>
+			</staticText>
+			<line>
+				<reportElement x="888" y="1" width="1" height="36" uuid="d8552fd3-ef77-49bc-b482-21709099ee27"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="1064" height="1" uuid="448e897d-38de-47b8-8abf-6c33d75c9a42"/>
+			</line>
+			<line>
+				<reportElement x="390" y="1" width="1" height="37" uuid="0e83c998-57cf-4717-81f8-bc4111a5ada2"/>
+			</line>
+			<line>
+				<reportElement x="689" y="0" width="1" height="37" uuid="66b2df44-332e-448f-b40d-2fbb022d2115"/>
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="682" y="5" width="123" height="17" uuid="7b26f432-1818-40b5-b035-995d49525f3e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Retirement Date]]></text>
+			</staticText>
+			<line>
+				<reportElement x="970" y="1" width="1" height="37" uuid="36f467f8-fcb5-442f-b8cc-6bf455f5dd63"/>
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="884" y="5" width="73" height="17" uuid="d63c6f8f-cc2f-4868-abbf-eb2514ca2940"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="971" y="5" width="93" height="17" uuid="b1dbe9bb-b39f-4370-a0bb-095fa533e327"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Amount]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1064" y="1" width="1" height="37" uuid="66d7a019-6433-403c-89bc-d8e97083e85a"/>
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="508" y="18" width="78" height="17" uuid="d82e74a1-eee4-4408-b723-2cb9f2fa5849"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(Luggage)]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<line>
+				<reportElement x="1" y="-1" width="1063" height="1" uuid="507aaafb-e41a-4583-926e-696cb5a6502b"/>
+			</line>
+			<line>
+				<reportElement x="888" y="-1" width="1" height="36" uuid="f65fc26f-f1c5-48e0-bd08-70e53a28d0b5"/>
+			</line>
+			<line>
+				<reportElement x="799" y="-1" width="1" height="36" uuid="e771fdbe-e07e-48bb-974c-07fda0b75eb8"/>
+			</line>
+			<line>
+				<reportElement x="590" y="-1" width="1" height="36" uuid="cb6d2754-10d9-4404-8481-66679cd7142c"/>
+			</line>
+			<line>
+				<reportElement x="513" y="-1" width="1" height="36" uuid="0c94ac87-4ce1-445a-8d87-acb6585e300b"/>
+			</line>
+			<line>
+				<reportElement x="390" y="0" width="1" height="35" uuid="3528959c-7ca3-4001-bebc-4b5ecec7cc50"/>
+			</line>
+			<line>
+				<reportElement x="274" y="-1" width="1" height="36" uuid="e4f4433e-fe0d-437a-98e9-f2150ca0af54"/>
+			</line>
+			<line>
+				<reportElement x="183" y="-1" width="1" height="36" uuid="b04560d7-6f48-473e-a02c-a26398899305"/>
+			</line>
+			<line>
+				<reportElement x="67" y="0" width="1" height="35" uuid="ac988711-f216-4a27-b759-8ae6b9d61683"/>
+			</line>
+			<line>
+				<reportElement x="0" y="-1" width="1" height="35" uuid="72ecedc5-553c-4c3f-8be5-cedb4974cdba"/>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="2" y="4" width="50" height="20" isRemoveLineWhenBlank="true" uuid="88e351ac-070c-407e-96a6-97a495ce7a17"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{SFID}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="186" y="4" width="90" height="20" isRemoveLineWhenBlank="true" uuid="6bfc2c89-72bc-4437-a0b6-1daa92c8cafd"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{EMP_TYPE}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00" isBlankWhenNull="true">
+				<reportElement x="271" y="4" width="111" height="20" isRemoveLineWhenBlank="true" uuid="b846da9c-c937-4af4-8cc6-34d666aa4459"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{TRANSPORT_AMT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00" isBlankWhenNull="true">
+				<reportElement x="386" y="4" width="117" height="20" isRemoveLineWhenBlank="true" uuid="fe385b4a-929b-4837-97b4-780597dd8767"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{RETRIMENT_AMT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="503" y="4" width="65" height="20" isRemoveLineWhenBlank="true" uuid="8ca6d1ad-47ab-47d8-84bc-97420966253d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{NO_OF_TONS}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00" isBlankWhenNull="true">
+				<reportElement x="577" y="4" width="106" height="20" isRemoveLineWhenBlank="true" uuid="8878aff9-2b0a-43d5-956a-fdeafce1849a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{LUGGAGE_AMT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MMM-yyyy" isBlankWhenNull="true">
+				<reportElement x="789" y="4" width="75" height="20" isRemoveLineWhenBlank="true" uuid="e00f5926-c7d7-467f-bbf6-207afb628c36"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ISSUED_BY}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="34" width="1063" height="1" isRemoveLineWhenBlank="true" uuid="cec85518-e502-4a5e-bbc5-6df1e86c0966"/>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="70" y="4" width="117" height="20" isRemoveLineWhenBlank="true" uuid="937566a0-513d-4f83-a54c-d98c52272007"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EMP_NAME}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="689" y="-1" width="1" height="36" uuid="d5531e42-dd81-436a-af2a-f2619e39cd65"/>
+			</line>
+			<line>
+				<reportElement x="970" y="-1" width="1" height="36" uuid="9d0280cb-480b-47e0-a3ee-c960223adf2b"/>
+			</line>
+			<textField pattern="dd-MMM-yy" isBlankWhenNull="true">
+				<reportElement x="690" y="4" width="110" height="20" isRemoveLineWhenBlank="true" uuid="70403b48-76b8-43e0-99b0-ee9c0e209ad4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{RETRIMENT_DATE}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MMM-yyyy" isBlankWhenNull="true">
+				<reportElement x="898" y="4" width="72" height="20" isRemoveLineWhenBlank="true" uuid="d5d346b7-48ff-4fa6-91c8-84577629440d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{STATUS}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00" isBlankWhenNull="true">
+				<reportElement x="953" y="4" width="93" height="20" isRemoveLineWhenBlank="true" uuid="f6d9910d-b8fe-4937-ae96-23df15e73eb8"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{TOT_AMT}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1064" y="0" width="1" height="35" uuid="e480c35a-2d59-435e-a00e-c961246e2522"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="13" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="13" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="-1" y="-1" width="954" height="13" backcolor="#E6E6E6" uuid="15977188-e673-46ef-9383-7d4d769de41d"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="3" y="-1" width="195" height="13" uuid="492cf6b5-70a3-41a6-b7a1-ce3e0c2bc490"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="953" y="-1" width="127" height="13" backcolor="#E6E6E6" uuid="88ba8744-048e-4a67-87a1-0e59b9fb3388"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="50">
+			<staticText>
+				<reportElement x="503" y="0" width="139" height="21" uuid="28ef5a27-29ce-478d-8496-dce03b705874"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sorry No Data Found]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

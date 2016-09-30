@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.MT.MTVehicleAllocationtDetailsDTO" table="MT_VEHICLE_ALLOCATION_DETAILS">
+		<id name="id" type="int" column="ID">
+			<generator class="sequence">
+				<param name="sequence">MT_VEHICLE_ALLOC_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="journeyId" column="JOURNEY_ID" />
+		<property name="vehicleDriverMapId" column="VEHICLE_DRIVER_MAP_ID" />
+		<property name="fromDate" column="FROM_DATE_TIME" />
+		<property name="toDate" column="TO_DATE_TIME" />
+		<property name="requestType" column="REQUEST_TYPE" />
+		<property name="statusFlag" column="STATUS_FLAG" />
+		<property name="stringFromDate" column="FROM_DATE_TIME" insert="false" update="false" 
+			formula="(select to_char(FROM_DATE_TIME,'dd-Mon-yyyy HH24:MI')  from MT_VEHICLE_ALLOCATION_DETAILS vad where vad.id=id)" />
+		<property name="stringToDate" column="TO_DATE_TIME" insert="false" update="false" 
+			formula="(select to_char(TO_DATE_TIME,'dd-Mon-yyyy HH24:MI')  from MT_VEHICLE_ALLOCATION_DETAILS vad where vad.id=id)" />
+		<!--<property name="sfid" insert="false" update="false" 
+			formula="(select vrd.sfid from mt_vehicle_request_details vrd where vrd.request_id=REQUEST_ID)" />-->
+			<property name="sfid" insert="false" update="false" 
+			formula="(select mrd.sfid from mt_vehicle_request_details mrd where mrd.id=(select mjd.reference_id from mt_vehicle_journey_details mjd where mjd.id=JOURNEY_ID))" />
+			  <property name="requestId" insert="false" update="false" 
+			formula="(select mrd.request_id from mt_vehicle_request_details mrd where mrd.id=(select mjd.reference_id from mt_vehicle_journey_details mjd where mjd.id=JOURNEY_ID))" />
+		<property name="allotedNoOfPersons" insert="false" update="false" formula="(select mjd.no_of_people from mt_vehicle_journey_details mjd where mjd.id=JOURNEY_ID)"/>
+		<property name="releasedDate" column="RELEASED_DATE_TIME" />
+		<many-to-one name="vehicleDriverMapDetails"
+			class="com.callippus.web.beans.MT.MTVehicleDriverMapDTO" column="VEHICLE_DRIVER_MAP_ID"
+			lazy="false" insert="false" update="false"/>
+		
+	</class>
+</hibernate-mapping>
+
+
+
+	    
+	   
+	 

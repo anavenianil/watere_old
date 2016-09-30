@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.dto.Phone" table="PHONE">
+		<id name="phoneId" type="int" column="PHONE_ID">
+			<generator class="sequence">
+				<param name="sequence">PHONE_SEQ</param>
+			</generator>
+		</id>
+		<property name="phoneType" type="string" length="10" column="PHONE_TYPE" />
+		<property name="phoneNumber" type="string" length="15" column="PHONE_NUMBER" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class
+		name="com.callippus.web.paybill.dto.PayBillResidentialSecurityMasterDTO" table="PAY_RESD_SECURITY_MASTER" lazy="false">
+		<id name="pk" column="ID" type="int">
+			<generator class="sequence">
+				<param name="sequence">PAY_RESD_SECURITY_MASTER_SEQ</param>
+			</generator>
+		</id>
+		<property name="status" column="STATUS" type="int" />
+		<property name="creationDate" column="CREATION_DATE" type="date" />
+		<property name="amount" column="AMOUNT" type="float" />
+		<property name="createdBy" column="CREATED_BY" type="string" />
+		<property name="modifiedDate" column="MODIFIED_DATE" type="date" />
+		<property name="modifiedBy" column="MODIFIED_BY" type="string" />
+		<property name="quarterTypeId" column="QUARTER_TYPE_ID"></property>
+		<property name="effDate" column="EFF_DATE"></property>
+		<many-to-one name="quartersTypeMasterDTO"
+			class="com.callippus.web.paybill.dto.PayBillQuartersTypeMasterDTO"
+			column="QUARTER_TYPE_ID" not-null="true" lazy="false" update="false"
+			insert="false" />
+	</class>
+</hibernate-mapping>

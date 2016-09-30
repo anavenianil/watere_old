@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	<hibernate-mapping>
+		<class name="com.callippus.web.hindi.dto.ExamDTO" table="HINDI_EXAM_MASTER">
+		<id name="examId" type="int" column="EXAM_ID">
+		   <generator class="sequence">
+				<param name="sequence">HINDI_EXAM_MASTER_SEQ</param>
+			</generator>
+		</id>
+				<property name="examName"  column="EXAM_NAME" />	
+				<property name="totalMarks"  column="TOTAL_MARKS" />						
+				<property name="description" column="DESCRIPTION" />				
+				<property name="status" column="STATUS" />
+				
+		</class> 
+	</hibernate-mapping>

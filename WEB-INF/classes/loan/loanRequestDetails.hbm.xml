@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.requests.LoanRequestProcessBean" table="loan_request_details">
+		<id name="requestID" column="request_id"></id>
+		<property name="sfID" column="sfid" />
+		<property name="designationID" column="designation_id" type="java.lang.String" not-null="true"/>
+		<many-to-one name="designationDetails"
+			class="com.callippus.web.beans.dto.DesignationDTO" column="designation_id"
+			not-null="true" lazy="false" update="false" insert="false"/>
+			
+		<property name="departmentID" column="department_id" type="int" not-null="true"/>
+		<many-to-one name="departmentDetails"
+			class="com.callippus.web.beans.dto.DepartmentsDTO" column="department_id"
+			not-null="true" lazy="false" update="false" insert="false"/>			
+		<property name="employeeType" column="employee_type"  type="int" not-null="true"/>
+		<many-to-one name="employmentDetails"
+			class="com.callippus.web.beans.dto.EmploymentDTO" column="employee_type"
+			lazy="false" update="false" insert="false"/>
+		<property name="temporaryDesc" column="temporary_desc"  type="java.lang.String" />
+		<property name="basicPay" column="basic_pay"  type="float" not-null="true"/>
+		<property name="gradePay" column="grade_pay"  type="float" not-null="true"/>
+		<property name="da" column="da_percentage"  type="float" not-null="true"/>
+		<property name="prevLoanFlag" column="previous_loan_flag"  type="java.lang.String"/>
+		<property name="prevLoanName" column="prev_loan_name"  type="java.lang.String"/>
+		<property name="prevLoanRecFlag" column="prev_loan_recovery_flag" type="java.lang.String"/>
+		<property name="currentPositionFlag" column="current_position_flag" type="java.lang.String"/>
+		<property name="leaveFromDate" column="leave_from_date" type="java.util.Date"/>
+		<property name="leaveToDate" column="leave_to_date" type="java.util.Date" />
+		<property name="anticipatedAmount" column="anticipated_amount" type="float"/>
+		<property name="prevAdvanceDate" column="date_of_drawl"  type="java.util.Date"/>
+		<property name="prevOutAmt" column="previous_outstanding_amount"  type="float"/>
+		<property name="sourceType" column="source_type"  type="java.lang.String"/>
+		<property name="circumstance" column="circumstance"  type="java.lang.String"/>		
+		<property name="intensionFlag" column="intension_flag" type="java.lang.String" />
+		<property name="negotiationFlag" column="negotiation_flag" type="java.lang.String" />
+	    <property name="declarationFlag" column="declaration_flag" type="java.lang.String" />
+	    <property name="commitmentFlag" column="commitment_flag" type="java.lang.String" />
+	    <property name="gpfLoanBalance" column="gpf_loan_balance"  type="float"/>
+	    <property name="reason" column="reason"  type="java.lang.String"/>
+	    <property name="status" column="status"  type="int" not-null="true"/>
+	    <property name="requestedDate" column="requested_date" type="java.util.Date" not-null="true"/>
+	    <property name="requestedBy" column="requested_by" type="java.lang.String" not-null="true"/>
+	    <property name="ipAddress" column="ip_address" type="java.lang.String" not-null="true"/>		
+	</class>
+</hibernate-mapping>

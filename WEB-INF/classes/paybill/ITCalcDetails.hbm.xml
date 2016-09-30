@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.callippus.web.incometax.dto.IncomeTaxCalcDTO" table="PAY_INCOMETAX_TXN_DETAILS">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">PAY_INCOMETAX_TXN_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="sfid" column="sfid" />
+		<property name="selectedFYear" column="FINANCIAL_YEAR" />
+		<property name="plannedMonth" column="PLANNED_MONTH_FROM" />
+		<property name="actualMonth" column="ACTUAL_MONTH_FROM" />
+		<property name="projectedMonth" column="PROJECTED_MONTH_FROM" />
+		<property name="plannedTaxAmt" column="PLANNED_TAX_AMT" />
+		<property name="projectedTaxAmt" column="PROJECTED_TAX_AMT" />
+		<property name="actualTaxAmt" column="ACTUAL_TAX_AMT" />
+		<property name="plannedTotTaxAmt" column="PLANNED_TOT_TAX_AMT" />
+		<property name="projectedTotTaxAmt" column="PROJECTED_TOT_TAX_AMT" />
+		<property name="actualTotTaxAmt" column="ACTUAL_TOT_TAX_AMT" />
+	</class>
+</hibernate-mapping>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.outerEmployee.OuterEmployeeBean" table="emp_master">
+		<id name="userSfid" column="sfid"/>
+		<property name="titleId" column="title" />
+		<property name="firstName" column="first_name" />
+		<property name="lastName" column="last_name" />
+		<property name="middleName" column="middle_name" />
+		<property name="gender" column="gender" />
+		<property name="handicap" column="handicap_id" />
+		<property name="personalNumber" column="personal_number" />
+		<property name="internalNo" column="INTERNAL_PHONE_NO" />
+		<property name="residenceNo" column="RESIDENCE_NO"/>
+		<property name="community" column="community_id" />
+		<property name="reservation" column="Reservation_type_id" />
+		<property name="dispensaryNumberId" column="dispeNsary_Number" />
+		<property name="employmentId" column="employment_type_Id" />
+		<property name="joinTypeId" column="join_type_id" />
+		<property name="dob" column="dob" />
+		<property name="marital" column="marital_id" />
+		<!-- <property name="religionId" column="religion_id" /> -->
+		<property name="bloodGroupId" column="BLOOD_GROUP" />
+		<property name="nationalityId" column="nationality_id" />
+		<property name="office" column="office_id" />
+		<property name="directorate" column="directorate_id" />
+		<property name="designation" column="designation_id" />
+		<property name="dojDrdo" column="doj_drdo" />
+		<property name="dojAsl" column="doj_asl" />
+		<property name="status" column="status" />
+		<property name="nameInServiceBook" column="name_in_service_book" />
+		<property name="creationDate" column="creation_date" update="false"/>
+		<property name="lastModifiedDate" column="last_modified_date" />
+		<property name="createdBy" column="created_by" update="false"/>
+		<property name="lastModifiedBy" column="last_modified_by" />
+		<property name="dataentryFlag" column="dataentry_flag" />
+		<property name="flag" column="flag" />
+		<property name="workingLocation" column="working_location" />
+		<property name="appointmentId" column="appointment_type_Id" />
+		<property name="gpfAcNo" column="gpf_ac_no" />
+		<property name="motherTongue" column="mother_tongue" />
+		<property name="seniorityDate" column="seniority_date" />
+		<property name="religion" column="religion_id" />
+		<property name="idMarks" column="id_marks" />
+		<!-- <property name="religion" column="religion_id" /> -->
+	</class>
+</hibernate-mapping>

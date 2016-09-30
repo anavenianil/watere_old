@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.ltc.dto.LtcMemberDetailsDTO" table="LTC_TXN_DETAILS">
+		<id name="id" column="ID" unsaved-value="0">
+		<!--commented by bkr 07/04/2016  -->
+			 <generator class="sequence">
+				<param name="sequence">LTC_TXN_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="requestId" column="REQUEST_ID"/>
+		<property name="familyMemberId" column="FAMILY_MEMBER_ID" />
+		
+		<many-to-one name="familyMemberDetails"
+			class="com.callippus.web.beans.family.FamilyBean" column="FAMILY_MEMBER_ID"
+			not-null="true" lazy="false" update="false" insert="false"/>
+		
+		<property name="requestType" column="request_type" />
+		<property name="referenceID" column="REFERENCE_ID" />
+		
+		<property name="ltcType" column="LTC_TYPE_ID"/>
+		<property name="blockYear" column="LTC_BLOCK_YEAR_ID" />
+		<property name="status" column="STATUS" />
+	</class>
+</hibernate-mapping>

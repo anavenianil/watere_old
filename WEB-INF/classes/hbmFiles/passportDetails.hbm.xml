@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.passport.PassportBean" table="passport_details">
+		<id name="id" column="id"></id>
+		<property name="sfid" column="sfid" />
+		<property name="passportType" column="passport_type" />
+		<property name="passportNumber" column="passport_number" />
+		<property name="issuePlace" column="issued_place" />
+		<property name="validUpto" column="valid_upto" />
+		<property name="details" column="details" />
+		<property name="remarks" column="remarks" />
+		<property name="status" column="status" />
+		<property name="passPortFor" column="passport_to" />
+		<property name="familyMember" column="family_member_id" />
+		<property name="creationDate" column="creation_date" update="false"/>
+		<property name="lastModifiedDate" column="last_modified_date" />
+	</class>
+</hibernate-mapping>

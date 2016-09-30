@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.promotions.dto.DesignationExperienceDTO" table="PRO_DESIGNATION_EXPERIENCE">
+		<id name="id" column="id">
+			<generator class="sequence">
+				<param name="sequence">T_CORE_SEQ</param>
+			</generator>
+		</id>
+		<many-to-one name="designationName" class="com.callippus.web.beans.dto.DesignationDTO" column="designation_id"
+			not-null="true"  lazy="false" update="false" insert="false"/>
+					
+		<property name="sfid" column="sfid" insert="true" update="true" type="java.lang.String" not-null="true"/>
+		<property name="empName" column="sfid" insert="false" update="false" 
+		formula="(select em.name_in_service_book from emp_master em where em.status=1 and em.sfid=upper(sfid))" />
+		<property name="designationID" column="designation_id" insert="true" update="true" type="int"/>		
+		<property name="status" column="status" type="int" not-null="true" />			
+		<property name="startDate" column="start_date" insert="true" update="true"/>
+		<property name="noOfAttempts" column="no_of_attempts" type="int" not-null="true" />
+	</class>
+</hibernate-mapping>

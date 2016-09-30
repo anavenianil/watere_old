@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.dto.ReqOrgWorkflowMappingDTO" table="REQ_ORG_WORKFLOW_MAPPING">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">REQ_ORG_WORKFLOW_MAPPING_SEQ</param>
+			</generator>
+		</id>
+		<property name="workflowId" column="WORKFLOW_ID" />
+		<property name="requestTypeId" column="REQUEST_TYPE_ID" />
+		<property name="organizationId" column="ORGANIZATION_ID" />
+		<property name="status" column="STATUS"/>
+		<property name="creationDate" column="CREATION_DATE" update="false"/>
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE"/>
+	</class>
+</hibernate-mapping>

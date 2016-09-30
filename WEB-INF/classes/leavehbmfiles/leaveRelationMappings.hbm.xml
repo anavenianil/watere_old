@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.leave.dto.LeaveRelationsDTO" table="LEAVE_RELATION_MAPPINGS">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">LEAVE_RELATION_MAPPINGS_SEQ</param>
+			</generator>
+		</id>
+		<many-to-one name="leaveTypeDetails1"
+			class="com.callippus.web.leave.dto.LeaveTypeDTO" column="leave_type_id1"
+			not-null="true"  lazy="false" insert="false" update="false"/>
+		<many-to-one name="leaveTypeDetails2"
+			class="com.callippus.web.leave.dto.LeaveTypeDTO" column="leave_type_id2"
+			not-null="true"  lazy="false" insert="false" update="false"/>	
+		<property name="status" column="status" />
+		<property name="leaveTypeID1" column="leave_type_id1" update="true" insert="true"/>
+		<property name="leaveTypeID2" column="leave_type_id2" update="true" insert="true"/>
+		<property name="createdBy" column="created_by" update="false"/>
+		<property name="creationDate" column="creation_date" update="false"/>
+		<property name="lastModifiedBy" column="last_modified_by" />
+		<property name="lastModifiedDate" column="last_modified_date" />
+		
+	</class>
+</hibernate-mapping>

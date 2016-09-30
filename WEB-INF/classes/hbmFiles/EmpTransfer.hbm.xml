@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.transfer.EmpTransferBean" table="transfer_request_details">
+		<id name="requestID" column="request_id"></id>
+		<property name="requestTypeID" column="request_type_id"/>
+		<property name="transferedSFID" column="sfid" />
+		<many-to-one name="employeeDetails"
+			class="com.callippus.web.beans.employee.EmployeeBean" column="sfid"
+			unique="true" lazy="false" update="false" insert="false"/>
+		
+		<property name="transferTypeID" column="transfer_type_id" />
+		<property name="departmentFromID" column="department_from" />
+		<property name="departmentTo" column="department_to" />
+		<property name="reason" column="reason" />		
+		<property name="attachment" column="attachment" />
+		<property name="hqRefNo" column="hq_ref_no" />
+		<many-to-one name="doPartDetails"
+			class="com.callippus.web.beans.requests.DoPartBean" column="ref_num_id"
+			unique="true" lazy="false"/>
+			
+		<property name="status" column="status" />
+		<property name="receivedDate" column="received_date" />
+		<property name="requestedBy" column="requested_by" update="false"/>		
+		<property name="requestedDate" column="requested_date" update="false"/>
+		<property name="modifiedBy" column="last_modified_by"/>
+		<property name="modifiedDate" column="last_modified_date" />
+		<property name="ipAddress" column="ip_address" />
+		
+	</class>
+</hibernate-mapping>

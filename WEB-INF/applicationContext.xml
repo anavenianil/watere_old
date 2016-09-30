@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+	<!-- C:\Oracle\Middleware\user_projects\domains\base_domain\autodeploy\ess\WEB-INF\spring-mvc-3.2.xsd" -->
+
+	<!-- - A simple root application context. See cps-servlet.xml for the - 
+		Web context. -->
+	<!-- Data Source configuration -->
+	<!-- <bean id="myDataSource" class="org.springframework.jndi.JndiObjectFactoryBean"> 
+		<property name="jndiName" value="ess"/> </bean> -->
+	<bean id="myDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jdbc/ess"/>
+	</bean>
+
+	<!-- Data Source configuration ends -->
+
+	<!-- session factory creation -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="myDataSource"/>
+		<!-- Url mappings -->
+		<property name="mappingResources">
+			<list>
+				<value>hbmFiles/login.hbm.xml</value>
+				<value>hbmFiles/QualificationDetails.hbm.xml</value>
+				<value>hbmFiles/category.hbm.xml</value>
+				<value>hbmFiles/subCategory.hbm.xml</value>
+				<value>hbmFiles/requestRolesMapping.hbm.xml</value>
+				<value>hbmFiles/appointment.hbm.xml</value>
+				<value>hbmFiles/group.hbm.xml</value>
+				<value>hbmFiles/relation.hbm.xml</value>
+				<value>hbmFiles/religion.hbm.xml</value>
+				<value>hbmFiles/qualification.hbm.xml</value>
+				<value>hbmFiles/discipline.hbm.xml</value>
+				<value>hbmFiles/employment.hbm.xml</value>
+				<value>hbmFiles/title.hbm.xml</value>
+				<value>hbmFiles/community.hbm.xml</value>
+				<value>hbmFiles/marital.hbm.xml</value>
+				<value>hbmFiles/designation.hbm.xml</value>
+				<value>hbmFiles/directorate.hbm.xml</value>
+				<value>hbmFiles/division.hbm.xml</value>
+				<value>hbmFiles/user.hbm.xml</value>
+				<value>hbmFiles/employee.hbm.xml</value>
+				<value>hbmFiles/allowanceType.hbm.xml</value>
+				<value>hbmFiles/allowanceEmpDetails.hbm.xml</value>
+				<value>hbmFiles/addressType.hbm.xml</value>
+				<value>hbmFiles/addressDetailsMaster.hbm.xml</value>
+				<value>hbmFiles/trainingDetails.hbm.xml</value>
+				<value>hbmFiles/passportDetails.hbm.xml</value>
+				<value>hbmFiles/movableProperty.hbm.xml</value>
+				<value>hbmFiles/hierarchy.hbm.xml</value>
+				<value>hbmFiles/menulinks.hbm.xml</value>
+				<value>hbmFiles/rolelinksmapping.hbm.xml</value>
+				<value>hbmFiles/orginstance.hbm.xml</value>
+				<value>hbmFiles/workFlowRequest.hbm.xml</value>
+				<value>hbmFiles/district.hbm.xml</value>
+				<value>hbmFiles/state.hbm.xml</value>
+				<value>hbmFiles/year.hbm.xml</value>
+				<value>hbmFiles/workflowType.hbm.xml</value>
+				<value>hbmFiles/reservation.hbm.xml</value>
+				<value>hbmFiles/dispensayLocation.hbm.xml</value>
+				<value>hbmFiles/empExperience.hbm.xml</value>
+				<value>hbmFiles/preOrgnDetails.hbm.xml</value>
+				<value>hbmFiles/ReqWorkFlowMapping.hbm.xml</value>
+				<value>hbmFiles/degree.hbm.xml</value>
+				<value>hbmFiles/reqRoleWorkFlowMapping.hbm.xml</value>
+				<value>hbmFiles/familyDetails.hbm.xml</value>
+				<value>hbmFiles/nomineeDetails.hbm.xml</value>
+				<value>hbmFiles/awardDetails.hbm.xml</value>
+				<value>hbmFiles/applicationRolesMaster.hbm.xml</value>
+				<value>hbmFiles/dispensaryNumber.hbm.xml</value>
+				<value>hbmFiles/userSpecific.hbm.xml</value>
+				<value>hbmFiles/quarterDetails.hbm.xml</value>
+				<value>hbmFiles/retirementDetails.hbm.xml</value>
+				<value>hbmFiles/requestHistory.hbm.xml</value>
+				<value>hbmFiles/award.hbm.xml</value>
+				<value>hbmFiles/retirement.hbm.xml</value>
+				<value>hbmFiles/quarter.hbm.xml</value>
+				<value>hbmFiles/WorkFlowRelation.hbm.xml</value>
+				<value>hbmFiles/WorkFlowRelationShip.hbm.xml</value>
+				<value>hbmFiles/workflow.hbm.xml</value>
+				<value>hbmFiles/workFlowMaster.hbm.xml</value>
+				<value>hbmFiles/JoinType.hbm.xml</value>
+				<value>hbmFiles/PHType.hbm.xml</value>
+				<value>hbmFiles/EmpRoleMapping.hbm.xml</value>
+				<value>hbmFiles/workflowTxnDetails.hbm.xml</value>
+				<value>hbmFiles/nationality.hbm.xml</value>
+				<value>hbmFiles/bloodGroup.hbm.xml</value>
+				<value>hbmFiles/nomineeTypeMaster.hbm.xml</value>
+				<value>hbmFiles/applicationRoleMapping.hbm.xml</value>
+				<value>hbmFiles/nomineeAddressDetails.hbm.xml</value>
+				<value>hbmFiles/departmentHierarchy.hbm.xml</value>
+				<value>hbmFiles/departmentsMaster.hbm.xml</value>
+				<value>hbmFiles/workflowStagesMaster.hbm.xml</value>
+				<value>hbmFiles/outerEmployee.hbm.xml</value>
+				<value>hbmFiles/organizations.hbm.xml</value>
+				<value>hbmFiles/StatusMaster.hbm.xml</value>
+				<value>hbmFiles/disability.hbm.xml</value>
+				<value>hbmFiles/nomineeType.hbm.xml</value>
+				<value>hbmFiles/motherTongue.hbm.xml</value>
+				<value>hbmFiles/pinNumber.hbm.xml</value>
+				<value>hbmFiles/departmentTypeMaster.hbm.xml</value>
+				<value>hbmFiles/empPaymentDetails.hbm.xml</value>
+				<value>hbmFiles/empBasicPayHistory.hbm.xml</value>
+				<value>hbmFiles/familyDependentConstraints.hbm.xml</value>
+				<value>hbmFiles/MenuLinksMaster.hbm.xml</value>
+				<value>hbmFiles/EmpTransfer.hbm.xml</value>
+				<value>hbmFiles/DoPart.hbm.xml</value>
+				<value>hbmFiles/workflowDependent.hbm.xml</value>
+				<value>hbmFiles/UnitsMaster.hbm.xml</value>
+				<value>hbmFiles/referenceDetails.hbm.xml</value>
+				<value>hbmFiles/AlertMaster.hbm.xml</value>
+				<value>hbmFiles/AlertMessages.hbm.xml</value>
+				<value>hbmFiles/QuarterRequestDetails.hbm.xml</value>
+				<value>hbmFiles/quarterGradePayMapping.hbm.xml</value>
+				<value>hbmFiles/letterNumberSeries.hbm.xml</value>
+				<value>hbmFiles/letterNumberFormat.hbm.xml</value>
+				<value>hbmFiles/ion.hbm.xml</value>
+				<value>hbmFiles/ionDept.hbm.xml</value>
+				<value>hbmFiles/ionDesign.hbm.xml</value>
+				<value>hbmFiles/ionOrgRole.hbm.xml</value>
+				<value>hbmFiles/ionOrganization.hbm.xml</value>
+				<value>hbmFiles/ionSfid.hbm.xml</value>
+				<value>hbmFiles/ionFile.hbm.xml</value>
+				<value>hbmFiles/city.hbm.xml</value>
+				<value>hbmFiles/ionCirculatedDetails.hbm.xml</value>
+
+
+
+				<value>hbmFiles/EmpTransferTxnDetails.hbm.xml</value>
+				<value>hbmFiles/HQRequest.hbm.xml</value>
+				<value>hbmFiles/HigherQualificationDetails.hbm.xml</value>
+				<value>hbmFiles/workflowDynamicTablesDTO.hbm.xml</value>
+				<value>hbmFiles/HQSanctionOfIncetive.xml</value>
+
+				<value>hbmFiles/employeeClaimDetails.hbm.xml</value>
+
+				<value>hbmFiles/mroDetails.hbm.xml</value>
+				<value>hbmFiles/mroPaymentDetails.hbm.xml</value>
+				<value>hbmFiles/financeDetails.hbm.xml</value>
+				<value>hbmFiles/cdaDetails.hbm.xml</value>
+				<value>hbmFiles/tadaProjectDirectors.hbm.xml</value>
+				<value>hbmFiles/dynamicWorkflowTxn.hbm.xml</value>
+				<value>hbmFiles/reqDesigWorkflowMapping.hbm.xml</value>
+				<value>hbmFiles/reqOrgWorkflowMapping.hbm.xml</value>
+				<value>hbmFiles/SigningAuthority.hbm.xml</value>
+				
+				<value>hbmFiles/bankNames.hbm.xml</value>
+				<!-- <value>hbmFiles/HigherQualificationDetails.hbm.xml</value> -->
+				<!-- Start:Leave Management Mapping Files -->
+
+				<value>hbmFiles/holidaysMaster.hbm.xml</value>
+				<value>leavehbmfiles/availableLeaves.hbm.xml</value>
+				<value>leavehbmfiles/exceptionTypeMaster.hbm.xml</value>
+				<value>leavehbmfiles/leaveCancellationDetails.hbm.xml</value>
+				<value>leavehbmfiles/leaveConversionMappings.hbm.xml</value>
+				<value>leavehbmfiles/leaveConvertionDetails.hbm.xml</value>
+				<!--<value>leavehbmfiles/leaveDoPart.hbm.xml</value> -->
+				<value>leavehbmfiles/leaveDurationMaster.hbm.xml</value>
+				<value>leavehbmfiles/leaveEncashmentDetails.hbm.xml</value>
+				<value>leavehbmfiles/empLeaveSpells.hbm.xml</value>
+				<value>leavehbmfiles/leaveExceptionDetails.hbm.xml</value>
+				<value>leavehbmfiles/leaveFamilyDetails.hbm.xml</value>
+				<value>leavehbmfiles/leaveManualEntry.hbm.xml</value>
+				<value>leavehbmfiles/leaveRelationMappings.hbm.xml</value>
+				<value>leavehbmfiles/leaveRequestDetails.hbm.xml</value>
+				<value>leavehbmfiles/leaveRequestExceptions.hbm.xml</value>
+				<value>leavehbmfiles/leaveTxnDetails.hbm.xml</value>
+				<value>leavehbmfiles/leaveTypeDetails.hbm.xml</value>
+				<value>leavehbmfiles/leaveTypeMaster.hbm.xml</value>
+				<value>leavehbmfiles/specialCasualLeaves.hbm.xml</value>
+				<value>leavehbmfiles/leaveAccount.hbm.xml</value>
+				<value>leavehbmfiles/leaveExceptionalEmployees.hbm.xml</value>
+				<value>leavehbmfiles/leaveYearlyBalance.hbm.xml</value>
+				<!-- <value>leavehbmfiles/leaveBusinessRules.hbm.xml</value> -->
+				<value>leavehbmfiles/leaveAmendmentDetails.hbm.xml</value>
+				<value>leavehbmfiles/declinedPastLeaves.hbm.xml</value>
+				<!-- End:Leave Management Mapping Files -->
+
+
+				<!-- Starting:LTC Mapping Files -->
+				<value>ltchbmfiles/ltcTypeMaster.hbm.xml</value>
+				<value>ltchbmfiles/ltcBlockMaster.hbm.xml</value>
+				<value>ltchbmfiles/ltcBlockYearsMaster.hbm.xml</value>
+				<value>ltchbmfiles/ltcApprovalRequest.hbm.xml</value>
+				<value>ltchbmfiles/ltcRequestMembers.hbm.xml</value>
+				<value>ltchbmfiles/ltcAdvancelRequest.hbm.xml</value>
+				<value>ltchbmfiles/ltcRefundRequest.hbm.xml</value>
+				<value>ltchbmfiles/ltcJourneyDetails.hbm.xml</value>
+				<value>ltchbmfiles/ltcReimbursement.hbm.xml</value>
+
+				<value>ltchbmfiles/ltcPenalMaster.hbm.xml</value>
+				<!-- End:LTC Mapping Files -->
+
+				<!-- Start:RE Mapping Files -->
+				<!-- <value>hbmFiles/reportDetails.hbm.xml</value> <value>hbmFiles/reportMaster.hbm.xml</value> 
+					<value>hbmFiles/cPoolDetails.hbm.xml</value> -->
+				<value>hbmFiles/cpoolDetails.hbm.xml</value>
+				<value>hbmFiles/reDetails.hbm.xml</value>
+				<!-- End:RE Mapping Files -->
+
+
+				<!-- Start : Loan Mapping files -->
+				<value>loan/immediateRelief.hbm.xml</value>
+				<value>loan/loanAmountDetails.hbm.xml</value>
+				<value>loan/loanAmountGrid.hbm.xml</value>
+				<value>loan/LoanDesigMapping.hbm.xml</value>
+				<value>loan/loanFestivalMaster.hbm.xml</value>
+				<value>loan/loanGPFClosingBalance.hbm.xml</value>
+				<value>loan/loanGPFRulesMaster.hbm.xml</value>
+				<value>loan/LoanLeavesMapping.hbm.xml</value>
+				<value>loan/LoanPaymentDetails.hbm.xml</value>
+				<value>loan/loanRequestDetails.hbm.xml</value>
+				<value>loan/loanTypeDetails.hbm.xml</value>
+				<value>loan/loanTypeMaster.hbm.xml</value>
+				<value>loan/LoanCDADetails.hbm.xml</value>
+				<value>loan/LoanHBARequestDetails.hbm.xml</value>
+				<value>loan/LoanHBATypeMaster.hbm.xml</value>
+				<value>loan/LoanHBAPaymentDetails.hbm.xml</value>
+				<value>loan/loanHBAInterestGrid.hbm.xml</value>
+				<value>loan/loanSigningAuthority.hbm.xml</value>
+				<value>loan/erpLoanRequest.hbm.xml</value>
+				<value>loan/erpLoanPurpose.hbm.xml</value>
+			
+				<!-- End : Loan Mapping files -->
+
+
+				<!-- Start : Promotion Mapping files -->
+				<value>promotions/assessmentBoardMapping.hbm.xml</value>
+				<value>promotions/assessmentCategoryMaster.hbm.xml</value>
+				<value>promotions/assessmentDetails.hbm.xml</value>
+				<value>promotions/assessmentTypeMaster.hbm.xml</value>
+				<value>promotions/boardMaster.hbm.xml</value>
+				<value>promotions/exceptionalEmployees.hbm.xml</value>
+				<value>promotions/optionalCertificate.hbm.xml</value>
+				<value>promotions/payFixation.hbm.xml</value>
+				<value>promotions/residencyPeriodMaster.hbm.xml</value>
+				<value>promotions/venueDetails.hbm.xml</value>
+				<value>promotions/assessmentDesignationExperience.hbm.xml</value>
+				<value>promotions/promotionDiscipline.hbm.xml</value>
+				<value>promotions/promotionSubDiscipline.hbm.xml</value>
+				<value>promotions/externalEmployees.hbm.xml</value>
+				<value>promotions/promotionOfflineEntry.hbm.xml</value>
+				<value>promotions/empGradePayHistory.hbm.xml</value>
+				<value>promotions/empVarIncHistory.hbm.xml</value>
+				<!-- End : Promotion Mapping files -->
+
+
+				<!-- Start : Cghs Mapping files -->
+				<value>cghs/referralHospitalMaster.hbm.xml</value>
+				<value>cghs/wardTypeMaster.hbm.xml</value>
+				<value>cghs/cghsRequestDetails.hbm.xml</value>
+				<value>cghs/requestTypeMaster.hbm.xml</value>
+				<value>cghs/cghsAdvanceRequestDetails.hbm.xml</value>
+				<value>cghs/cghsReimbursementRequestDetails.hbm.xml</value>
+				<value>cghs/cghsEmergencyRequestDetails.hbm.xml</value>
+				<value>cghs/SingingAuthority.hbm.xml</value>
+
+				<!-- End : Cghs Mapping files -->
+
+				<!-- Start : Test files -->
+				<value>hbmFiles/testBean.hbm.xml</value>
+				<value>hbmFiles/testMaster.hbm.xml</value>
+				<!-- End : Test files -->
+
+				<!-- Start : Pay Mapping files -->
+				<value>paybill/PayBillRSMaster.hbm.xml</value>
+				<value>paybill/PayBillDAMaster.hbm.xml</value>
+				<value>paybill/PayScale.hbm.xml</value>
+				<value>paybill/VariableIncrement.hbm.xml</value>
+				<value>paybill/FamilyPlanning.hbm.xml</value>
+				<value>paybill/TravellingAllowance.hbm.xml</value>
+				<value>paybill/PayBillQuarterTypeMaster.hbm.xml</value>
+				<value>paybill/QuarterSubType.hbm.xml</value>
+				<!--<value>paybill/QuarterType.hbm.xml</value> -->
+				<value>paybill/Payband.hbm.xml</value>
+				<value>paybill/PayScaleDesignation.hbm.xml</value>
+				<value>paybill/LicenceFeeCharges.hbm.xml</value>
+				<value>paybill/PayBillCGHSMaster.hbm.xml</value>
+				<value>paybill/PayBillCGEISMaster.hbm.xml</value>
+				<value>paybill/PayBillGroupMaster.hbm.xml</value>
+				<value>paybill/PayBillCcs.hbm.xml</value>
+				<value>paybill/PayBillCanfinMaster.hbm.xml</value>
+				<value>paybill/PayBillEmpCategoryMaster.hbm.xml</value>
+				<value>paybill/PayBillEmpPaymentDetails.hbm.xml</value>
+				<value>paybill/PayBillLoanDetails.hbm.xml</value>
+				<value>paybill/payBillDeduction.hbm.xml</value>
+				<value>paybill/EmpQuarterDetails.hbm.xml</value>
+				<value>paybill/PayTxnDetails.hbm.xml</value>
+				<value>paybill/PayBillStatus.hbm.xml</value>
+				<value>paybill/PayBillGPF.hbm.xml</value>
+				<value>paybill/EmpPayDues.hbm.xml</value>
+				<value>paybill/EmpPayEolDetails.hbm.xml</value>
+				<value>paybill/financialYearDetails.hbm.xml</value>
+				<value>paybill/incomeTaxStage.hbm.xml</value>
+				<value>paybill/incomeTaxArrears.hbm.xml</value>
+				<value>paybill/incomeTaxSavingsDetails.hbm.xml</value>
+				<value>paybill/incomeTaxConfigDetails.hbm.xml</value>
+				<value>paybill/ITArrearsStatusDetails.hbm.xml</value>
+				<value>paybill/ITCalcDetails.hbm.xml</value>
+				<value>paybill/ITSectionDetails.hbm.xml</value>
+				<value>paybill/ITRentDetails.hbm.xml</value>
+				<value>paybill/incometaxSavingsRun.hbm.xml</value>
+				<value>paybill/incometaxRun.hbm.xml</value>
+				<value>paybill/ITReportTemp.hbm.xml</value>
+				<value>paybill/prUpdateAllw.hbm.xml</value>
+				<value>paybill/incomeTaxRunStatus.hbm.xml</value>
+				<value>paybill/incomeTaxDurationDetails.hbm.xml</value>
+				<value>paybill/creditDB.hbm.xml</value>
+				<value>paybill/debitDB.hbm.xml</value>
+				<value>paybill/recoveriesDB.hbm.xml</value>
+				<value>paybill/coreDB.hbm.xml</value>
+				<value>paybill/payTxnMasterDetails.hbm.xml</value>
+				<value>paybill/payAllwType.hbm.xml</value>
+				<value>paybill/payAllwDetails.hbm.xml</value>
+				<value>paybill/payHindiInceDetails.hbm.xml</value>
+				<value>paybill/arrearsTxnDetails.hbm.xml</value>
+				<value>paybill/itSectionMappingDetails.hbm.xml</value>
+				<value>paybill/payTxnLogDetails.hbm.xml</value>
+				<value>paybill/payTxnMasterLogDetails.hbm.xml</value>
+				<value>paybill/twoAddIncrPayScaleDetails.hbm.xml</value>
+				<value>paybill/empPaymentDetailsLog.hbm.xml</value>
+				<!-- End : Pay Scale files -->
+
+				<!-- Start : Passport files -->
+				<value>hbmFiles/proceedingType.hbm.xml</value>
+				<value>hbmFiles/passportApplicationDetails.hbm.xml</value>
+				<value>hbmFiles/nocForPassport.hbm.xml</value>
+				<!-- End : Passport files -->
+
+				<!-- Start : FPA files -->
+			<!-- 	<value>fpa/fpaRequestDetails.hbm.xml</value> -->
+				<!-- <value>fpa/fpaRequestDetails.hbm.xml</value> -->
+				<!-- End : FPA files -->
+
+				<!-- Start :Annual Increment files -->
+				<value>increment/annualIncrementDetails.hbm.xml</value>
+				<!-- End : Annual Increment files -->
+
+
+				<!-- Start : TADA Files -->
+				<value>tada/daDetails.hbm.xml</value>
+				<value>tada/TaEntitleType.hbm.xml</value>
+				<value>tada/TadaCityType.hbm.xml</value>
+				<value>tada/TadaTravelType.hbm.xml</value>
+				<value>tada/TadaTravelTypeMap.hbm.xml</value>
+				<value>tada/TaEntitlementClass.hbm.xml</value>
+				<value>tada/DaNewDetails.hbm.xml</value>
+				<value>tada/TadaTdApprovalRequest.hbm.xml</value>
+				<value>tada/TadaTdAdvanceRequest.hbm.xml</value>
+				<value>tada/TadaTdTxnDetails.hbm.xml</value>
+				<value>tada/TadaTdDaNewDetails.hbm.xml</value>
+				<value>tada/TadaTdDaOldDetails.hbm.xml</value>
+				<value>tada/TadaTdRMAKm.hbm.xml</value>
+				<value>tada/TadaTdRMADay.hbm.xml</value>
+				<value>tada/TadaTdJourney.hbm.xml</value>
+				<value>tada/LocalRMA.hbm.xml</value>
+				<value>tada/TadaTdDaNewAccDetails.hbm.xml</value>
+				<value>tada/TadaTdDaNewFoodDetails.hbm.xml</value>
+				<value>tada/TadaTdLocalRMADetails.hbm.xml</value>
+				<value>tada/TadaTdFoodDetDayRep.hbm.xml</value>
+				<value>tada/TadaTdTotalFoodClaim.hbm.xml</value>
+				<value>tada/TadaTdReqJourney.hbm.xml</value>
+				<value>tada/TadaTdSettlementDetails.hbm.xml</value>
+				<value>tada/TadaTdAccDetDayRep.hbm.xml</value>
+				<value>tada/tadaTdLeaveDetails.hbm.xml</value>
+				<value>tada/TaEntitleExemption.hbm.xml</value>
+				<value>tada/Program.hbm.xml</value>
+				<value>tada/TadaTdRMADaily.hbm.xml</value>
+				
+				<value>tada/TadaWaterRequest.hbm.xml</value>
+			<!-- 	<value>tada/TadaWaterAdv.hbm.xml</value> -->
+				<!-- End : TADA Files -->
+
+
+
+
+				<!-- Start : DOPart-II Files -->
+				<value>hbmFiles/TypeMaster.hbm.xml</value>
+				<value>hbmFiles/CasualityMaster.hbm.xml</value>
+				<value>hbmFiles/essModuleMaster.hbm.xml</value>
+				<value>hbmFiles/doPartTaskHolder.hbm.xml</value>
+				<value>hbmFiles/dopartTypeDesigDetails.hbm.xml</value>
+				<value>hbmFiles/taskHolderDesignation.hbm.xml</value>
+				<value>hbmFiles/DoPartSerialNo.hbm.xml</value>
+				<!-- End : DOPart-II Files -->
+
+
+				<!-- Start : AdminMisc Files -->
+				<value>hbmFiles/adminMisc.hbm.xml</value>
+
+				<!-- End : AdminMisc Files -->
+
+				<!-- Start : Hrdg Training Files -->
+				<value>hbmFiles/trainingType.hbm.xml</value>
+				<value>hbmFiles/trainingInistitute.hbm.xml</value>
+				<value>hbmFiles/courseSubjCategory.hbm.xml</value>
+				<value>hbmFiles/courseSubjSubCategory.hbm.xml</value>
+				<value>hbmFiles/trainingVenue.hbm.xml</value>
+				<value>hbmFiles/course.hbm.xml</value>
+				<value>hbmFiles/courseDesignations.hbm.xml</value>
+				<value>hbmFiles/courseDisciplines.hbm.xml</value>
+				<value>hbmFiles/courseDurations.hbm.xml</value>
+				<value>hbmFiles/hrdgBoardType.hbm.xml</value>
+				<value>hbmFiles/hrdgBoard.hbm.xml</value>
+				<value>hbmFiles/hrdgBoardMemberType.hbm.xml</value>
+				<value>hbmFiles/hrdgBoardMember.hbm.xml</value>
+				<value>hbmFiles/trainingCirculation.hbm.xml</value>
+				<value>hbmFiles/trainingCirculationDept.hbm.xml</value>
+				<value>hbmFiles/fileMaster.hbm.xml</value>
+				<value>hbmFiles/trainingNomination.hbm.xml</value>
+				<value>hbmFiles/hrdgRequest.hbm.xml</value>
+				<value>hbmFiles/hrdgCancelRequest.hbm.xml</value>
+				<value>hbmFiles/trainingRegion.hbm.xml</value>
+				<value>hbmFiles/financialYear.hbm.xml</value>
+				<value>hbmFiles/courseQualifications.hbm.xml</value>
+				<value>hbmFiles/courseContent.hbm.xml</value>
+				<value>hbmFiles/courseAttendedDetails.hbm.xml</value>
+				<value>hbmFiles/awardMaster.hbm.xml</value>
+
+
+				<!-- End : Hrdg Training Files -->
+
+				<!-- Start : Tution Fee Files -->
+				<value>tutionFee/tfClaimMaster.hbm.xml</value>
+				<value>tutionFee/tfRequestDetails.hbm.xml</value>
+				<value>tutionFee/tfAcademicYearDetails.hbm.xml</value>
+				<value>tutionFee/tfClaimRequestDetails.hbm.xml</value>
+				<value>tutionFee/tfBillSanctionDetails.hbm.xml</value>
+				<value>tutionFee/tutionFeeLimitMaster.hbm.xml</value>
+				<value>tutionFee/claimTypeMaster.hbm.xml</value>
+				<!-- End : Tution Fee Files -->
+
+				<!-- Start : Telephone Bill Files -->
+				<value>telephone/telephoneEligibility.hbm.xml</value>
+				<value>telephone/telephoneBillClaimDetails.hbm.xml</value>
+				<value>telephone/telephoneDesigEligibility.hbm.xml</value>
+				<value>telephone/telephoneEmpEligibilityDetails.hbm.xml</value>
+				<value>telephone/telephoneCashAssignment.hbm.xml</value>
+				<!-- End : Telephone Bill Files -->
+
+				<!-- Start : MT Files -->
+
+				<value>mthbmfiles/driverDetails.hbm.xml</value>
+				<value>mthbmfiles/travelAgencyDetails.hbm.xml</value>
+				<value>mthbmfiles/vehicleCategoryDetails.hbm.xml</value>
+				<value>mthbmfiles/vehicleDetails.hbm.xml</value>
+				<value>mthbmfiles/vehicleTypeDetails.hbm.xml</value>
+				<value>mthbmfiles/addressDetails.hbm.xml</value>
+				<!--<value>mthbmfiles/articleDetails.hbm.xml</value> -->
+				<value>mthbmfiles/modelMasterDetails.hbm.xml</value>
+				<value>mthbmfiles/vehicleCarriageTypeDetails.hbm.xml</value>
+				<value>mthbmfiles/vehicleSensitiveTypeDetails.hbm.xml</value>
+				<value>mthbmfiles/vehiclePoolTypeDetails.hbm.xml</value>
+				<!--<value>mthbmfiles/vehicleDriverDetails.hbm.xml</value> -->
+				<value>mthbmfiles/vehicleAllocationDetails.hbm.xml</value>
+				<value>mthbmfiles/driverAbsent.hbm.xml</value>
+				<value>mthbmfiles/vehicleAbsent.hbm.xml</value>
+				<value>mthbmfiles/vehicleMileage.hbm.xml</value>
+				<!-- <value>mthbmfiles/vehicleRequestDetails.hbm.xml</value> -->
+				<value>mthbmfiles/FuelType.hbm.xml</value>
+				<value>mthbmfiles/MTRequestDetails.hbm.xml</value>
+				<value>mthbmfiles/MTJourneyDetails.hbm.xml</value>
+				<value>mthbmfiles/MTArticleDetails.hbm.xml</value>
+				<value>mthbmfiles/MTVehicleDriverMap.hbm.xml</value>
+
+				<!-- End : MT Files -->
+
+				<!-- Start : Hindi Files -->
+				<value>hindihbmfiles/hindiEmployeeDetails.hbm.xml</value>
+				<value>hindihbmfiles/hindiExamDetails.hbm.xml</value>
+				<value>hindihbmfiles/hindiExamConfigDetails.hbm.xml</value>
+				<value>hindihbmfiles/hindiCashAwardDetails.hbm.xml</value>
+				<value>hindihbmfiles/hindiNominationDetails.hbm.xml</value>
+				<value>hindihbmfiles/hindiResultDetails.hbm.xml</value>
+				<value>hindihbmfiles/hindiNonEligibleEmpExamDetails.hbm.xml</value>
+				<value>hindihbmfiles/hindiEligibleEmpExamDetails.hbm.xml</value>
+				<value>hindihbmfiles/hindiIncentiveDetails.hbm.xml</value>
+				<!-- End : Hindi Files -->
+
+				<!-- Start : Letter Number reference Files -->
+
+				<value>hbmFiles/LetterNumberReference.hbm.xml</value>
+				<!-- End : Letter Number reference -->
+				
+				
+				<value>hbmFiles/ltcYearsMaster.hbm.xml</value>
+				<value>hbmFiles/LtcWaterRequestDetails.hbm.xml</value>
+				
+				<value>hbmFiles/LtcWaterFamilyDetails.hbm.xml</value>
+					<value>hbmFiles/LeaveYearsMaster.hbm.xml</value>
+					
+						<value>hbmFiles/leaveDaysEntry.hbm.xml</value>
+				
+				<value>hbmFiles/availableErpLeaves.hbm.xml</value>
+				
+				<value>hbmFiles/erpLeaveSave.hbm.xml</value>
+				
+				<value>hbmFiles/empErpLeaveSave.hbm.xml</value>
+				<value>hbmFiles/erpEmpLeaveDetails.hbm.xml</value>
+				
+				   <!-- Start : HealthInsurance hbm file -->
+                
+                 <value>hbmFiles/HealthInsurance.hbm.xml</value> 
+				<value>hbmFiles/HealthSubcription.hbm.xml</value> 
+				      <!-- End : HealthInsurance hbm file -->
+			</list>
+		</property>
+		<property name="annotatedClasses">
+			<list>
+				<value>com.callippus.web.tada.dto.DaOnTourDTO</value>
+				<value>com.callippus.web.retriments.dto.RetrimentDTO</value>
+			</list>
+		</property>
+	<!-- 	<property name="annotatedClasses">
+			<list>
+				<value>com.callippus.web.retriments.dto.RetrimentDTO</value>
+			</list>
+		</property> -->
+
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
+				<prop key="hibernate.query.factory_class">org.hibernate.hql.ast.ASTQueryTranslatorFactory
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="log4jConfigurer"
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetClass">
+			<value>org.springframework.util.Log4jConfigurer</value>
+		</property>
+		<property name="targetMethod">
+			<value>initLogging</value>
+		</property>
+		<property name="arguments">
+			<list>
+				<value>classpath:log4j/log4j.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- start: Transaction Management configuration -->
+	<!-- <bean id="txManager" class="org.springframework.transaction.jta.JtaTransactionManager" 
+		/> -->
+	<!-- End : Transaction Management configuration -->
+
+	<!-- start: Mail service configuration -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="mail.asl.net"></property>
+		<property name="port" value="25"></property>
+		<property name="username" value="ess@asl.net"></property> <!-- essamc@asl.net -->
+		<property name="password" value="c@llippusm@il@123"></property> <!-- c@llippusm@il -->
+	</bean>
+
+	<bean id="simpleMessage" class="org.springframework.mail.SimpleMailMessage">
+		<property name="from" value="ess@asl.net"/>
+		<property name="subject" value="Ess Request"/>
+	</bean>
+
+	<bean id="orderManager" class="com.callippus.web.business.mailImpl.MailImplementaion">
+		<property name="mailSender" ref="mailSender"/>
+		<property name="simpleMessage" ref="simpleMessage"/>
+	</bean>
+	<!-- End : Mail service configuration -->
+
+</beans>

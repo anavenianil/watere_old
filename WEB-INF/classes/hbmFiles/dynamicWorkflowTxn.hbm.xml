@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.dto.DynamicWorkflowTxnDTO" table="WORKFLOW_DYNAMIC_TXN_DETAILS">
+		<id name="id" column="id">
+			<generator class="sequence">
+				<param name="sequence">WORKFLOW_DYNAMIC_TXN_DET_SEQ</param>
+			</generator>
+		</id>
+		<property name="requestID" column="REQUEST_ID" type="int"/>
+		<property name="requestTypeID" column="REQUEST_TYPE_ID" type="int"/>
+		<property name="dynamicTo" column="DYNAMIC_TO" type="java.lang.String"/>
+		<property name="status" column="status" type="int"/>
+	</class>
+</hibernate-mapping>

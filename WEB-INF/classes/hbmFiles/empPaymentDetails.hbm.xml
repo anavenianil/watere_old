@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.dto.EmpPaymentsDTO" table="EMP_PAYMENT_DETAILS">
+		
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">EMP_PAYMENT_DETAILS_SEQ</param>
+			</generator>
+		</id>
+			
+		<property name="sfid" column="sfid"/>
+		<property name="basicPay" column="basic_pay" />
+		<property name="gradePay" column="grade_pay" />
+	</class>
+</hibernate-mapping>

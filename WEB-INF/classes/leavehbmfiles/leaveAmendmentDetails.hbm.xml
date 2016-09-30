@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.leave.dto.LeaveAmendmentDTO" table="LEAVE_AMENDMENT_DETAILS">
+		<id name="requestId" column="LRD_REQUEST_ID" type="int" />
+		<property name="amendmentId" column="LRD_AMENDED_ID" type="int" />
+		<property name="description" column="REMARKS" type="java.lang.String" />
+		<property name="createdBy" column="CREATED_BY" update="false" type="java.lang.String" />
+		<property name="creationTime" column="CREATION_DATE" update="false" />
+		<property name="lastModifiedBy" column="LAST_MODIFIED_BY" type="java.lang.String" />
+		<property name="lastModifiedTime" column="LAST_MODIFIED_DATE" />
+	</class>
+</hibernate-mapping>

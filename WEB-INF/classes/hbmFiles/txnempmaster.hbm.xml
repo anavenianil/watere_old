@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.requests.PISRequestBean" table="txn_emp_master">
+		<id name="requestID" column="request_id"></id>
+		<property name="sfID" column="sfid" />
+		<property name="residenceNo" column="residence_number" />
+		<property name="internalNo" column="internal_number" />
+		<property name="personalNumber" column="personal_number" />
+		<property name="ipAddress" column="ip_address" />		
+	</class>
+</hibernate-mapping>

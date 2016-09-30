@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.requests.NomineeRequestBean" table="txn_nominee_details">
+		<id name="txnID" column="id"></id>
+		<property name="requestID" column="request_id"/>
+		<property name="sfID" column="sfid" />
+		<property name="nomineeID" column="change_id" />
+		<property name="nomineeTypeId" column="nominee_type_id" />
+		<property name="familyID" column="family_member_id"/>
+		<property name="nomineeName" column="nominee" />
+		<property name="percentage" column="percentage" />
+		<property name="dateOfNominate" column="date_of_nominate" />
+		<property name="address1" column="address1" />
+		<property name="address2" column="address2" />
+		<property name="address3" column="address3" />
+		<property name="city" column="city" />
+		<property name="stateId" column="state_id" />
+		<property name="districtId" column="district_id" />
+		<property name="pincode" column="pincode" />
+		<property name="ipAddress" column="ip_address" />
+		<property name="remarks" column="remarks" />
+	</class>		
+</hibernate-mapping>

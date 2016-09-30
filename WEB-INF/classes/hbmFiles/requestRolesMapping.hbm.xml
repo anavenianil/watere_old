@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.dto.RequestRolesMappingDTO" table="request_role_mapping">
+		<id name="id" column="id">
+			<generator class="sequence">
+				<param name="sequence">REQUEST_ROLE_MAPPING_SEQ</param>
+			</generator>
+		</id>
+		<property name="applicationRoleId" column="application_role_id" />
+		<property name="requestTypeId" column="request_type_id" />
+		<property name="status" column="status" />
+		<property name="creationDate" column="creation_date" />	
+		<property name="modifiedDate" column="last_modified_date" />
+		<property name="lastModifiedBy" column="last_modified_by" />	
+	</class>
+</hibernate-mapping>

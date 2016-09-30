@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.telephone.TelephoneBillClaimDetailsDTO" table="TELEPHONE_BILL_CLAIM_DETAILS" >
+		<id name="id" type="int" column="ID">
+			<generator class="sequence">
+				<param name="sequence">TELE_BILL_CLAIM_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="claimId" column="CLAIM_ID" />
+		<property name="sfid" column="SFID" />
+		<property name="telephoneNo" column="TELEPHONE_NO" />
+		<property name="billNo" column="BILL_NO" />
+		<property name="billDated" column="BILL_DATED" />
+		<property name="receiptNo" column="RECEIPT_NO" />
+		<property name="receiptDated" column="RECEIPT_DATED" />
+		<property name="amountClaimed" column="AMOUNT_CLAIMED" />
+		<property name="serviceTax" column="SERVICE_TAX" />
+		<property name="requestId" column="REQUEST_ID" />
+		<property name="createdBy" column="CREATED_BY" />
+		<property name="lastModifiedBy" column="LAST_MODIFIED_BY" />
+		<property name="creationDate" column="CREATION_DATE" />
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" />
+		<property name="status" column="STATUS" />
+		<property name="sanctionedDate" column="SANCTIONED_DATE" />
+		<property name="sanctionedAmount" column="SANCTIONED_AMOUNT" />
+		<property name="total1" column="TOTAL" />
+		<property name="internetFlag" column="INTERNET_FLAG" />
+		<property name="sanctionedInternetFlag" column="SANCTIONED_INTERNET_FLAG" />
+		<property name="eligibilityId" column="ELIGIBILITY_ID" />
+	</class>
+</hibernate-mapping>
+

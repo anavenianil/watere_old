@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.leave.dto.AvailableLeavesDTO" table="available_leaves">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">AVAILABLE_LEAVES_SEQ</param>
+			</generator>
+		</id>
+		<property name="sfID" column="sfid" />
+		<many-to-one name="leaveTypeDetails"
+			class="com.callippus.web.leave.dto.LeaveTypeDTO" column="leave_type_id"
+			not-null="true" unique="true" lazy="false" update="false"/>
+			
+		<property name="leaveTypeID" column="leave_type_id" insert="false" update="false"/>
+		<property name="availableLeaves" column="available_leaves" />		
+	</class>
+</hibernate-mapping>

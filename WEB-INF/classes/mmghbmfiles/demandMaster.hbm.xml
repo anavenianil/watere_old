@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.mmg.cashbuildup.beans.DemandMasterDTO" table="MMG_B_DEMAND_MASTER">
+		<id name="demandNo" column="DEMAND_NO">
+			<generator class="sequence">
+				<param name="sequence">MMG_B_DEMAND_MASTER_SEQ</param>
+			</generator>
+		</id>
+		<property name="demadTypeId" column="DEMAND_TYPE_ID" />
+		<list name="demandItems" cascade="all" table="MMG_B_DEMAND_ITEM_DETAILS" lazy="false">
+			<key column="DEMAND_NO" update="false"></key>
+			<list-index column="id"></list-index>
+			<one-to-many class="com.callippus.web.mmg.cashbuildup.dto.DemandItemDetailsDTO"/>
+		</list>
+		<property name="accountHeadId" column="ACCOUNT_HEAD_ID" />
+		<property name="inventoryNo" column="INVENTORY_NO" />
+		<property name="demandDate" column="DEMAND_DATE" />
+		<property name="projectCode" column="PROJECT_CODE" />
+		<property name="mmgControlNo" column="MMG_CONTROL_NO" />
+		<property name="mmgControlDate" column="MMG_CONTROL_DATE" />
+		<property name="totalCost" column="TOTAL_COST" />
+		<property name="status" column="STATUS" />
+		<property name="remarks" column="REMARKS" />
+		<property name="raisedBy" column="RAISED_BY" />
+		<property name="ipAddress" column="IP_ADDRESS" />
+		<property name="requestId" column="REQUEST_ID" />
+		<property name="cancelRequestId" column="CANCEL_REQUEST_ID" />
+		<property name="demandCancelDate" column="CANCEL_DATE" />
+		<property name="reason" column="REASON" />
+		<property name="creationDate" column="CREATION_DATE" />
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" />		
+    </class>
+</hibernate-mapping>

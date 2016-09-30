@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.redetails.ReDetailsBean" table="report_details">
+		<id name="id" column="id">
+		  <generator class="sequence">
+				<param name="sequence">REPORT_DETAILS_SEQ</param>
+			</generator>
+		</id>		
+		<property name="txnDate" column="txn_date" />		
+		<property name="designationId" column="key_name" />
+		<property name="reportType" column="report_type" />		
+		<property name="reValue" column="key_value" />		
+		<property name="categoryID" column="CATEGORY_ID"/>	
+	</class>
+</hibernate-mapping>

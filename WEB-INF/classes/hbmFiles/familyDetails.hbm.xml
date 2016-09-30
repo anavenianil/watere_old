@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.family.FamilyBean" table="family_details">
+		<id name="id" column="id"></id>
+		<property name="sfid" column="sfid" />
+		<property name="name" column="name" />
+		<property name="relationId" column="relation_id" insert="true"/>
+		<many-to-one name="relationDetails"
+			class="com.callippus.web.beans.dto.FamilyRelationDTO" column="relation_id"
+			not-null="true" lazy="false" update="false" insert="false"/>
+		<property name="gender" column="sex" />
+		<property name="dob" column="dob" />
+		<property name="dobFormated" column="dob" insert="false" update = "false"/>
+		<property name="strDob" column="dob" insert="false" update="false"  formula="(select to_char(fd.dob,'dd-Mon-yyyy') from family_details fd where fd.id=id)"/>
+		<property name="age" column="age" />
+		<property name="dependent" column="dependent" />
+		<property name="dependentFrom" column="dependent_from" />
+		<property name="maritalstatus" column="marital_status_id" />
+		<property name="bloodGroup" column="blood_group" />
+		<property name="contactNumber" column="contact_number" />
+		<property name="address1" column="Address1" />
+		<property name="address2" column="Address2" />
+		<property name="address3" column="Address3" />
+		<property name="addressTypeId" column="address_type_id" />
+		<property name="city" column="city" />
+		<property name="state" column="state_id" />
+		<property name="district" column="district_id" />
+		<property name="pincode" column="pin_code" />
+		<property name="status" column="status" />
+		<property name="creationDate" column="creation_date" update="false"/>
+		<property name="modifiedDate" column="last_modified_date" />
+		<property name="employeed" column="employed" />
+		<property name="employeedType" column="employed_type" />
+		<property name="residingWith" column="residing_with" />
+		<property name="declareDate" column="family_declare_date" />
+		<property name="phtypeFlag" column="ph_type_flag" />
+		<property name="adopted" column="adopted" />
+		<property name="adoptedDate" column="adopted_date" />
+		<property name="ltcFacility" column="ltc_Facility" />
+		<property name="cghsFacility" column="cghs_facility" />
+		<property name="disabilityId" column="disability_id" />
+		<property name="earningMoney" column="earning_money" />
+		<property name="placeOfIssue" column="place_of_issue" />
+		<property name="beneficiary" column="beneficiary" />
+		<property name="cghscard" column="cghscard" />
+		<property name="validFrom" column="valid_from"  />
+		<property name="validTo" column="valid_to" />	
+	</class>
+</hibernate-mapping>

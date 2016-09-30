@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.telephone.TelephoneDesigEligibilityDetailsDTO" table="TELE_DESIG_ELIGIBILE_DETAILS">
+		<id name="id" column="id">
+			<generator class="sequence">
+				<param name="sequence">TELE_DESIG_ELIGIBILE_SEQ</param>
+			</generator>
+		</id>
+		<property name="designationId" column="DESIGNATION_ID" />
+		<property name="amountWithInternet" column="AMOUNT_WITHINTERNET"/>
+		<property name="serviceTaxWithInternet" column="SERVICE_TAX_WITHINTERNET" />
+		<property name="totAmountWithInternet" column="TOTAL_AMOUNT_WITHINTERNET" />
+		<property name="amountWithoutInternet" column="AMOUNT_WITHOUT_INTERNET"/>
+		<property name="serviceTaxWithoutInternet" column="SERVICE_TAX_WITHOUT_INTERNET" />
+		<property name="totAmountWithoutInternet" column="TOTAL_AMOUNT_WITHOUT_INTERNET" />
+		<property name="applicableEmployee" column="APPLICABLE_EMPLOYEE" />
+		<property name="status" column="STATUS" />
+		<property name="createdBy" column="CREATED_BY" />
+		<property name="lastModifiedBy" column="LAST_MODIFIED_BY" />
+		<property name="creationDate" column="CREATION_DATE" />
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" />
+	</class>
+</hibernate-mapping>
+

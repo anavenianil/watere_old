@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.test.TestDeatailsDTO" table="TEST_DETAILS">
+		<id name="id" column="ID">
+			<generator class="sequence">
+			<param name="sequence">test_details_id</param>
+			</generator>
+		</id>
+		<property name="filename" column="TEST_NAME" />
+		<property name="notes" column="TEST_MASTER_ID" />
+	</class>
+</hibernate-mapping>

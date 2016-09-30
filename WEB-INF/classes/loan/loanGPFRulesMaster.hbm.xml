@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.loan.beans.dto.GPFRulesDTO" table="loan_gpf_rules_master">		
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">LOAN_GPF_RULES_MASTER_SEQ</param>
+			</generator>
+		</id>
+		<property name="loanTypeID" column="loan_type_id" insert="true"
+			update="true" type="int" not-null="true"/>
+		<many-to-one name="loanTypeDetails"
+			class="com.callippus.web.loan.beans.dto.LoanTypeMasterDTO" column="loan_type_id"
+			update="false" lazy="false" insert="false" />
+		<property name="purpose" column="purpose"  type="java.lang.String" not-null="true"/>
+		<property name="rule" column="gpf_rule"  type="java.lang.String" not-null="true"/>
+		<property name="status" column="status" type="int" not-null="true" />
+		<property name="createdBy" column="created_by" update="false" type="java.lang.String" not-null="true" />
+		<property name="creationTime" column="creation_date" update="false" type="java.util.Date" not-null="true"/>
+		<property name="lastModifiedTime" column="last_modified_date" type="java.util.Date" not-null="true"/>
+		<property name="lastModifiedBy" column="last_modified_by" type="java.lang.String" not-null="true" />				
+	</class>
+</hibernate-mapping>
+

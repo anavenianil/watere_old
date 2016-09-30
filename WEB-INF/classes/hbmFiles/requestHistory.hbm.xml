@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.requests.RequestCommonBean" table="request_workflow_history">
+		<id name="historyID" column="id"></id>
+		<property name="requestID" column="request_id" />
+		<property name="workflowID" column="workflow_id" />
+		<property name="requestTypeID" column="request_type_id" />
+		<property name="stageID" column="request_stage" />
+		<property name="sfID" column="assigned_from" />
+		<property name="assignedDate" column="assigned_date" update="false"/>
+		<property name="parentID" column="assigned_to" />
+		<property name="actionedDate" column="actioned_date" />
+		<property name="remarks" column="remarks" />
+		<property name="status" column="status" />
+		<property name="ipAddress" column="ip_address" />
+		<property name="stageStatus" column="stage_status" />
+		<property name="assignedRoleID" column="assigned_role_id" />
+		<property name="appliedBy" column="applied_by" />		
+	</class>		
+</hibernate-mapping>

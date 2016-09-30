@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.leave.dto.LeaveAccountDTO" table="leave_account">
+		<id name="id" column="id" type="int">
+			<generator class="sequence">
+				<param name="sequence">LEAVE_ACCOUNT_SEQ</param>
+			</generator>
+		</id>
+		<property name="sfID" column="sfid" update="false"/>
+		<property name="requestID" column="request_id" update="false"/>
+		<property name="status" column="status"/>			
+		<property name="one" column="one" update="false"/>	
+		<property name="two" column="two" update="false"/>	
+		<property name="three" column="three" update="false"/>	
+		<property name="four" column="four" update="false"/>	
+		<property name="five" column="five" update="false"/>	
+		<property name="six" column="six" update="false"/>	
+		<property name="seven" column="seven" update="false"/>	
+		<property name="eight" column="eight" update="false"/>	
+		<property name="nine" column="nine" update="false"/>	
+		<property name="ten" column="ten" update="false"/>	
+		<property name="eleven" column="eleven"/>	
+		<property name="twelve" column="twelve" update="false"/>	
+		<property name="thirteen" column="thirteen" update="false"/>	
+		<property name="fourteen" column="fourteen" update="false"/>	
+		<property name="fifteen" column="fifteen" update="false"/>	
+		<property name="sixteen" column="sixteen" update="false"/>	
+		<property name="seventeen" column="seventeen" update="false"/>	
+		<property name="eighteen" column="eighteen" update="false"/>	
+		<property name="nineteen" column="nineteen" update="false"/>	
+		<property name="twenty" column="twenty" update="false"/>	
+		<property name="twentyone" column="twentyone" update="false"/>	
+		<property name="twentytwo" column="twentytwo" update="false"/>	
+		<property name="twentythree" column="twentythree" update="false"/>	
+		<property name="twentyfour" column="twentyfour" update="false"/>	
+		<property name="twentyfive" column="twentyfive" update="false"/>	
+		<property name="twentysix" column="twentysix" update="false"/>	
+		<property name="twentyseven" column="twentyseven" update="false"/>	
+		<property name="twentyeight" column="twentyeight" update="false"/>	
+		<property name="twentynine" column="twentynine" update="false"/>	
+		<property name="thirty" column="thirty" update="false"/>	
+		<property name="thirtyone" column="thirtyone" update="false"/>	
+		<property name="thirtytwo" column="thirtytwo" update="false"/>	
+		<property name="thirtythree" column="thirtythree" update="false"/>	
+		<property name="thirtyfour" column="thirtyfour" update="false"/>	
+		<property name="thirtyfive" column="thirtyfive"/>	
+		<property name="thirtysix" column="thirtysix" update="false"/>
+		<property name="creationDate" column="creation_date" update="false"/>
+		<property name="lastModifiedDate" column="last_modified_date"/>				
+	</class>
+</hibernate-mapping>

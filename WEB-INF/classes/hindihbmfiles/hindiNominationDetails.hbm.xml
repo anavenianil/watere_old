@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	<hibernate-mapping>
+		<class name="com.callippus.web.hindi.dto.HindiNominationDTO" table="HINDI_NOMINATION_MASTER">
+				<id name="sfid"  column="SFID">
+					<generator class="sequence">
+				<param name="sequence">HINDI_NOMINATION_MASTER_SEQ</param>
+			</generator>
+				</id>	
+												
+				<property name="department" column="DEPARTMENT_ID" />
+				<property name="fromDate" column="FROM_DATE" />	
+				<property name="status" column="STATUS" />																				
+		</class> 
+	</hibernate-mapping>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.hrdg.training.beans.dto.HRDGBoardMemberDTO" table="HRDG_BOARD_MEMBER_MASTER">
+		<id name="id" column="id">
+			<generator class="sequence">
+				<param name="sequence">HRDG_BOARD_MEMBER_MASTER_SEQ</param>
+			</generator>
+		</id>
+		<property name="boardId" column="board_id" />
+		<property name="memberTypeId" column="member_type_id" />
+		<property name="sfid" column="sfid" />
+		
+		<property name="status" column="status" />
+		
+		<property name="creationDate" column="creation_Date" update="false"/>
+		<property name="createdBy" column="created_by" update="false"/>
+		<property name="lastModifiedDate" column="last_modified_date" />
+		<property name="lastModifiedBy" column="last_modified_by" />
+
+
+	</class>
+</hibernate-mapping>

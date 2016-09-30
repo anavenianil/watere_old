@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.ltc.dto.LtcJourneyDetailsDTO" table="LTC_JOURNEY_DETAILS">
+		<id name="id" column="ID" unsaved-value="0">
+		<!--commented by bkr 07/04/2016  -->
+			<!-- <generator class="sequence">
+				<param name="sequence">LTC_JOURNEY_DETAILS_SEQ</param>
+			</generator> -->
+		</id>
+		<property name="referenceId" column="REFERENCE_ID" />
+		<property name="departureDate" column="DEPARTURE_DATE" />
+		<property name="departureDateOne" column="DEPARTURE_DATE" formula="(select to_char(lb.DEPARTURE_DATE,'dd-Mon-yyyy') from LTC_JOURNEY_DETAILS lb where lb.id=ID)" insert="false" update="false"/>
+		<property name="departureTime" column="DEPARTURE_TIME"/>
+		<property name="arrivalDate" column="ARRIVAL_DATE"/>
+		<property name="arrivalDateOne" column="ARRIVAL_DATE" formula="(select to_char(lb.ARRIVAL_DATE,'dd-Mon-yyyy') from LTC_JOURNEY_DETAILS lb where lb.id=ID)" insert="false" update="false"/>
+		<property name="arrivalTime" column="ARRIVAL_TIME"/>
+		<property name="arrivalStation" column="ARRIVAL_STATION"/>
+		<property name="departureStation" column="DEPARTURE_STATION" />
+		<property name="distance" column="DISTANCE" />
+		<property name="modeOfTravel" column="MODE_OF_TRAVEL" />
+		<property name="farePerPerson" column="FARE_PER_PERSON" />
+		<property name="noOfPersons" column="NO_OF_PERSONS" />
+		<property name="amtAfterRestriction" column="AMOUNT_AFTER_RESTRICTION" />
+		<property name="totalClaimed" column="TOTAL_CLAIMED" />
+		<property name="titcketNos" column="TICKET_NOS" />
+		<property name="remarks" column="REMARKS" />
+		<property name="journeyType" column="JOURNEY_TYPE" />
+	</class>
+</hibernate-mapping>

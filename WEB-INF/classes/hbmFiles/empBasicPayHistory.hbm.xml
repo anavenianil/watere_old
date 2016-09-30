@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.dto.EmpBasicPayHistoryDTO" table="EMP_BASIC_PAY_HISTORY">
+		
+		<id name="id" type="int" column="ID">
+			<generator class="sequence">
+				<param name="sequence">EMP_BASIC_PAY_HISTORY_SEQ</param>
+			</generator>
+		</id>
+			
+		<property name="sfid" column="SFID" type="java.lang.String" not-null="true"/>
+		<property name="basicPay" column="BASIC_PAY" type="float" not-null="true"/>
+		<property name="incrementType" column="INC_TYPE" type="java.lang.String" not-null="true"/>
+		<property name="incrementValue" column="INC_VALUE" type="float" not-null="true"/>
+		<property name="referenceType" column="REFERENCE_TYPE" type="java.lang.String" not-null="true"/>
+		<property name="designationId" column="DESIGNATION_ID" type="int" not-null="true"/>
+		<property name="status" column="STATUS" type="int" not-null="true"/>
+		<property name="presentEffectiveDate" column="EFFECTIVE_DATE" />
+		
+		<property name="creationDate" column="CREATION_DATE" update="false"/>
+		<property name="createdBy" column="CREATED_BY" />
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" />
+		<property name="lastModifiedBy" column="LAST_MODIFIED_BY" />
+		
+	</class>
+</hibernate-mapping>

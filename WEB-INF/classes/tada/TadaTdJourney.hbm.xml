@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.tada.dto.TadaTdJourneyDTO" table="tada_td_da_journey_details">
+		<id name="id" column="id">
+			<generator class="sequence">
+				<param name="sequence">TADA_TD_DA_JOURNEY_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="settlementRequestId" column="settlement_request_id" />
+		<property name="journeyDate" column="journey_start_date" />
+		<property name="startTime" column="start_time" />
+		<property name="startStation" column="start_station" />
+		<property name="journeyEndDate" column="journey_end_date"/>
+		<property name="endTime" column="end_time" />
+		<property name="endStation" column="end_station" />
+		<property name="distanceJourney" column="distance_journey" />
+		<property name="modeOfTravel" column="mode_of_travel"/>
+		<property name="ticketFare" column="ticket_fare" />
+		<property name="ticketFareAftRes" column="ticket_fare_aft_res" />
+		<property name="totalJourneyAmount" column="total_journey_amount" />
+		<property name="ticketNo" column="ticket_no" />
+		<property name="type" column="request_type"/>
+		<property name="amountAftRestriction" column="amount_aft_restriction"/>
+	</class>
+</hibernate-mapping>

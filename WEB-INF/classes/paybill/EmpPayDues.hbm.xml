@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.callippus.web.paybill.dto.PayBillDuesDTO" table="pay_dues_details">
+		<id name="id"  type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">PAY_DUES_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="sfid" column="sfid"  not-null="true" type="java.lang.String"  />
+		<property name="amount" column="d_amt"  type="int"/>
+		<property name="deductionType" column="d_type" type="java.lang.String" />
+		<property name="deductionName" column="d_name" type="java.lang.String" />
+		<property name="recAmount" column="r_amt"  type="int"/>
+		<property name="status" column="status" type="int" />
+		<property name="creationDate" column="creation_date"  type="java.lang.String"/>
+		<property name="createdBy" column="created_by" type="java.lang.String" />
+		<property name="modifiedBy" column="modified_by" type="java.lang.String" />
+		<property name="modifiedDate" column="modified_date" type="java.lang.String"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.ltc.dto.LTCWaterRequestDTO" table="LTC_WATER_REQUEST_DETAILS">
+		<id name="requestId" column="REQUEST_ID">
+		</id>
+		<property name="sfID" column="SFID" />
+		<property name="designation" column="DESIGNATION_ID" />
+	<!-- 	<property name="deptName" column="DEPARTMENT_ID" /> -->
+		<property name="deptId" column="DEPARTMENT_ID" />
+		<property name="status" column="STATUS" />
+		<property name="phnNo" column="PHONE_NUMBER" />
+		<property name="typeOfLtc" column="LTC_TYPE" />
+		<property name="ltcYear" column="LTC_YEAR_ID" />
+		<property name="hometownAddr" column="HOMETOWNADDR" />
+		<property name="startHoliday" column="STARTHOLIDAY" />
+		<property name="returnHoliday" column="RETURNHOLIDAY" />
+		<property name="nod" column="NO_OF_DAYS" />
+		<property name="noOfAdultsTickets" column="NOOF_ADULTS_TICKETS" />
+		<property name="noOfChildrenTickets" column="NOOF_CHILDREN_TICKETS" />
+		<property name="leaveType" column="LEAVE_TYPE" />
+		<property name="applyDate" column="APPLIED_DATE" />
+		<property name="totalTickets" column="TOTAL_TICKETS" />
+		<property name="ipAddress" column="IPADDRESS" />
+		<property name="advance" column="ADVANCE_FLAG" />
+		<property name="amountAdults" column="AMOUNT_ADULTS" />
+		<property name="amountChildren" column="AMOUNT_CHILDREN" />
+		<property name="adultsTotAmt" column="TOTAL_ADULTS_AMT" />
+		<property name="childrenTotAmt" column="TOTAL_CHILDREN_AMT" />
+		<property name="refLetterDate" column="REF_LETTER_DATE" />
+		<property name="refLetterNo" column="REF_LETTER_NO" />
+		<property name="otherAmt" column="OTHER_AMT" />
+		<property name="totalTicketsAmt" column="TOTAL_TICKETS_AMT" />
+		<property name="ltcadvBankName" column="ADV_BANKNAME" />
+		<property name="ltcadvBranchName" column="ADV_BRANCH_NAME" />
+		<property name="ltcadvChequeNo" column="ADV_CHEQUENO" />
+		<property name="ltcadvAdminDvno" column="ADV_ADMINDVNO" />
+		<property name="ltcadvAdminDvDate" column="ADV_ADMINDVDATE" />
+		<property name="ltcadvcashorcheck" column="ADV_CASHORCHECK" />
+		<property name="ltcsettleOrReim" column="SEL_OR_REIM" />
+		<property name="ltcactualExpenditure" column="ACTUAL_EXPENDITURE" />
+		<property name="ltcsettleOrReimAmt" column="SETTLEORREIM_AMT" />
+		<property name="ltcsettleOrReimApplyDate" column="SETTELMENT_DATE" />
+		<property name="ltcselOrReimRemarks" column="SETTLEMENT_REMARKS" />
+		
+		
+		<property name="settlementAdminDate" column="SETTELMENT_ADMIN_DATE" />
+		<property name="settlementAdminRemarks" column="SETTELMENT_ADMIN_REMARKS" />
+		
+		
+		
+		<property name="reimbursementAdminRemarks" column="REIM_ADMIN_REMARKS" />
+		<property name="reimbursementAdminDate" column="REIM_ADMIN_DATE" />
+		<property name="ltcreimcashorcheck" column="REIM_ADMIN_CASHORCHECK" />
+		<property name="ltcreimBankName" column="REIM_BANKNAME" />
+		<property name="ltcreimBranchName" column="REIM_BRANCH_NAME" />
+		<property name="ltcreimChequeNo" column="REIM_CHEQUENO" />
+		<property name="ltcreimAdminDvno" column="REIM_ADMINDVNO" />
+		<property name="ltcreimAdminDvDate" column="REIM_ADMINDVDATE" />
+		
+		
+		
+		
+		<property name="stageStatus" column="STAGE_STATUS" />
+		
+		
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.requests.ConvertLeaveRequestBean" table="leave_conversion_details">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">LEAVE_CONV_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="requestID" column="request_id" />
+		<property name="sfID" column="sfid" />
+		<property name="referenceID" column="reference_id" />
+		<many-to-one name="referenceDetails"
+			class="com.callippus.web.beans.requests.LeaveRequestBean" column="reference_id"
+			not-null="true" lazy="false" update="false" insert="false"/>	
+		<property name="convertedTo" column="converted_to" />	
+		<many-to-one name="leaveTypeDetails"
+			class="com.callippus.web.leave.dto.LeaveTypeDTO" column="converted_to"
+			not-null="true" unique="true" lazy="false" update="false" insert="false"/>
+			
+		<property name="fromDate" column="from_date" />	
+		<property name="toDate" column="to_date" />
+		<property name="formattedFromDate" column="from_date" insert="false" update="false" />
+		<property name="formattedToDate" column="to_date" insert="false" update="false"/>
+		<property name="prefix" column="prefix" />
+		<property name="suffix" column="suffix" />
+		<property name="noOfDays" column="no_of_days" />
+		<property name="reason" column="reason" />
+		<property name="ipAddress" column="ip_address" />
+		<property name="requestedBy" column="requested_by" />
+		<property name="requestedDate" column="requested_date" />
+		<property name="formattedRequestedDate" column="requested_date" insert="false" update="false"/>
+		<property name="status" column="status" />	
+		<property name="debitFrom" column="debit_from" />	
+		<property name="debitLeaves" column="debit_leaves" />
+		
+		<property name="leaveConversionDopartId" column="DO_PART_ID" />
+		
+	</class>
+</hibernate-mapping>

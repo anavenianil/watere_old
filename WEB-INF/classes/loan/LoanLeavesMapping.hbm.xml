@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.loan.beans.dto.LoanLeavesMappingDTO" table="loan_leaves_mapping">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">LOAN_LEAVES_MAPPINGS_SEQ</param>
+			</generator>
+		</id>
+		<property name="loanDetailsID" column="loan_details_id" insert="true" update="true" />
+		<many-to-one name="loanTypeDetails"
+			class="com.callippus.web.loan.beans.dto.LoanDetailsDTO" column="loan_details_id"
+			update="false" lazy="false" insert="false" />
+		<property name="leaveTypeID" column="leave_type_id" insert="true" update="true" />
+		<many-to-one name="leaveTypeDetails"
+			class="com.callippus.web.leave.dto.LeaveTypeDTO" column="leave_type_id"
+			update="false" lazy="false" insert="false" />
+		<property name="status" column="status" />
+	</class>
+</hibernate-mapping>
+
+    

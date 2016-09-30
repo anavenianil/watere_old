@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.qualification.QualificationBean" table="qualification_details">
+		<id name="id" column="id">
+		 <!--    <generator class="assigned"></generator>  -->
+		</id>
+		<property name="sfid" column="sfid" />
+		<property name="qualification" column="qualification_id" />
+		<property name="discipline" column="DISCIPLINE_ID" />
+		<property name="specilisation" column="SPECIALISATION" />
+		<property name="year" column="year" />
+		<property name="university" column="university" />
+		<property name="divisionId" column="division" />
+		<property name="grade" column="grade" />
+		<property name="degree" column="degree" />
+		<property name="marks" column="type" />
+		<property name="totalPercentage" column="type_value" />
+		<property name="sponsored" column="sponsored" />
+		<property name="qualAttainedDRDO" column="qual_attained_drdo" />
+		<property name="reOraganised" column="re_organised" />
+		<property name="incentive" column="incentive" />
+		<property name="amount" column="amount" />
+		<property name="status" column="status" />
+		<property name="creationDate" column="creation_date" update="false"/>
+		<property name="lastModifiedDate" column="last_modified_date" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.tada.dto.TadaTdTotalFoodClaimDTO" table="tada_td_total_food_details">
+		<id name="id" column="id">
+			<generator class="sequence">
+				<param name="sequence">TADA_TD_TOTAL_FOOD_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="settlementRequestId" column="request_id" />
+		<property name="foodAmountChoice" column="food_amount_choice" />
+		<property name="totalClaimedFoodAmount" column="total_claimed_amount" />
+	</class>
+</hibernate-mapping>

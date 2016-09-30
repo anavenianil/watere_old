@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.dto.DoPartSerialNoDTO" table="DOPART_II_SLNO">
+		<id name="id" column="ID">
+			<generator class="sequence">
+				<param name="sequence">DOPART_II_SLNO_SEQ</param>
+			</generator>
+		</id>
+		
+		<many-to-one name="refDoPartDetails" class="com.callippus.web.beans.dto.DoPartDTO" column="ref_do_part_id"
+			not-null="true"  lazy="false" update="false" insert="false"/>
+		<property name="refDoPartId" column="ref_do_part_id" insert="true" update="true" type="int" not-null="true"/>		
+		
+		<many-to-one name="moduleMasterDetails" class="com.callippus.web.beans.dto.EssModuleDTO" column="module_id"
+			not-null="true"  lazy="false" update="false" insert="false"/>
+		<property name="moduleId" column="module_id" insert="true" update="true" type="int" not-null="true"/>		
+		
+		<many-to-one name="casualityMasterDetails" class="com.callippus.web.beans.dto.CasualityDetailsDTO" column="casuality_id"
+			not-null="true"  lazy="false" update="false" insert="false"/>
+		<property name="casualityId" column="casuality_id" insert="true" update="true" type="int" not-null="true"/>		
+		
+		<property name="slNo" column="sl_no" />
+		<property name="requestId" column="request_id" />
+		<property name="status" column="status" />		
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" update="false" />
+		<property name="creationDate" column="creation_date" update="false"/>	
+		<property name="lastModifiedBy" column="modified_by"/>	
+	</class>
+</hibernate-mapping>

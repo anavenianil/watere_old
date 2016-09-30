@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.promotions.dto.OptionalCertificateDTO" table="PRO_OPTIONAL_CERTIFICATE">
+		<id name="id" column="id">
+			<generator class="sequence">
+				<param name="sequence">PRO_OPTIONAL_CERTIFICATE_SEQ</param>
+			</generator>
+		</id>
+		<many-to-one name="assessmentDetails"
+			class="com.callippus.web.promotions.dto.AssessmentDetailsDTO" column="assessment_id"
+			not-null="true" lazy="false" update="false" insert="false"/>			
+		<property name="assessmentID" column="assessment_id" insert="true" update="true" type="int" not-null="true"/>
+		<property name="ipAddress" column="ip_address" type="java.lang.String" not-null="true"/>
+		<property name="incrementDate" column="increment_date" type="java.util.Date" />
+		<property name="scaleOfPay" column="scale_of_pay" type="float" />
+		<property name="status" column="status" type="int" not-null="true" />	
+		<property name="requestedBy" column="requested_by" update="false" type="java.lang.String" not-null="true"/>
+		<property name="requestedDate" column="requested_date" update="false" type="java.util.Date" not-null="true"/>
+		<property name="payUpdate" column="PAY_UPDATE"/>
+	</class>
+</hibernate-mapping>

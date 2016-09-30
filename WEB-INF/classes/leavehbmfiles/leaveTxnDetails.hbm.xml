@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.leave.dto.LeaveTxnDTO" table="leave_txn_details">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">LEAVE_TXN_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="sfID" column="sfid" />
+		<many-to-one name="leaveTypeDetails"
+			class="com.callippus.web.leave.dto.LeaveTypeDTO" column="leave_type_id"
+			not-null="true" update="false" unique="true" lazy="false"/>
+		<property name="txnDate" column="txn_from_date" />
+		<property name="txnToDate" column="txn_to_date" />
+		<property name="strTxnDate" column="txn_from_date" insert="false" update="false" formula="(select to_char(ltd.txn_from_date,'dd-MM-yyyy') from leave_txn_details ltd where ltd.id=ID)"/>
+		<property name="noOfLeaves" column="no_of_leaves" />
+		<property name="creationDate" column="creation_date" />
+		<property name="createdBy" column="created_by" />
+		<property name="txnType" column="txn_type" />
+		<property name="status" column="status" />
+		<property name="remarks" column="remarks" />
+		<property name="oneTimeEntryFlag" column="one_time_entry_flag" />
+	</class>
+</hibernate-mapping>

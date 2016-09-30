@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.mmg.cashbuildup.dto.VoucherItemDetailsDTO" table="MMG_B_VOUCHER_ITEM_DETAILS">
+		<id name="id" column="ID" type="int" unsaved-value="0">
+			<generator class="sequence">
+				<param name="sequence">MMG_B_VOUCHER_ITEM_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="voucherId" column="VOUCHER_ID" />
+		<property name="qty" column="QTY" />
+		<property name="materialCode" column="MATERIAL_CODE" />
+		<property name="uom" column="UOM" />
+		<property name="cflag" column="CONSUMABLE_FLAG"/>
+		<property name="irNo" column="RECEIPT_VOUCHER_NO" />
+		<property name="status" column="STATUS" />
+		<property name="creationDate" column="CREATION_DATE" />
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" />
+		<property name="uomConvert" column="UOM_TOBECONVERT" />
+		<property name="cncConvert" column="CONSUMABLE_FLAG_TOBECONVERT" />
+    </class>
+</hibernate-mapping>

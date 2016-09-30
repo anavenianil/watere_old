@@ -1,0 +1,104 @@
+nearest_airport column used for do_part_id
+       <<<-------------------
+do_part_id column used for otheramount
+      <<<-------------------
+MRO_PAID_DATE   column used for dopartdate   (LTC_ADVANCE_REQUEST_DETAILS_B)
+      <<<-------------------
+all india changed to hometowm
+      <<<-------------------
+
+      
+      
+      main table for ltc:: LTC_ADVANCE_REQUEST_DETAILS_B
+      
+      
+      ----------------------------------------------------------------------------------------------
+      										TADA
+      										
+      										
+      										
+  1)TadaApprovalRequest.jsp
+  -------------------------
+  
+  hiddeden:Basic Pay  &  Grade Pay
+  
+  TD move is authorized for  :: set defalt build(TADA TD BUILDUP::sampledata)  request_type<CN>,TADA_TD_TXN_DETAILS<TN>
+  
+  Whether TA/DA is required with Hotel/Normal rates  ::(hotelrate/normalrate::sampledata)DA_TYPE<CN>,TADA_TD_REQUEST_DETAILS<TN>
+  
+  
+  ----------------------------------------------------
+  
+  
+table  Struture before modification  TADA_TD_ADV_REQUEST_DETAILS
+--------------------------------- -------------------------
+
+
+  CREATE TABLE "ESS"."TADA_TD_ADV_REQUEST_DETAILS" 
+   (	"REQUEST_ID" NUMBER NOT NULL ENABLE, 
+	"SFID" VARCHAR2(20 BYTE), 
+	"DESIGNATION_ID" VARCHAR2(20 BYTE), 
+	"PHONE_NUMBER" VARCHAR2(20 BYTE), 
+	"REF_REQUEST_ID" NUMBER, 
+	"DEPARTURE_DATE" DATE, 
+	"CONVEYANCE_MODE" VARCHAR2(20 BYTE), 
+	"ENTITLEMENT_CLASS" VARCHAR2(20 BYTE), 
+	"STAY_DURATION" VARCHAR2(3 BYTE), 
+	"TD_WORK_PLACE" VARCHAR2(500 BYTE), 
+	"AUTHORIZED_MOVE_ID" VARCHAR2(20 BYTE), 
+	"DA_TYPE" VARCHAR2(20 BYTE), 
+	"IP_ADDRESS" VARCHAR2(20 BYTE), 
+	"ADVANCE_AMOUNT" NUMBER, 
+	"APPLY_DATE" DATE, 
+	"STATUS" NUMBER, 
+	"TICKET_FARE" NUMBER(*,2) NOT NULL ENABLE, 
+	"NO_OF_DAYS" NUMBER NOT NULL ENABLE, 
+	"ACC_AMOUNT_PER_DAY" NUMBER NOT NULL ENABLE, 
+	"FOOD_AMOUNT_PER_DAY" NUMBER NOT NULL ENABLE, 
+	"ADVANCE_AMOUNT_AFT_RES" NUMBER(*,2), 
+	 CONSTRAINT "TADA_TD_ADV_REQUEST_DETAI_PK" PRIMARY KEY ("REQUEST_ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 131072 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE, 
+	 CONSTRAINT "TADA_TD_ADV_REQUEST_DETAI_FK1" FOREIGN KEY ("REF_REQUEST_ID")
+	  REFERENCES "ESS"."TADA_TD_REQUEST_DETAILS" ("REQUEST_ID") ENABLE
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+  
+  ---------------------------------------------------------
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  ERP_LEAVE_REQUEST_DETAILS
+  --------------------------
+  			|
+  			|
+  			|
+  			| 
+  			V
+  
+  ERP_STATUS_MASTER   ERP_LEAVE_TYPES      ERP_LEAVEDAYS_MASTER
+  
+  ---------------------------------
+  
+  
+  
+  ERP_HEALTH_INS_PERCENTAGE 
+  
+  HEALTH_INSURANCE_SCHEME
+  
+  -----------------------------------
+  
+  
+  
+  

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.higherQualification.dto.HQRequestDTO" table="HQ_REQUEST_DETAILS">
+		<id name="id" column="id">
+			<generator class="sequence">
+				<param name="sequence">HQ_REQUEST_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="sfID" column="SFID" />
+		<property name="fromDate" column="HQ_FROM_DATE" />
+		<property name="status" column="STATUS" />
+		<property name="requestID" column="REQUEST_ID" />
+		<property name="dischargeOfDutiesFlag" column="DISCHARGE_OF_DUTIES" />
+		<property name="labWorkFlag" column="USEFUL_FOR_LAB" />
+		<property name="ipAddress" column="IP_ADDRESS" />
+		<property name="toDate" column="HQ_TO_DATE" />
+		<property name="course" column="COURSE" />
+		<property name="desigID" column="DESIG_ID" />
+	</class>
+</hibernate-mapping>

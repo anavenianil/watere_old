@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.dto.MRODetailsDTO" table="MRO_DETAILS" lazy="false">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">MRO_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="referenceID" column="REFERENCE_ID" type="int"
+			not-null="true" />
+		<property name="noOfDays" column="NO_OF_DAYS" type="int"
+			not-null="true" />
+		<property name="penalInterestAmount" column="PENAL_INTEREST_AMOUNT" type="float"
+			not-null="true" />
+		<property name="penalInterestId" column="PENAL_INTEREST_ID"
+			type="int" not-null="true" />
+		<property name="unUtilizedBalance" column="UNUTILIZED_BALANCE"
+			type="float" not-null="true" />
+		<property name="totalAmount" column="TOTAL_AMOUNT" type="float"
+			not-null="true" />
+		<property name="createdBy" column="created_by" update="false"
+			type="java.lang.String" not-null="true" />
+		<property name="creationTime" column="creation_date" update="false"
+			type="java.util.Date" not-null="true" />
+		<property name="lastModifiedBy" column="last_modified_by"
+			type="java.lang.String" not-null="true" />
+		<property name="lastModifiedTime" column="last_modified_date"
+			type="java.util.Date" not-null="true" />
+	</class>
+</hibernate-mapping>

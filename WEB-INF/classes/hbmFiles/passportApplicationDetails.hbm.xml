@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.passport.PassportApplicationDetailsDTO" table="passport_application_details">
+		<id name="requestID" column="ID">
+			<generator class="sequence">
+				<param name="sequence">PASSPORT_APP_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="sfid" column="sfid" />
+		<property name="passportType" column="passport_type_id" insert="true" update="true" />			
+		<property name="relations" column="relations_abroad" />
+		<property name="vigilanceFlag" column="vigilence_flag"/>
+		<property name="passportNumber" column="passport_number"/>
+		<property name="issueDate" column="issue_date" />
+		<property name="returnDate" column="return_date" />
+		<property name="validityDate" column="validity_date" />
+		<property name="duration" column="duration_of_stay" />
+		<property name="purpose" column="purpose_of_visit" />
+		<property name="status" column="status" />
+		<property name="familyMemberId" column="family_members_id" />
+		<property name="remarks" column="remarks" />
+		<property name="spendingAmount" column="amount_to_be_spend" />
+		<property name="sourceOfAmount" column="source_of_amount" />
+		<property name="lenderName" column="financier_name" />
+		<property name="nationality" column="financier_nationality" />
+		<property name="lenderRelationship" column="financier_relationship" />
+		<property name="countriesToVisit" column="countries_to_visit" />
+		<property name="departureDate" column="departure_date" />
+		<property name="employmentDetails" column="EMPLOYEE_DETAILS" />
+		<property name="passportPossessFlag" column="PASSPORT_POSSESS_FLAG" />
+		<property name="familyMembersFlag" column="FAMILY_MEMBERS_FLAG" />
+		<property name="selfFinanceFlag" column="SELF_FINANCE_FLAG" />
+		<property name="verificationType" column="VERIFICATION_TYPE" />
+		<property name="visualFlag" column="VISUAL_FLAG" />
+		<property name="propReturnFlag" column="PROPERTY_RETURN_TYPE" />
+		<property name="hqLetterNo" column="HQRS_LETTER_NO" />
+		<property name="hqLetterDt" column="HQRS_LETTER_DATE" />
+		
+		<property name="detailsFlag" column="DETAILS_FLAG" />
+		<property name="supportName" column="SURITY_NAME"/>
+		<property name="supportOccupation" column="SURITY_PERSON_OCCUPATION"/>
+		<property name="supportAddress" column="SURITY_PERSON_ADDRESS" />
+		<property name="passportLostFlag" column="PASSPORT_LOST_FLAG" />
+		<property name="lostPassportType" column="LOST_PASSPORT_TYPE" />
+		<property name="lostPassportNumber" column="LOST_PASSPORT_NO" />
+		<property name="ppissueDate" column="LOST_PASSPORT_ISSUED" />
+		<property name="ppvalidityDate" column="LOST_PASSPORT_VALIDITY" />
+		<property name="hospitalFlag" column="HOSPITAL_FLAG" />
+		<property name="prevCountryDetails" column="PREV_COUNTRY_DETAILS" />
+		<property name="idCardFlag" column="ID_CARD_FLAG" />
+		<property name="settleFlag" column="ABROAD_SETTLE_FLAG" />
+		<property name="contractualFlag" column="CONTRACTUAL_FLAG" />
+		<property name="coPeriodFrom" column="CONTRACTUAL_FROM" />
+		<property name="coPeriodTo" column="CONTRACTUAL_TO" />
+		<property name="certifyStatus" column="CERTIFY_STATUS" />
+		
+
+		<property name="creationDate" column="CREATION_DATE" update="false"/>
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" />
+	
+
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.requests.FamilyRequestBean" table="txn_family_details">
+		<id name="requestID" column="request_id"></id>
+		<property name="sfID" column="sfid" />
+		<property name="name" column="name" />
+		<property name="relationId" column="relation_id" />
+		<property name="gender" column="sex" />
+		<property name="dob" column="dob" />
+		<property name="dependent" column="dependent" />
+		<property name="dependentFrom" column="dependent_from" />
+		<property name="maritalstatus" column="marital_status_id" />
+		<property name="bloodGroup" column="blood_group" />
+		<property name="contactNumber" column="contact_number" />
+		<property name="address1" column="Address1" />
+		<property name="address2" column="Address2" />
+		<property name="city" column="city" />
+		<property name="stateId" column="state_id" />
+		<property name="districtId" column="district_id" />
+		<property name="pincode" column="pin_code" />
+		<property name="employeed" column="employed" />
+		<property name="employeedType" column="employed_type" />
+		<property name="residingWith" column="residing_with" />
+		<property name="declareDate" column="family_declare_date" />
+		<property name="familyID" column="family_id" />
+		<property name="ipAddress" column="ip_address" />
+		<property name="age" column="age" />
+		<property name="address3" column="address3" />
+	</class>
+</hibernate-mapping>

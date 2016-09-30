@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.employee.EmployeeBean" table="emp_master">
+		<id name="userSfid" column="sfid"/>
+		<property name="titleId" column="title" />
+		<property name="firstName" column="first_name" />
+		<property name="lastName" column="last_name" />
+		<property name="middleName" column="middle_name" />
+		<property name="gender" column="gender" />
+		<property name="ppaNo" column="ppa_no" />
+		<property name="handicap" column="handicap_id" />
+		<property name="personalNumber" column="personal_number" />
+		<property name="internalNo" column="INTERNAL_PHONE_NO" />
+		<property name="residenceNo" column="RESIDENCE_NO"/>
+		<property name="dob" column="dob" />
+		<property name="dobInFormat" column="dob" insert="false" update="false" />
+		<property name="retiredDate" column="dob" insert="false" update="false"  formula="(select GET_RETIREMENT_DATE(sfid) from dual)"/>
+		<property name="marital" column="marital_id" />
+		<property name="religionId" column="religion_id" />
+		<property name="nationalityId" column="nationality_id" />
+		<property name="community" column="community_id" />
+		<property name="bloodGroupId" column="BLOOD_GROUP" />
+		<property name="reservation" column="Reservation_type_id" />
+		<property name="office" column="office_id" />
+		<property name="directorate" column="directorate_id" />
+		<property name="appointmentId" column="appointment_type_Id" />
+		<property name="employmentId" column="employment_type_Id" />
+		<many-to-one name="employmentDetails"
+			class="com.callippus.web.beans.dto.EmploymentDTO" column="employment_type_Id"
+			lazy="false" update="false" insert="false"/>
+		<property name="designation" column="designation_id" />
+		<many-to-one name="designationDetails"
+			class="com.callippus.web.beans.dto.DesignationDTO" column="designation_id"
+			lazy="false" update="false" insert="false"/>			
+		<property name="dojGovt" column="doj_govt" />
+		<property name="dojDrdo" column="doj_drdo" />
+		<property name="dojAsl" column="doj_asl" />
+		<property name="dojGovtInFormat" column="doj_govt" insert="false" update="false"/>
+		<property name="dojDrdoInFormat" column="doj_drdo" insert="false" update="false" />
+		<property name="dojAslInFormat" column="doj_asl" insert="false" update="false" />
+		<property name="seniorityDate" column="seniority_date" />
+		<property name="lastPromotion" column="last_promotion" />
+		<property name="motherTongue" column="mother_tongue" />
+		<property name="height" column="height" />
+		<property name="idMarks" column="id_marks" />
+		<property name="cgshNumber" column="cgsh_Number" />
+		<property name="dispensaryNumberId" column="dispeNsary_Number" />
+		<property name="gpfAcNo" column="gpf_ac_no" />
+		<property name="pranNo" column="pran_no" />
+		<property name="status" column="status" />
+		<property name="joinTypeId" column="join_type_id" />
+		<property name="workedYears" column="pre_experiance_period" />
+		<property name="famPlanning" column="family_planning" />
+		<property name="houseAllowence" column="house_allowance" />
+		<property name="groupAllowence" column="group_allowance" />
+		<property name="uptoDate" column="GROUP_INSURANCE_EXPIRE_DATE" />
+		<property name="nameInServiceBook" column="name_in_service_book" />
+		<property name="relationId" column="relation_id" />
+		<property name="relationName" column="relation_name" />
+		<property name="relationTitle" column="relation_title" />
+		<property name="creationDate" column="creation_date" update="false"/>
+		<property name="lastModifiedDate" column="last_modified_date" />
+		<property name="createdBy" column="created_by" update="false"/>
+		<property name="lastModifiedBy" column="last_modified_by" />
+		<property name="dataentryFlag" column="dataentry_flag" />
+		<property name="workingLocation" column="working_location" update="false" />
+		
+		
+	</class>
+	
+	
+
+	
+	
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.dto.AllowanceEmpDetailsDTO" table="allowance_emp_details">
+		<id name="allowanceId" column="allowance_id">
+			<generator class="sequence">
+				<param name="sequence">ALLOWANCE_EMP_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="allowanceName" column="allowance_name" />
+		<property name="allowanceFor" column="allowance_for" />
+		<property name="allowanceAmount" column="allowance_amount" />
+		<property name="approvedDate" column="approved_date" />
+		<property name="approvedBy" column="approved_by" />
+		<property name="sfid" column="sfid" />
+		<property name="designationId" column="designation_id" />
+		<property name="departmentId" column="department_id" />
+		<property name="basicPay" column="basic_pay" />
+		<property name="gradePay" column="grade_pay" />
+		<property name="effectFromDate" column="effective_from_date" />
+		<property name="effectToDate" column="effective_to_date" />
+		<property name="status" column="status" />
+		<property name="ipAddress" column="ip_address" />
+	</class>
+</hibernate-mapping>

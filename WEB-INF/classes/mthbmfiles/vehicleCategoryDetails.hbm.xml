@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.MT.VehicleCategoryMasterBean" table="MT_VEHIClE_CATEGORY_MASTER">
+		<id name="categoryId" type="int" column="CATEGORY_ID">
+			<generator class="sequence">
+				<param name="sequence">MT_VEHIClE_CATEGORY_MASTER_SEQ</param>
+			</generator>
+		</id>
+		<property name="categoryName" column="NAME" />
+		<property name="carriageType" column="CARRIAGE_TYPE" />
+		<property name="catDesc" column="DESCRIPTION" />
+		<property name="status" column="STATUS" />
+		<property name="lastModifiedBy" column="LAST_MODIFIED_BY" />
+		<property name="creationDate" column="CREATION_DATE" update="false" />
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" />
+		<many-to-one name="carriageDetails"
+			class="com.callippus.web.beans.MT.VehicleCarriageTypeDetailsBean" column="CARRIAGE_TYPE"
+			lazy="false" insert="false" update="false"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.leave.dto.LeaveFamilyDTO" table="leave_family_details">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">LEAVE_FAMILY_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<many-to-one name="leaveTypeDetails"
+			class="com.callippus.web.leave.dto.LeaveTypeDTO" column="leave_type_id"
+			not-null="true" unique="true" lazy="false" update="false" insert="false"/>
+			
+		<property name="leaveTypeID" column="leave_type_id" update="true" insert="true"/>	
+		<property name="noOfChildren" column="no_of_children" />
+		<property name="childAge" column="child_age" />
+		<property name="phChildAge" column="ph_child_age"/>		
+	</class>
+</hibernate-mapping>

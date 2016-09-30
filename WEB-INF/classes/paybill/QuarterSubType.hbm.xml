@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.quarterType.QuarterTypeBean" table="PAY_QUARTERS_SUBTYPE_MASTER">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">PAY_QUART_SUBTYPE_MASTER_SEQ</param>
+			</generator>
+		</id>
+		<many-to-one name="quarterTypeDetails"
+			class="com.callippus.web.paybill.dto.PayBillQuartersTypeMasterDTO" column="quarters_type_id" 
+			not-null="true" update="false" unique="true" lazy="false" insert="false"/>
+			<property name="quartersType" column="quarters_type_id" insert="true" update="true"/>
+		<property name="quarterSubType" column="quarters_sub_type" />
+		<property name="status" column="status" />
+		<property name="createdBy" column="created_by" update="false"/>
+		<property name="creationDate" column="creation_date" update="false"/>
+		<property name="lastModifiedBy" column="modified_by" />
+		<property name="lastModifiedDate" column="modified_date" />		
+	</class>
+</hibernate-mapping>

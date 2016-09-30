@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	<hibernate-mapping>
+		<class name="com.callippus.web.hindi.dto.HindiIncentiveDetailsDTO" table="PAY_HINDI_INC_DETAILS">
+		<id name="id" type="int" column="ID">
+		   <generator class="sequence">
+				<param name="sequence">PAY_HINDI_INC_DETAILS_SEQ</param>
+			</generator>
+		</id>
+				<property name="sfid"  column="SFID" />							
+				<property name="fromDate" column="FROM_MONTH" />				
+				<property name="toDate" column="TO_MONTH" />
+				<property name="noOfInst"  column="TOT_INST" />	
+				<property name="presentInst" column="PRESENT_INST" />						
+				<property name="totalAmount" column="TOTAL_AMOUNT" />
+				<!-- <property name="cashAwardAmount" column="CASH_AWARD_AMOUNT" />  -->
+				<property name="creationDate" column="CREATION_DATE" />	
+				<property name="createdBy" column="CREATED_BY" />	
+				<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" />	
+				<property name="lastModifiedBy" column="LAST_MODIFIED_BY" />			
+				<property name="status" column="STATUS" />
+				
+		</class> 
+	</hibernate-mapping>

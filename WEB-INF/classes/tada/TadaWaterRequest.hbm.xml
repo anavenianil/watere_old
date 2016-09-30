@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.tada.dto.TadaWaterApprovalRequestDTO" table="TADA_WATER_ADV_REQUEST_DETAILS">
+		<id name="requestId" column="REQUEST_ID">
+			<!-- <generator class="assigned">
+
+			</generator> -->
+		</id>
+		<property name="sfID" column="SFID" />
+		<property name="designation" column="DESIGNATION_ID" />
+		<!-- <property name="deptName" column="DEPARTMENT_NAME" /> -->
+		<property name="deptId" column="DEPARTMENT_ID" />
+		<property name="status" column="STATUS" />
+		<property name="phnNo" column="PHONE_NUMBER" />
+		<property name="claimPurpose" column="CLAIM_PURPOSE" />
+		<property name="travellingTo" column="TRAVELLING_TO" />
+		<property name="fromDate" column="FROM_DATE" />
+		<property name="toDate" column="TO_DATE" />
+		<property name="foodandAccmAmt" column="FOOD_ACCM_AMT" />
+		<property name="daAmt" column="DA_AMT" />
+		<property name="taxiAmt" column="TAXI_AMT" />
+		<property name="transitAmt" column="TRANSIT_AMT" />
+		<property name="totalAmt" column="TOTAL_AMT" />
+		<property name="applyDate" column="APPLY_DATE" />
+		<property name="noOfDays" column="NOOF_DAYS" />
+		<property name="perDayFoodandAccmAmt" column="PERDAY_FD_ACC_AMT" />
+		<property name="ipAddress" column="IP_ADDRESS" />
+		<property name="reason" column="REMARKS" />
+		<property name="dvno" column="DVNO" />
+		<property name="dvDate" column="DVDATE" />
+		<property name="cashorcheck" column="AMT_TYPE" />
+		<property name="advance" column="ADVANCE_FLAG" />
+		<property name="settleOrReimApplyDate" column="SETTLEORREIM_APPLYDATE" />
+		<property name="selOrReimRemarks" column="SELORREIM_REMARKS" />
+		<property name="actualExpenditure" column="ACTUAL_EXPENDITURE" />
+		<property name="settleOrReim" column="SETTLEORREIM" />
+		<property name="settleOrReimAmt" column="SETTLEORREIM_AMT" />
+		<property name="waterSettlementDate" column="SETTELMENT_DATE" />
+		<property name="settlementRemarks" column="SETTLEMENT_REMARKS" />
+		<property name="reimcashorcheck" column="REIM_CASHORCHECK" />
+		<property name="reimDvDate" column="REIM_DVDATE" />
+		<property name="reimDvno" column="REIM_DVNO" />
+		<property name="waterReimbursementDate" column="REIMBURSEMENT_DATE" />
+		<property name="reimbursementRemarks" column="REIMBURSEMENT_REMARKS" />
+		<property name="advDvno" column="ADV_DVNO" />
+		<property name="advDvDate" column="ADV_DVDATE" />
+		<property name="advBankName" column="ADV_BANKNAME" />
+		<property name="advChequeNo" column="ADV_CHEQUENO" />
+		<property name="advBranchName" column="ADV_BRANCHNAME" />
+		
+		<property name="reimBankName" column="REIM_BANKNAME" />
+		<property name="reimBranchName" column="REIM_BRANCHNAME" />
+		<property name="reimChequeNo" column="REIM_CHEQUENO" />
+		<property name="reimAdminDvno" column="REIM_ADMIN_DVNO" />
+		<property name="reimAdminDvDate" column="REIM_ADMIN_DVDATE" />
+		
+		<property name="stageStatus" column="STAGE_STATUS" />
+		
+		
+		
+	</class>
+</hibernate-mapping>

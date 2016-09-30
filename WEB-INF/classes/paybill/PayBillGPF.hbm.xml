@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.paybill.dto.PayGPFDetailsDTO" table="PAY_GPF_SUB_CHANGE_DETAILS">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">PAY_GPF_SUB_CHANGE_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="sfid" column="SFID" />
+		<property name="presentGpf" column="SUB_AMT" />
+		<property name="previousGpf" column="PREV_AMT" />
+		<property name="type" column="TYPE" />
+		<property name="status" column="status" />
+		<property name="createdBy" column="created_by" update="false"/>
+		<property name="creationDate" column="creation_date" update="false"/>
+		<property name="lastModifiedBy" column="modified_by" />
+		<property name="lastModifiedDate" column="modified_date" />			
+	</class>
+</hibernate-mapping>

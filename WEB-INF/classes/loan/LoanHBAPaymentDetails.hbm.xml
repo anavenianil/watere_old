@@ -1,0 +1,33 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.loan.beans.dto.LoanHBAPaymentDTO" table="loan_payment_details">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">LOAN_PAYMENT_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="requestID" column="request_id" insert="true" update="true" type="int"/>
+		<property name="sfID" column="sfid" type="java.lang.String" not-null="true"/>
+		<property name="loanTypeID" column="loan_type_id" insert="true" update="true" type="int" not-null="true"/>
+		<many-to-one name="loanTypeDetails"
+			class="com.callippus.web.loan.beans.dto.LoanTypeMasterDTO" column="loan_type_id" 
+			update="false" lazy="false" insert="false"/>
+		<property name="loanSubTypeID" column="loan_subtype_id" type="int"/>
+		<property name="requestedAmount" column="requested_amount" type="float" not-null="true"/>
+		<property name="requestedDate" column="requested_date" type="java.util.Date" not-null="true"/>
+		<property name="requestedInstalments" column="requested_instalments" type="int" not-null="true"/>
+		<property name="requestedInterestInstalments" column="REQUESTED_INTEREST_INSTALMENTS" type="int" not-null="true"/>
+		<property name="sanctionedAmount" column="sanctioned_amount" type="float" />
+		<property name="sanctionedDate" column="sanctioned_date" type="java.util.Date" />
+		<property name="sanctionedInstalments" column="sanctioned_instalments" type="int" />
+		<property name="sanctionedIntInstalments" column="sanctioned_int_instalments" type="int" />
+		<property name="recStartDate" column="recovery_start_date" type="java.util.Date" />
+		<property name="emi" column="emi" type="float" />
+		<property name="bankAccount" column="bank_account" type="java.lang.String" />
+		<property name="bankBranch" column="bank_branch" type="java.lang.String" />
+		<property name="status" column="status" type="int" not-null="true"/>
+		<property name="loanRefNo" column="loan_reference_number" type="java.lang.String"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.requests.DoPartBean" table="reference_number_details">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">REFERENCE_NUMBER_DET_SEQ</param>
+			</generator>
+		</id>
+		<property name="doPartNo" column="ref_number" />			
+		<property name="doPartDate" column="ref_date"/>	
+		<property name="formatDoPartDate" column="ref_date" insert="false" update="false"/>		
+		<property name="description" column="description" />
+		<property name="createdBy" column="created_by" />
+		<property name="creationDate" column="creation_date" />
+		<property name="status" column="status" />
+		<property name="gazettedType" column="gaz_type" />	
+		<property name="refType" column="ref_type" />		
+	</class>
+</hibernate-mapping>

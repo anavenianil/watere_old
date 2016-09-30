@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.increment.AnnualIncrementDTO" table="annual_increment_details"> 
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">ANNUAL_INCREMENT_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="userSfid" column="SFID" update="false" type="java.lang.String" not-null="true" />
+		<property name="basicPay" column="basic_pay" type="float" not-null="true"></property>
+		<property name="gradePay" column="grade_pay" type="float" not-null="true"></property>
+		<property name="increment3" column="INCREMENT3" type="float" not-null="true"></property>
+		<property name="incRoundOff" column="INCREMENT_ROUND_OFF" type="float" not-null="true"></property>
+		<property name="incrementBasicPay" column="INCREMENT_BASIC_PAY" type="float" not-null="true"></property>
+		<property name="incrementGradePay" column="INCREMENT_GRADE_PAY" type="float" not-null="true"></property>
+		<property name="gazettedType" column="gazzeted_type" type="int" not-null="true" />
+		<property name="doPartNo" column="do_part_no" type="int" not-null="true" />
+		<property name="casualityId" column="casuality_id" type="int" not-null="true" />
+		<property name="incrementYearId" column="INCREMENT_YEAR_ID" type="int" not-null="true" />
+		<property name="financeAcceptedDate" column="finance_accepted_date" type="java.util.Date" />
+		<property name="adminEffectDate" column="admin_Effective_date" type="java.util.Date" />
+		<property name="status" column="status" type="int" not-null="true"></property>
+		<property name="createdBy" column="created_by" update="false" type="java.lang.String" not-null="true" />
+		<property name="creationTime" column="creation_date" update="false" type="java.util.Date" not-null="true"/>
+		<property name="lastModifiedTime" column="last_modified_date" type="java.util.Date" not-null="true"/>
+		<property name="lastModifiedBy" column="last_modified_by" type="java.lang.String" not-null="true" />
+		<property name="basicPayId" column="BASIC_PAY_ID" type="java.lang.String" />
+		<property name="designationId" column="designation_id" insert="true" update="true" type="int" not-null="true"/>
+	</class>
+</hibernate-mapping>
+	

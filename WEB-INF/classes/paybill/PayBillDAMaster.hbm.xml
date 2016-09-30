@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.callippus.web.paybill.dto.PayBillDearnessAllowanceMasterDTO" table="PAY_DEARNESS_ALLOWANCE_MASTER">
+		<id name="pk" column="ID" type="int">
+			<generator class="sequence">
+				<param name="sequence">PAY_DEAR_ALLOWANCE_MASTER_SEQ</param>
+			</generator>
+		</id>
+		<property name="status" column="STATUS" type="int" />
+		<property name="daValue" column="DA_VALUE" type="float" />
+		<property name="daDate" column="DA_DATE" type="date" />
+		<property name="displayDate" column="DA_DATE"
+			formula="(select to_char(dam.DA_DATE,'dd-Mon-yyyy') from PAY_DEARNESS_ALLOWANCE_MASTER dam WHERE dam.id=ID)"
+			insert="false" update="false" />
+		<property name="creationDate" column="CREATION_DATE" />
+		<property name="createdBy" column="CREATED_BY" type="string" />
+		<property name="modifiedDate" column="MODIFIED_DATE" type="date" />
+		<property name="modifiedBy" column="MODIFIED_BY" type="string" />
+	</class>
+</hibernate-mapping>

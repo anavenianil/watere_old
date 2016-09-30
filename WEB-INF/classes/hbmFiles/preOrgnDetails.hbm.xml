@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.preOrgnDetails.PreOrgnDetailsBean" table="pre_orgn_details">
+		<id name="id" column="id"></id>
+		<property name="sfid" column="sfid" />
+		<property name="orgType" column="org_type" />
+		<property name="orgName" column="org_name" />
+		<property name="fromDate" column="from_date" />
+		<property name="toDate" column="to_date" />
+		<property name="divisionName" column="Division" />
+		<property name="rankHeld" column="rank_held" />
+		<property name="jobDescription" column="job_description" />
+		<property name="skills" column="skills" />
+		<property name="remarks" column="remarks" />
+		<property name="pay" column="pay" />
+		<property name="scaleOfPay" column="scale_of_pay" />
+	</class>
+</hibernate-mapping>

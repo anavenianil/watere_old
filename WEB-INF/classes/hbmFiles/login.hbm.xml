@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.login.LoginBean" table="users">
+		<id name="username" column="username" type="string"></id>
+		<property name="userId" column="sfid"/>
+		<property name="password" column="password" />
+		<property name="status" column="status" />
+		<property name="browser" column="BROWSER_NAME"/>
+	</class>
+
+</hibernate-mapping>

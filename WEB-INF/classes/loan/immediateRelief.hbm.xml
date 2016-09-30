@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.loan.beans.dto.LoanReliefFund" table="loan_immediate_relief">
+    	<id name="id" type="int" column="id">
+    		<generator class="sequence">
+				<param name="sequence">LOAN_IMMEDIATE_RELIEF_SEQ</param>
+			</generator>
+    	</id>
+		<property name="sfID" column="sfid" type="java.lang.String" not-null="true" />
+		<property name="dateOfDeath" column="date_of_death" type="java.util.Date" not-null="true"/>
+		<property name="advance" column="amount_of_advance" type="float" not-null="true"/>
+		<property name="nameOfApplicant" column="name_of_applicant" type="java.lang.String" not-null="true"/>
+		<property name="relationshipID" column="relationship" type="int"/>
+		<many-to-one name="relationDetails"
+			class="com.callippus.web.beans.dto.FamilyRelationDTO" column="relationship"
+			not-null="true" lazy="false" update="false" insert="false"/>
+		<property name="witness1" column="witness1" type="java.lang.String"/>
+		<property name="witness2" column="witness2" type="java.lang.String"/>
+		<property name="address" column="address" type="java.lang.String"/>	
+		<property name="approvedBy" column="approved_by" type="java.lang.String" not-null="true" />		
+		<property name="status" column="status" type="int" not-null="true" />
+		<property name="createdBy" column="created_by" update="false" type="java.lang.String" not-null="true" />
+		<property name="creationTime" column="creation_date" update="false" type="java.util.Date" not-null="true"/>
+		<property name="lastModifiedTime" column="last_modified_date" type="java.util.Date" not-null="true"/>
+		<property name="lastModifiedBy" column="last_modified_by" type="java.lang.String" not-null="true" />	
+    </class>
+</hibernate-mapping>

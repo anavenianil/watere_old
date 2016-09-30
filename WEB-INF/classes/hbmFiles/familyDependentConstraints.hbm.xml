@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.dto.FamilyDependentConstraintsDTO" table="family_dependent_constraints">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">FAMILY_DEPENDENT_CONS_SEQ</param>
+			</generator>
+		</id>
+		<property name="sfid" column="sfid" />
+		<property name="type" column="const_type" />
+		<property name="familyDependentId" column="family_dependent_id" />
+		<property name="status" column="status" />
+	</class>
+</hibernate-mapping>

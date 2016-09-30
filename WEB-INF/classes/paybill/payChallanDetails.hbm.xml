@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+		
+		<hibernate-mapping>
+		<class name="com.callippus.web.beans.dto.PayChallanDetailsDTO" table="PAY_CHALLAN_DETAILS">
+		<id name="id" type="int" column="id">
+			<generator class="increment" />
+		</id>
+		<property name="itTxnId" column="IT_TXN_ID"/>
+		<property name="sfid" column="SFID"/>
+		<property name="challanNo" column="CHALLAN_NO"/>
+		<property name="challanDate" column="CHALLAN_DATE"/>
+		<property name="challanAmt" column="CHALLAN_AMT"/>
+		<property name="bankBSRNo" column="BANK_BSR_NO"/>
+		<property name="challanRemarks" column="REMARKS"/>
+		<property name="status" column="STATUS" />
+		<property name="createdBy" column="CREATED_BY" update="false"/>
+		<property name="creationDate" column="CREATION_DATE" update="false"/>
+		<property name="lastModifiedBy" column="MODIFIED_BY" />
+		<property name="lastModifiedDate" column="MODIFIED_DATE" />
+		</class>
+		</hibernate-mapping>

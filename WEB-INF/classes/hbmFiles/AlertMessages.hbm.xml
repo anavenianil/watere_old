@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.requests.AlertMessageDTO" table="message_alerts">
+		<id name="id" column="id" type="java.lang.Integer">
+			<generator class="sequence">
+				<param name="sequence">MESSAGE_ALERTS_SEQ</param>
+			</generator>
+		</id>
+		<property name="alertMessage" column="alert_message" type="java.lang.String" not-null="true" length="1000"/>
+		<property name="response" column="response" type="java.lang.String" length="1000" />
+		<property name="assignedFrom" column="assigned_from" type="java.lang.String" not-null="true" length="15" />
+		<property name="assignedDate" column="assigned_date" type="java.util.Date" not-null="true"/>
+		<property name="assignedIpAddress" column="assigned_ip_address" type="java.lang.String" not-null="true" length="15" />
+		<property name="assignedTo" column="assigned_to" type="java.lang.String" not-null="true" length="15"/>
+		<property name="actionedDate" column="actioned_date" type="java.util.Date"/>
+		<property name="actionedIpAddress" column="actioned_ip_address" type="java.lang.String" length="15"/>
+		<property name="alertID" column="alert_id" type="java.lang.Integer"/>
+		<property name="venueID" column="venue_id" type="java.lang.Integer"/>
+		<many-to-one name="alertDetails"
+			class="com.callippus.web.beans.dto.AlertMasterDTO" column="alert_id"
+			not-null="true" lazy="false" update="false" insert="false"/>
+		<many-to-one name="venueDetails"
+			class="com.callippus.web.promotions.dto.VenueDetailsDTO" column="venue_id"
+			 lazy="false" update="false" insert="false"/>		
+		<property name="referenceID" column="reference_id" type="int"/>
+		<property name="status" column="status" type="int" not-null="true"/>	
+		<many-to-one name="statusDetails"
+			class="com.callippus.web.beans.dto.StatusMasterDTO" column="status"
+			not-null="true" lazy="false" update="false" insert="false"/>	
+			<property name="labRepresentative" column="lab_representative" type="java.lang.String"/>
+			<property name="empName" column="lab_representative" insert="false" update="false" formula="(select em.name_in_service_book from emp_master em where em.status=1 and em.sfid=upper(lab_representative))" />
+			
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	<hibernate-mapping>
+		<class name="com.callippus.web.hindi.dto.HindiEmpResultDTO" table="HINDI_RESULT_MASTER">
+		<id name="id" type="int" column="ID">
+		   <generator class="sequence">
+				<param name="sequence">HINDI_RESULT_MASTER_SEQ</param>
+			</generator>
+		</id>
+				<property name="sfid"  column="SFID" />							
+				<property name="examId" column="CFG_ID" />		
+				<property name="totalMarks" column="TOTAL_MARKS" />					
+				<property name="marksPercentage" column="MARKS_PERCENTAGE" />	
+				<property name="status" column="STATUS" />
+				<property name="cashAwardAmount" column="CASH_AWARD_AMOUNT" />
+				<property name="examDate" column="EXAMINATION_DATE" />
+				<property name="resultDate" column="RESULT_DECLARED_DATE" />
+				<property name="passOrFail" column="PASS_OR_FAIL" />
+				<property name="effectiveDate" column="EFFECTIVE_DATE" />
+				
+				<!--  <many-to-one name="examDetails"
+			     class="com.callippus.web.hindi.dto.ExamDTO" column="EXAM_ID"
+			     lazy="false" insert="false" update="false" />-->
+		</class> 
+	</hibernate-mapping>

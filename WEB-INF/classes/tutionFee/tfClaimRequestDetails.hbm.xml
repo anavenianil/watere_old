@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.tutionFee.TutionFeeClaimDetailsDTO" table="TUTION_FEE_CLAIM_DETAILS" >
+		<id name="id" type="int" column="ID">
+			<generator class="sequence">
+				<param name="sequence">TUTION_FEE_CLAIM_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="claimId" column="CLAIM_ID" />
+		<property name="childRelationId" column="CHILD_RELATION_ID" />
+		<property name="sfid" column="SFID" />
+		<property name="appNo" column="APP_NO" />
+		<property name="appDate" column="APP_DATE" />
+		<property name="amount" column="AMOUNT" />
+		<property name="requestId" column="REQUEST_ID" />
+		<property name="createdBy" column="CREATED_BY" />
+		<property name="lastModifiedBy" column="LAST_MODIFIED_BY" />
+		<property name="creationDate" column="CREATION_DATE" />
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" />
+		<property name="status" column="STATUS" />
+		<property name="sanctionedDate" column="SANCTIONED_DATE" />
+		<property name="sanctionedAmount" column="SANCTIONED_AMOUNT" />
+		<property name="classId" column="CLASS_ID" />
+		<property name="limitId" column="LIMIT_ID" />
+		<property name="claimTypeId" column="CLAIM_TYPE_ID" />
+		<property name="fromDate" column="FROM_DATE" />
+		<property name="toDate" column="TO_DATE" />
+		<property name="boardType" column="BOARDTYPE" />
+		
+		<many-to-one name="claimDetails"
+			class="com.callippus.web.beans.tutionFee.TutionFeeClaimMasterDTO" column="CLAIM_ID"
+			lazy="false" insert="false" update="false"/>
+			<many-to-one name="classDetails"
+			class="com.callippus.web.beans.tutionFee.TuitionFeeAcedemicYearDTO" column="CLASS_ID"
+			lazy="false" insert="false" update="false"/>
+		
+		<many-to-one name="familyDetails"
+			class="com.callippus.web.beans.family.FamilyBean" column="CHILD_RELATION_ID"
+			lazy="false" insert="false" update="false"/>
+		
+	</class>
+</hibernate-mapping>

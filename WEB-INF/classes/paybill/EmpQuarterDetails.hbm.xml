@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.paybill.dto.PayQuarterManagementDTO" table="PAY_QUARTER_MANAGEMENT_DETAILS">
+		<id name="id" column="id">
+			<generator class="sequence">
+				<param name="sequence">PAY_QUARTER_MANAGEMENT_SEQ</param>
+			</generator>
+		</id>
+		<many-to-one name="quarterTypeDetails"
+			class="com.callippus.web.beans.quarterType.QuarterTypeBean" column="quarter_sub_type" 
+			not-null="true" update="false" unique="true" lazy="false" insert="false"/>
+		
+		<property name="quartersType" column="quarter_sub_type" insert="true" update="true"/>
+		<property name="mainQuarter" formula="(select qtm.quarter_type from pay_quarters_type_master qtm where qtm.status=1 and qtm.id = (select qsm.quarters_type_id from pay_quarters_subtype_master qsm where qsm.status=1 and qsm.id=quarter_sub_type))" />
+		<property name="quarterNo" column="quarter_no" />
+		<property name="sfid" column="sfid" update="false" />
+		<property name="status" column="status" />
+		<property name="createdBy" column="created_by" update="false"/>
+		<property name="creationTime" column="creation_date" update="false"/>
+		<property name="lastModifiedBy" column="modified_by" />
+		<property name="lastModifiedTime" column="modified_date" />	
+		<property name="occupiedDate" column="occupied_date" />	
+		<property name="vacationDate" column="VACATION_DATE"  />
+		
+	</class>
+</hibernate-mapping>

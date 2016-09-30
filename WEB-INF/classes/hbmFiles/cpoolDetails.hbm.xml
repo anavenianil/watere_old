@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.reportDetails.ReportDetailsBean" table="cpool_details">
+		<id name="id" column="id">
+		  <generator class="sequence">
+				<param name="sequence">CPOOL_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="txnDate" column="cpool_date" />
+		<property name="cPoolIn" column="cpool_in" />
+		<property name="cPoolOut" column="cpool_out" />
+		<property name="designationId" column="designation_id"/>
+	</class>
+</hibernate-mapping>

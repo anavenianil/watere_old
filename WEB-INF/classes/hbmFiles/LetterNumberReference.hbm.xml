@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.dto.LetterNumberReferenceDTO" table="LETTER_NUMBER_REFERENCE">
+		<id name="id" column="id" >
+			<generator class="sequence">
+				<param name="sequence">LETTER_NUMBER_REFERENCE_SEQ</param>
+			</generator>
+		</id>			
+		<property name="letterNumber" column="LETTER_NUMBER" />
+		<property name="letterDate" column="LETTER_DATE" />
+		<property name="status" column="STATUS" />
+		
+		<property name="description" column="DESCRIPTION" />
+		<property name="creationDate" column="creation_date" update="false" />
+		<property name="deptId"  column="DEPT_ID"/>
+		<property name="remarks" column="remarks" />
+		<property name="fromPalce" column="FROM_PLACE" />
+		<property name="toPalce" column="TO_PLACE" />
+		<property name="lastModifiedDate" column="last_modified_date" />
+		<property name="lastModifiedBy" column="LAST_MODIFIED_BY" />
+		<property name="createdBy" column="CREATED_BY" />
+
+		
+	</class>
+</hibernate-mapping>

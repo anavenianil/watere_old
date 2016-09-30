@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.MT.AddressDetailsBean" table="MT_ADDRESS_DETAILS">
+		<id name="addressId" type="int" column="ADDRESS_ID">
+			<generator class="sequence">
+				<param name="sequence">MT_ADDRESS_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="addressName" column="ADDRESS" />
+		<property name="status" column="STATUS" />
+		<property name="lastModifiedBy" column="LAST_MODIFIED_BY" />
+		<property name="creationDate" column="CREATION_DATE" update="false" />
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" />
+	</class>
+</hibernate-mapping>
+

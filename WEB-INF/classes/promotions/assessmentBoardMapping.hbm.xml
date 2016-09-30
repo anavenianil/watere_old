@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.promotions.dto.BoardMappingDTO" table="PRO_ASSESSMENT_BOARD_MAPPING">
+		<id name="id" column="id">
+			<generator class="sequence">
+				<param name="sequence">PRO_ASSESSMENT_BOARD_MAP_SEQ</param>
+			</generator>
+		</id>
+		<many-to-one name="yearDetails"
+			class="com.callippus.web.beans.dto.YearTypeDTO" column="year_id"
+			not-null="true"  lazy="false" update="false" insert="false"/>			
+		<property name="yearID" column="year_id" insert="true" update="true" type="int" not-null="true"/>
+		<many-to-one name="boardDetails"
+			class="com.callippus.web.promotions.dto.BoardMasterDTO" column="board_id"
+			not-null="true" lazy="false" update="false" insert="false"/>			
+		<property name="boardID" column="board_id" insert="true" update="true" type="int" not-null="true"/>		
+		<property name="boardMember" column="board_member" type="java.lang.String" not-null="true"/>		
+		<property name="status" column="status" type="int" not-null="true" />	
+		<property name="createdBy" column="created_by" update="false" type="java.lang.String" not-null="true"/>
+		<property name="creationTime" column="creation_date" update="false" type="java.util.Date" not-null="true"/>
+		<property name="lastModifiedBy" column="last_modified_by" type="java.lang.String" not-null="true" />
+		<property name="lastModifiedTime" column="last_modified_date" type="java.util.Date" not-null="true" />
+	    <property name="categoryId" column="category_id" insert="true" update="true" type="int" not-null="true"/>	
+		<property name="categoryName" column="category_id" insert="false" update="false" 
+		formula="(select cm.name from category_master cm where cm.status=1 and cm.id=(category_id))" />
+	</class>
+</hibernate-mapping>

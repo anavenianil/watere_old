@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.requests.AddressRequestBean" table="txn_address_details">
+		<id name="requestID" column="request_id"></id>
+		<property name="sfID" column="sfid" />
+		<property name="addressTypeId" column="address_type_id" />
+		<property name="address1" column="address1" />
+		<property name="address2" column="address2" />
+		<property name="address3" column="address3" />
+		<property name="city" column="city" />
+		<property name="state" column="state" />
+		<property name="district" column="district" />
+		<property name="pincode" column="pincode" />
+		<property name="phone" column="phone_number" />
+		<property name="mobile" column="mobile_number" />
+		<property name="email" column="email" />
+		<property name="nearestRyStation" column="nearest_rly_stn" />
+		<property name="nearestAirport" column="nearest_airport" />
+		<property name="ipAddress" column="ip_address" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.tada.dto.TadaTdAdvanceRequestDTO" table="TADA_TD_ADV_REQUEST_DETAILS">
+		<id name="requestId" column="REQUEST_ID">
+			<generator class="assigned">
+				
+			</generator>
+		</id>
+		<property name="sfID" column="SFID" />
+		<property name="desigId" column="DESIGNATION_ID" />
+		<property name="phnNo" column="PHONE_NUMBER" />
+		<property name="referenceRequestID" column="REF_REQUEST_ID" />
+		<property name="status" column="status" />
+		<property name="departureDate" column="DEPARTURE_DATE" />
+		<property name="departureDateOne" column="DEPARTURE_DATE" insert="false" update="false"/>
+		<property name="conveyanceMode" column="CONVEYANCE_MODE" />
+		<property name="entitlementClass" column="ENTITLEMENT_CLASS" />
+		<property name="stayDuration" column="STAY_DURATION" />
+		<property name="tdWorkPlace" column="TD_WORK_PLACE" />
+		<property name="authorizedMove" column="AUTHORIZED_MOVE_ID" />
+		<property name="daType" column="DA_TYPE" />
+		<property name="ipAddress" column="IP_ADDRESS" />
+		<property name="tadaAdvanceAmount" column="ADVANCE_AMOUNT" />
+		<property name="applyDate" column="APPLY_DATE" />
+		<property name="ticketFare" column="TICKET_FARE" />
+		<property name="noOfDaysAcc" column="NO_OF_DAYS" />
+		<property name="accAmtPerDay" column="ACC_AMOUNT_PER_DAY" />
+		<property name="foodAmtPerDay" column="FOOD_AMOUNT_PER_DAY" />
+		<property name="advanceAmountAftRes" column="ADVANCE_AMOUNT_AFT_RES" />
+		
+		<property name="taxi" column="TAXI" />
+		<property name="onTransit" column="ONTRANSIT" />
+	</class>
+</hibernate-mapping>

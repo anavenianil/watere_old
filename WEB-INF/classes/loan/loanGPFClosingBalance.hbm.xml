@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.loan.beans.dto.GPFClosingBalanceDTO" table="loan_gpf_close_balance">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">LOAN_GPF_CLOSE_BALANCE_SEQ</param>
+			</generator>
+		</id>	
+		<property name="sfID" column="sfid" insert="true" update="true"/>
+		<property name="balance" column="closing_balance"  type="float" not-null="true"/>
+		<property name="fromDate" column="from_date" type="java.util.Date" not-null="true" />
+		<property name="toDate" column="to_date" type="java.util.Date" not-null="true"/>
+		<property name="status" column="status" type="int" not-null="true" />
+		<property name="createdBy" column="created_by" update="false" type="java.lang.String" not-null="true" />
+		<property name="creationTime" column="creation_date" update="false" type="java.util.Date" not-null="true"/>
+		<property name="lastModifiedBy" column="last_modified_by" type="java.lang.String" not-null="true"/>
+		<property name="lastModifiedTime" column="last_modified_date" type="java.util.Date" not-null="true" />			
+	</class>
+</hibernate-mapping>

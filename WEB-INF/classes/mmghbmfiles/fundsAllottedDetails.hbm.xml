@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.mmg.cashbuildup.dto.FundsAllotedDetailsDTO" table="MMG_B_FUNDS_ALLOTTED_DETAILS">
+		<id name="id" column="ID">
+			<generator class="sequence">
+				<param name="sequence">MMG_B_FUNDS_ALLOTTED_DET_SEQ</param>
+			</generator>
+		</id>
+		<property name="fundAmount" column="FUND_AMOUNT" />
+		<property name="demandNo" column="DEMAND_NO" />
+		<property name="accountHeadId" column="ACCOUNT_HEAD_NO" />
+		<property name="paymentTypeId" column="PAYMENT_TYPE_ID" />
+		<property name="status" column="STATUS" />
+		<property name="creationDate" column="CREATION_DATE" />
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" />		
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.mmg.cashbuildup.dto.ItemSubCodeDTO" table="MMG_B_ITEM_SUB_CODE_MASTER">
+		<id name="id" column="id">
+			<generator class="sequence">
+				<param name="sequence">MMG_B_ITEM_SUB_CODE_MASTER_SEQ</param>
+			</generator>
+		</id>
+		<property name="name" column="SUB_CODE_NAME" />
+		<property name="itemCodeId" column="ITEM_CODE_ID" />
+		<property name="itemSubCode" column="ITEM_SUB_CODE" />
+		<property name="description" column="DESCRIPTION" />
+		<property name="status" column="STATUS" />
+		<property name="creationDate" column="CREATION_DATE" />
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" />
+	</class>
+</hibernate-mapping>

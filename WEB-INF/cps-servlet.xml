@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+
+		
+	<!-- start: configuration of view -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<!-- end: configuration of view -->
+	<context:component-scan base-package="com.callippus.web.controller.higherQualification"/>
+	<context:component-scan base-package="com.callippus.web.controller.doPart" />
+	<context:component-scan base-package="com.callippus.web.controller.file" />
+	<context:component-scan base-package="com.callippus.web.controller.login" />
+	<context:component-scan base-package="com.callippus.web.controller.logout" />
+	<context:component-scan base-package="com.callippus.web.controller.master" />
+	<context:component-scan base-package="com.callippus.web.controller.workflowmapping" />
+	<context:component-scan base-package="com.callippus.web.controller.qualification." />
+	<context:component-scan base-package="com.callippus.web.controller.family" />
+	<context:component-scan base-package="com.callippus.web.controller.employee" />
+	<context:component-scan base-package="com.callippus.web.controller.address" />
+	<context:component-scan base-package="com.callippus.web.controller.training" />
+	<context:component-scan base-package="com.callippus.web.controller.reports" />
+	<context:component-scan base-package="com.callippus.web.controller.passport" />
+	<context:component-scan base-package="com.callippus.web.controller.hierarchy" />
+	<context:component-scan base-package="com.callippus.web.controller.manulinks" />
+	<context:component-scan base-package="com.callippus.web.controller.approles" />
+	<context:component-scan base-package="com.callippus.web.controller.empExperience" />
+	<context:component-scan base-package="com.callippus.web.controller.preOrgnDetails" />
+	<context:component-scan base-package="com.callippus.web.controller.nominee" />
+	<context:component-scan base-package="com.callippus.web.controller.award" />
+	<context:component-scan base-package="com.callippus.web.controller.quarter" />
+	<context:component-scan base-package="com.callippus.web.controller.retirement" />
+	<context:component-scan base-package="com.callippus.web.controller.empsearch" />
+	<context:component-scan base-package="com.callippus.web.controller.configuration" />
+	<context:component-scan base-package="com.callippus.web.controller.common" />
+	<context:component-scan base-package="com.callippus.web.controller.requestworkflow" />
+	<context:component-scan base-package="com.callippus.web.controller.outerEmployee" />
+	<context:component-scan base-package="com.callippus.web.controller.reportDetails" />
+	<context:component-scan base-package="com.callippus.web.controller.orgstructure" />
+	<context:component-scan base-package="com.callippus.web.controller.empPayment" />
+	<context:component-scan base-package="com.callippus.web.controller.redetails" />
+	<context:component-scan base-package="com.callippus.web.controller.backend" />
+	<context:component-scan base-package="com.callippus.web.controller.test" />
+	<context:component-scan base-package="com.callippus.web.controller.allowances" />
+	<context:component-scan base-package="com.callippus.web.controller.fpa" />	
+	<context:component-scan base-package="com.callippus.web.controller.increment" />
+	<context:component-scan base-package="com.callippus.web.controller.misc" />
+	<context:component-scan base-package="com.callippus.web.controller.letterNumberFormat" />
+	
+	
+	<context:component-scan base-package="com.callippus.web.business.hqBusiness"/>
+	<context:component-scan base-package="com.callippus.web.business.doPart" />
+	<context:component-scan base-package="com.callippus.web.business.requestprocess" />
+	<context:component-scan base-package="com.callippus.web.business.workflow" />
+	<context:component-scan base-package="com.callippus.web.business.domainobject" />
+	<context:component-scan base-package="com.callippus.web.business.mmg.cashbuildup.workflow" />
+	<context:component-scan base-package="com.callippus.web.business.login" />
+	<context:component-scan base-package="com.callippus.web.business.master" />
+	<context:component-scan base-package="com.callippus.web.business.employee" />
+	<context:component-scan base-package="com.callippus.web.business.workflowmapping" />
+	<context:component-scan base-package="com.callippus.web.business.requestworkflow" />
+	<context:component-scan base-package="com.callippus.web.business.qualification" />
+	<context:component-scan base-package="com.callippus.web.business.family" />
+	<context:component-scan base-package="com.callippus.web.business.address" />
+	<context:component-scan base-package="com.callippus.web.business.training" />
+	<context:component-scan base-package="com.callippus.web.business.reports" />
+	<context:component-scan base-package="com.callippus.web.business.passport" />
+	<context:component-scan base-package="com.callippus.web.business.hierarchy" />
+	<context:component-scan base-package="com.callippus.web.business.menulinks" />
+	<context:component-scan base-package="com.callippus.web.business.approles" />
+	<context:component-scan base-package="com.callippus.web.business.empExperience" />
+	<context:component-scan base-package="com.callippus.web.business.preOrgnDetails" />
+	<context:component-scan base-package="com.callippus.web.business.nominee" />
+	<context:component-scan base-package="com.callippus.web.business.award" />
+	<context:component-scan base-package="com.callippus.web.business.quarter" />
+	<context:component-scan base-package="com.callippus.web.business.retirement" />
+	<context:component-scan base-package="com.callippus.web.business.empsearch" />
+	<context:component-scan base-package="com.callippus.web.business.configuration" />
+	<context:component-scan base-package="com.callippus.web.business.outerEmployee" />
+	<context:component-scan base-package="com.callippus.web.business.reportDetails" />
+	<context:component-scan base-package="com.callippus.web.business.empPayment" />
+	<context:component-scan base-package="com.callippus.web.business.orgstructure" />
+	<context:component-scan base-package="com.callippus.web.business.redetails" />
+	<context:component-scan base-package="com.callippus.web.business.allowances" />
+	<context:component-scan base-package="com.callippus.web.business.fpa" />
+	<context:component-scan base-package="com.callippus.web.business.increment" />
+	<context:component-scan base-package="com.callippus.web.business.misc" />
+	<context:component-scan base-package="com.callippus.web.business.letterNumberFormat" />
+   
+  	<context:component-scan base-package="com.callippus.web.dao.higherQualification"/>
+	<context:component-scan base-package="com.callippus.web.dao.login" />
+	<context:component-scan base-package="com.callippus.web.dao.doPart" />
+	<context:component-scan base-package="com.callippus.web.dao.master" />
+	<context:component-scan base-package="com.callippus.web.dao.employee" />
+	<context:component-scan base-package="com.callippus.web.dao.workflowmapping" />
+	<context:component-scan base-package="com.callippus.web.dao.approles" />
+	<context:component-scan base-package="com.callippus.web.dao.qualification" />
+	<context:component-scan base-package="com.callippus.web.dao.common" />
+	<context:component-scan base-package="com.callippus.web.dao.family" />
+	<context:component-scan base-package="com.callippus.web.dao.address" />
+	<context:component-scan base-package="com.callippus.web.dao.training" />
+	<context:component-scan base-package="com.callippus.web.dao.passport" />
+	<context:component-scan base-package="com.callippus.web.dao.hierarchy" />
+	<context:component-scan base-package="com.callippus.web.dao.menulinks" />
+	<context:component-scan base-package="com.callippus.web.dao.empExperience" />
+	<context:component-scan base-package="com.callippus.web.dao.preOrgnDetails" />
+	<context:component-scan base-package="com.callippus.web.dao.nominee" />
+	<context:component-scan base-package="com.callippus.web.dao.award" />
+	<context:component-scan base-package="com.callippus.web.dao.quarter" />
+	<context:component-scan base-package="com.callippus.web.dao.retirement" />
+	<context:component-scan base-package="com.callippus.web.dao.empsearch" />
+	<context:component-scan base-package="com.callippus.web.dao.configuration" />
+	<context:component-scan base-package="com.callippus.web.dao.outerEmployee" />
+	<context:component-scan base-package="com.callippus.web.dao.reportDetails" />
+	<context:component-scan base-package="com.callippus.web.dao.empPayment" />
+	<context:component-scan base-package="com.callippus.web.dao.orgstructure" />
+	<context:component-scan base-package="com.callippus.web.dao.redetails" />
+	<context:component-scan base-package="com.callippus.web.dao.fpa" />
+	<context:component-scan base-package="com.callippus.web.dao.allowances" />
+	<context:component-scan base-package="com.callippus.web.dao.increment" />
+	<context:component-scan base-package="com.callippus.web.dao.misc" />
+	<context:component-scan base-package="com.callippus.web.dao.letterNumberFormat" />
+
+	
+	
+	<!-- Start:Leave Management -->
+	<context:component-scan base-package="com.callippus.web.leave.controller.management" />
+	<context:component-scan base-package="com.callippus.web.leave.controller.request" />
+	<context:component-scan base-package="com.callippus.web.controller.holidays" />
+	<context:component-scan base-package="com.callippus.web.leave.business.management" />
+	<context:component-scan base-package="com.callippus.web.leave.business.request" />
+	<context:component-scan base-package="com.callippus.web.business.holidays" />
+	<context:component-scan base-package="com.callippus.xweb.business.requestprocess" />
+	<context:component-scan base-package="com.callippus.web.leave.dao.management" />
+	<context:component-scan base-package="com.callippus.web.leave.dao.request" />
+	<context:component-scan base-package="com.callippus.web.dao.holidays" />
+	<context:component-scan base-package="com.callippus.web.business.leave.request" />
+	<context:component-scan base-package="com.callippus.web.leave.controller.admin" />
+	<context:component-scan base-package="com.callippus.web.business.leave.admin" />
+	<context:component-scan base-package="com.callippus.web.leave.dao.admin" />
+	
+
+		<context:component-scan base-package="com.callippus.web.leave.beans.request" />
+	<!-- End:Leave Management -->	
+	
+	<!-- Start: Promotion -->
+	<context:component-scan base-package="com.callippus.web.promotions.controller.management" />
+	<context:component-scan base-package="com.callippus.web.promotions.business.management" />
+	<context:component-scan base-package="com.callippus.web.promotions.dao.management" />
+	<context:component-scan base-package="com.callippus.web.promotions.controller.request" />
+	<context:component-scan base-package="com.callippus.web.promotions.business.request" />
+	<context:component-scan base-package="com.callippus.web.promotions.dao.request" />	
+	<!-- End: Promotion -->	
+	
+	<!-- Start: MMG -->
+	<context:component-scan base-package="com.callippus.web.controller.mmg.cashbuildup" />
+	<context:component-scan base-package="com.callippus.web.business.mmg.cashbuildup" />
+	<context:component-scan base-package="com.callippus.web.dao.mmg.cashbuildup" />
+	<context:component-scan base-package="com.callippus.web.mmg.cashbuildup.beans"/>
+	<!-- End: MMG -->	
+	
+	<!-- Start: LTC -->
+	<context:component-scan base-package="com.callippus.web.ltc.controller.master" />
+	<context:component-scan base-package="com.callippus.web.ltc.business.master" />
+	<context:component-scan base-package="com.callippus.web.ltc.dao.master" />
+	<context:component-scan base-package="com.callippus.web.ltc.controller.approval" />
+	<context:component-scan base-package="com.callippus.web.ltc.business.approval" />
+	<context:component-scan base-package="com.callippus.web.ltc.dao.approval" />	
+	<context:component-scan base-package="com.callippus.web.ltc.controller.advance" />	
+	<context:component-scan base-package="com.callippus.web.ltc.business.advance" /> 
+	<context:component-scan base-package="com.callippus.web.ltc.dao.advance" />		
+	<!-- End: LTC -->
+
+	<!-- Start: LOAN -->
+	<context:component-scan base-package="com.callippus.web.loan.controller.management" />
+	<context:component-scan base-package="com.callippus.web.loan.controller.request" />
+	<context:component-scan base-package="com.callippus.web.loan.business.management" />
+	<context:component-scan base-package="com.callippus.web.loan.business.request" />
+	<context:component-scan base-package="com.callippus.web.loan.dao.management" />
+	<context:component-scan base-package="com.callippus.web.loan.dao.request" />		
+	<!-- End: LOAN -->
+	
+	<!-- Start: CGHS -->
+	<context:component-scan base-package="com.callippus.web.cghs.controller.management" />
+	<context:component-scan base-package="com.callippus.web.cghs.controller.request" />
+	<context:component-scan base-package="com.callippus.web.cghs.business.management" />
+	<context:component-scan base-package="com.callippus.web.cghs.business.request" />
+	<context:component-scan base-package="com.callippus.web.cghs.dao.management" />
+	<context:component-scan base-package="com.callippus.web.cghs.dao.request" />		
+	<!-- End: CGHS -->
+	
+	<!-- Start: PAY -->
+    <context:component-scan base-package="com.callippus.web.controller.paybill" />
+    <context:component-scan base-package="com.callippus.web.business.paybill" />
+    <context:component-scan base-package="com.callippus.web.dao.paybill" />  
+    <context:component-scan base-package="com.callippus.web.controller.quarterType" />
+    <context:component-scan base-package="com.callippus.web.business.quarterType" />
+    <context:component-scan base-package="com.callippus.web.dao.quarterType" />    
+    <!-- End: PAY -->
+     
+     <!-- Start: TADA -->
+	<context:component-scan base-package="com.callippus.web.tada.controller.management" />
+	<context:component-scan base-package="com.callippus.web.tada.business.management" />
+	<context:component-scan base-package="com.callippus.web.tada.dao.management" />
+	<context:component-scan base-package="com.callippus.web.tada.beans.management" />
+	<context:component-scan base-package="com.callippus.web.tada.beans.request" />
+	<context:component-scan base-package="com.callippus.web.tada.controller.request" />
+	<context:component-scan base-package="com.callippus.web.tada.business.request" />
+	<context:component-scan base-package="com.callippus.web.tada.dao.request" />
+	<context:component-scan base-package="com.callippus.web.tada.dao.approval" />
+	<!-- End: TADA -->	
+     
+     
+     <!--Start: LTC WATER  -->
+     
+     <context:component-scan base-package="com.callippus.web.ltc.controller.request" />
+     <context:component-scan base-package="com.callippus.web.ltc.beans.request" />
+     <context:component-scan base-package="com.callippus.web.ltc.dao.request" />
+     <context:component-scan base-package="com.callippus.web.ltc.business.request" />
+     
+     
+     <!-- End: LTC WATER -->	
+     
+     
+    <!-- Start: Transfer -->
+    <context:component-scan base-package="com.callippus.web.controller.transfer" /> 
+    <context:component-scan base-package="com.callippus.web.business.transfer" /> 
+    <context:component-scan base-package="com.callippus.web.dao.transfer" /> 
+    <!-- End: Transfer -->
+    
+    <!-- Start: ScheduleReports -->
+    <context:component-scan base-package="com.callippus.web.controller.schedulereports" /> 
+    <context:component-scan base-package="com.callippus.web.business.schedulereports" /> 
+    <context:component-scan base-package="com.callippus.web.beans.schedulereports" />
+    <!-- End: ScheduleReports -->
+    
+    <context:component-scan base-package="com.callippus.web.business.tx.workflow" />
+    
+    
+        
+       <!-- Start: IncomeTax -->
+       <context:component-scan base-package="com.callippus.web.controller.incometax" /> 
+       <context:component-scan base-package="com.callippus.web.business.incometax" /> 
+       <context:component-scan base-package="com.callippus.web.dao.incometax" />
+       <context:component-scan base-package="com.callippus.web.beans.incometax" />
+        
+       <!-- End: IncomeTax -->
+       
+       <!-- Start: Arrears-->
+       <context:component-scan base-package="com.callippus.web.controller.arrears" /> 
+       <context:component-scan base-package="com.callippus.web.business.arrears" /> 
+       <context:component-scan base-package="com.callippus.web.dao.arrears" />
+       <context:component-scan base-package="com.callippus.web.beans.arrears" />
+       <!-- End: Arrears -->
+       
+
+       <!-- Start: HRDG -->
+       <context:component-scan base-package="com.callippus.web.hrdg.training.dao" /> 
+       <context:component-scan base-package="com.callippus.web.business.hrdg.training" /> 
+       <context:component-scan base-package="com.callippus.web.hrdg.training.controller.master" /> 
+       <context:component-scan base-package="com.callippus.web.hrdg.training.controller.file" /> 
+       <context:component-scan base-package="com.callippus.web.hrdg.file" />
+       <context:component-scan base-package="com.callippus.web.hrdg.file.dao" />
+       <context:component-scan base-package="com.callippus.web.hrdg.training.controller.request"/>
+       <context:component-scan base-package="com.callippus.web.business.hrdg.training.request"/>
+       <context:component-scan base-package="com.callippus.web.hrdg.training.request"/>
+       <context:component-scan base-package="com.callippus.web.hrdg.dao"/>
+       
+      
+       
+       
+       
+       
+       <!-- End: HRDG -->
+       
+
+       
+       <!-- Start: Tuition Fee-->
+       <context:component-scan base-package="com.callippus.web.controller.tutionFee" /> 
+       <context:component-scan base-package="com.callippus.web.business.tutionFee" /> 
+       <context:component-scan base-package="com.callippus.web.dao.tutionFee" />
+       <context:component-scan base-package="com.callippus.web.beans.tutionFee" />
+       <!-- End: Tuition Fee -->
+
+
+
+       
+        <!-- Start: TelePhone Bill-->
+       <context:component-scan base-package="com.callippus.web.controller.telephone" /> 
+       <context:component-scan base-package="com.callippus.web.business.telephone" /> 
+       <context:component-scan base-package="com.callippus.web.beans.telephone" />
+       <context:component-scan base-package="com.callippus.web.dao.telephone" />
+       <!-- End: TelePhone Bill -->
+
+       <!-- Start: MECHANICAL TRANSPORT -->
+	<context:component-scan base-package="com.callippus.web.controller.MT" />
+	<context:component-scan base-package="com.callippus.web.business.MT" />
+	<context:component-scan base-package="com.callippus.web.dao.MT" />
+	<context:component-scan base-package="com.callippus.web.beans.MT" />
+	<!-- End: MECHANICAL TRANSPORT -->
+	
+<!-- Start:Hindi Incentive -->
+    <context:component-scan base-package="com.callippus.web.controller.hindi" />
+	<context:component-scan base-package="com.callippus.web.business.hindi" />
+	<context:component-scan base-package="com.callippus.web.dao.hindi" />
+	<context:component-scan base-package="com.callippus.web.beans.hindi" /> 
+	<context:component-scan base-package="com.callippus.web.hindi.dto" /> 
+     <!-- End:Hindi Incentive --> 
+	<context:component-scan base-package="com.callippus.web.controller.svn" /> 
+	
+	<!-- HealthInsurance Packages -->
+	
+  <context:component-scan base-package=" com.callippus.HealthInsuranceBusiness" />
+ <context:component-scan base-package="com.callippus.web.controller.employee" />
+  <context:component-scan base-package="com.callippus.healthInsurance" />
+   <context:component-scan base-package="com.callippus.HealthInsuranceDao" />
+   
+   
+   <context:component-scan base-package="com.callippuss.web.retriment.controller" />
+     <context:component-scan base-package="com.callippus.web.retriments.beans" />
+      <context:component-scan base-package="com.callippus.web.retriment.business" />
+      <context:component-scan base-package="com.callippus.web.retriments.dao" />
+
+
+<!-- <context:component-scan base-package="com.callippus.web.beans.login" />	 -->
+        
+    <!-- Configure the multipart resolver -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- one of the properties available; the maximum file size in bytes -->
+		<property name="maxUploadSize" value="-1"/>
+    </bean>
+    
+	<!-- start: configuration of message resource file -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename">
+			<value>resources/MessageResources</value>
+		</property>
+	</bean>
+	<!-- end: configuration of message resource file -->
+
+	<!-- start: exceptional handling configuration -->
+	<bean
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="com.callippus.web.controller.exception.ResultStatus">error</prop>
+				<prop key="com.callippus.web.controller.exception.GenericException">
+					error
+					</prop>
+				<prop key="java.lang.Exception">error</prop>
+			</props>
+		</property>
+	</bean>	
+	<!-- end: exceptional handling configuration -->
+	
+	<!-- start: Transaction Management configuration -->
+	<tx:annotation-driven transaction-manager="txManager"/>
+	<!-- End: Transaction Management configuration -->
+</beans>

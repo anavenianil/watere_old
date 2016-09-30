@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.incometax.dto.IncomeTaxSavingsRunDTO" table="INCOME_TAX_CONF_RUN_DETAILS" >
+		<id name="id" type="int" column="ID">
+			<generator class="sequence">
+				<param name="sequence">INCOME_TAX_CONF_RUN_SEQ</param>
+			</generator>
+		</id>
+		<property name="sfid" column="SFID" />
+		<property name="finYearId" column="FIN_YEAR_ID" />
+		<property name="runType" column="RUN_TYPE"  />
+		<property name="confTypeId" column="CONF_TYPE_ID"  />
+		<property name="amount" column="AMOUNT"  />
+		<property name="creationTime" column="CREATION_DATE"/>
+		<property name="createdBy" column="CREATED_BY"/>
+		<property name="lastModifiedTime" column="LAST_MODIFIED_DATE"  />
+		<property name="lastModifiedBy" column="LAST_MODIFIED_BY"  />
+		<property name="status" column="STATUS" />
+		<property name="runId" column="RUN_ID" />
+</class>
+</hibernate-mapping>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

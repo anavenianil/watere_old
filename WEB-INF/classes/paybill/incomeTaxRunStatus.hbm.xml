@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.incometax.dto.IncomeTaxRunStatusDTO" table="PAY_IT_RUN_STATUS_DETAILS">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">PAY_IT_RUN_STATUS_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="finYearId" column="FIN_YEAR_ID" insert="true" update="true"/>
+		<property name="createdBy" column="created_by" update="false"/>
+		<property name="creationTime" column="creation_date" update="false"/>
+		<property name="lastModifiedBy" column="last_modified_by" />
+		<property name="lastModifiedTime" column="last_modified_date" />	
+		<property name="plannedStatus" column="PLANNED_STATUS" />
+		<property name="ProjectedStatus" column="PROJECTED_STATUS" />
+		<property name="actualStatus" column="ACTUAL_STATUS" />	
+		<property name="finYear" column="FIN_YEAR_ID" insert="false" update="false" formula="(select it.From_Year||'-'||it.To_Year from Pay_It_Fin_Year_Master it where it.id=FIN_YEAR_ID)"/>
+		
+	</class>
+</hibernate-mapping>
+

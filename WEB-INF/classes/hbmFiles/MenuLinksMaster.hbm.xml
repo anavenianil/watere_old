@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.menulinks.MenuLinksBean" table="menu_links_master">
+		<id name="uid" column="id">
+			<generator class="increment"/>
+		</id>
+		<property name="keyName" column="name" />
+		<property name="parentId" column="parent_id" />
+		<property name="status" column="status" />
+		<property name="linkName" column="description" />
+		<property name="className" column="controller_class" />
+	</class>
+</hibernate-mapping>

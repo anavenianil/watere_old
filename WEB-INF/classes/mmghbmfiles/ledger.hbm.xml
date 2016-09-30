@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.mmg.cashbuildup.dto.LedgerDTO" table="MMG_LEDGER_DETAILS">
+		<id name="ledgerCode" column="LEDGER_CODE">
+			<generator class="sequence">
+				<param name="sequence">MMG_LEDGER_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="inventoryNo" column="INVENTORY_NO" />
+		<property name="materialCode" column="MATERIAL_CODE" />
+		<property name="qty" column="QTY" />
+		<property name="cflag" column="CONSUMABLE_FLAG" />
+		<property name="rate" column="UNIT_RATE" />
+		<property name="voucherNo" column="VOUCHER_NO" />
+		<property name="refLedgerCode" column="REF_LEDG_CODE" />
+		<property name="auditCheck" column="AUDIT_CHECK" />
+		<property name="purpose" column="PURPOSE" />
+		<property name="postingDate" column="POSTING_DATE" />
+		<property name="creditDebitFlag" column="CREDIT_DEBIT_FLAG" />
+		<property name="uom" column="UOM" />
+		<property name="status" column="STATUS" />
+   </class>
+</hibernate-mapping>

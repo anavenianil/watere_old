@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.arrears.ArrearsTxnDetailsDTO" table="arrears_txn_details">
+		<id name="id" column="id">
+			<generator class="sequence">
+				<param name="sequence">ARREARS_TXN_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="sfid" column="SFID" />
+		<property name="arrearsType" column="ARREARS_TYPE" />
+		<property name="drawnBasic" column="DRAWN_BASIC" />
+		<property name="drawnGrade" column="DRAWN_GRADE" />
+		<property name="drawnDA" column="DRAWN_DA" />
+		<property name="drawnFpa" column="DRWAN_FPA" />
+		<property name="drawnTpt" column="DRAWN_TPT" />
+		<property name="drawnHra" column="DRAWN_HRA" />
+		<property name="drawnTotal" column="DRAWN_TOTAL" />
+		<property name="dueBasic" column="DUE_BASIC" />
+		<property name="dueGrade" column="DUE_GRADE" />
+		<property name="dueDA" column="DUE_DA" />
+		<property name="dueFpa" column="DUE_FPA" />
+		<property name="dueTpt" column="DUE_TPT" />
+		<property name="dueHra" column="DUE_HRA" />
+		<property name="dueTotal" column="DUE_TOTAL" />
+		<property name="finYearId" column="FIN_YEAR_ID" />
+		<property name="daTypeFlag" column="DA_TYPE_FLAG" />
+		<property name="arrearsMonth" column="ARREARS_MONTH" />
+		<property name="sequence" column="SEQUENCE" />
+		<property name="totalAmount" column="TOTAL_AMOUNT" />
+		<property name="runId" column="RUN_ID" />
+		<property name="cpf" column="CPF" />
+		<property name="netPmt" column="NET_PMT" />
+		<property name="drawnAddIncr" column="DRAWN_ADD_INCR" />
+		<property name="dueAddIncr" column="DUE_ADD_INCR" />
+	</class>
+</hibernate-mapping>
+

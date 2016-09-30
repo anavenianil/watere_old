@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.ltc.dto.LtcApprovalRequestDTO" table="LTC_REQUEST_DETAILS_BKP">
+		<id name="requestId" column="REQUEST_ID">
+		<!-- commented by bkr 05/04/2016  -->
+		<!-- <generator class="assigned"></generator> -->
+		</id>
+		<property name="sfID" column="SFID" />
+		<property name="designationId" column="DESIGNATION_ID" />
+		<property name="departmentId" column="DEPARTMENT_ID" />
+		<property name="phoneNum" column="PHONE_NUMBER" />
+		<property name="ltcTypeId" column="LTC_TYPE_ID" />
+		<property name="addressId" column="ADDRESS_ID" />
+		<property name="placeOfVisit" column="PLACE_OF_VISIT" />
+		<property name="nearestRlyStation" column="NEAREST_RAILWAY_STATION" />
+		<property name="departureDate" column="DEPARTURE_DATE" />
+		<property name="returnDate" column="return_Date" />
+		<property name="leaveRequestId" column="LEAVE_REQUEST_ID" />
+		<property name="encashTypeId" column="ENCASH_LEAVE_TYPE_ID" />
+		<property name="encashmentDays" column="ENCASHMENT_DAYS" />
+		<property name="spouseEmploymentFlag" column="SPOUSE_EMPLOYMENT_FLAG" />
+		<property name="status" column="STATUS" />
+		<property name="creationDate" column="CREATION_DATE" update="false" />
+		<property name="createdBy" column="CREATED_BY" />
+		<property name="ltcBlockYearId" column="LTC_BLOCK_YEAR_ID" />
+		<property name="doPartId" column="DO_PART_ID" />
+		<property name="ipAddress" column="IP_ADDRESS" />
+		<property name="ltcRequestType" column="REQUEST_TYPE" />
+		<property name="amendmentRefRequestID" column="AMENDMENT_REF_REQUEST_ID"/>
+		<property name="escortDetails" column="ESCORT_DETAILS" />
+		<property name="sanctionNo" column="SANCTION_NO" />
+		<property name="billNo" column="BILL_NO" />
+		<property name="encashmentAmount" column="ENCASHMENT_AMOUNT"/>
+		<property name="dvNo" column="DV_NO"/>
+		<property name="dvDate" column="DV_DATE" />
+		
+	</class>
+</hibernate-mapping>

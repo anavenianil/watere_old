@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.callippus.web.paybill.dto.PayAllwDetailsDTO" table="PAY_ALLOWANCES_DETAILS">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">PAY_ALLOWANCES_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="allwTypeId" column="ALLW_TYPE_ID" />
+		<many-to-one name="confTypeDetails"
+			class="com.callippus.web.paybill.dto.PayAllwTypeDTO" column="ALLW_TYPE_ID"
+			lazy="false" insert="false" update="false"/>
+		<property name="amount" column="AMOUNT"/>
+		<property name="effDate" column="EFF_DATE"/>
+		<property name="status" column="status" />
+		<property name="createdBy" column="created_by" update="false"/>
+		<property name="creationTime" column="creation_date" update="false"/>
+		<property name="lastModifiedBy" column="last_modified_by" />
+		<property name="lastModifiedTime" column="last_modified_date" />		
+	</class>
+</hibernate-mapping> 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.letterNumberFormat.IonSfidDTO"
+		table="ION_SFID_DETAILS">
+	   <composite-id>
+		<key-property name="ionId" column="ION_ID" />
+		<key-property name="sfid" column="SFID" />
+		<key-property name="copyStatus" column="COPY_STATUS" />
+		</composite-id>
+		
+	</class>
+</hibernate-mapping>
+

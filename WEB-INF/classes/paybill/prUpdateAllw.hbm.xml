@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.incometax.dto.PrUpdateAllwDTO" table="PAY_IT_PUA_MASTER">
+		<id name="id" type="int" column="id">
+		<generator class="sequence">
+			<param name="sequence">PAY_IT_PUA_MASTER_SEQ</param>
+		</generator>
+		</id>
+		<many-to-one name="designationDetails"
+			class="com.callippus.web.paybill.dto.PayScaleDesignationDTO" column="DESIGNATION_ID"
+			lazy="false" insert="false" update="false"/>
+		<property name="gradePay" column="GRADE_PAY"/>
+		<property name="designationId" column="DESIGNATION_ID"/>
+		<property name="amount" column="AMOUNT" type="int"></property>
+		<property name="createdBy" column="CREATED_BY"/>
+		<property name="status" column="STATUS"/>
+		<property name="creationTime" column="CREATION_DATE"/>
+		<property name="lastModifiedBy" column="LAST_MODIFIED_BY" />
+		<property name="lastModifiedTime" column="LAST_MODIFIED_DATE" />			
+	</class>
+</hibernate-mapping>
+		
+
+
+
+
+
+
+

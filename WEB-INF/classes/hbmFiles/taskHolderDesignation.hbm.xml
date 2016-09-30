@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.dto.TaskHolderDesignationsDTO" table="DOPART_II_TH_DESIGNATIONS">
+		<id name="id" column="ID">
+			<generator class="sequence">
+				<param name="sequence">DOPART_II_TH_DESIGNATIONS_SEQ</param>
+			</generator>
+		</id>	
+		<many-to-one name="typeDesigDetails" class="com.callippus.web.beans.dto.TypeDesigDetailsDTO" column="type_desig_id"
+			not-null="true"  lazy="false" update="false" insert="false"/>
+		<property name="typeDesigId" column="type_desig_id" insert="true" update="true" type="int" not-null="true"/>
+		
+		<property name="roleId" column="role_id"/>	
+		<property name="status" column="status" />		
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" update="false" />
+		<property name="creationDate" column="creation_date" update="false"/>	
+	</class>
+</hibernate-mapping>

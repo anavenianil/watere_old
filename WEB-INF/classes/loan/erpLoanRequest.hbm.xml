@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.callippus.web.loan.beans.dto.ErpLoanRequestDTO"
+		table="erp_loan_request">
+		<id name="requestID" column="request_id"></id>
+		<property name="sfID" column="sfid" type="java.lang.String"
+			not-null="true" />
+		<property name="staffNo" column="staff_no" type="java.lang.String" />
+		<property name="employeeType" column="employee_type" type="java.lang.String" />
+		<property name="basicPay" column="basic_pay" type="float"
+			not-null="true" />
+		<property name="grossPay" column="gross_pay" type="float" />
+		<property name="requestedLoanType" column="requested_loan_type"
+			type="java.lang.String" />
+		<property name="amountRequested" column="amount_requested"
+			type="float" />
+		<property name="reasonForLoan" column="reason_for_loan" type="java.lang.String" />
+		<property name="ipAddress" column="ip_address" type="java.lang.String" />
+		<property name="requestedDate" column="requested_date" type="java.util.Date" />
+		<property name="sanctionedDate" column="sanctioned_date"
+			type="java.util.Date" />
+		<property name="previousLoanType" column="previous_loan_type"
+			type="java.lang.String" />
+		<property name="previousLoanDate" column="previous_loan_date"
+			type="java.util.Date" />
+		<property name="previousLoanAmount" column="previous_loan_amount"
+			type="float" />
+		<property name="outstandingAmount" column="previous_outstanding_amount"
+			type="float" />
+		<property name="monthlyDeduction" column="monthly_deduction"
+			type="float"></property>
+		<property name="loanStatus" column="loan_status" type="int"
+			not-null="true"></property>
+		<property name="eligibleAmount" column="eligible_amount"
+			type="float"></property>
+			<property name="approvedAmount" column="approved_amount"
+			type="float"></property>
+		<many-to-one name="erpLoanTypes"
+			class="com.callippus.web.loan.beans.dto.ErpLoanPurposeDTO" column="erp_loan_purpose_id"
+			update="false" insert="false" lazy="false" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.tada.dto.TadaTdDaNewDetailsDTO" table="tada_td_da_new_details">
+		<id name="id" column="id">
+			<generator class="sequence">
+				<param name="sequence">TADA_TD_DA_NEW_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="settlementRequestId" column="settlement_request_id" />
+		<property name="daNewDate" column="da_new_date" />
+		<property name="stayDuration" column="stay_duration" />
+		<property name="stayDurationAftRes" column="stay_duration_aft_res" />
+		<property name="foodAmount" column="food_amount" />
+		<property name="foodAmountAftRes" column="food_amount_aft_res" />
+		<property name="accommodationAmount" column="accommodation_amount" />
+		<property name="accAmountAftRes" column="acc_amount_aft_res" />
+		<property name="totalAmount" column="total_amount"/>
+		<property name="type" column="request_type"/>
+		<property name="amountAftRestriction" column="amount_aft_restriction"/>
+	</class>
+</hibernate-mapping>

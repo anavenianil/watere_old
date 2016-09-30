@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.configuration.SigningAuthorityDTO" table="CGHS_SINGING_AUTHORITY" >
+		<id name="id" type="int" column="ID">
+			<generator class="sequence">
+				<param name="sequence">CGHS_SIGNING_AUTHORITY_SEQ</param>
+			</generator>
+		</id>
+		<property name="sfid" column="SFID" />
+		<property name="name" column="NAME" />
+		<property name="type" column="TYPE" />
+		<property name="status" column="STATUS" />
+	</class>
+</hibernate-mapping>

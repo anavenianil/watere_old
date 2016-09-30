@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.promotions.dto.AssessmentDetailsDTO" table="PRO_ASSESSMENT_DETAILS">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">PRO_ASSESSMENT_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<many-to-one name="assessmentCategoryDetails"
+			class="com.callippus.web.promotions.dto.AssessmentCategoryDTO" column="assessment_category_id"
+			not-null="true"  lazy="false" update="false" insert="false"/>			
+		<property name="assessmentCategoryID" column="assessment_category_id" insert="true" update="true" type="int" not-null="true"/>
+		
+		<many-to-one name="yearDetails"
+			class="com.callippus.web.beans.dto.YearTypeDTO" column="year_id"
+			not-null="true"  lazy="false" update="false" insert="false"/>			
+		<property name="yearID" column="year_id" insert="true" update="true" type="int" not-null="true"/>
+		
+		<many-to-one name="referenceDetails"
+			class="com.callippus.web.beans.requests.DoPartBean" column="reference_id"
+			not-null="true"  lazy="false" update="false" insert="false"/>			
+		<property name="referenceID" column="REFERENCE_ID" insert="true" update="true" type="int" not-null="true"/>
+		<property name="sfID" column="sfid" insert="true" update="true" type="java.lang.String" not-null="true"/>
+	
+		<many-to-one name="designationDetails"
+			class="com.callippus.web.beans.dto.DesignationDTO" column="designation_id"
+			not-null="true"  lazy="false" update="false" insert="false"/>			
+		<property name="designationID" column="designation_id" insert="true" update="true" type="int" not-null="true"/>
+		
+		<many-to-one name="departmentDetails"
+			class="com.callippus.web.beans.dto.DepartmentsDTO" column="department_id"
+			not-null="true"  lazy="false" update="false" insert="false"/>			
+		<property name="departmentID" column="department_id" insert="true" update="true" type="int" not-null="true"/>
+		
+		<property name="attempts" column="no_of_attempts" type="java.lang.String"/>
+		<property name="interviewDate" column="interview_date" type="java.util.Date"/>
+		
+		<many-to-one name="venueDetails"
+			class="com.callippus.web.promotions.dto.VenueDetailsDTO" column="venue_id"
+			not-null="true"  lazy="false" update="false" insert="false"/>			
+		<property name="venueID" column="venue_id" insert="true" update="true" type="int"/>
+		<many-to-one name="boardDetails"
+			class="com.callippus.web.promotions.dto.BoardMasterDTO" column="board_id"
+			not-null="true"  lazy="false" update="false" insert="false"/>			
+		<property name="boardID" column="board_id" insert="true" update="true" type="int"/>
+	
+   		<property name="labRepresentative" column="lab_representative" type="java.lang.String"/>
+		<property name="effectiveDate" column="effective_date" type="java.util.Date"/>
+		<property name="endingDate" column="ending_date" type="java.util.Date"/>
+   		<property name="variableIncr" column="variable_incr" type="java.lang.Integer"/>
+   
+   		<many-to-one name="reservationDetails"
+			class="com.callippus.web.beans.dto.ReservationDTO" column="reservation_id"
+			not-null="true"  lazy="false" update="false" insert="false"/>			
+		<property name="reservationID" column="reservation_id" insert="true" update="true" type="int"/>
+   		<property name="promotionDate" column="promotion_date" type="java.util.Date"/>
+		<property name="status" column="status" type="int" not-null="true"/>	
+		<property name="createdBy" column="created_by" update="false" type="java.lang.String" not-null="true"/>
+		<property name="creationTime" column="creation_date" update="false" type="java.util.Date" not-null="true"/>
+		<property name="lastModifiedBy" column="last_modified_by"  type="java.lang.String" not-null="true"/>
+		<property name="lastModifiedTime" column="last_modified_date" type="java.util.Date" not-null="true" />
+		<property name="disciplineID" column="discipline_id" insert="true" update="true" type="int"/>
+		<property name="subDisciplineID" column="sub_discipline_id" insert="true" update="true" type="int"/>
+		<property name="residencyPeriodId" column="Residency_Id" insert="true" update="true" type="java.lang.Integer"/>
+		<property name="WrittenDate" column="WRITTEN_DATE" insert="true" update="true" type="java.lang.String"/>
+		<property name="tradeDate" column="TRADE_DATE" insert="true" update="true" type="java.lang.String"/>
+		<property name="basicpayId" column="BASIC_PAY_ID" insert="true" update="true" type="java.lang.Integer"/>
+		<property name="gradepayId" column="GRADE_PAY_ID" insert="true" update="true" type="java.lang.Integer"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.leave.dto.PastLeavesDTO" table="LEAVE_PASTLEAVES_DECLINED">
+		<id name="requestId" column="LRD_REQUEST_ID" type="int" />
+		<property name="sfid" column="SFID" type="java.lang.String" />
+		<property name="description" column="REMARKS" type="java.lang.String" />
+		<property name="createdBy" column="CREATED_BY" type="java.lang.String" />
+		<property name="creationTime" column="CREATION_DATE" />
+	</class>
+</hibernate-mapping>
+
+<!-- End: declinedPastLeaves -->

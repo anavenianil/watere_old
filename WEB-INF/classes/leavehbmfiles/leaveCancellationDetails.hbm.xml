@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.requests.CancelLeaveRequestBean" table="leave_cancellation_details">
+		<id name="requestID" column="request_id"></id>
+		<property name="sfID" column="sfid" />
+	
+		<property name="referenceID" column="reference_id" />	
+		<many-to-one name="referenceDetails"
+			class="com.callippus.web.beans.requests.LeaveRequestBean" column="reference_id"
+			not-null="true" lazy="false" update="false" insert="false"/>
+				
+		<property name="reason" column="reason" />	
+		<property name="status" column="status" />	
+		<property name="ipAddress" column="ip_address" />
+		<property name="requestedBy" column="requested_by" />
+		<property name="requestedDate" column="requested_date"  update="false"/>	
+		<property name="formattedRequestedDate" column="requested_date" insert="false" update="false"/>
+		
+		<property name="leaveCanceldOPartId" column="DO_PART_ID" insert="false" update="false"/>
+	</class>
+</hibernate-mapping>

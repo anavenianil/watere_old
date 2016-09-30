@@ -1,0 +1,280 @@
+span.pagebanner {
+    display: block;
+    margin: 0px 0px 0px 0px;
+    padding: 2px 4px 2px 0px;
+    width: 35%;
+    font-family:Arial,Helvitica;
+ 	font-weight:bold;
+ 	font-size:12px;
+ 	line-height:20px;
+ 	float:left;
+ 	color:#000;
+}
+.exportlinks {
+	display: block;
+    font-size: .95em;
+    font-family:Arial,Helvitica;
+ 	font-weight:bold;
+ 	font-size:12px;
+ 	float:center;
+ 	line-height:20px;
+ 	/*padding-left: 720px;*/
+}
+
+span.pagelinks {
+	cursor:pointer;
+    display: block;
+    font-size: .95em;
+    font-family:Arial,Helvitica;
+ 	font-weight:bold;
+ 	font-size:12px;
+ 	float:right;
+ 	/*line-height:20px;*/
+ 	/*padding-left: 500px;*/
+} 
+
+table.list {
+    border: 1px solid #808080;
+  /*  border-collapse: collapse;*/
+    margin-top: 10px;
+    width: 100%;
+    background: white;
+    float:left;
+}
+
+table.list td {
+    padding-left: 3px;
+    font-family:Arial,Helvitica;
+ 	font-size:12px;
+ 	float:center;
+ 	border:1px solid #CFCFCC;
+ 	line-height:20px;
+}
+
+table.list th {
+    background-color: #3F7ABD;
+    padding: 2px;
+    padding-left: 3px;
+    border-bottom: 1px solid black;
+   /* text-align: left;*/
+    color: white;
+    font-weight:bold;
+}
+
+
+/* The following 3 rules are for Tapestry's contrib:Table */
+table.list th table {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+table.list th table td {
+    text-align: left;
+}
+
+table.list th table td:hover, table.list th table td a:hover {
+    background-color: #3F7ABD;
+}
+
+table.list th table tr:hover {
+    background-color: #3F7ABD;
+    border: 1px solid white;
+}
+
+table.list tr.even {
+    background: #3F7ABD;
+    border-top: 1px solid silver;
+}
+
+table.list tr.odd {
+    background: white;
+    border-top: 1px solid silver;
+}
+
+table.list th a, table.list th a:visited {
+    background-color: transparent;
+    color: #FFF;
+    text-decoration: none;
+}
+
+th.sorted a, th.sortable a {
+    background-position: right;
+    display: block;
+    padding: 0px 3px;
+}
+
+table.list th.order1 a {
+	background-image: url(../images/arrow_down.png) 0 0 no-repeat;
+}
+
+table.list th.order2 a {
+    background-image: url(../images/arrow_up.png) 0 0 no-repeat;
+}
+
+table.list th.sortable a {
+    background-image: url(../images/arrow_off.png) 0 0 no-repeat;
+}
+
+table.list th.sorted {
+    background-color: #3F7ABD;
+    color: #000000;
+}
+
+table.list th.sorted a, table.list th.sortable a {
+    background-position: right;
+    background-repeat: no-repeat;
+    display: block;
+    font-family:Arial,Helvitica;
+ 	font-weight:bold;
+ 	font-size:12px;
+ 	float:center;
+ 	/*border:1px solid #CFCFCC;*/
+ 	line-height:20px;
+}
+
+table.list th.sortable:hover {
+    background-color: #3F7ABD;
+}
+
+table.list thead tr {
+    background-color: #FFCC00;
+}
+
+table.list tr.even {
+    background: #E9F1FA;
+    border-top: 1px solid #C0C0C0;
+    color: #000000;
+}
+
+table.list tr.odd {
+    background: #F4F4F4;
+    border-top: 1px solid #C0C0C0;
+    color: #000000;
+}
+
+.editable {
+	height: 100%;
+	width: 100%;
+	display: block;
+}
+
+.inplaceeditor-form input {
+	font-size: 11px;
+	color: #000;
+}
+
+/* Labels for validation and label tag */
+label {
+    font-weight: normal;
+    cursor: pointer;
+    cursor: hand;
+}
+
+label.required {
+    font-weight: bold;
+}
+
+label.error {
+    font-weight: bold;
+    background: transparent;
+    color: red;
+}
+
+/* These are the styles for detail screen tables */
+table.detail {
+    margin-left: 10px;
+    padding: 5px;
+    font-weight: normal;
+}
+
+table.detail th {
+    text-align: right;
+    padding: 0px 3px 0px 0px;
+}
+.pagelinks {
+            font-size: 80%;
+        }
+        
+.pagelinks a {
+    text-decoration: none;
+	border: solid 1px #AAE;
+	color: #15B;
+	background: #fff;
+}
+
+.pagelinks a, .pagelinks span ,.pagelinks strong{
+    display: block;
+    float: left;
+    padding: 0.3em 0.5em;
+    margin-right: 5px;
+	margin-bottom: 5px;
+	min-width:1em;
+	text-align:center;
+	cursor:pointer;
+}
+
+.pagination .current ,.pagelinks strong{
+    background: #26B;
+    color: #fff;
+	border: solid 1px #AAE;
+}
+
+.pagelinks .current.prev, .pagelinks .current.next{
+	color:#999;
+	border-color:#999;
+	background:#fff;
+}
+table.treelist {
+    border: 1px solid #808080;
+  /*  border-collapse: collapse;*/
+    margin-top: 10px;
+    width: 100%;
+    background: white;
+    float:left;
+}
+
+table.treelist td {
+    padding-left: 3px;
+    font-family:Arial,Helvitica;
+ 	font-size:12px;
+ 	float:center;
+ 	border:0px solid #CFCFCC;
+ 	line-height:20px;
+}
+
+table.treelist th {
+    background-color: #3F7ABD;
+    padding: 2px;
+    padding-left: 3px;
+    border-bottom: 1px solid black;
+    text-align: left;
+    color: white;
+    font-weight:bold;
+}
+table.treelist tr.even {
+    background-color: #BFE2FF;
+    border-top: 1px solid silver;
+}
+
+table.treelist tr.odd {
+    background-color: #DFF1FF;
+    border-top: 1px solid silver;
+}
+
+.tabletd{
+	background-color: #3F7ABD;
+	padding: 0px;
+	padding-left: 0px;
+	border-bottom: 1px solid black;
+	
+	color: white;
+	font-weight:bold;
+	font-family:"Trebuchet MS",Verdana,Arial,Helvetica,sans-serif;
+}
+.fortable{
+	border: 1px solid #808080;
+	margin-top: 10px;
+	width: 100%;
+	background: white;
+}

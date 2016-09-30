@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.MT.TravelAgencyDetailsBean" table="MT_TRAVEL_AGENCY_MASTER">
+		<id name="travelId" type="int" column="TRAVEL_ID">
+			<generator class="sequence">
+				<param name="sequence">MT_TRAVEL_AGENCY_MASTER_SEQ</param>
+			</generator>
+		</id>
+		<property name="travelAgencyName" column="TRAVEL_AGENCY_NAME" />
+		<property name="contactPerson" column="CONTACT_PERSON" />
+		<property name="travelMobileNo" column="MOBILE_NO" />
+		<property name="address" column="ADDRESS" />
+		<property name="status" column="STATUS" />
+		<property name="lastModifiedBy" column="LAST_MODIFIED_BY" />
+		<property name="creationDate" column="CREATION_DATE" update="false" />
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" />
+		
+	</class>
+</hibernate-mapping>

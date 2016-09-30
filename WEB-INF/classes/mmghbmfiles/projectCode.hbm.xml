@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.mmg.cashbuildup.dto.ProjectCodeDTO" table="MMG_B_PROJECT_CODE_MASTER">
+		id name="id" column="id">
+			<generator class="sequence">
+				<param name="sequence">MMG_B_PROJECT_CODE_MASTER_SEQ</param>
+			</generator>
+		</id>
+		<property name="projectCode" column="PROJECT_CODE" />
+		<property name="projectName" column="PROJECT_NAME" />
+		<property name="fileNumber" column="FILE_NUMBER" />
+		<property name="projectStartDate" column="PROJECT_START_DATE" />
+		<property name="projectEndtDate" column="PROJECT_END_DATE" />
+		<property name="version" column="VERSION" />
+		<property name="status" column="STATUS" />
+		<property name="creationDate" column="CREATION_DATE" />
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" />
+		
+	</class>
+</hibernate-mapping>

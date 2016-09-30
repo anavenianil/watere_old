@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
+  
+<hibernate-mapping>  
+<class name="com.callippus.healthInsurance.HealthSubscriptionDTO" table="ERP_HEALTH_SUB_DETAILS">  
+          	<id name="id" type="int" column="ID">
+			<generator class="sequence">
+				<param name="sequence">HEALTHSUBSCRIPTION_DETAILS_SEQ</param>
+			</generator>
+		</id>
+          
+           <property name="sfId" column="SFID" ></property>   
+           <property name="effctiveDate" column="HEALTH_INS_EFF_DATE" ></property>   
+          <property name="subScriptiomAmt" column="HEALTH_INS_SUBS_AMT" ></property> 
+          <property name="hicName" column="HEALTH_INS_COMP_NAME"></property> 
+          <property name="hicNo" column="HEALTH_INS_COM_NO"></property> 
+            <property name="status" column="STATUS"></property> 
+</class>  
+</hibernate-mapping>  

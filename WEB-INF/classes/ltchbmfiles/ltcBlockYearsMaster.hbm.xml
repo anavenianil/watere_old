@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.ltc.dto.LtcBlockYearsMasterDTO" table="LTC_BLOCK_YEAR_MASTER">
+		<id name="id" column="ID" unsaved-value="0">
+		<!--commented by bkr 07/04/2016  -->
+			<!-- <generator class="sequence">
+				<param name="sequence">LTC_BLOCK_YEAR_MASTER_SEQ</param>
+			</generator> -->
+		</id>
+		<property name="ltcBlockId" column="LTC_BLOCK_ID" />
+		<property name="status" column="STATUS" />
+		<property name="fromDate" column="FROM_DATE"/>
+		<property name="toDate" column="TO_DATE"/>
+		<property name="extendedDate" column="EXTENDED_DATE"/>
+		<property name="fromDateOne" column="FROM_DATE" formula="(select to_char(lb.from_date,'dd-Mon-yyyy') from ltc_block_year_master lb where lb.id=ID)" insert="false" update="false"/>
+		<property name="toDateOne" column="TO_DATE" formula="(select to_char(lb.to_date,'dd-Mon-yyyy') from ltc_block_year_master lb where lb.id=ID)" insert="false" update="false"/>
+		<property name="extendedDateOne" column="EXTENDED_DATE" formula="(select to_char(lb.extended_date,'dd-Mon-yyyy') from ltc_block_year_master lb where lb.id=ID)" insert="false" update="false"/>
+		<property name="createdBy" column="CREATED_BY" />
+		<property name="creationDate" column="CREATION_DATE" />
+		<property name="lastModifiedBy" column="LAST_MODIFIED_BY" />
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" />
+		<many-to-one name="ltcBlockMaster" class="com.callippus.web.ltc.dto.LtcBlockMasterDTO" 
+		column="LTC_BLOCK_ID" cascade="all" lazy="false" update="false" insert="false"/>
+		<property name="fourYearBlockId" column="FOUR_YEAR_BLOCK_ID" />
+	</class>
+</hibernate-mapping>

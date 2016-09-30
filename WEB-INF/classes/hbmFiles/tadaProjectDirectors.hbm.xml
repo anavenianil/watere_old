@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.dto.TadaProjectDirectorsDTO" table="TADA_PROJECT_DIRECTORS">
+		<id name="id" column="ID">
+			<generator class="sequence">
+				<param name="sequence">TADA_PROJECT_DIRECTORS_SEQ</param>
+			</generator>
+		</id>
+		<property name="sfID" column="SFID" type="java.lang.String"/>
+		<property name="projectName" column="PROJECT_NAME" type="java.lang.String" />
+		<property name="programCode" column="PROGRAM_CODE" type="int" />
+		<property name="status" column="STATUS" type="int"/>
+	</class>
+</hibernate-mapping>

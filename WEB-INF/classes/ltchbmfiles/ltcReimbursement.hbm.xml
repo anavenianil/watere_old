@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.ltc.dto.LtcReimbursementDTO" table="LTC_REIMBURSEMENT_DETAILS_BKP">
+		<id name="requestId" column="REQUEST_ID"></id>
+		<property name="requestType" column="REQUEST_TYPE" />
+		<property name="sfID" column="SFID" />
+		<property name="designationId" column="DESIGNATION_ID"/>
+		<property name="departmentId" column="DEPARTMENT_ID"/>
+		<property name="basicPay" column="BASIC_PAY"/>
+		<property name="referenceId" column="REFERENCE_ID" />
+		<property name="totalAmount" column="TOTAL_AMOUNT" />
+		<property name="amount" column="AMOUNT" />
+		<property name="status" column="STATUS" />
+		<property name="appliedBy" column="APPLIED_BY" />
+		<property name="appliedDate" column="APPLIED_DATE" update="false"/>
+		<property name="ipAddress" column="IP_ADDRESS" />
+		<property name="billNo" column="bill_no"/>
+		<property name="sanctionNo" column="sanction_no"/>
+		<property name="cdaAmount" column="cda_amount"/>
+		<property name="dvDate" column="dv_date" />
+		<property name="dvNo" column="dv_no" />
+		<property name="accountentSign" column="accountent_sign"/>
+	</class>
+</hibernate-mapping>

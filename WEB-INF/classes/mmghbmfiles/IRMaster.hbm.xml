@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.mmg.cashbuildup.beans.IRMasterBean" table="MMG_B_IR_MASTER">
+		<id name="voucherNo" column="VOUCHER_NO">
+			<generator class="sequence">
+				<param name="sequence">MMG_B_IR_MASTER_SEQ</param>
+			</generator>
+		</id>
+		<property name="demandNo" column="DEMAND_NO" />
+		<list name="irItems" cascade="all"  table="MMG_B_IR_ITEM_DETAILS" lazy="false">
+			<key column="VOUCHER_NO" update="false"></key>
+			<list-index column="id" ></list-index>
+			<one-to-many class="com.callippus.web.mmg.cashbuildup.dto.IRItemDetailsDTO"/>
+		</list>
+		<property name="inventoryNo" column="inventory_no" />
+		<property name="rebate" column="REBATE" />
+		<property name="totalAmount" column="TOTAL_AMOUNT" />
+		<property name="status" column="STATUS" />
+		<property name="voucherDate" column="VOUCHER_DATE" />
+		<property name="ipAddress" column="IP_ADDRESS" />
+		<property name="requestId" column="REQUEST_ID" />
+		<property name="cancelRequestId" column="CANCEL_REQUEST_ID" />
+		<property name="invoiceCancelDate" column="CANCEL_DATE" />
+		<property name="reason" column="REASON" />
+		<property name="creationDate" column="CREATION_DATE" />
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" />		
+    </class>
+</hibernate-mapping>

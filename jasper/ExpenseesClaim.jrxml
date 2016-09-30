@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ExpenseesClaim" pageWidth="710" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="670" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="9c6c41ac-d367-49ea-a721-d93f581bcfdb">
+	<property name="ireport.zoom" value="0.9982500000000003"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="requestId" class="java.lang.String">
+		<parameterDescription><![CDATA[Please enter the request id]]></parameterDescription>
+	</parameter>
+	<queryString>
+		<![CDATA[select Distinct t.REQUEST_ID,(select e.NAME_IN_SERVICE_BOOK from EMP_MASTER e join TADA_WATER_ADV_REQUEST_DETAILS t on e.sfid=t.sfid where t.REQUEST_ID=$P{requestId} )Name,(select d.NAME from DESIGNATION_MASTER d join TADA_WATER_ADV_REQUEST_DETAILS t  on d.ID=t.DESIGNATION_ID where t.REQUEST_ID=$P{requestId})DesgName ,
+(select dept.DEPARTMENT_NAME from DEPARTMENTS_MASTER dept join TADA_WATER_ADV_REQUEST_DETAILS t
+on dept.DEPARTMENT_ID=t.DEPARTMENT_ID  where t.REQUEST_ID=$P{requestId})DeptName,
+ t.sfid,t.CLAIM_PURPOSE,t.TRAVELLING_TO,t.FROM_DATE,t.TO_DATE,t.TAXI_AMT,t.TRANSIT_AMT,t.TOTAL_AMT,t.APPLY_DATE,
+t.DA_AMT,t.FOOD_ACCM_AMT,
+(select Distinct req.ACTIONED_DATE from REQUEST_WORKFLOW_HISTORY req join TADA_WATER_ADV_REQUEST_DETAILS t on req.REQUEST_ID=t.REQUEST_ID where t.REQUEST_ID=$P{requestId} and req.REQUEST_STAGE=1 )req_date1,
+(select Distinct req.ACTIONED_DATE from REQUEST_WORKFLOW_HISTORY req join TADA_WATER_ADV_REQUEST_DETAILS t on req.REQUEST_ID=t.REQUEST_ID where t.REQUEST_ID=$P{requestId} and req.REQUEST_STAGE=2 )req_date2,
+(select Distinct req.ACTIONED_DATE from REQUEST_WORKFLOW_HISTORY req join TADA_WATER_ADV_REQUEST_DETAILS t on req.REQUEST_ID=t.REQUEST_ID where t.REQUEST_ID=$P{requestId} and req.REQUEST_STAGE=3 )req_date3,
+
+(select Distinct req.REMARKS from REQUEST_WORKFLOW_HISTORY req join TADA_WATER_ADV_REQUEST_DETAILS t on req.REQUEST_ID=t.REQUEST_ID where t.REQUEST_ID=$P{requestId} and req.REQUEST_STAGE=1 )REMARKS1,
+(select Distinct req.REMARKS from REQUEST_WORKFLOW_HISTORY req join TADA_WATER_ADV_REQUEST_DETAILS t on req.REQUEST_ID=t.REQUEST_ID where t.REQUEST_ID=$P{requestId} and req.REQUEST_STAGE=2 )REMARKS2,
+(select Distinct req.REMARKS from REQUEST_WORKFLOW_HISTORY req join TADA_WATER_ADV_REQUEST_DETAILS t on req.REQUEST_ID=t.REQUEST_ID where t.REQUEST_ID=$P{requestId} and req.REQUEST_STAGE=3 )REMARKS3
+ from
+TADA_WATER_ADV_REQUEST_DETAILS t where t.REQUEST_ID=$P{requestId}]]>
+	</queryString>
+	<field name="REQUEST_ID" class="java.math.BigDecimal"/>
+	<field name="NAME" class="java.lang.String"/>
+	<field name="DESGNAME" class="java.lang.String"/>
+	<field name="DEPTNAME" class="java.lang.String"/>
+	<field name="SFID" class="java.lang.String"/>
+	<field name="CLAIM_PURPOSE" class="java.lang.String"/>
+	<field name="TRAVELLING_TO" class="java.lang.String"/>
+	<field name="FROM_DATE" class="java.sql.Timestamp"/>
+	<field name="TO_DATE" class="java.sql.Timestamp"/>
+	<field name="TAXI_AMT" class="java.math.BigDecimal"/>
+	<field name="TRANSIT_AMT" class="java.math.BigDecimal"/>
+	<field name="TOTAL_AMT" class="java.math.BigDecimal"/>
+	<field name="APPLY_DATE" class="java.sql.Timestamp"/>
+	<field name="DA_AMT" class="java.math.BigDecimal"/>
+	<field name="FOOD_ACCM_AMT" class="java.math.BigDecimal"/>
+	<field name="REQ_DATE1" class="java.sql.Timestamp"/>
+	<field name="REQ_DATE2" class="java.sql.Timestamp"/>
+	<field name="REQ_DATE3" class="java.sql.Timestamp"/>
+	<field name="REMARKS1" class="java.lang.String"/>
+	<field name="REMARKS2" class="java.lang.String"/>
+	<field name="REMARKS3" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="106" splitType="Stretch">
+			<staticText>
+				<reportElement x="196" y="84" width="292" height="22" uuid="507dc211-ad40-4719-ac91-e460cdb6d0a1"/>
+				<textElement>
+					<font size="13" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Miscellaneous Expenses Claim Form]]></text>
+			</staticText>
+			<frame>
+				<reportElement mode="Opaque" x="105" y="27" width="585" height="23" backcolor="#006699" uuid="d1f394f2-b4c2-4dd6-8e93-8f0f816abcae"/>
+				<staticText>
+					<reportElement x="0" y="0" width="584" height="21" forecolor="#FFFFFF" uuid="c6a94fdb-306d-428c-aa28-a4b9a2d5d70e"/>
+					<textElement>
+						<font size="13" isBold="true" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[          SUMBAWANGA URBAN WATER SUPPLY AND SANITATION AUTHORITY ]]></text>
+				</staticText>
+			</frame>
+			<image>
+				<reportElement x="0" y="0" width="158" height="106" uuid="83cdd865-a3af-49ac-883b-930a183bb13b"/>
+				<imageExpression><![CDATA["../images/watererp.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="194" y="2" width="438" height="19" uuid="8f9638b5-ba2e-4e1b-82c0-91d415400647"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(This form must be accompained with proper Attachment)]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="194" splitType="Stretch">
+			<staticText>
+				<reportElement x="16" y="12" width="225" height="19" uuid="973350cc-6344-4a7d-9019-3d7681e856fe"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name Of Claimant :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="47" width="231" height="19" uuid="4dd36fe5-7c67-487f-8091-355830a8b88a"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  Staff No                  :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="115" width="172" height="19" uuid="a78833a6-c134-44e9-af23-205441cbab56"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  Department            :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="151" width="240" height="19" uuid="caaf1b10-fc2e-4d19-b7f6-054fea79b928"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[This Claim is for     :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="133" y="48" width="217" height="18" uuid="ca73e72f-0683-4260-a34d-9badea07363a"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SFID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="135" y="152" width="774" height="19" uuid="359b7ec3-a535-4e39-83f0-d19bc7932cda"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CLAIM_PURPOSE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="135" y="13" width="386" height="19" uuid="bb02f24a-aa94-43bc-b0b7-3a10e0a4c3ca"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NAME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="82" width="224" height="19" uuid="6e17112a-067b-4fef-b1eb-03f2ce7f70c0"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  Designation           :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="134" y="83" width="445" height="19" uuid="92b9b3f1-09fd-4174-bd37-1815ed439d7c"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESGNAME}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="135" y="116" width="455" height="18" uuid="5aaeec83-7812-4773-ba18-1c44c63e0e82"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DEPTNAME}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="307">
+			<staticText>
+				<reportElement x="11" y="48" width="224" height="19" uuid="6e0c5d27-5978-4e44-be69-2ac936a38074"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Travelling To  :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="95" width="161" height="19" uuid="e61689d9-aaef-450b-bc22-00e132a90f54"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date From  :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="8" width="374" height="19" uuid="bb1aae55-f2b5-4efc-81e1-681163351ddd"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Claim for Travelling on Duty :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="413" y="95" width="98" height="19" uuid="87eeb3b8-1f47-47bf-b2f5-503fbc067fe4"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date to  :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="149" width="125" height="19" uuid="23339e74-3551-48ea-bc9d-9a4463f179cf"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fare : TZS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="223" width="142" height="19" uuid="3484d738-5d13-445d-a2a0-8d84398526fc"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total  : TZS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="174" y="149" width="192" height="19" uuid="adb0a95f-494c-41cb-8cca-7c421538546f"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Per Diem : TZS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="148" width="125" height="20" uuid="f904b961-85c6-43a8-bbe0-2180930ea0d4"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Taxi : TZS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="178" width="164" height="19" uuid="2b8ef5e0-0a69-428c-8eb2-81b2c5a764d8"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[On Transit : TZS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="288" width="250" height="19" uuid="34e4ebda-34e5-4279-9fd8-c5ca74951b07"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Signature of Applicant :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="486" y="288" width="105" height="19" uuid="109a188b-955c-4124-8cb4-9e4acbffe00c"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date :  ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="98" y="48" width="345" height="19" uuid="69e38337-840d-48b7-b0e4-9b8bd33864c2"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TRAVELLING_TO}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MMM-yy">
+				<reportElement x="88" y="95" width="167" height="18" uuid="d6f65658-f54f-46a9-be96-8724dba898b6"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FROM_DATE}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MMM-yy">
+				<reportElement x="468" y="95" width="282" height="18" uuid="066e5dcd-e48c-4f98-bef6-3b17cf811338"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TO_DATE}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00/-">
+				<reportElement x="79" y="149" width="76" height="19" uuid="1b5b57b2-bfea-4801-ac15-63165f4878b7"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DA_AMT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00/-">
+				<reportElement x="269" y="148" width="133" height="20" uuid="94bacd71-7383-4fa0-aae0-0b425a48622f"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FOOD_ACCM_AMT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00/-">
+				<reportElement x="464" y="148" width="87" height="20" uuid="2cef2c07-bf8f-4450-bd62-347bbb50e282"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TAXI_AMT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00/-">
+				<reportElement x="112" y="178" width="149" height="20" uuid="7b14291a-ff29-40fa-a010-b0259d74e7c3"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TRANSIT_AMT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MMM-yy" isBlankWhenNull="true">
+				<reportElement x="525" y="288" width="298" height="19" uuid="49ac644e-4e7b-497c-9e0e-bc350aef535f"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{APPLY_DATE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="###0.00/-">
+				<reportElement positionType="Float" x="82" y="223" width="101" height="19" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true" uuid="ea75ac6e-185a-4458-8717-36b19bed5575"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TOTAL_AMT}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="206">
+			<staticText>
+				<reportElement x="6" y="30" width="235" height="24" uuid="cab57bc6-50e9-4627-8804-8b8129bcf642"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Authorization]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="496" y="184" width="95" height="20" uuid="a58f33af-8809-4226-ab0e-9c684f1236db"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date :  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="187" width="206" height="19" uuid="c013cc1e-2653-4250-89de-d3e6ef078161"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Signature of Applicant :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="101" width="516" height="19" uuid="08ae56b7-88d2-4b90-a77e-806932b9bde4"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[I Certify That The Claims Indicated Above Is Genuine. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="34" y="65" width="235" height="24" uuid="90a05771-c4ab-4c3f-a6c9-eac493965e9c"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Head of Department :]]></text>
+			</staticText>
+			<textField pattern="dd-MMM-yy" isBlankWhenNull="true">
+				<reportElement x="535" y="184" width="173" height="20" uuid="2221a746-f06f-4adc-97b6-2463de6677cc"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{REQ_DATE1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="114" y="123" width="552" height="20" uuid="46f3ab6b-348d-4008-a471-cac7482ba386"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{REMARKS1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="54" y="123" width="78" height="20" uuid="4768f4ee-9c00-442d-92fc-7ddeea54ccd2"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reason :]]></text>
+			</staticText>
+		</band>
+		<band height="196">
+			<staticText>
+				<reportElement x="9" y="31" width="147" height="21" uuid="5f096d4a-2288-4c94-861d-a292f9eb91e1"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Finance Manager]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="38" y="70" width="516" height="19" uuid="f046dfca-6d9d-4a48-876c-8e1d4004c02e"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Approved / Not Approved / Forward for Approval :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="92" width="78" height="20" uuid="2330cd96-d2e8-431b-b738-7878d41743c2"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reason :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="176" width="246" height="19" uuid="2e3a6759-a9a7-497f-b856-7a83436435b9"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Signature of Applicant :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="503" y="177" width="78" height="19" uuid="2768694e-6022-44e9-9e37-05a78b4cc4a3"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date :    ]]></text>
+			</staticText>
+			<textField pattern="dd-MMM-yy" isBlankWhenNull="true">
+				<reportElement x="542" y="177" width="171" height="18" uuid="517d78d4-e014-478d-97fe-d6d10c580587"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{REQ_DATE2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="98" y="92" width="529" height="20" uuid="e8e5f1ff-31fe-48cb-8572-86580ca4013f"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{REMARKS2}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="207">
+			<staticText>
+				<reportElement x="33" y="81" width="516" height="19" uuid="32050bea-544e-432f-b769-adeac09368fb"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Approved / Not Approved / Forward For Approval :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="35" width="147" height="21" uuid="1780b355-cc63-4d8e-8659-a472226bc761"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Managing Director]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="508" y="185" width="83" height="20" uuid="a508641f-e4c3-4dfc-a6e6-952fb6693c99"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date :  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="185" width="225" height="19" uuid="62ee3b85-05f0-4af4-9346-48b50db24f14"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Signature of Applicant :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="33" y="100" width="79" height="20" uuid="8cc928dd-c151-49f3-9d7d-e1bebed11202"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reason :]]></text>
+			</staticText>
+			<textField pattern="dd-MMM-yy" isBlankWhenNull="true">
+				<reportElement x="546" y="185" width="170" height="19" uuid="359f859e-3e28-4f03-8b8a-53367aa95642"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{REQ_DATE3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="93" y="100" width="522" height="20" uuid="11ababfd-b3f1-4755-abd0-0e15170c15be"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{REMARKS3}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="65" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="18" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="155" y="3" width="200" height="13" uuid="d6fb5f8b-0d72-4995-8e8a-91675d02f4e3"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="3" width="535" height="13" backcolor="#E6E6E6" uuid="15fc30f1-96dc-42b2-80de-ee854b6403c6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="5" y="2" width="200" height="14" uuid="10b58d60-4d55-4a8d-8c3d-ff038f40761f"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="535" y="3" width="135" height="13" backcolor="#E6E6E6" uuid="f8e75796-282d-4f24-bd94-e36cd4d432ae"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="50">
+			<staticText>
+				<reportElement x="289" y="13" width="199" height="21" uuid="8003814a-cad9-4085-9ef1-b53d25d9347a"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sorry No Data Found]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

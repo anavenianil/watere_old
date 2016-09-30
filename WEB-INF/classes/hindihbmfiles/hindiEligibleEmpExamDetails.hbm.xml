@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	<hibernate-mapping>
+		<class name="com.callippus.web.hindi.dto.EligibleEmpExamDTO" table="HINDI_ELIGIBLE_EXAM_DETAILS">
+				<id name="id" type="int" column="ID">
+		              <generator class="sequence">
+				<param name="sequence">HINDI_ELIG_EXAM_DETAILS_SEQ</param>
+			</generator>
+		        </id>
+								
+				<property name="sfid" column="SFID" />																
+				<property name="examId" column="ELIGIBLE_EXAM_ID" />
+				<property name="status" column="STATUS" />
+		</class> 
+	</hibernate-mapping>

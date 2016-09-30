@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.promotions.dto.EmpGradePayHistoryDTO" table="EMP_GRADE_PAY_HISTORY_NEW">
+		
+		<id name="id" column="id">
+			<generator class="sequence">
+				<param name="sequence">EMP_GRADE_PAY_HISTORY_NEW_SEQ</param>
+			</generator>
+		</id>
+		<property name="sfID" column="sfid" insert="true" update="true" type="java.lang.String" not-null="true"/>
+		<property name="promotedDesignation" column="PROMOTED_DESIGNATION" insert="true" update="true" type="int" not-null="true"/>	
+	    <property name="promotedEffectiveDate" column="PROMOTED_EFFECTIVE_DATE" type="java.util.Date"/>	
+		<property name="newGradePay" column="GRADE_PAY" type="float" not-null="true" />
+		<property name="twoAddl" column="TWO_ADDL_INC" />
+		<property name="referenceType" column="reference_type" insert="true" update="true" type="java.lang.String" not-null="true"/>	
+		<property name="seniorityDate" column="SENIORITY_DATE" />
+		<property name="status" column="status" type="int" not-null="true" />	
+		<property name="createdBy" column="created_by" update="false" type="java.lang.String" not-null="true"/>
+		<property name="creationTime" column="creation_date" update="false" type="java.util.Date" not-null="true"/>
+		<property name="lastModifiedBy" column="last_modified_by" type="java.lang.String" not-null="true" />
+		<property name="lastModifiedTime" column="last_modified_date" type="java.util.Date" not-null="true" />
+		
+	</class>
+</hibernate-mapping>
+

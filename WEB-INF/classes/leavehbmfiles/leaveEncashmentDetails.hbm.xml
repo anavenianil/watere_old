@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.leave.dto.LeaveEncashmentDTO" table="leave_encashment_details">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">LEAVE_ENCASHMENT_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<many-to-one name="leaveTypeDetails"
+			class="com.callippus.web.leave.dto.LeaveTypeDTO" column="leave_type_id"
+			not-null="true" lazy="false" update="false" insert="false"/>
+		<property name="leaveTypeID" column="leave_type_id" insert="true" update="true"/>	
+		<property name="noOfDaysInService" column="no_of_days_in_service" />
+		<property name="noOfSpellsInService" column="no_of_spells_in_service" />
+		<property name="noOfSpellsInYear" column="no_of_spells_in_year"/>
+		<property name="minDaysPerSpell" column="min_days_per_spell"/>
+		<property name="minLeavesAfterEncash" column="min_leaves_after_encash" />
+		<property name="maxDaysPerSpell" column="max_days_per_spell" />
+	</class>
+</hibernate-mapping>

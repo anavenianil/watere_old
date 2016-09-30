@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.MT.MTVehicleDriverMapDTO" table="MT_VEHICLE_DRIVER_MAP_DETAILS">
+		<id name="id" type="int" column="ID">
+			<generator class="sequence">
+				<param name="sequence">MT_VEHICLE_DRI_MAP_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="vehicleId" column="VEHICLE_ID" />
+		<property name="driverId" column="DRIVER_ID" />
+		<property name="vehicleAbsentId" column="VEHICLE_ABSENT_ID" />
+		<property name="driverAbsentId" column="DRIVER_ABSENT_ID" />
+		<property name="allotmentFromDate" column="ALLOTMENT_FROM_DATE" />
+		<property name="allotmentFromTime" column="ALLOTMENT_FROM_TIME" />
+		<property name="allotmentToDate" column="ALLOTMENT_TO_DATE" />
+		<property name="allotmentToTime" column="ALLOTMENT_TO_TIME" />
+		<property name="remarks" column="REMARKS" />
+		<property name="status" column="STATUS" />
+		<property name="lastModifiedBy" column="LAST_MODIFIED_BY" />
+		<property name="creationDate" column="CREATION_DATE" />
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" />
+		
+		<many-to-one name="vehicleDetails"
+			class="com.callippus.web.beans.MT.VehicleDetailsBean" column="VEHICLE_ID"
+			lazy="false" insert="false" update="false"/>
+		<many-to-one name="diverDetails"
+			class="com.callippus.web.beans.MT.DriverDetailsBean" column="DRIVER_ID"
+			lazy="false" insert="false" update="false"/>
+	</class>
+</hibernate-mapping>

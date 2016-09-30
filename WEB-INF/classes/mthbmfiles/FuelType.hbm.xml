@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.MT.FuelTypeDTO" table="MT_FUEL_TYPE">
+		<id name="fuelId" type="int" column="ID">
+			<generator class="sequence">
+				<param name="sequence">MT_FUEL_TYPE_SEQ</param>
+			</generator>
+		</id>
+		<property name="fuelName" column="FUEL_NAME" />
+		<property name="status" column="STATUS" />
+	</class>
+</hibernate-mapping>

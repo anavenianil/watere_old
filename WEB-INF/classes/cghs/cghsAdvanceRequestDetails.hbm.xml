@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.dto.CghsAdvanceRequestDTO" table="cghs_advance_details">
+		<id name="requestID" column="request_id">
+			<generator class="sequence">
+				<param name="sequence">CGHS_ADVANCE_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<many-to-one name="cghsRequestDetails"
+			class="com.callippus.web.beans.requests.CGHSRequestProcessBean" column="reference_request_id"
+			lazy="false" insert="false" update="false"/>
+		<property name="referrenceRequestID" column="reference_request_id"/>
+		<property name="admissionDate" column="admission_date"/>
+		<property name="permissionDetails" column="permission_details"/>
+		<!--<property name="contingentFile" column="contingent_bill"/>-->
+		<property name="estimationFile" column="estimation_bill"/>
+		<property name="cghsCardFile" column="cghs_card"/>
+		<property name="status" column="status"/>
+		<property name="appliedDate" column="applied_date"/>
+		<property name="ipAddress" column="ip_address"/>
+		<property name="approvedBy" column="approved_by"/>
+		<property name="approvedDate" column="approved_date"/>
+		<property name="estimationDate" column="estimation_Date"/>
+		<property name="estimationAmount" column="estimation_Amount"/>
+		<property name="InPatientNumber" column="In_Patient_Number"/>
+		<property name="issuedAmount" column="issued_Amount"/>
+		<property name="settleAmount" column="settlement_amount"/>
+		<property name="cdaAmount" column="cda_amount"/>
+		<property name="billNo" column="bill_no"/>
+		<property name="sanctionNo" column="sanction_no"/>
+		<property name="repSig" column="rep_Sig"/>
+		<property name="dvNo" column="dv_no"/>
+		<property name="dvDate" column="dv_date"/>
+		<property name="accOfficer" column="ACCOUNT_OFFICER"/>
+		<property name="cghscardref" column="CGHSCARDREF"/>
+
+	</class>
+</hibernate-mapping>

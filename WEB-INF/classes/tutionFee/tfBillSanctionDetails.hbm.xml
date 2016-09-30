@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.tutionFee.TuitionFeeBillAndSanctionDTO" table="TUTION_FEE_BILL_SANCTION">
+		<id name="id" column="id">
+			<generator class="sequence">
+				<param name="sequence">TUTION_FEE_BILL_SANCTION_SEQ</param>
+			</generator>
+		</id>
+		<property name="financialYearId" column="FIN_YEAR_ID" />
+		<property name="billOrSanctionNo" column="BILL_OR_SANCTION_NO" />
+		<property name="status" column="STATUS" />
+		<property name="type" column="TYPE" />
+		<property name="claimTypeId" column="CLAIM_TYPE_ID" />
+		
+	</class>
+</hibernate-mapping>

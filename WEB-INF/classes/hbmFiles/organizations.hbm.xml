@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.dto.OrganizationsDTO" table="organizations_master">
+		<id name="id" column="id"></id>
+		<property name="name" column="name" />
+		<property name="status" column="status" />
+		<property name="description" column="description" />
+		<property name="phoneNumber" column="phone_number" />
+		<property name="email" column="email" />
+		<property name="fax" column="fax" />
+		<property name="pincode" column="pincode" />
+		<property name="address1" column="address1" />
+		<property name="address2" column="address2" />
+		<property name="address3" column="address3" />
+		<property name="creationDate" column="creation_date" update="false"/>
+		<property name="lastModifiedDate" column="last_modified_date" />
+	</class>
+</hibernate-mapping>

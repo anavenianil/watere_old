@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.letterNumberFormat.IonOrgRoleDTO"
+		table="ION_ORG_ROLE_DETAILS">
+	   <composite-id>
+		<key-property name="ionId" column="ION_ID" />
+		<key-property name="orgRoleId" column="ORG_ROLE_ID" />
+		<key-property name="orgOrHirarchy" column="ORG_OR_HIRARCHY" />
+		</composite-id>
+		
+	</class>
+</hibernate-mapping>
+

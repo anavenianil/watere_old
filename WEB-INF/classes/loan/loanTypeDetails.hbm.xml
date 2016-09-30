@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.callippus.web.loan.beans.dto.LoanDetailsDTO" table="loan_type_details">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">LOAN_TYPE_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="loanTypeID" column="loan_type_id" type="int" not-null="true"/>
+		<many-to-one name="loanTypeDetails"
+			class="com.callippus.web.loan.beans.dto.LoanTypeMasterDTO" column="loan_type_id"
+			not-null="true" lazy="false" update="false" insert="false"/>
+		<property name="loanSubTypeID" column="loan_subtype_id" type="int" />
+		<property name="loanSubTypeName" column="loan_subtype_id" insert="false" update="false" 
+		formula="case when loan_type_id=1 then (select lfm.festival_name from loan_festival_master lfm where lfm.status=1 and lfm.id=loan_subtype_id) else '' end" />
+		<property name="minInstallments" column="min_installments"  type="int" not-null="true"/>
+		<property name="maxInstallments" column="max_installments" type="int" not-null="true"/>
+		<property name="minInterestInstallments" column="MIN_INTEREST_INSTALLMENTS"  type="int" not-null="true"/>
+		<property name="maxInterestInstallments" column="MAX_INTEREST_INSTALLMENTS" type="int" not-null="true"/>
+		<property name="periodTypeFlag" column="period_type_flag" type="java.lang.String" not-null="true"/>	
+		<property name="fromDate" column="from_date" type="java.util.Date"/>	
+		<property name="toDate" column="to_date" type="java.util.Date"/>	
+		<property name="noOfMonths" column="no_of_months" type="int"/>	
+		<property name="interestRate" column="interest_rate" type="float"/>
+		<property name="recoveryFlag" column="recovery_flag" type="java.lang.String" />
+		<property name="recoveryStart" column="recovery_start_in_months" type="int"/>
+		<property name="maxRecoveryPeriod" column="max_recovery_period" type="int"/>	
+		<property name="impactOnLeaveFlag" column="impact_on_leave_flag" type="java.lang.String" not-null="true"/>	
+		<property name="experience" column="service_experience" type="float" not-null="true" />	
+		<property name="status" column="status" type="int" not-null="true"></property>
+		<property name="createdBy" column="created_by" update="false" type="java.lang.String" not-null="true"></property>
+		<property name="creationTime" column="creation_date" update="false" type="java.util.Date" not-null="true"/>
+		<property name="lastModifiedBy" column="last_modified_by" type="java.lang.String" not-null="true"/>
+		<property name="lastModifiedTime" column="last_modified_date" type="java.util.Date" not-null="true"></property>		
+	</class>
+</hibernate-mapping>

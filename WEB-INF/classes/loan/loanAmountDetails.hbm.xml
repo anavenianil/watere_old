@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.callippus.web.loan.beans.dto.LoanAmountDetailsDTO" table="loan_amount_details" lazy="false">
+   		<id name="id" type="int" column="id">
+   			<generator class="sequence">
+				<param name="sequence">LOAN_AMOUNT_DETAILS_SEQ</param>
+			</generator>
+   		</id>
+   		<property name="loanTypeID" column="loan_type_id" type="int" not-null="true" />
+		<many-to-one name="loanTypeDetails"
+			class="com.callippus.web.loan.beans.dto.LoanTypeMasterDTO" column="loan_type_id"
+			not-null="true" lazy="false" update="false" insert="false"/>			
+		<property name="loanSubTypeID" column="loan_subtype_id" type="int" />
+		<property name="loanSubTypeName" column="loan_subtype_id" insert="false" update="false" 
+		formula="case when loan_type_id=1 then (select lfm.festival_name from loan_festival_master lfm where lfm.status=1 and lfm.id=loan_subtype_id) else '' end" />
+		<property name="gazType" column="gaz_type" type="java.lang.String" not-null="true" />
+		<property name="payFlag" column="impact_on_pay_flag" type="java.lang.String" not-null="true"/>
+		<property name="multipleFlag" column="impact_on_multiple_flag"  type="java.lang.String" not-null="true" />
+		<property name="daFlag" column="impact_on_da_flag"  type="java.lang.String" not-null="true" />
+		<property name="balanceFlag" column="impact_on_balance_flag"  type="java.lang.String" not-null="true" />	
+		<property name="monthsFlag" column="impact_on_months_pay_flag" type="java.lang.String" not-null="true" />	
+		<property name="daPercentage" column="da_percentage" type="int" not-null="true" />					
+		<property name="status" column="status" type="int" not-null="true" />
+		<property name="createdBy" column="created_by" update="false" type="java.lang.String" not-null="true" />
+		<property name="creationTime" column="creation_date" update="false" type="java.util.Date" not-null="true"/>
+		<property name="lastModifiedBy" column="last_modified_by" type="java.lang.String" not-null="true"/>
+		<property name="lastModifiedTime" column="last_modified_date" type="java.util.Date" not-null="true" />		
+	</class>
+</hibernate-mapping>

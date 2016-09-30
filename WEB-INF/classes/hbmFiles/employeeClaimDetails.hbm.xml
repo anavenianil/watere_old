@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.dto.EmployeeClaimDetailsDTO"	table="emp_claim_details" lazy="false">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">EMP_CLAIM_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="moduleId" column="MODULE_ID" type="int"/>
+		<property name="fundId" column="FUND_ID" type="int"/>
+		<property name="requestType" column="REQUEST_TYPE" type="java.lang.String" not-null="true"/>
+		<property name="requestID" column="REQUEST_ID" type="int" not-null="true"/>
+		<property name="refRequestId" column="REF_REQUEST_ID" type="int"/>
+		<property name="amountClaimed" column="TOTAL_AMOUNT" type="float" not-null="true"/>
+		<property name="appliedBy" column="applied_by" type="java.lang.String" not-null="true"/>
+		<property name="appliedDate" column="APPLIED_DATE" type="java.util.Date" not-null="true"/>
+		<property name="status" column="STATUS" type="int" not-null="true"></property>
+		<property name="requestTypeID" column="REQUEST_TYPE_ID" type="int"/>
+		<property name="workFlowStatus" column="WORKFLOW_STATUS" type="int"/>
+		<property name="ipAddress" column="IP_ADDRESS" type="java.lang.String" not-null="true"/>
+	</class>
+</hibernate-mapping>

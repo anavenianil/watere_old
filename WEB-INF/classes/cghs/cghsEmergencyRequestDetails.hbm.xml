@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.dto.CghsEmergencyRequestDTO" table="cghs_emergency_details">
+		<id name="requestID" column="request_id">
+			<generator class="sequence">
+				<param name="sequence">CGHS_EMERGENCY_DETAILS_SEQ</param>
+			</generator>
+		</id>
+	
+		<many-to-one name="employeeDetails"
+			class="com.callippus.web.beans.employee.EmployeeBean" column="sfid"
+			lazy="false" update="false" insert="false"/>
+		<property name="sfID" column="sfid"/>
+
+		<property name="cghsCardFile" column="cghs_card"/>
+		<property name="dischargeSummeryFile" column="discharge_summery"/>
+		<property name="medicalBillsFile" column="medical_bills"/>
+		<property name="reimbursementFile" column="reimbersement_form"/>
+		<property name="nonCghsReason" column="non_cghs_reason"/>
+		<property name="otherAddress" column="other_address"/>
+		<property name="patientIllAddress" column="patient_ill_address"/>
+		<property name="emergencyDetails" column="emergency_details"/>
+		
+		<property name="cghscardref" column="CGHSCARDREF"/>
+		
+		<many-to-one name="familyDetails"
+			class="com.callippus.web.beans.family.FamilyBean" column="family_member_id"
+			lazy="false" update="false" insert="false"/>
+		<property name="familyMemberId" column="family_member_id"/>
+		
+		<property name="amountClaimed" column="lab_Charges" insert="false" update="false" formula="(select ced.lab_Charges+ced.medicines_Charges+ced.room_Rent+ced.ot_Charges+ced.ot_Consumables+ced.anaesthesia_Charges+ced.implants_Charges+ced.artificial_Charges+ced.procedure_Charges+ced.special_Nurse+ced.miscellaneous_Charges from cghs_emergency_details ced where ced.request_id=request_id)" />
+		<property name="hospitalAddress" column="hospital_address"/>
+		
+		<many-to-one name="hospitalDetails"
+			class="com.callippus.web.cghs.beans.dto.ReferralHospitalDTO" column="referral_hospital_id"
+			lazy="false" update="false" insert="false"/>
+		<property name="referralHospitalId" column="referral_hospital_id"/>
+		
+		<property name="labCharges" column="lab_Charges"/>
+		<property name="medicinesCharges" column="medicines_Charges"/>
+		<property name="roomRent" column="room_Rent"/>
+		<property name="otCharges" column="ot_Charges"/>
+		<property name="otConsumables" column="ot_Consumables"/>
+		<property name="anaesthesiaCharges" column="anaesthesia_Charges"/>
+		<property name="implantsCharges" column="implants_Charges"/>
+		<property name="artificialCharges" column="artificial_Charges"/>
+		<property name="procedure" column="procedure_Charges"/>
+		<property name="specialNurse" column="special_Nurse"/>
+		<property name="miscellaneousCharges" column="miscellaneous_Charges"/>
+		
+		<property name="dischargeDate" column="discharge_date"/>
+		<property name="admissionDate" column="admission_date"/>
+		<property name="status" column="status"/>
+		<property name="appliedDate" column="applied_date" update="false"/>
+		<property name="ipAddress" column="ip_address"/>
+		<property name="approvedBy" column="approved_by"/>
+		<property name="approvedDate" column="approved_date"/>
+		<property name="requestType" column="request_type"/>
+		<property name="repSig" column="rep_Sig"/>
+		<property name="cdaAmount" column="cda_amount"/>
+		<property name="billNo" column="bill_no"/>
+		<property name="sanctionNo" column="sanction_no"/>
+		<property name="dvNo" column="dv_no"/>
+		<property name="dvDate" column="dv_date"/>
+		<property name="accOfficer" column="ACCOUNT_OFFICER"/>
+		
+		<property name="admissibleLabCharges" column="admissible_lab_Charges"/>
+		<property name="admissibleMedicinesCharges" column="admissible_medicines_Charges"/>
+		<property name="admissibleRoomRent" column="admissible_room_Rent"/>
+		<property name="admissibleOtCharges" column="admissible_ot_Charges"/>
+		<property name="admissibleOtConsumables" column="admissible_ot_Consumables"/>
+		<property name="admissibleAnaesthesiaCharges" column="admissible_anaesthesia_Charges"/>
+		<property name="admissibleImplantsCharges" column="admissible_implants_Charges"/>
+		<property name="admissibleArtificialCharges" column="admissible_artificial_Charges"/>
+		<property name="admissibleProcedure" column="admissible_procedure_charges"/>
+		<property name="admissibleSpecialNurse" column="admissible_special_Nurse"/>
+		<property name="admissibleMiscellaneousCharges" column="admissible_misc_Charges"/>
+		<property name="admissibleTotalAmount" column="admissible_total_amount"/>
+		<property name="noofVouchers" column="no_of_vouchers"/>
+		
+	</class>
+</hibernate-mapping>

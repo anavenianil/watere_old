@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.dto.DoPartDTO" table="REFERENCE_NUMBER_DETAILS">
+		<id name="id" column="ID">
+			<generator class="sequence">
+				<param name="sequence">REFERENCE_NUMBER_DETAILS_SEQ</param>
+			</generator>
+		</id>		
+		<property name="doPartNumber" column="REF_NUMBER"/>
+		<property name="doPartDate" column="REF_DATE"/>
+		<property name="gazType" column="GAZ_TYPE"/>
+		<property name="dOPartDate" column="REF_DATE" formula="(SELECT TO_CHAR(rnd.REF_DATE,'yyyy') FROM REFERENCE_NUMBER_DETAILS rnd WHERE rnd.id=ID)" insert="false" update="false"/>
+		<property name="requestTypeID" column="REF_TYPE" />
+		<property name="preDoPartNo" column="PREDOPARTNO"/>
+		<property name="preDoPartDate" column="PREDOPARTDATE"/>
+		<property name="preDOPartDate" column="PREDOPARTDATE" formula="(SELECT TO_CHAR(rnd.PREDOPARTDATE,'dd-Mon-yyyy') FROM REFERENCE_NUMBER_DETAILS rnd WHERE rnd.id=ID)" insert="true" update="true"/>
+		<property name="status" column="status" />		
+		<property name="createdBy" column="created_by" update="false" />
+		<property name="creationDate" column="creation_date" update="false"/>	
+		<property name="description" column="DESCRIPTION"/>
+		<property name="distribution" column="DISTRIBUTION"/>	
+		<property name="year" column="REF_DATE" formula="(SELECT TO_CHAR(rnd.REF_DATE,'YYYY') FROM REFERENCE_NUMBER_DETAILS rnd WHERE rnd.id=ID)" insert="false" update="false"/>
+	    <property name="releasedBy" column="released_by" update="false" />
+		<property name="releasedDate" column="released_date" update="false"/>	
+		<property name="acceptedBy" column="accepted_by" update="false" />
+		<property name="acceptedDate" column="accepted_date" update="false"/>	
+		<property name="typeId" column="type_id" />		
+	</class>
+</hibernate-mapping>

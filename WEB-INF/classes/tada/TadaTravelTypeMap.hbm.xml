@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.tada.dto.TaTravelTypeMapDTO" table="tada_travel_type_map">
+		<id name="id" column="id">
+			<generator class="sequence">
+				<param name="sequence">TADA_TRAVEL_TYPE_MAP_SEQ</param>
+			</generator>
+		</id>
+		<property name="gradePay" column="grade_pay" />
+		
+		<property name="travelTypeId" column="travel_type_id"/>
+		<property name="key" column="key" />
+		<property name="value" column="value" />
+		<property name="status" column="status" />
+		<property name="creationDate" column="creation_date" update="false"/>
+		<property name="createdBy" column="created_by" update="false"/>
+		<property name="lastModifiedDate" column="last_modified_date" />
+		<property name="lastModifiedBy" column="last_modified_by" />
+	</class>
+</hibernate-mapping>

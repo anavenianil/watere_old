@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.promotions.dto.ResidencyPeriodDTO" table="PRO_RESIDENCY_PERIOD_MASTER">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">PRO_RES_PERIOD_MASTER_SEQ</param>
+			</generator>
+		</id>
+		<many-to-one name="assessmentTypeDetails"
+			class="com.callippus.web.beans.dto.CategoryDTO" column="assessment_type_id"
+			not-null="true"  lazy="false" update="false" insert="false"/>
+			
+		<property name="assessmentTypeID" column="assessment_type_id" insert="true" update="true" type="int" not-null="true"/>
+				
+		<many-to-one name="assessmentCategoryDetails"
+			class="com.callippus.web.promotions.dto.AssessmentCategoryDTO" column="assessment_category_id"
+			not-null="true"  lazy="false" update="false" insert="false"/>
+			
+		<property name="assessmentCategoryID" column="assessment_category_id" insert="true" update="true" type="int" not-null="true"/>	
+		
+		<many-to-one name="designationFromDetails"
+			class="com.callippus.web.beans.dto.DesignationDTO" column="designation_from"
+			not-null="true"  lazy="false" update="false" insert="false"/>
+			
+		<property name="designationFrom" column="designation_from" insert="true" update="true" type="int" not-null="true"/>	
+		
+		<many-to-one name="designationToDetails"
+			class="com.callippus.web.beans.dto.DesignationDTO" column="designation_to"
+			not-null="true"  lazy="false" update="false" insert="false"/>
+			
+		<property name="designationTo" column="designation_to" insert="true" update="true" type="int" not-null="true"/>	
+		<property name="residencyPeriod" column="residency_period" type="int" not-null="true" />
+		<property name="relaxationInMonths" column="relaxation_in_months" type="int" not-null="true" />	
+		<property name="dateFrom" column="date_from" type="java.lang.String"/>	
+		<property name="dateTo" column="date_to" type="java.lang.String"/>		
+		<property name="status" column="status" type="int" not-null="true" />	
+		<property name="createdBy" column="created_by" update="false" type="java.lang.String" not-null="true"/>
+		<property name="creationTime" column="creation_date" update="false" type="java.util.Date" not-null="true"/>
+		<property name="lastModifiedBy" column="last_modified_by" type="java.lang.String" not-null="true" />
+		<property name="lastModifiedTime" column="last_modified_date" type="java.util.Date" not-null="true" />
+		<property name="Written" column="Written_Test_Flag" type="java.lang.Integer" not-null="true" />
+		<property name="trade" column="Trade_Test_Flag" type="java.lang.Integer" not-null="true" />
+		<property name="interview" column="Interview_Flag" type="java.lang.Integer" not-null="true" />
+		<property name="board" column="Board_Type_Flag" type="java.lang.Integer" not-null="true" />
+	</class>
+</hibernate-mapping>

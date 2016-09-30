@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.telephone.TelephoneCashAssignmentDTO" table="TELEPHONE_CASH_ASSIGNMENT" >
+		<id name="id" type="int" column="ID">
+			<generator class="sequence">
+				<param name="sequence">TELE_CASH_ASSIGNMENT_SEQ</param>
+			</generator>
+		</id>
+		<property name="sfid" column="SFID" />
+		<property name="fromDate" column="EFF_FROM_DATE" />
+		<property name="toDate" column="EFF_TO_DATE" />
+		<property name="createdBy" column="CREATED_BY" />
+		<property name="lastModifiedBy" column="LAST_MODIFIED_BY" />
+		<property name="creationDate" column="CREATION_DATE" />
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" />
+		<property name="status" column="STATUS" />
+		
+	</class>
+</hibernate-mapping>

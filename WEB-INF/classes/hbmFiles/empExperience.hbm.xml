@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.empExperience.EmpExperienceBean" table="emp_experience">
+		<id name="id" column="id"></id>
+		<property name="sfid" column="sfid" />
+		<property name="experience" column="experience" />
+		<property name="description" column="description" />
+		<property name="fromDate" column="from_date" />
+		<property name="toDate" column="to_date" />
+		<property name="status" column="status" />
+		<property name="creationDate" column="creation_date" update="false"/>
+		<property name="lastModifiedDate" column="last_modified_date" />
+	</class>
+</hibernate-mapping>

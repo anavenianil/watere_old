@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.incometax.dto.PayDBMigrationCoreDTO" table="T_CORE">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">T_CORE_SEQ</param>
+			</generator>
+		</id>
+		<property name="F_CPERSNO" column="F_CPERSNO" />
+		<property name="F_VC2BANKACCNO" column="F_VC2BANKACCNO" insert="true" update="true"/>
+		<property name="F_CBANK" column="F_CBANK"/>
+		<property name="F_VC2GPFACCNO" column="F_VC2GPFACCNO" />
+		<property name="F_VC2PANNO" column="F_VC2PANNO" update="false"/>
+		<property name="F_NCCSMEMNO" column="F_NCCSMEMNO" update="false"/>
+		<property name="F_NGPFSUBAMT" column="F_NGPFSUBAMT" />
+		<property name="F_NITAX" column="F_NITAX" />	
+		<property name="F_NITAXSURCHARGE" column="F_NITAXSURCHARGE" />	
+		<property name="F_NCCSSUB" column="F_NCCSSUB" />	
+		<property name="F_NSPAY" column="F_NSPAY" />	
+		<property name="F_CIDNO" column="F_CIDNO" />
+		<property name="F_VC2PRAN" column="F_VC2PRAN" />	
+		<property name="F_NFPAY" column="F_NFPAY" />	
+		<property name="categoryId" column="CATID" />
+	</class>
+</hibernate-mapping>

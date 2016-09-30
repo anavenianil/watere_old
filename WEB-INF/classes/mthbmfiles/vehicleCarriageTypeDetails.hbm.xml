@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.MT.VehicleCarriageTypeDetailsBean" table="MT_VEHICLE_CARRIAGE_TYPE">
+		<id name="vehicleCarriageTypeid" type="int" column="TYPE_ID">
+			<generator class="sequence">
+				<param name="sequence">MT_VEHICLE_CARRIAGE_TYPE_SEQ</param>
+			</generator>
+		</id>
+		<property name="vehicleCarriageType" column="TYPE" />
+		<property name="status" column="STATUS" />
+	</class>
+</hibernate-mapping>

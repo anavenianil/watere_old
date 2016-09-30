@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name=" APPLICATION FOR RECESS" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="5e45bfab-77fb-4ce9-93eb-47d420129997">
+	<property name="ireport.zoom" value="1.0000000000000004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="59"/>
+	<parameter name="requestID" class="java.lang.String">
+		<parameterDescription><![CDATA[Please enter request id]]></parameterDescription>
+	</parameter>
+	<queryString>
+		<![CDATA[select distinct (select distinct e.NAME_IN_SERVICE_BOOK from emp_master e join LTC_WATER_REQUEST_DETAILS ltc on e.sfid=ltc.sfid where ltc.REQUEST_ID=$P{requestID} )fullname ,
+
+(select distinct e.DOJ_ASL from emp_master e join LTC_WATER_REQUEST_DETAILS ltc on e.sfid=ltc.sfid where ltc.REQUEST_ID=$P{requestID})DOA,
+
+(select d.NAME from DESIGNATION_MASTER d join LTC_WATER_REQUEST_DETAILS ltc on d.ID=ltc.DESIGNATION_ID where ltc.REQUEST_ID=$P{requestID})Designation,
+
+(select desg.NAME from LTC_WATER_REQUEST_DETAILS ltc join REQUEST_WORKFLOW_HISTORY req on ltc.REQUEST_ID=req.REQUEST_ID
+join EMP_MASTER e on e.sfid=req.ASSIGNED_TO join DESIGNATION_MASTER desg on desg.ID=e.DESIGNATION_ID  where ltc.REQUEST_ID=$P{requestID} and req.REQUEST_STAGE=1)desg_name1,
+
+(select desg.NAME from LTC_WATER_REQUEST_DETAILS ltc join REQUEST_WORKFLOW_HISTORY req on ltc.REQUEST_ID=req.REQUEST_ID
+join EMP_MASTER e on e.sfid=req.ASSIGNED_TO join DESIGNATION_MASTER desg on desg.ID=e.DESIGNATION_ID  where ltc.REQUEST_ID=$P{requestID} and req.REQUEST_STAGE=2)desg_name2,
+
+(select req.ACTIONED_DATE from LTC_WATER_REQUEST_DETAILS ltc join REQUEST_WORKFLOW_HISTORY req on ltc.REQUEST_ID=req.REQUEST_ID
+join EMP_MASTER e on e.sfid=req.ASSIGNED_TO join DESIGNATION_MASTER desg on desg.ID=e.DESIGNATION_ID  where ltc.REQUEST_ID=$P{requestID} and req.REQUEST_STAGE=1)Act_date1,
+
+(select req.ACTIONED_DATE from LTC_WATER_REQUEST_DETAILS ltc join REQUEST_WORKFLOW_HISTORY req on ltc.REQUEST_ID=req.REQUEST_ID
+join EMP_MASTER e on e.sfid=req.ASSIGNED_TO join DESIGNATION_MASTER desg on desg.ID=e.DESIGNATION_ID  where ltc.REQUEST_ID=$P{requestID} and req.REQUEST_STAGE=2)Act_date2,
+
+(select req.REMARKS from LTC_WATER_REQUEST_DETAILS ltc join REQUEST_WORKFLOW_HISTORY req on ltc.REQUEST_ID=req.REQUEST_ID
+join EMP_MASTER e on e.sfid=req.ASSIGNED_TO join DESIGNATION_MASTER desg on desg.ID=e.DESIGNATION_ID  where ltc.REQUEST_ID=$P{requestID} and req.REQUEST_STAGE=1)Remarks1,
+
+(select req.REMARKS from LTC_WATER_REQUEST_DETAILS ltc join REQUEST_WORKFLOW_HISTORY req on ltc.REQUEST_ID=req.REQUEST_ID
+join EMP_MASTER e on e.sfid=req.ASSIGNED_TO join DESIGNATION_MASTER desg on desg.ID=e.DESIGNATION_ID  where ltc.REQUEST_ID=$P{requestID} and req.REQUEST_STAGE=2)Remarks2,
+
+(select dept.DEPARTMENT_NAME from DEPARTMENTS_MASTER dept join LTC_WATER_REQUEST_DETAILS ltc on dept.DEPARTMENT_ID=ltc.DEPARTMENT_ID where ltc.REQUEST_ID=$P{requestID})DEPARTMENT_NAME,
+
+ (select distinct ltc.STARTHOLIDAY  from LTC_WATER_REQUEST_DETAILS ltc where ltc.REQUEST_ID = (select distinct max(ltc.REQUEST_ID) from LTC_WATER_REQUEST_DETAILS ltc where ltc.REQUEST_ID < $P{requestID}))prevstartdate,
+(select distinct ltc.RETURNHOLIDAY  from LTC_WATER_REQUEST_DETAILS ltc where ltc.REQUEST_ID = (select distinct max(ltc.REQUEST_ID) from LTC_WATER_REQUEST_DETAILS ltc where ltc.REQUEST_ID <$P{requestID} ))prevreturndate,
+(select distinct ltc.NO_OF_DAYS   from LTC_WATER_REQUEST_DETAILS ltc where ltc.REQUEST_ID = (select distinct max(ltc.REQUEST_ID) from LTC_WATER_REQUEST_DETAILS ltc where ltc.REQUEST_ID < $P{requestID}))prevNoofdays,
+
+
+ltc.STARTHOLIDAY,ltc.RETURNHOLIDAY,ltc.NO_OF_DAYS,ltc.APPLIED_DATE,ltc.ADVANCE_FLAG,
+
+(select addr.ADDRESS1 from LTC_WATER_REQUEST_DETAILS ltc join ADDRESS_DETAILS_MASTER addr on addr.SFID=ltc.SFID where REQUEST_ID=$P{requestID} and ADDRESS_TYPE_ID=3)addr1_adr1,
+
+(select addr.ADDRESS2 from LTC_WATER_REQUEST_DETAILS ltc join ADDRESS_DETAILS_MASTER addr on addr.SFID=ltc.SFID where REQUEST_ID=$P{requestID} and ADDRESS_TYPE_ID=3)addr1_adr2,
+
+(select addr.ADDRESS3 from LTC_WATER_REQUEST_DETAILS ltc join ADDRESS_DETAILS_MASTER addr on addr.SFID=ltc.SFID where REQUEST_ID=$P{requestID} and ADDRESS_TYPE_ID=3)addr1_adr3,
+
+(select addr.EMAIL from LTC_WATER_REQUEST_DETAILS ltc join ADDRESS_DETAILS_MASTER addr on addr.SFID=ltc.SFID where REQUEST_ID=$P{requestID} and ADDRESS_TYPE_ID=3)addr1_MAIL,
+
+(select addr.PHONE_NUMBER from LTC_WATER_REQUEST_DETAILS ltc join ADDRESS_DETAILS_MASTER addr on addr.SFID=ltc.SFID where REQUEST_ID=$P{requestID} and ADDRESS_TYPE_ID=3)addr1_phNO,
+
+(select addr.CITY from LTC_WATER_REQUEST_DETAILS ltc join ADDRESS_DETAILS_MASTER addr on addr.SFID=ltc.SFID where REQUEST_ID=$P{requestID} and ADDRESS_TYPE_ID=3)addr1_CITY,
+
+(select addr.ADDRESS1 from LTC_WATER_REQUEST_DETAILS ltc join ADDRESS_DETAILS_MASTER addr on addr.SFID=ltc.SFID where REQUEST_ID=$P{requestID} and ADDRESS_TYPE_ID=2)addr2_adr1,
+
+(select addr.ADDRESS2 from LTC_WATER_REQUEST_DETAILS ltc join ADDRESS_DETAILS_MASTER addr on addr.SFID=ltc.SFID where REQUEST_ID=$P{requestID} and ADDRESS_TYPE_ID=2)addr2_adr2,
+
+(select addr.ADDRESS3 from LTC_WATER_REQUEST_DETAILS ltc join ADDRESS_DETAILS_MASTER addr on addr.SFID=ltc.SFID where REQUEST_ID=$P{requestID} and ADDRESS_TYPE_ID=2)addr2_adr3,
+
+(select addr.EMAIL from LTC_WATER_REQUEST_DETAILS ltc join ADDRESS_DETAILS_MASTER addr on addr.SFID=ltc.SFID where REQUEST_ID=$P{requestID} and ADDRESS_TYPE_ID=2)addr2_MAIL,
+
+(select addr.PHONE_NUMBER from LTC_WATER_REQUEST_DETAILS ltc join ADDRESS_DETAILS_MASTER addr on addr.SFID=ltc.SFID where REQUEST_ID=$P{requestID} and ADDRESS_TYPE_ID=2)addr2_phNO,
+
+(select addr.CITY from LTC_WATER_REQUEST_DETAILS ltc join ADDRESS_DETAILS_MASTER addr on addr.SFID=ltc.SFID where REQUEST_ID=$P{requestID} and ADDRESS_TYPE_ID=2)addr2_CITY,
+(select concat(addr.ADDRESS1 || ' , ' || addr.ADDRESS2 ,' , ' ||addr.ADDRESS3)address from LTC_WATER_REQUEST_DETAILS ltc join ADDRESS_DETAILS_MASTER addr on addr.SFID=ltc.SFID where REQUEST_ID=$P{requestID} and ADDRESS_TYPE_ID=2)address1,
+(select concat(addr.ADDRESS1 || ' , ' || addr.ADDRESS2 ,' , ' ||addr.ADDRESS3)address from LTC_WATER_REQUEST_DETAILS ltc join ADDRESS_DETAILS_MASTER addr on addr.SFID=ltc.SFID where REQUEST_ID=$P{requestID} and ADDRESS_TYPE_ID=3)address2
+
+from LTC_WATER_REQUEST_DETAILS ltc
+where REQUEST_ID=$P{requestID}]]>
+	</queryString>
+	<field name="FULLNAME" class="java.lang.String"/>
+	<field name="DOA" class="java.sql.Timestamp"/>
+	<field name="DESIGNATION" class="java.lang.String"/>
+	<field name="DESG_NAME1" class="java.lang.String"/>
+	<field name="DESG_NAME2" class="java.lang.String"/>
+	<field name="ACT_DATE1" class="java.sql.Timestamp"/>
+	<field name="ACT_DATE2" class="java.sql.Timestamp"/>
+	<field name="REMARKS1" class="java.lang.String"/>
+	<field name="REMARKS2" class="java.lang.String"/>
+	<field name="DEPARTMENT_NAME" class="java.lang.String"/>
+	<field name="PREVSTARTDATE" class="java.sql.Timestamp"/>
+	<field name="PREVRETURNDATE" class="java.sql.Timestamp"/>
+	<field name="PREVNOOFDAYS" class="java.math.BigDecimal"/>
+	<field name="STARTHOLIDAY" class="java.sql.Timestamp"/>
+	<field name="RETURNHOLIDAY" class="java.sql.Timestamp"/>
+	<field name="NO_OF_DAYS" class="java.math.BigDecimal"/>
+	<field name="APPLIED_DATE" class="java.sql.Timestamp"/>
+	<field name="ADVANCE_FLAG" class="java.lang.String"/>
+	<field name="ADDR1_ADR1" class="java.lang.String"/>
+	<field name="ADDR1_ADR2" class="java.lang.String"/>
+	<field name="ADDR1_ADR3" class="java.lang.String"/>
+	<field name="ADDR1_MAIL" class="java.lang.String"/>
+	<field name="ADDR1_PHNO" class="java.lang.String"/>
+	<field name="ADDR1_CITY" class="java.lang.String"/>
+	<field name="ADDR2_ADR1" class="java.lang.String"/>
+	<field name="ADDR2_ADR2" class="java.lang.String"/>
+	<field name="ADDR2_ADR3" class="java.lang.String"/>
+	<field name="ADDR2_MAIL" class="java.lang.String"/>
+	<field name="ADDR2_PHNO" class="java.lang.String"/>
+	<field name="ADDR2_CITY" class="java.lang.String"/>
+	<field name="ADDRESS1" class="java.lang.String"/>
+	<field name="ADDRESS2" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="98" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="153" y="28" width="617" height="23" backcolor="#006699" uuid="02f7e1c4-4126-49ee-891d-8310c566e55c"/>
+				<staticText>
+					<reportElement x="0" y="2" width="617" height="21" forecolor="#FFFFFF" uuid="a2c5c586-1f5b-4f4e-996e-efb40bb1f00b"/>
+					<textElement>
+						<font size="15" isBold="true" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[       SUMBAWANGA URBAN WATER SUPPLY AND SANITATION AUTHORITY ]]></text>
+				</staticText>
+			</frame>
+			<staticText>
+				<reportElement x="282" y="75" width="312" height="20" uuid="98116f30-5c47-4b55-89fa-9ab74542b13c"/>
+				<textElement>
+					<font size="14" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[APPLICATION FOR ANNUAL LEAVE]]></text>
+			</staticText>
+			<image>
+				<reportElement x="1" y="0" width="211" height="95" uuid="3780ab2d-f6e4-43ee-b186-374eeb933bba"/>
+				<imageExpression><![CDATA["../images/watererp.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="17" y="0" width="671" height="35" uuid="ba16d983-9635-49f0-8616-28b8751fa252"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[
+PART A :APPLICATION FOR ANNUAL LEAVE  ( Be Filled By Applicant )]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement x="12" y="-11" width="1073" height="38" uuid="0bf57995-a571-4ccb-9610-2e87cadb3a7a"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[
+( Filled out in capital letters in three copies for vacation payments and two copies to the usual holiday )]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="207" splitType="Stretch">
+			<staticText>
+				<reportElement x="12" y="9" width="312" height="20" uuid="b44fd17e-1989-4e95-a3b5-ac295b9d0867"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[A1) Applicant Information]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="80" width="142" height="19" uuid="bdea765f-a1e4-4030-b774-40d5ea2e2482"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[iii) Facility                      ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="101" width="142" height="19" uuid="7dc29a70-8dd1-49e8-9545-d95a5fddf92f"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[iv) Department                  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="123" width="170" height="19" uuid="1f9daf01-11a6-4d95-bff7-f867533fda7e"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[v)  Date Of Appointment
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="146" width="143" height="19" uuid="cfb75d5a-8894-4077-b622-bd2f595d0e1b"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[vi) Where You Live Now
+					]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="173" y="42" width="616" height="21" uuid="6930abe4-dcb7-4f6b-9c93-3487d0e40d0f"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FULLNAME}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="173" y="60" width="597" height="24" uuid="679e7fc9-6c58-47a7-b13e-d9f17500849b"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESIGNATION}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="173" y="101" width="582" height="19" uuid="3a1219da-9914-48d5-88bb-a309093884bb"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DEPARTMENT_NAME}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MMM-yy" isBlankWhenNull="true">
+				<reportElement x="173" y="123" width="462" height="19" uuid="31c82cb1-3eaf-46ce-b27c-a348f3bc3b71"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DOA}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="173" y="165" width="561" height="15" uuid="86b29a03-13b2-4177-b60e-39ea5d8d228e"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ADDR2_CITY}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="173" y="146" width="561" height="19" uuid="1a1f0159-d904-40d4-96aa-1674c00b8e90"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ADDRESS1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="7" y="61" width="142" height="19" uuid="6938040a-759e-4ae7-9a48-decc7712aa1e"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ii)  Designation                      ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="9" y="42" width="142" height="21" uuid="3aaf0684-e614-4f17-be4e-97f901649376"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[i)   Full Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="42" width="16" height="21" uuid="ad786e7f-a925-4ea1-bf4e-425339998142"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="61" width="16" height="19" uuid="a52ae52b-8170-4741-b6fc-a4a754529f91"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="80" width="16" height="19" uuid="7c7877e6-1dc5-4b25-892b-a6fe5c342f07"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="101" width="16" height="19" uuid="3fc4ce1f-fba0-43cf-82de-0c8981b06515"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="123" width="16" height="19" uuid="6c595b51-8c6d-462c-bcb9-129e3d3a6631"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="146" width="16" height="19" uuid="f203ba6f-ca30-4121-8154-ff2da55cde51"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+		</band>
+		<band height="168">
+			<staticText>
+				<reportElement x="5" y="20" width="312" height="20" uuid="b73c279e-b391-40cd-8bac-d71fbdfd4ea9"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[A2) Communication During The Holidays
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="61" width="194" height="19" uuid="5b7c51d8-0068-4b00-b142-e1cd10e37b83"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  vii) Telephone number :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="90" width="143" height="19" uuid="8e18efe3-27e0-4dd1-a392-f0b9c3681b5b"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  viii) Email :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="120" width="136" height="19" uuid="5e7e6fa7-7065-4e7f-8199-91318ad69b43"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[    ix) Address :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="149" y="61" width="467" height="19" uuid="ece82433-0eb1-44f0-9c06-af2450d2dd8d"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ADDR1_PHNO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="76" y="90" width="674" height="19" uuid="995bade2-8262-4c77-85de-93c31ae9a334"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ADDR1_MAIL}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="101" y="138" width="275" height="17" uuid="1a5d5dde-9eeb-416f-b180-938dccd40eb1"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ADDR1_CITY}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="102" y="120" width="701" height="19" uuid="fdbafd5b-4cd6-48c4-9228-5339d2707d14"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ADDRESS2}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="394">
+			<staticText>
+				<reportElement x="5" y="26" width="312" height="20" uuid="c04e82d5-6d50-4621-a5b9-c7369ff10a84"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[A3) Application Holiday]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="292" width="802" height="1" uuid="93d3d272-a714-425e-9a1a-b682ef4b62c4"/>
+			</line>
+			<line>
+				<reportElement x="0" y="60" width="802" height="1" uuid="34e119d2-fdf1-4216-8062-de4731a1a82c"/>
+			</line>
+			<line>
+				<reportElement x="0" y="60" width="1" height="273" uuid="6b2e6ca1-a385-40a5-a0fa-67ee11923a76"/>
+			</line>
+			<line>
+				<reportElement x="801" y="60" width="1" height="273" uuid="1bc7293a-4374-4724-8668-1c43457707c2"/>
+			</line>
+			<line>
+				<reportElement x="1" y="100" width="802" height="1" uuid="dfa28225-3b59-4c61-9ff6-7f3948cc8a5c"/>
+			</line>
+			<staticText>
+				<reportElement x="7" y="71" width="170" height="19" uuid="3d24892c-0f48-4b44-878d-f58fef6625ab"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   x)   Start Date Holiday]]></text>
+			</staticText>
+			<line>
+				<reportElement x="156" y="60" width="1" height="40" uuid="37fc6ab4-2c91-41c1-8c4a-482dd3ca9ad1"/>
+			</line>
+			<line>
+				<reportElement x="273" y="60" width="1" height="233" uuid="00d7a91b-604e-43f6-a60f-af1083850bdb"/>
+			</line>
+			<staticText>
+				<reportElement x="274" y="71" width="197" height="19" uuid="2e257656-839d-4ebd-b3f3-4379be7b43ec"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   xi)   Last Date Holiday]]></text>
+			</staticText>
+			<line>
+				<reportElement x="436" y="59" width="1" height="233" uuid="03b12710-bb1f-407c-9cf3-574439c88eb1"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="153" width="155" height="19" uuid="4a673173-de85-4cb8-ab55-32d19c27a896"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   xii)   City :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="274" y="140" width="162" height="50" uuid="b409c1a9-034d-45ee-90d4-e0d219686505"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   xiii)  I go To The Husband /
+          My wife and kids]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="456" y="104" width="143" height="24" uuid="208e47a5-1793-4f2f-9123-e3f08b92c4af"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[    Name Of Child]]></text>
+			</staticText>
+			<line>
+				<reportElement x="657" y="99" width="1" height="193" uuid="dc4ec714-623b-42b8-ac48-6c4e4fb30c5d"/>
+			</line>
+			<staticText>
+				<reportElement x="651" y="104" width="143" height="24" uuid="2f5ca3ac-6cd3-4055-8625-00d2e3698aad"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[      Date Of Birth]]></text>
+			</staticText>
+			<line>
+				<reportElement x="437" y="131" width="365" height="1" uuid="5cc5d564-f1bc-4cf4-8f3b-0e7dbfb04831"/>
+			</line>
+			<line>
+				<reportElement x="437" y="171" width="365" height="1" uuid="2fb8792a-dca3-454f-adbd-4d2ac71d1be9"/>
+			</line>
+			<line>
+				<reportElement x="0" y="333" width="802" height="1" uuid="1f439268-d2fb-433d-9e2f-b8dc391f95a4"/>
+			</line>
+			<staticText>
+				<reportElement x="7" y="303" width="317" height="19" uuid="c35b5a1a-0c9c-4c1f-9820-330154e33326"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   xiv)  The Number Of Vacation Days :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="375" width="214" height="19" uuid="36a033db-4cca-4037-8d24-fca740b41143"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Signature Of Applicant :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="385" y="375" width="94" height="19" uuid="f68807dc-8e16-4b15-a360-8025b21686b0"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date :]]></text>
+			</staticText>
+			<textField pattern="dd-MMM-yy" isBlankWhenNull="true">
+				<reportElement x="159" y="72" width="138" height="18" uuid="2bea8ea4-424c-4168-9877-54fe43e1c231"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{STARTHOLIDAY}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MMM-yy" isBlankWhenNull="true">
+				<reportElement x="479" y="71" width="265" height="19" uuid="9302bcc9-739e-43b7-9ab2-92540fa65f3f"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RETURNHOLIDAY}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="211" y="303" width="165" height="19" uuid="9d872395-79df-49cf-bcf1-355ab6fbf033"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NO_OF_DAYS}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MMM-yy" isBlankWhenNull="true">
+				<reportElement x="425" y="375" width="189" height="19" uuid="dd8247ba-3455-4b9e-ba82-c16bf9f432ca"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{APPLIED_DATE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="63" y="153" width="219" height="20" uuid="a7a463ce-c9ba-49f2-8406-a9800b14c266"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ADDR1_CITY}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="257">
+			<staticText>
+				<reportElement x="5" y="31" width="1048" height="20" uuid="fcfca5ea-9a96-436c-8267-3892efaf40ed"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PART B : OVERVIEW OF ANNUAL LEAVE ( be filled with the department of Administration and Human Resources )]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="78" width="802" height="1" uuid="1c3bc453-b57f-4f9e-bac5-931d41b68a2a"/>
+			</line>
+			<line>
+				<reportElement x="1" y="214" width="802" height="1" uuid="53e8d6aa-f8ee-451a-9109-3080c53f17af"/>
+			</line>
+			<line>
+				<reportElement x="1" y="110" width="802" height="1" uuid="9b0f78de-4cde-4c48-b41d-5cd564ba6d9e"/>
+			</line>
+			<line>
+				<reportElement x="0" y="143" width="802" height="1" uuid="8c8e2e74-0c81-4fc3-8411-082db9f48e8a"/>
+			</line>
+			<line>
+				<reportElement x="0" y="178" width="802" height="1" uuid="176393c0-0b1c-4308-8e0e-40c80427c48c"/>
+			</line>
+			<line>
+				<reportElement x="0" y="78" width="1" height="175" uuid="b4bb8bd3-6cd3-4ef6-b51f-101f8ad64f4d"/>
+			</line>
+			<line>
+				<reportElement x="802" y="78" width="1" height="175" uuid="84f8f6e7-b687-422c-96c8-9315dcfe910e"/>
+			</line>
+			<staticText>
+				<reportElement x="5" y="88" width="214" height="23" uuid="23d3f640-acdc-4374-ac1c-1a877927f7c2"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   i)  Date Of Last Holiday :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="123" width="247" height="20" uuid="22ce7fb3-e1e6-4ac4-afcd-4ca38fb0f0d7"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   ii)  Payment Of Holiday Packages Last ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="252" y="79" width="1" height="64" uuid="052664b0-e40f-4fb2-af2c-a520a70b9740"/>
+			</line>
+			<staticText>
+				<reportElement x="254" y="123" width="225" height="20" uuid="eadd6408-4e07-4fd5-b27c-6541577c7f9a"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   He Was Paid / Not Rewarded :
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="158" width="478" height="20" uuid="e9d857d9-bb5b-456c-95cf-5848d5da8b00"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  iii)  The Number Of Days Taken(Within a Current Leave Cycle)  :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="253" width="802" height="1" uuid="d711e8ac-5ec7-4f4b-a547-3c3f1e6acc2a"/>
+			</line>
+			<staticText>
+				<reportElement x="12" y="194" width="393" height="20" uuid="1f607fc1-fa98-487b-afa7-92c0aff99af6"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  iv)  The Number Of Vacation Days Remaining :
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="233" width="364" height="20" uuid="1f0186b7-e870-411a-baa2-8421ebb548f2"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  iv)  Other Details :
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="470" y="90" width="33" height="20" uuid="bc5c3879-ab8d-4efa-838f-12072d613578"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[To]]></text>
+			</staticText>
+			<textField pattern="dd-MMM-yy" isBlankWhenNull="true">
+				<reportElement x="275" y="88" width="156" height="20" uuid="9ea38434-9620-4e9b-a351-893ae7d1732b"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PREVSTARTDATE}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MMM-yy" isBlankWhenNull="true">
+				<reportElement x="537" y="88" width="171" height="20" uuid="ff7b9e4c-0144-4e34-a422-765ebe34cf5e"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PREVRETURNDATE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="363" y="158" width="190" height="20" uuid="4cbe9279-5ba1-4c13-8676-902ac3cc3783"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PREVNOOFDAYS}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="427" y="123" width="244" height="20" uuid="b16f03dd-843b-4b92-9fb1-f0d91a9e7fd4"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ADVANCE_FLAG}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="206">
+			<staticText>
+				<reportElement x="7" y="21" width="789" height="20" uuid="8b215160-9530-4e3d-9274-465ba2a84379"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PART C : SUGGESTIONS FOR ANNUAL LEAVE ( be filled out by the head of the unit / department / CEO )
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="55" width="777" height="16" uuid="8e618b8a-b2a4-47b6-a61c-4ec151b50697"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[I Agree / I Do Not Accept The Application Of The Above Mentioned Holidays And Allow / Not Allow Holidays To Be Given To Factor                                                                                                      given to factor
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="146" width="170" height="19" uuid="fbd839f6-e7d9-45c3-b9bb-467700648d99"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Signature :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="187" width="132" height="19" uuid="ac254d17-d845-4199-850d-cbd8cd669909"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="516" y="145" width="323" height="20" uuid="cf68d5a9-8caa-4116-bbad-7bdcda91a276"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESG_NAME1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MMM-yy" isBlankWhenNull="true">
+				<reportElement x="44" y="188" width="200" height="18" uuid="2c806618-1de6-4ce6-8ec8-3174369f0607"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ACT_DATE1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="434" y="145" width="160" height="20" uuid="3cdbca00-9705-4c00-b22e-057f46845668"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Designation :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="28" y="84" width="781" height="20" uuid="dbd03c74-74e3-4e2f-b252-90e3ff548a47"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{REMARKS1}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="322">
+			<staticText>
+				<reportElement x="5" y="26" width="852" height="20" uuid="3cb52aad-e3c7-4a7b-ba2f-c573195f47fb"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PART D : CONFIRMATION OF ANNUAL LEAVE ( be filled out by the Department of Administration and Human Resources )
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="77" width="777" height="33" uuid="0d2ba92f-0a6c-4dd1-9592-bb5cb6fdffe2"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[
+I Confirmed   Above Mentioned Information About The Leave Request . Holiday Is Given / Not Given Because
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="185" width="170" height="19" uuid="5a0283cb-a55a-4e8e-9330-dbd9a53771ac"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Signature :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="9" y="235" width="146" height="19" uuid="45d0b46b-0aaa-4c50-8b53-a02851716ca1"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="235" width="150" height="18" uuid="4a1c043a-2353-449f-9255-451ce860d919"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Memory]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="530" y="183" width="298" height="20" uuid="e68da608-59a8-4dac-bd20-4744d6b9cb19"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESG_NAME2}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MMM-yy" isBlankWhenNull="true">
+				<reportElement x="46" y="235" width="187" height="18" uuid="8527f4d2-4401-47c3-9d1c-83a1f1900c25"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ACT_DATE2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="27" y="115" width="788" height="20" uuid="90aa1f1c-975c-44d9-a2af-3ad3f765ad38"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{REMARKS2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="450" y="183" width="166" height="20" uuid="fe855375-80ac-4682-bcbd-f3af2b28bed1"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Designation :]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="24" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="155" y="10" width="200" height="13" uuid="91eb1f5a-8f2d-4c37-92c5-4d947234af4e"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="658" y="10" width="144" height="13" backcolor="#E6E6E6" uuid="e1f0f795-39b1-432b-860c-66a5b74d1743"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="1" y="10" width="657" height="13" backcolor="#E6E6E6" uuid="16f73795-6c26-4dce-8569-1d47675877e7"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="1" y="10" width="200" height="13" uuid="9ea16683-0d99-4a3d-8f1f-c10336038f54"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="50">
+			<staticText>
+				<reportElement x="337" y="19" width="298" height="21" uuid="bf37af24-a31b-422d-b048-6950ed876af8"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sorry No Data Found]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

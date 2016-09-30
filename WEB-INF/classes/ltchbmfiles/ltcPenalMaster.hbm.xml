@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.ltc.dto.LtcPenalMasterDTO" table="PENAL_INTEREST_MASTER">
+		<id name="id" column="ID" unsaved-value="0">
+			<generator class="sequence">
+				<param name="sequence">PENAL_INTEREST_MASTER_SEQ</param>
+			</generator>
+		</id>
+		<property name="typeValue" column="PENAL_INTEREST_PERCENTAGE" />
+		<property name="description" column="DESCRIPTION" />
+		<property name="fromDate" column="VALIDITY_FROM" />
+		<property name="toDate" column="VALIDITY_TO" />
+		<property name="fromDateOne" column="FROM_DATE" formula="(select to_char(lp.validity_from,'dd-Mon-yyyy') from penal_interest_master lp where lp.id=ID)" insert="false" update="false"/>
+		<property name="toDateOne" column="TO_DATE" formula="(select to_char(lp.validity_to,'dd-Mon-yyyy') from penal_interest_master lp where lp.id=ID)" insert="false" update="false"/>
+		<property name="status" column="STATUS" />
+		
+		<property name="createdBy" column="CREATED_BY" />
+		<property name="creationDate" column="CREATION_DATE" />
+		<property name="lastModifiedBy" column="LAST_MODIFIED_BY" />
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" />
+		
+		
+	</class>
+</hibernate-mapping>

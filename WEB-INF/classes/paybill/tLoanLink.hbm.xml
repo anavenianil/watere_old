@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.paybill.dto.TLoanLinkDTO" table="T_LOAN_LINK">
+		<id name="ID" column="ID">
+			<generator class="sequence">
+				<param name="sequence">T_LOAN_LINK_SEQ</param>
+			</generator>
+		</id>
+		<property name="F_CPERSNO" column="F_CPERSNO" />
+		<property name="F_DTSTART" column="F_DTSTART" />
+		<property name="F_NLOANTYPE" column="F_NLOANTYPE" />
+		<property name="F_NTOTAMT" column="F_NTOTAMT" />
+		<property name="F_NINSTAMT" column="F_NINSTAMT" />
+		<property name="F_NTOTINSTNO" column="F_NTOTINSTNO" />
+		<property name="F_NCURRENTINSNO" column="F_NCURRENTINSNO" />
+		<property name="F_NBALANCE" column="F_NBALANCE" />
+		<property name="F_CIDNO" column="F_CIDNO" />
+	</class>
+</hibernate-mapping>

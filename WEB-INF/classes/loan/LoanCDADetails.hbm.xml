@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.callippus.web.loan.beans.dto.LoanCDADetailsDTO" table="loan_cda_details" lazy="false">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">LOAN_CDA_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="requestID" column="request_id" type="int"
+			not-null="true" />
+		<!-- many-to-one name="loanRequestDetails" class="com.callippus.web.beans.requests.LoanRequestProcessBean" insert="false" update="false" lazy="false" column="request_id"/> -->
+			  <property name="sfID" column="request_id" insert="false" update="false" 
+		formula="(select lpd.sfid from loan_payment_details lpd where lpd.request_id=request_id)" />
+		<property name="empName" column="request_id" insert="false" update="false" 
+		formula="(select emp.name_in_service_book from emp_master emp where emp.sfid=(select lpd.sfid from loan_payment_details lpd where lpd.request_id=request_id))" />
+		<property name="loanName" column="request_id" insert="false" update="false" 
+		formula="(select ltm.loan_name from LOAN_TYPE_MASTER ltm where ltm.id=(select lpd.loan_type_id from LOAN_PAYMENT_DETAILS lpd where lpd.REQUEST_ID=request_id))" />
+		<property name="loanTypeID" column="request_id" insert="false" update="false" 
+		formula="(select lpd.loan_type_id from LOAN_PAYMENT_DETAILS lpd where lpd.REQUEST_ID=request_id)" />
+		<property name="historyID" column="request_id" insert="false" update="false" formula="(select get_history_id(request_id) from dual)" />
+		<property name="sendingReportNumber" column="sending_report_no"
+			type="java.lang.String"  />
+		<property name="sendingReportDate" column="sending_report_date"
+			type="java.util.Date"  />
+		<property name="hqReportNumber" column="hq_report_no" type="java.lang.String" />
+		<property name="srAccOfficer" column="SR_ACCOUNT_OFFICER" type="java.lang.String" />
+		<property name="accOfficer" column="ACC_OFFICER" type="java.lang.String" />
+		<property name="cfaOfficer" column="CFA_OFFICER" type="java.lang.String" />
+		<property name="hqReportDate" column="hq_report_date" type="java.util.Date" />
+
+		<property name="status" column="status" type="int" not-null="true" />
+		<property name="createdBy" column="created_by" update="false"
+			type="java.lang.String" not-null="true" />
+		<property name="creationTime" column="creation_date" update="false"
+			type="java.util.Date" not-null="true" />
+		<property name="lastModifiedBy" column="last_modified_by"
+			type="java.lang.String" not-null="true" />
+		<property name="lastModifiedTime" column="last_modified_date"
+			type="java.util.Date" not-null="true" />
+		<property name="hqReturnFlag" column="HQ_RETURN_FLAG"
+			type="int" />
+			<property name="sanctionNo" column="SANCTION_NO"
+			type="int" />
+			<property name="billNo" column="BILL_NO"
+			type="int" />
+			<property name="dvNo" column="DV_NO"
+			type="int" />
+			<property name="cdaAmount" column="CDA_AMOUNT"
+			type="int" />
+			<property name="dvDate" column="DV_DATE"
+			type="java.util.Date" />
+			<property name="cdaReturnFlag" column="CDA_RETURN_FLAG"
+			type="int" />
+
+
+	</class>
+</hibernate-mapping>

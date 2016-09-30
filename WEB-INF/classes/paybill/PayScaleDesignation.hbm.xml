@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.paybill.dto.PayScaleDesignationDTO" table="PAYBAND_DESIGNATION_MAPPING">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">PAYBAND_DESIG_MAPPING_SEQ</param>
+			</generator>
+		</id>
+		
+		<many-to-one name="designationDetails"
+			class="com.callippus.web.beans.dto.DesignationDTO" column="designation_id" 
+			not-null="true" update="false" unique="true" lazy="false" insert="false"/> 
+		<many-to-one name="paybandDetails"
+			class="com.callippus.web.paybill.dto.PaybandDTO" column="payband_type_id" 
+			not-null="true" update="false" unique="true" lazy="false" insert="false"/>
+
+		<property name="designation" column="designation_id" insert="true" update="true"/>
+		<property name="payband" column="payband_type_id" insert="true" update="true"/>
+		<property name="gradePay" column="grade_Pay"/>
+		<property name="status" column="status" />
+		<property name="createdBy" column="creation_by" update="false"/>
+		<property name="creationDate" column="creation_date" update="false"/>
+		<property name="lastModifiedBy" column="modified_by" />
+		<property name="lastModifiedDate" column="modified_date" />		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.MT.VehicleMileageDTO" table="MT_VEHICLE_MILEAGE_MASTER">
+		<id name="id" type="int" column="ID">
+			<generator class="sequence">
+				<param name="sequence">MT_VEHICLE_MILEAGE_MASTER_SEQ</param>
+			</generator>
+		</id>
+		<property name="vehicleId" column="VEHICLE_ID" />
+		<property name="todayDate" column="TO_DAY_DATE" />
+		<property name="natureOfDuty" column="NATURE_OF_DUTY" />
+		<property name="fromPlace" column="FROM_PLACE" />
+		<property name="toPlace" column="TO_PLACE" />
+		<property name="startingMilometerRde" column="STARTING_MILOMETER_RDE" />
+		<property name="endingMilometerRde" column="ENDING_MILOMETER_RDE" />
+		<property name="totKilometers" column="TOTAL_KILOMETERS" />
+		<property name="fuel" column="FUEL" />
+		<property name="engineOil" column="ENG_OIL" />
+		<property name="coolent" column="COOLENT" />
+		<property name="fuelMRD" column="FUEL_MRD" />
+		<property name="engineOilMRD" column="ENG_OIL_MRD" />
+		<property name="coolentMRD" column="COOLENT_MRD" />
+		<property name="status" column="STATUS" />
+		<property name="fuelConsumed" column="FUEL_CONSUMED" />
+		<property name="engineOilConsumed" column="ENG_OIL_CONSUMED" />
+		<property name="coolentConsumed" column="COOLENT_CONSUMED" />
+		<property name="lastModifiedBy" column="LAST_MODIFIED_BY" />
+		<property name="creationDate" column="CREATION_DATE" update="false" />
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" />
+		
+		<many-to-one name="vehicleDetails"
+			class="com.callippus.web.beans.MT.VehicleDetailsBean" column="VEHICLE_ID"
+			lazy="false" insert="false" update="false"/>
+	</class>
+</hibernate-mapping>
+

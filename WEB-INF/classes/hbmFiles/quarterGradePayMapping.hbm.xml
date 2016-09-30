@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.dto.QuarterGradePayMappingDTO" table="QUARTER_GRADE_PAY_MAPPING">
+		<id name="id" column="ID"></id>
+		<property name="quarterID" column="QUARTER_ID" />
+		<property name="gradePay" column="GRADE_PAY" />
+		<property name="status" column="STATUS" />
+		<property name="creationDate" column="CREATION_DATE" />	
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" />	
+		<property name="lastModifiedBy" column="LAST_MODIFIED_BY" />		
+	</class>
+</hibernate-mapping>
+
+	

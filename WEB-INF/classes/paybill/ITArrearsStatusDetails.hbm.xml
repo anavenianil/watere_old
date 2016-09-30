@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.incometax.dto.IncomeTaxDAStatusDTO" table="PAY_DA_ARREARS_STATUS_DETAILS">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">PAY_DA_ARREARS_STATUS_DET_SEQ</param>
+			</generator>
+		</id>
+		<property name="fromDate" column="FROM_DATE" insert="true" update="true" type="java.lang.String"/>
+		<property name="toDate" column="TO_DATE" insert="true" update="true" type="java.lang.String" />
+		<property name="oldDa" column="OLD_DA" type="int" not-null="true"></property>
+		<property name="newDa" column="NEW_DA" update="false" type="int"/>
+		<property name="daType" column="DA_TYPE" type="int"/>
+		<property name="runStatus" column="RUN_STATUS" type="int"/>		
+	</class>
+</hibernate-mapping>
+		
+
+
+
+
+
+
+

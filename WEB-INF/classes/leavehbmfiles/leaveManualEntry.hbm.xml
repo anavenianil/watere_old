@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.leave.dto.LeaveManualEntryDTO" table="leave_manual_entry">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">LEAVE_MANUAL_ENTRY_SEQ</param>
+			</generator>
+		</id>
+		<property name="sfID" column="sfid" />
+		<property name="el" column="el" />
+		<property name="hpl" column="hpl" />
+		<property name="cl" column="cl" />
+		<property name="lnd" column="lnd" />
+		<property name="ccl" column="ccl" />
+		<property name="stl" column="stl" />
+		<property name="eol" column="eol" />
+		<property name="eolwomc" column="eol_wo_mc" />
+		<property name="cmlwomc" column="cml_wo_mc" />
+		<property name="lndwomc" column="lnd_wo_mc" />
+		<property name="createdBy" column="created_by" update="false"/>
+		<property name="creationDate" column="creation_date" update="false"/>
+		<property name="lastModifiedBy" column="last_modified_by" />
+		<property name="lastModifiedDate" column="last_modified_date" />
+		<property name="verifiedBy" column="verified_by"/>
+	</class>
+</hibernate-mapping>

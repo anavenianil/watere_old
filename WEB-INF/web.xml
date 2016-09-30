@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0" metadata-complete="true">
+	<display-name>CPS Application</display-name>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/applicationContext.xml
+		</param-value>
+	</context-param>
+	<filter>
+		<filter-name>AjaxAnywhere</filter-name>
+		<filter-class>org.ajaxanywhere.AAFilter</filter-class>
+	</filter>
+
+	<!-- <filter-mapping> <filter-name>CAS Single Sign Out Filter</filter-name> 
+		<url-pattern>/*</url-pattern> </filter-mapping> -->
+
+	<filter-mapping>
+		<filter-name>AjaxAnywhere</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>AjaxAnywhere</filter-name>
+		<url-pattern>*.htm</url-pattern> <!-- other framewords mapping -->
+	</filter-mapping>
+	<filter>
+		<filter-name>ResponseOverrideFilter</filter-name>
+		<filter-class>org.displaytag.filter.ResponseOverrideFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>ResponseOverrideFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+
+	<!-- <filter> <filter-name>CAS Single Sign Out Filter</filter-name> <filter-class>org.jasig.cas.client.session.SingleSignOutFilter</filter-class> 
+		</filter> <filter> <filter-name>springSecurityFilterChain</filter-name> <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class> 
+		</filter> <filter-mapping> <filter-name>springSecurityFilterChain</filter-name> 
+		<url-pattern>/*</url-pattern> </filter-mapping> -->
+
+	<filter>
+		<filter-name>TransactionFilter</filter-name>
+		<filter-class>com.callippus.web.controller.common.TransactionFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>TransactionFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- <listener> <listener-class>org.jasig.cas.client.session.SingleSignOutHttpSessionListener</listener-class> 
+		</listener> -->
+
+	<!-- <listener> <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class> 
+		</listener> -->
+
+	<!-- Servlet configurations starts -->
+	<servlet>
+		<servlet-name>cps</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>cps</servlet-name>
+		<url-pattern>*.htm</url-pattern>
+	</servlet-mapping>
+	<!-- Servlet configurations ends -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<session-config>
+		<session-timeout>300</session-timeout>
+	</session-config>
+
+	<welcome-file-list>
+		<welcome-file>/secure/index.jsp</welcome-file>
+
+
+	</welcome-file-list>
+
+	<jsp-config>
+		<taglib>
+			<taglib-uri>/tags/spring-form</taglib-uri>
+			<taglib-location>/WEB-INF/spring-form.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>/tags/spring</taglib-uri>
+			<taglib-location>/WEB-INF/spring.tld</taglib-location>
+		</taglib>
+
+		<taglib>
+			<taglib-uri>/tags/displaytag</taglib-uri>
+			<taglib-location>/WEB-INF/displaytag.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>/tags/ajaxanywhere</taglib-uri>
+			<taglib-location>/WEB-INF/ajaxanywhere.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>/tags/jstl-c</taglib-uri>
+			<taglib-location>/WEB-INF/jstl-c.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>/tags/security</taglib-uri>
+			<taglib-location>/WEB-INF/security.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>/tags/fmt</taglib-uri>
+			<taglib-location>/WEB-INF/fmt.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>/tags/jstl-fn</taglib-uri>
+			<taglib-location>/WEB-INF/fn.tld</taglib-location>
+		</taglib>		
+		<taglib>
+			<taglib-uri>/tags/fck</taglib-uri>
+			<taglib-location>/WEB-INF/fck.tld</taglib-location>
+		</taglib>
+	</jsp-config>
+
+</web-app>

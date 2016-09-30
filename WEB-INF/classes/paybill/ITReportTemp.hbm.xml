@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.incometax.dto.IncomeTaxPayBillDTO" table="PAY_IT_PAYBILL_DETAILS">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">PAY_IT_PAYBILL_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="sfid" column="SFID" type="java.lang.String" />
+		<property name="month" column="MONTH" type="java.util.Date" />
+		<property name="basicPay" column="BASIC_PAY"  type="int" />
+		<property name="gradePay" column="GRADE_PAY"  type="int"></property>
+		<property name="specialPay" column="SPAY" type="int" />
+		<property name="da" column="DA" type="int" />
+		<property name="twoAddlIncr" column="TWOADDINC" type="int"/>
+		<property name="hra" column="HRA" type="int"/>
+		<property name="tpt" column="TRA" type="int"/>
+		<property name="ETA" column="ETA" type="int"/>
+		<property name="credMisc" column="CR_MISC" type="int"/>
+		<property name="totalCredits" column="TOTAL_CREDITS" type="int"/>
+		<property name="gpf" column="GPF" type="int"/>
+		<property name="cegis" column="CGEIS" type="int"/>
+		<property name="cghs" column="CGHS" type="int"/>
+		<property name="profTax" column="PROF_TAX" type="int"/>
+		<property name="pli" column="PLI" type="int"/>
+		<property name="hbaLoan" column="HBA" type="int"/>
+		<property name="hdGicCfin" column="HD_GIC_CFIN" type="int"/>
+		<property name="lic" column="LIC" type="int"/>
+		<property name="eol" column="EOL_HPL" type="int"/>
+		<property name="debMisc" column="DEB_MISC" type="int"/>
+		<property name="incomeTaxRec" column="IT_REC" type="int"/>		
+		<property name="variableIncr" column="VAR_INCR" type="int"/>
+		<property name="runId" column="RUN_ID" type="int"/>
+		<property name="runType" column="RUN_TYPE" type="java.lang.String"/>
+		
+		<property name="fpay" column="C_FPA" type="int"/>
+		<property name="ccs" column="R_CCS_FUND" type="int"/>
+		<property name="hdfc" column="R_HDFC" type="int"/>
+		<property name="gic" column="R_GIC" type="int"/>
+		<property name="canfin" column="R_CANFIN" type="int"/>
+		<property name="iTax" column="ITAX" type="int"/>
+		<property name="creationDate" column="CREATION_DATE"/>
+		<property name="modifiedDate" column="MODIFIED_DATE" />
+		<property name="modifiedBy" column="MODIFIED_BY"/>
+		<property name="cess" column="D_EDUC_CESS"/>
+		<property name="secondaryCess" column="D_SHEC"/>
+		<property name="remarks" column="REMARKS"/>
+	</class>
+</hibernate-mapping>
+		
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.paybill.dto.LicenceFeeChargesDTO" table="PAY_LICENCE_FEE_MASTER">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">PAY_LICENCE_FEE_MASTER_SEQ</param>
+			</generator>
+		</id>
+		
+		<many-to-one name="quarterSubTypeDetails"
+			class="com.callippus.web.beans.quarterType.QuarterTypeBean" column="quarter_sub_type_id" 
+			not-null="true" update="false" unique="true" lazy="false" insert="false"/>
+			
+			
+		<property name="quarterSubType" column="quarter_sub_type_id" insert="true" update="true"/>
+		<property name="quartersType" column="quarter_type_id" insert="true" update="true"/>
+		
+		<property name="licenceFee" column="licence_Fee"/>
+		<property name="status" column="status" />
+		<property name="createdBy" column="created_by" update="false"/>
+		<property name="creationDate" column="creation_date" update="false"/>
+		<property name="lastModifiedBy" column="modified_by" />
+		<property name="lastModifiedDate" column="modified_date" />		
+		<property name="effDate" column="EFF_DATE" />	
+		<property name="water" column="WATER" />	
+		<property name="elec" column="ELEC" />	
+		<property name="furn" column="FURN" />		
+	</class>
+</hibernate-mapping>
+

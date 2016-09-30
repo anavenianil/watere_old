@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LeaveBalances" pageWidth="760" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="720" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5081bda0-c96f-4335-b86e-d503697f7b2c">
+	<property name="ireport.zoom" value="1.3310000000000004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select sysdate, e.sfid,e.NAME_IN_SERVICE_BOOK,
+sum(decode (l.LEAVE_TYPE,'Annual Leave',NO_OF_DAYS))AL,
+sum(decode (l.LEAVE_TYPE,'Maternity Leave',NO_OF_DAYS))ML,
+sum(decode (l.LEAVE_TYPE,'Paternity Leave',NO_OF_DAYS))PL,
+sum(decode (l.LEAVE_TYPE,'Sick Leave',NO_OF_DAYS))SL
+from EMP_MASTER e, ERP_EMPLOEE_LEAVES l
+where l.sfid=e.sfid and l.status=1
+group by  sysdate,e.sfid,e.NAME_IN_SERVICE_BOOK
+order by e.sfid]]>
+	</queryString>
+	<field name="SYSDATE" class="java.sql.Timestamp"/>
+	<field name="SFID" class="java.lang.String"/>
+	<field name="NAME_IN_SERVICE_BOOK" class="java.lang.String"/>
+	<field name="AL" class="java.math.BigDecimal"/>
+	<field name="ML" class="java.math.BigDecimal"/>
+	<field name="PL" class="java.math.BigDecimal"/>
+	<field name="SL" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="83" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="127" y="28" width="542" height="23" backcolor="#006699" uuid="58305230-7411-46e6-b251-6896166c2d1c"/>
+				<staticText>
+					<reportElement x="0" y="0" width="542" height="21" forecolor="#FFFFFF" uuid="42cd2186-cc40-4eae-a72b-4da5a9c190ea"/>
+					<textElement>
+						<font size="13" isBold="true" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[   SUMBAWANGA URBAN WATER SUPPLY AND SANITATION AUTHORITY ]]></text>
+				</staticText>
+			</frame>
+			<image>
+				<reportElement x="-1" y="0" width="128" height="82" uuid="b219fc42-0b01-4ff3-89e1-978b630f2bef"/>
+				<imageExpression><![CDATA["../images/watererp.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="51" splitType="Stretch">
+			<staticText>
+				<reportElement x="277" y="0" width="222" height="22" uuid="50d0ef81-8e9f-4374-b435-67d8c839e1bd"/>
+				<textElement>
+					<font size="13" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Leave Balances Details]]></text>
+			</staticText>
+			<textField pattern="MMMM d ,YYYY" isBlankWhenNull="true">
+				<reportElement x="50" y="29" width="409" height="14" uuid="f470bc9e-9af6-4bf8-a6c6-9bd37bd38444"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SYSDATE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="29" width="50" height="14" uuid="0176e510-b3d0-4393-a5a2-c6486d6c0197"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Printed :]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="54" splitType="Stretch">
+			<line>
+				<reportElement x="408" y="23" width="1" height="31" uuid="151d850c-301a-402e-a40e-21184bbd2c11"/>
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="108" y="26" width="129" height="17" uuid="0de489d9-7d52-42b4-9276-d3e5ca6eca40"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Employee Name]]></text>
+			</staticText>
+			<line>
+				<reportElement x="278" y="1" width="1" height="53" uuid="6a020c5f-54a6-40ea-b40a-3479ebb9453b"/>
+			</line>
+			<staticText>
+				<reportElement x="287" y="26" width="112" height="17" uuid="5cbdf18b-1232-4218-ac63-fb7e383b9ce1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Annual Leave]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="412" y="26" width="110" height="17" uuid="e1c9733e-024c-49f8-987e-e5f2811acb9a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Maternity Leave]]></text>
+			</staticText>
+			<line>
+				<reportElement x="80" y="23" width="1" height="31" uuid="f8ebdf52-a529-4e26-9f68-1c412a0a706d"/>
+			</line>
+			<line>
+				<reportElement x="0" y="1" width="1" height="53" uuid="26295764-b4da-400a-9201-966109698c9c"/>
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="7" y="26" width="92" height="17" uuid="88916cbd-66be-4f6a-ab8a-195948846b6a"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Employee Id]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="0" width="720" height="1" uuid="448e897d-38de-47b8-8abf-6c33d75c9a42"/>
+			</line>
+			<line>
+				<reportElement x="521" y="23" width="1" height="31" uuid="0e83c998-57cf-4717-81f8-bc4111a5ada2"/>
+			</line>
+			<line>
+				<reportElement x="623" y="23" width="1" height="31" uuid="b91506b4-99b4-4f85-bbe5-d2398e286c00"/>
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="519" y="26" width="106" height="17" uuid="aad74c8f-89be-4fad-b645-fbb39693fbfc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Paternity Leave]]></text>
+			</staticText>
+			<line>
+				<reportElement x="720" y="0" width="1" height="54" uuid="ab473bb9-1ce5-4515-8dac-0be5ec51a3d9"/>
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="629" y="26" width="84" height="17" uuid="a01233a1-5303-44e0-a8f7-06dd42dc836f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sick Leave]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="22" width="720" height="1" uuid="eeb09c22-c2e7-4b3e-b6f0-e4f74076fd68"/>
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="448" y="3" width="100" height="17" uuid="304f88ba-3749-4c74-ae41-8543d785e7a2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Leave  Types]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<line>
+				<reportElement x="1" y="-1" width="720" height="1" uuid="507aaafb-e41a-4583-926e-696cb5a6502b"/>
+			</line>
+			<line>
+				<reportElement x="521" y="0" width="1" height="35" uuid="3528959c-7ca3-4001-bebc-4b5ecec7cc50"/>
+			</line>
+			<line>
+				<reportElement x="408" y="-1" width="1" height="36" uuid="e4f4433e-fe0d-437a-98e9-f2150ca0af54"/>
+			</line>
+			<line>
+				<reportElement x="278" y="-1" width="1" height="36" uuid="b04560d7-6f48-473e-a02c-a26398899305"/>
+			</line>
+			<line>
+				<reportElement x="80" y="0" width="1" height="35" uuid="ac988711-f216-4a27-b759-8ae6b9d61683"/>
+			</line>
+			<line>
+				<reportElement x="0" y="-1" width="1" height="35" uuid="72ecedc5-553c-4c3f-8be5-cedb4974cdba"/>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="8" y="4" width="50" height="20" uuid="88e351ac-070c-407e-96a6-97a495ce7a17"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{SFID}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="300" y="4" width="60" height="20" uuid="6bfc2c89-72bc-4437-a0b6-1daa92c8cafd"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{AL}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="34" width="719" height="1" isRemoveLineWhenBlank="true" uuid="cec85518-e502-4a5e-bbc5-6df1e86c0966"/>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="96" y="4" width="192" height="20" isPrintWhenDetailOverflows="true" uuid="937566a0-513d-4f83-a54c-d98c52272007"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NAME_IN_SERVICE_BOOK}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="623" y="-1" width="1" height="36" uuid="5e3a58b2-fe89-44ce-bc4c-cb68d04224b7"/>
+			</line>
+			<line>
+				<reportElement x="720" y="-1" width="1" height="35" uuid="e7941270-b519-48fb-b0e5-43655215cd21"/>
+			</line>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="427" y="4" width="47" height="20" uuid="307c0b29-a68f-4c3f-8b6c-5391504fd66e"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ML}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="527" y="4" width="55" height="20" uuid="62d2c05a-5bc6-4983-9a9f-4092ed3653e9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{PL}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="632" y="4" width="53" height="20" uuid="cbd179fa-6bcf-4726-b991-e837e595affb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{SL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="13" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="13" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="-1" y="-1" width="597" height="13" backcolor="#E6E6E6" uuid="15977188-e673-46ef-9383-7d4d769de41d"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="3" y="-1" width="195" height="13" uuid="492cf6b5-70a3-41a6-b7a1-ce3e0c2bc490"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="596" y="-1" width="124" height="13" backcolor="#E6E6E6" uuid="88ba8744-048e-4a67-87a1-0e59b9fb3388"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="50">
+			<staticText>
+				<reportElement x="235" y="0" width="134" height="21" uuid="28ef5a27-29ce-478d-8496-dce03b705874"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sorry No Data Found]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

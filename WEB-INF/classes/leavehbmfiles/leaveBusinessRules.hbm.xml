@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.leave.dto.LeaveBusinessRulesDTO" table="BUSINESS_RULES">
+		<id name="id" column="ID" type="int">
+			<!-- <generator class="sequence">
+				<param name="sequence">AVAILABLE_LEAVES_SEQ</param>
+			</generator> -->
+			<generator class="increment" />
+		</id>
+		<property name="requestType" column="REQUEST_TYPE_ID" type="int" />
+		<property name="one" column="ONE" type="int" />
+		<property name="two" column="TWO" type="int" />
+		<property name="three" column="THREE" type="int" />
+		<property name="four" column="FOUR" type="int" />
+		<property name="five" column="FIVE" type="int" />
+		<property name="condition" column="CONDITION" type="java.lang.String" />
+		<property name="resultValue" column="RESULT_VALUE" type="int" />				
+		<property name="durationId" column="DURATION_ID" type="int" />
+		<property name="remarks" column="REMARKS" type="java.lang.String" />
+		
+		<property name="status" column="STATUS" type="int" />
+		<property name="createdBy" column="CREATED_BY" update="false" type="java.lang.String" />
+		<property name="creationDate" column="CREATION_DATE" update="false" />
+		<property name="lastModifiedBy" column="LAST_MODIFIED_BY" type="java.lang.String" />
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" />
+	</class>
+</hibernate-mapping>

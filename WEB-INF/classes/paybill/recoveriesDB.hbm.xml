@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.incometax.dto.PayBillRecoveriesMigrationDTO" table="MIS_RECOVERIES" >
+		<id name="id" type="int" column="ID">
+			<generator class="sequence">
+				<param name="sequence">MIS_RECOVERIES_SEQ</param>
+			</generator>
+		</id>
+		<property name="F_CPERSNO" column="F_CPERSNO" />
+		<property name="F_CIDNO" column="F_CIDNO"  />
+		<property name="F_VC2NAME" column="F_VC2NAME"  />
+		<property name="F_VC2DESIG" column="F_VC2DESIG" />
+		<property name="F_CSEX" column="F_CSEX" />
+		<property name="F_VC2BANKACCNO" column="F_VC2BANKACCNO"  />
+		<property name="F_NCCSMEMNO" column="F_NCCSMEMNO"  />
+		<property name="F_CDESTYPE" column="F_CDESTYPE" />
+		<property name="F_DTMONTHYEAR" column="F_DTMONTHYEAR" />
+		<property name="F_NCCSC" column="F_NCCSC"  />
+		<property name="F_NCCSR" column="F_NCCSR"  />
+		<property name="F_NWELC" column="F_NWELC"  />
+		<property name="F_NWELR" column="F_NWELR"  />
+		<property name="F_NLIC" column="F_NLIC"  />
+		<property name="F_NMESS" column="F_NMESS"  />
+		<property name="F_NREG" column="F_NREG"  />
+		<property name="F_NBEN" column="F_NBEN"  />
+		<property name="F_NHDFC" column="F_NHDFC"  />
+		<property name="F_NCORTATCH" column="F_NCORTATCH"  />
+		<property name="F_NSECURITY" column="F_NSECURITY"  />
+		<property name="F_NDBF" column="F_NDBF"  />
+		<property name="F_NREC1" column="F_NREC1"  />
+		<property name="F_NREC2" column="F_NREC2"  />
+		<property name="F_NREC3" column="F_NREC3"  />
+		<property name="F_NREC4" column="F_NREC4"  />
+		<property name="F_NREC5" column="F_NREC5"  />
+		<property name="F_NTOTRECOVERIES" column="F_NTOTRECOVERIES"  />
+		<property name="F_NGROSSPAY" column="F_NGROSSPAY"  />
+		<property name="F_NNETPAY" column="F_NNETPAY"  />
+		<property name="F_NFINALPAY" column="F_NFINALPAY"  />
+		<property name="F_NBASIC" column="F_NBASIC"  />
+		<property name="F_CBANK" column="F_CBANK"  />
+		<property name="F_NCCSBAL" column="F_NCCSBAL"  />
+		<property name="F_NTHRIFT" column="F_NTHRIFT"  />
+		<property name="F_NLINST" column="F_NLINST"  />
+		<property name="F_NLINT" column="F_NLINT"  />
+		<property name="F_NRD" column="F_NRD"  />
+		<property name="F_NEINST" column="F_NEINST"  />
+		<property name="F_NEINT" column="F_NEINT"  />
+		<property name="F_NEBAL" column="F_NEBAL"  />
+		<property name="F_VC2POLICYNO" column="F_VC2POLICYNO"  />
+		<property name="F_VC2REMARK" column="F_VC2REMARK"  />
+		<property name="F_VC2WELINST" column="F_VC2WELINST"  />
+		<property name="F_VC2NTP" column="F_VC2NTP"  />
+		</class>
+</hibernate-mapping>
+

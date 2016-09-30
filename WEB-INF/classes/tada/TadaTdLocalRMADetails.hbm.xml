@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.tada.dto.TadaTdLocalRMADetailsDTO" table="tada_td_local_rma_details">
+		<id name="id" column="id">
+			<generator class="sequence">
+				<param name="sequence">TADA_TD_LOCAL_RMA_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="settlementRequestId" column="settlement_request_id" />
+		<property name="localRMADate" column="local_rma_date" />
+		<property name="localFromPlace" column="from_place" />
+		<property name="localToPlace" column="to_place" />
+		<property name="localCMode" column="conveyance_mode" />
+		<property name="localDistance" column="distnace" />
+		<property name="amountPerKmLocal" column="amount_per_km" />
+		<property name="claimedAmount" column="claimed_amount"/>
+		<property name="localDistanceAftRes" column="distance_aft_res"/>
+		<property name="amountPerKmLocalAftRes" column="amount_per_km_aft_res"/>
+		<property name="claimedAmountAftRes" column="claimed_amount_aft_res"/>
+		<property name="type" column="request_type"/>
+	</class>
+</hibernate-mapping>

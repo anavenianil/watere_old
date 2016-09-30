@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.leave.dto.LeaveYearlyBalanceDTO" table="LEAVE_YEARLY_BALANCE">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">LEAVE_YEARLY_BALANCE_SEQ</param>
+			</generator>
+		</id>
+		<property name="sfID" column="sfid" update="false" insert="true" type="java.lang.String" not-null="true"/>	
+		<many-to-one name="leaveTypeDetails"
+			class="com.callippus.web.leave.dto.LeaveTypeDTO" column="leave_type_id"
+			not-null="true" lazy="false" update="false" insert="false"/>
+			
+		<property name="leaveTypeID" column="leave_type_id" update="false" insert="true" type="int" not-null="true"/>
+		<property name="balance" column="balance" update="true" insert="true" type="float" not-null="true"/>
+		<property name="yearID" column="year_id" update="false" insert="true" type="int" not-null="true"/>	
+	
+		<many-to-one name="yearDetails"
+			class="com.callippus.web.beans.dto.YearTypeDTO" column="year_id"
+			not-null="true" lazy="false" update="false" insert="false"/>	
+			
+		<property name="status" column="status" update="true" insert="true" type="int" not-null="true" />
+		<property name="type" column="type" update="true" insert="true" type="int" not-null="true" />
+	</class>
+</hibernate-mapping>

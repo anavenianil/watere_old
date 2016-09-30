@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	    <class name="com.callippus.web.incometax.dto.IncomeTaxDurationDTO" table="INCOME_TAX_DURATION_DETAILS">
+		   <id name="id" column="ID">
+		    <generator class="increment" />
+		   </id>
+		   <property name="finYearId" column="FIN_YEAR_ID" />
+		   <property name="runType" column="RUN_TYPE" />
+		   <property name="fromDate" column="FROM_DATE" />
+		   <property name="toDate" column="TO_DATE" />
+		   <property name="status" column="STATUS" />
+		   
+		   
+		   <many-to-one name="itFinYearList"
+			class="com.callippus.web.incometax.dto.PayFinYearDTO" column="FIN_YEAR_ID"
+			lazy="false" insert="false" update="false"/>
+	
+	   </class>
+    </hibernate-mapping>

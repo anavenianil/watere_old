@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.dto.UserSpecificDTO" table="USER_SPECIFIC_CONFIGURATION">
+		<id name="id" column="id"></id>
+		<property name="roleMapId" column="org_role_id" />
+		<property name="requestTypeId" column="request_type_id" />
+		<property name="gazettedType" column="gazetted_type" />
+		<property name="delegate" column="delegate" />
+		<property name="assignedType" column="assigned_type" />
+		<property name="status" column="status" />
+		<property name="noOfRequests" column="no_of_requests" />	
+		<property name="delegateType" column="delegation_type" />
+		<property name="designation" column="designation_id" />
+	</class>
+</hibernate-mapping>

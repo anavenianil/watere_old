@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ 	<class name="com.callippus.web.loan.beans.dto.LoanSanctionDetailsDTO" table="LOAN_SANCTION_DETAILS">
+		<id name="id" column="id">
+		    <generator class="sequence">
+				<param name="sequence">LOAN_SANCTION_DETAILS_SEQ</param>
+			</generator>
+		 </id>
+		<!--<many-to-one name="requestDetails"
+			class="com.callippus.web.loan.beans.request.LoanRequestBean" column="request_id"
+			not-null="true" lazy="false" update="false" />
+	
+		-->
+		 <property name="requestId" column="request_id" />
+		 <property name="sAmount" column="sanction_amount" />
+		
+		<many-to-one name="sanctionDetails"
+			class="com.callippus.web.loan.beans.dto.LoanSanctionDTO" column="sanction_id"
+			cascade="all" not-null="true"  />
+			<!--<property name="sanctionId" column="sanction_id"></property>
+			 -->
+			
+		
+
+	</class>
+</hibernate-mapping>

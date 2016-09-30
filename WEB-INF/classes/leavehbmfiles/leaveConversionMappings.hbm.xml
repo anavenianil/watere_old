@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.leave.dto.LeaveConversionMappingsDTO" table="leave_conversion_mapping">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">LEAVE_CONV_MAPPING_SEQ</param>
+			</generator>
+		</id>
+		<many-to-one name="convertFromDetails"
+			class="com.callippus.web.leave.dto.LeaveTypeDTO" column="CONVERTED_FROM"
+			not-null="true" lazy="false" update="false" insert="false"/>
+		<many-to-one name="convertToDetails"
+			class="com.callippus.web.leave.dto.LeaveTypeDTO" column="CONVERTED_TO"
+			not-null="true" lazy="false" update="false" insert="false"/>
+			
+		<property name="conversionFrom" column="CONVERTED_FROM" update="true" insert="true"/>
+		<property name="conversionTo" column="CONVERTED_TO" update="true" insert="true"/>	
+		<property name="noOfDays" column="no_of_days" />
+		<property name="status" column="status" />			
+	</class>
+</hibernate-mapping>

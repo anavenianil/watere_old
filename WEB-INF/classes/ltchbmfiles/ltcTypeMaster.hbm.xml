@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.ltc.dto.LtcTypeMasterDTO" table="LTC_TYPE_MASTER">
+		<id name="id" column="ID" unsaved-value="0">
+			<generator class="sequence">
+				<param name="sequence">LTC_TYPE_MASTER_SEQ</param>
+			</generator>
+		</id>
+		<property name="name" column="LTC_TYPE" />
+		<property name="status" column="STATUS" />
+		<property name="description" column="DESCRIPTION" />
+		<property name="createdBy" column="CREATED_BY" />
+		<property name="creationDate" column="CREATION_DATE" />
+		<property name="lastModifiedBy" column="LAST_MODIFIED_BY" />
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" />
+	</class>
+</hibernate-mapping>

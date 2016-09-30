@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.callippus.web.paybill.dto.PayBillDTO" table="pay_txn_details">
+		<id name="id"  type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">PAY_TXN_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="sfid" column="sfid"  not-null="true" />
+		<property name="basicPay" column="c_basic_pay"  />
+		<property name="gradePay" column="c_grade_pay"  />
+		<property name="da" column="c_da"  />
+		<property name="specialPay" column="c_special_pay"  />
+		<property name="fpa" column="c_fpa"  />
+		<property name="twoAddlIncr" column="c_two_addl_incr"  />
+		<property name="tpt" column="c_tra"  />
+		<property name="hra" column="c_hra"  />
+		<property name="washAllowance" column="c_wash_allow"  />
+		<property name="xeroxAllowance" column="c_xerox_allow"  />
+		<property name="variableIncr" column="c_var_incr"  />
+		<property name="crMisc" column="c_misc"  />
+		<property name="gpf" column="d_gpf_amt"  />
+		<property name="gpfSa" column="d_gpf_sa"  />
+		<property name="gpfRecovery" column="d_gpf_inst_amt"  />
+		<property name="gpfPreInst" column="d_gpf_pre_inst"  />
+		<property name="gpfTotAmt" column="d_gpf_tot_inst"  />
+		<property name="pli" column="d_pli"  />
+		<property name="cegis" column="d_cegis"  />
+		<property name="cghs" column="d_cghs"  />
+		<property name="carLoan" column="d_con_car_inst_amt"  />
+		<property name="carInstNumb" column="d_con_car_inst"  />
+		<property name="carTotInst" column="d_con_car_tot_inst"  />
+		<property name="scooterLoan" column="d_con_scooter_inst_amt"  />
+		<property name="scooterInstNumb" column="d_con_scooter_inst"  />
+		<property name="scooterTotInst" column="d_con_scooter_tot_inst"  />
+		<property name="cycleLoan" column="d_con_cycle_inst_amt"  />
+		<property name="cycleInstNumb" column="d_con_cycle_inst"  />
+		<property name="cycleTotInst" column="d_con_cycle_tot_inst"  />
+		<property name="hbaLoan" column="d_hba_inst_amt"  />
+		<property name="hbaInstNumb" column="d_hba_inst"  />
+		<property name="hbaTotInst" column="d_hba_tot_inst"  />
+		<property name="pcLoan" column="d_pc_inst_amt"  />
+		<property name="pcInstNumb" column="d_pc_inst"  />
+		<property name="pcTotInst" column="d_pc_tot_inst"  />
+		<property name="festivalAdv" column="d_fes_inst_amt"  />
+		<property name="festivInstNumb" column="d_fest_inst"  />
+		<property name="festivTotInst" column="d_fest_tot_inst"  />
+		<property name="incomeTax" column="d_income_tax"  />
+		<property name="cess" column="d_educ_cess"  />
+		<property name="secondaryCess" column="d_shec"  />
+		<property name="profTax" column="d_prof_tax"  />
+		<property name="tada" column="d_tada"  />
+		<property name="ltc" column="d_ltc"  />
+		<property name="medical" column="d_medi"  />
+		<property name="eol" column="d_eol_hpl"  />
+		<property name="drMisc1" column="d_misc1"  />
+		<property name="drMisc2" column="d_misc2"  />
+		<property name="welC" column="r_wel_fund"  />
+		<property name="welRefund" column="r_wel_loan"  />
+		<property name="welInst" column="r_wel_inst"  />
+		<property name="welTotinst" column="r_wel_tot_inst"  />
+		<property name="mess" column="r_mess"  />
+		<property name="resSecu" column="r_resi_secu"  />
+		<property name="benvolentFund" column="r_ben_fund"  />
+		<property name="regimentalFund" column="r_reg_fund"  />
+		<property name="ccs" column="r_ccs_fund"  />
+		<property name="ccsrecovery" column="r_ccs_refund"  />
+		<property name="hdfc" column="r_hdfc"  />
+		<property name="canfin" column="r_canfin"  />
+		<property name="lic" column="r_lic"  />
+		<property name="gic" column="r_gic"  />
+		<property name="courtAttachment" column="r_court_attch"  />
+		<property name="recMisc1" column="r_misc1"  />
+		<property name="recMisc2" column="r_misc2"  />
+		<property name="recMisc3" column="r_misc3"  />
+		<property name="totalCredits" column="gross_pay"  />
+		<property name="netPay" column="net_pay"  />
+		<property name="totalDebits" column="tot_debits"  />
+		<property name="totalRecovery" column="tot_recs"  />
+		<property name="finalPay" column="take_home"  />
+		<property name="crRemarks" column="cr_remarks"  />
+		<property name="drRemarks" column="dr_remarks"  />
+		<property name="recRemarks" column="coin_remarks"  />
+		<property name="mainRemarks" column="remarks"  />
+		<property name="status" column="status"  />
+		<property name="runId" column="run_id"/>
+		<property name="runSubId" column="run_sub_id"/>
+		<property name="runMonth" column="run_month" />
+		<property name="creationTime" column="creation_date"/>
+		<property name="createdBy" column="created_by"/>
+		<property name="lastModifiedTime" column="modified_date"  />
+		<property name="lastModifiedBy" column="modified_by"  />
+		<property name="rent" column="d_rent"  />
+		<property name="water" column="d_water"  />
+		<property name="elec" column="d_electricity"  />
+		<property name="furn" column="d_furniture"  />
+		<property name="riskAllowance" column="c_risk_allowance"  />
+		<property name="deputAllowance" column="c_dupt_allowance"  />
+		<property name="hindiIncentive" column="c_hindi_incentives"  />
+		<property name="canfinInstNumb" column="R_CANFIN_P_INST"  />
+		<property name="canfinTotInst" column="R_CANFIN_TOT_INST"  />
+		<property name="licInstNumb" column="R_LIC_P_INST"  />
+		<property name="licTotInst" column="R_LIC_TOT_INST"  />
+		<property name="gicInstNumb" column="R_GIC_P_INST"  />
+		<property name="gicTotInst" column="R_GIC_TOT_INST"  />
+		<property name="hdfcInstNumb" column="R_HDFC_P_INST"  />
+		<property name="hdfcTotInst" column="R_HDFC_TOT_INST"  />
+		<property name="courtInstNumb" column="R_CRT_P_INST"  />
+		<property name="courtTotInst" column="R_CRT_TOT_INST"  />
+		<property name="runMonthDate" insert="false" update="false" formula="(select to_date(run_month) from pay_txn_details txn where txn.id=id)" />
+	</class>
+</hibernate-mapping>

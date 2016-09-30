@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.promotions.dto.PayFixationDTO" table="PRO_PAY_FIXATION">
+		<id name="id" column="id">
+			<generator class="sequence">
+				<param name="sequence">PRO_PAY_FIXATION_SEQ</param>
+			</generator>
+		</id>
+		<many-to-one name="assessmentDetails"
+			class="com.callippus.web.promotions.dto.AssessmentDetailsDTO" column="assessment_id"
+			not-null="true" lazy="false" update="false" insert="false"/>			
+		<property name="assessmentID" column="assessment_id" insert="true" update="true" type="int" not-null="true"/>
+		<property name="pay" column="pay" type="float" not-null="true" update="false"/>
+		<property name="newPay" column="new_pay" type="float" not-null="true" />
+		<property name="gradePay" column="grade_pay" type="float" not-null="true" update="false" />
+		<property name="newGradePay" column="new_grade_pay" type="float" not-null="true" />
+		<property name="twoAddPay" column="two_add_incr" type="float" not-null="true" update="false" />
+		<property name="newTwoAddPay" column="new_two_add_incr" type="float" not-null="true" />
+		<many-to-one name="doPartDetails"
+			class="com.callippus.web.beans.requests.DoPartBean" column="do_part_id"
+			not-null="true" lazy="false" update="false" insert="false"/>	
+		<property name="doPartID" column="do_part_id" insert="true" update="true" type="int" not-null="true"/>		
+		<property name="status" column="status" type="int" not-null="true" />	
+		<property name="createdBy" column="created_by" update="false" type="java.lang.String" not-null="true"/>
+		<property name="creationTime" column="creation_date" update="false" type="java.util.Date" not-null="true"/>
+		<property name="lastModifiedBy" column="last_modified_by" type="java.lang.String" not-null="true" />
+		<property name="lastModifiedTime" column="last_modified_date" type="java.util.Date" not-null="true" />
+		<property name="referenceId" column="reference_id" insert="true" update="true" type="int" not-null="true"/>
+		<property name="categoryId" column="category_id" insert="true" update="true" type="int" not-null="true"/>		
+		<property name="incrementsAccepteddate" column="INCREMENTS_ACCEPTED_DATE" type="java.util.Date"/>	
+		<property name="fixationAcceptedDate" column="FIXATION_ACCEPTED_DATE" type="java.util.Date"/>
+		<property name="fixationAcceptedDateFinance" column="FIXATION_ACCEPTED_DATE_FINANCE" type="java.util.Date"/>	
+		<property name="variableIncrements" column="VARIABLE_INCREMENTS" insert="true" update="true" />	
+		<property name="incrementsDoPartId" column="INCREMENTS_DOPART_ID" insert="true" update="true" type="int" />	
+		<property name="fixationDoPartId" column="FIXATION_DOPART_ID" insert="true" update="true" type="int" />
+		<property name="varIncEndDate" column="VAR_INC_END_DATE" type="java.util.Date"/>
+		<property name="variableIncrValue" column="VARIABLE_INCR_VALUE" type="java.lang.Integer"/>
+	
+	</class>
+</hibernate-mapping>

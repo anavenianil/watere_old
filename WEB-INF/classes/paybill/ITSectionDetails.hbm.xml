@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.callippus.web.incometax.dto.IncomeTaxSectionDTO" table="PAY_IT_SECTION_MASTER">
+		<id name="id" type="int" column="id">
+			<generator class="sequence">
+				<param name="sequence">PAY_IT_SECTION_MASTER_SEQ</param>
+			</generator>
+		</id>
+		<property name="secOrderNo" column="ORDER_NO"/>
+		<property name="secName" column="SECTION_NAME" />
+		<property name="yearFrom" column="YEAR_FROM" />
+		<property name="yearTo" column="YEAR_TO" />
+		<property name="creationDate" column="CREATION_DATE" />
+		<property name="createdBy" column="CREATED_BY" update="false"/>
+		<property name="lastModifiedDate" column="LAST_MODIFIED_DATE" />
+		<property name="lastModifiedBy" column="LAST_MODIFIED_BY" />
+		<property name="status" column="STATUS" />
+		<!--<list name="configList" cascade="all" table="PAY_IT_SAVINGS_TYPE_MASTER" lazy="false">
+			<key column="id" update="false"></key>
+			<list-index column="id"></list-index>
+			<one-to-many class="com.callippus.web.incometax.dto.IncomeTaxSavingsDTO"/>
+		</list>-->
+	</class>
+</hibernate-mapping>
+
+
+
+
+
+
+
+
+
+

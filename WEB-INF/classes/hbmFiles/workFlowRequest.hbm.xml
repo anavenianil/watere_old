@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.beans.dto.RequestWorkDTO" table="REQUEST_MASTER">
+		<id name="id" column="REQUEST_TYPE_ID"></id>
+		<property name="name" column="REQUEST_TYPE" />
+		<property name="status" column="status" />
+		<property name="description" column="description" />
+		<property name="creationDate" column="creation_date" update="false"/>
+		<property name="lastModifiedDate" column="last_modified_date" />
+		<property name="internalFlag" column="internal_flag" />
+	</class>
+</hibernate-mapping>

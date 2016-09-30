@@ -1,0 +1,35 @@
+ already added screens:
+--------------
+state master
+
+
+District  master
+
+above both one row mandatory with----->>> 0 
+0	empty 	0	08-10-10	08-10-10	
+
+necessary to create screens
+--------------
+bank master
+
+
+
+anuual leave 
+-----------
+
+years master table screen
+
+
+
+CHANGE PASSWORD SCREEN
+
+
+
+UPDATE SCREENS
+
+
+
+================================================================
+
+added one procedure in database CHANGE_PWD  for change password purpose
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.paybill.dto.PayMastersPortingDTO" table="PAY_MASTERS_PORTING_DETAILS" >
+		<id name="id" type="int" column="ID">
+			<generator class="sequence">
+				<param name="sequence">PAY_MASTERS_PORTING_DET_SEQ</param>
+			</generator>
+		</id>
+		<property name="fromDate" column="FROM_DATE"  type="java.util.Date"/>
+		<property name="toDate" column="TO_DATE"  type="java.util.Date"/>
+		<property name="status" column="STATUS"  />
+		<property name="creationDate" column="CREATION_DATE"  />
+		<property name="createdBy" column="CREATED_BY" type="java.lang.String" />
+		<property name="runId" column="RUN_ID" type="int" />
+</class>
+</hibernate-mapping>

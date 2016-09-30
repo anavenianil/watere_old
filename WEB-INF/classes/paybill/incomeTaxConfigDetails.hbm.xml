@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.callippus.web.incometax.dto.IncomeTaxConfigDTO" table="PAY_ITAX_CONFIG_DETAILS">
+		<id name="id" type="int" column="ID">
+			<generator class="sequence">
+				<param name="sequence">PAY_ITAX_CONFIG_DETAILS_SEQ</param>
+			</generator>
+		</id>
+		<property name="savingsTypeId" column="SAVINGS_TYPE_ID" />
+		<property name="projection" column="PROJECTION" />
+		<property name="actual" column="ACTUAL" />
+		<property name="remarks" column="REMARKS" />
+		<property name="submissionFlag" column="SUBMISSION_FLAG" />
+		<property name="creationTime" column="CREATION_DATE" />
+		<property name="createdBy" column="CREATED_BY" />
+		<property name="lastModifiedTime" column="LAST_MODIFIED_DATE" />
+		<property name="lastModifiedBy" column="LAST_MODIFIED_BY" />
+		<property name="status" column="STATUS" />
+		<property name="sfID" column="SFID" />
+		<many-to-one name="incometaxsavingsdto"
+					class="com.callippus.web.incometax.dto.IncomeTaxSectionMappingDTO" column="SAVINGS_TYPE_ID"
+			lazy="false" insert="false" update="false"/>
+		<property name="selectedFYear" column="SELECTED_FYEAR" />
+	</class>
+<!-- 	class="com.callippus.web.incometax.dto.IncomeTaxSavingsDTO" column="SAVINGS_TYPE_ID" -->
+</hibernate-mapping>
+
+
