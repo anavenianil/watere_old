@@ -706,6 +706,7 @@
 							<li><a href="reports.htm?param=LeaveBalances">All Employees Leave Balance</a></li>
 							<li><a href="javascript:tadaReportWaterRequestHome()">TA Report</a></li>
 							<li><a href="reports.htm?param=RetriedEmployeeList">Retried Employee Benfits</a></li>
+							<li><a href="reports.htm?param=RetriedEmployeeListTest">Retried Employee BenfitsTEst</a></li>
 							<!-- <li><a href="#">BankNames</a></li> -->
 						</ul></li>
 						

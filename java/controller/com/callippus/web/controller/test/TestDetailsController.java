@@ -279,6 +279,13 @@ public class TestDetailsController {
 					"/jasper/RetirementDetails.jasper");
 			params = new HashMap<String, String>();
 
+		} else if (CPSUtils.compareStrings(CPSConstants.RETRIEDEMPLOYEELISTTEST,
+				testBean.getParam())) {
+
+			jasperStream = session.getServletContext().getResourceAsStream(
+					"/jasper/RetirementDetailsOne.jasper");
+			params = new HashMap<String, String>();
+
 		}
 
 		JasperPrint jasperPrint = jasperReportCreator.createPdfStream(

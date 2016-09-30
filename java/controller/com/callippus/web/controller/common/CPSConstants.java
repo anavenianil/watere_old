@@ -3494,5 +3494,6 @@ public class CPSConstants {
 	public static final String RETRIEDEMPDETAILS = "RetriedEmpDetails";
 	public static final String RETRIMENTPAYMENTSAVE = "retrimentPaymentSave";
 	public static final String RETRIEDEMPLOYEELIST = "RetriedEmployeeList";
+	public static final String RETRIEDEMPLOYEELISTTEST = "RetriedEmployeeListTest";
 
 }
