@@ -691,11 +691,11 @@
 						</ul></li>
 
 
-					<li><a href="#">Retriment Benfits</a>
+					<li><a href="#">Retirement Benefits</a>
 						<ul>
 							<li><a href="javascript:retrimentBenfitsHome()">Application
-									For Retriment Benfits</a></li>
-							<li><a href="javascript:retrimentBenfitsAmtIssueHome()">Retriment
+									For Retirement Benefits</a></li>
+							<li><a href="javascript:retrimentBenfitsAmtIssueHome()">Retirement
 									Amount Issue</a></li>
 
 						</ul></li>
@@ -705,8 +705,8 @@
 							<li><a href="javascript:ltcReportWaterRequestHome()">All Employees Annual Leave</a></li>
 							<li><a href="reports.htm?param=LeaveBalances">All Employees Leave Balance</a></li>
 							<li><a href="javascript:tadaReportWaterRequestHome()">TA Report</a></li>
-							<li><a href="reports.htm?param=RetriedEmployeeList">Retried Employee Benfits</a></li>
-							<li><a href="reports.htm?param=RetriedEmployeeListTest">Retried Employee BenfitsTEst</a></li>
+							<li><a href="reports.htm?param=RetriedEmployeeList">Retired Employee Benfits</a></li>
+							<!-- <li><a href="reports.htm?param=RetriedEmployeeListTest">Retired Employee BenefitsTest</a></li> -->
 							<!-- <li><a href="#">BankNames</a></li> -->
 						</ul></li>
 						

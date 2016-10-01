@@ -214,7 +214,7 @@ function deleteRetrimentDetails(id){
 }
 
 function submitRetrimentDetails(){
-	alert("id value"+$jq('#updateID').val());
+	//alert("id value"+$jq('#updateID').val());
 	var errorMessage = "";
 	var status = true;
 	if ($jq('#sfID').val()=='') {

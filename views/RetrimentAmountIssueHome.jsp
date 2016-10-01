@@ -23,7 +23,7 @@
 <script type="text/javascript" src="script/tada.js"></script>
 <script type="text/javascript" src="script/retriment.js"></script>
 
-<title>Retriment Benfits</title>
+<title>Retirement Benefits</title>
 
 </head>
 <body>
@@ -41,7 +41,7 @@
 						</div>
 						<div class="whitebox_m1">
 							<div class="lightblueBg1">
-								<div class="headTitle">Retriment Benfits Settlement</div>
+								<div class="headTitle">Retirement Benefits Settlement</div>
 								<%-- Content Page starts --%>
 							
 									<div>

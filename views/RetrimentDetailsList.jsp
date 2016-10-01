@@ -19,7 +19,7 @@
 				<display:column title="Name" style="width:20%">&nbsp;${retrimentList.empName}</display:column>
 				<display:column title="Joining Type" style="width:20%;text-align:right">&nbsp;${retrimentList.empType}</display:column>
 				<display:column title="Total Recevied Amt" style="width:10%;text-align:right">&nbsp;${retrimentList.totAmt}</display:column>
-				<display:column title="Retriment Date" style="width:10%">
+				<display:column title="Retirement Date" style="width:10%">
 				<fmt:formatDate pattern="dd-MMM-yyyy" value="${retrimentList.retrimentDate}" />
 			</display:column>
 				<display:column style="width:10%;text-align:center" title="Edit">

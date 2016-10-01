@@ -24,7 +24,7 @@
 <script type="text/javascript" src="script/tada.js"></script>
 <script type="text/javascript" src="script/retriment.js"></script>
 
-<title>Retriment Benfits</title>
+<title>Retirement Benefits</title>
 
 </head>
 <body>
@@ -42,7 +42,7 @@
 						</div>
 						<div class="whitebox_m1">
 							<div class="lightblueBg1">
-								<div class="headTitle">Retriment Benfits</div>
+								<div class="headTitle">Retirement Benefits</div>
 								<%-- Content Page starts --%>
 								
 								<div class="line">
@@ -72,24 +72,6 @@
 										</div>
 										
 										<div class="quarter leftmar">
-										Transport Amount<span class="mandatory">*</span>
-									</div>
-									<div class="quarter">
-										<form:input path="transportAmt" id="transportAmt" readonly="true" value='${getretriedEmpDetails.transportAmt }'/>
-									&nbsp;
-									</div>
-										
-								</div>
-								<div class="line">
-									<div class="quarter leftmar">
-										No Of Persons<span class="mandatory">*</span>
-									</div>
-									<div class="quarter">
-										<form:input path="noOfPerson" id="noOfPerson" readonly="true" value='${getretriedEmpDetails.noOfPerson }'/>
-									&nbsp;
-									</div>
-									
-									<div class="quarter leftmar">
 										Retriment Date<span class="mandatory">*</span>
 									</div>
 									<div class="quarter">
@@ -99,10 +81,14 @@
 								<input type="text" name="redate" id="redate"  readonly="readonly" value='<fmt:formatDate pattern="dd-MMM-yyyy" value="${getretriedEmpDetails.retrimentDate}" />'/>
 										
 										</div>
-								</div>
+										
 									
+										
+								</div>
 								<div class="line">
-									<div class="quarter leftmar">
+								
+								
+								<div class="quarter leftmar">
 										Fair Money<span class="mandatory">*</span>
 									</div>
 									<div class="quarter">
@@ -110,8 +96,33 @@
 										&nbsp;
 									</div>
 									
+									
 									<div class="quarter leftmar">
-										No Of TONS (Luggage)<span class="mandatory">*</span>
+										No Of Persons<span class="mandatory">*</span>
+									</div>
+									<div class="quarter">
+										<form:input path="noOfPerson" id="noOfPerson" readonly="true" value='${getretriedEmpDetails.noOfPerson }'/>
+									&nbsp;
+									</div>
+									
+										
+									
+									
+									
+								</div>
+									
+								<div class="line">
+										
+										<div class="quarter leftmar">
+										Transport Amount<span class="mandatory">*</span>
+									</div>
+									<div class="quarter">
+										<form:input path="transportAmt" id="transportAmt" readonly="true" value='${getretriedEmpDetails.transportAmt }'/>
+									&nbsp;
+									</div>
+									
+									<div class="quarter leftmar">
+										Luggage wait (in Tons)<span class="mandatory">*</span>
 									</div>
 									<div class="quarter">
 										<form:input path="noofTons" id="noofTons" readonly="true" value='${getretriedEmpDetails.noofTons }'/>

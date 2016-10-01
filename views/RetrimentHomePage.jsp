@@ -23,7 +23,7 @@
 <script type="text/javascript" src="script/tada.js"></script>
 <script type="text/javascript" src="script/retriment.js"></script>
 
-<title>Retriment Benfits</title>
+<title>Retirement Benefits</title>
 
 </head>
 <body>
@@ -41,7 +41,7 @@
 						</div>
 						<div class="whitebox_m1">
 							<div class="lightblueBg1">
-								<div class="headTitle">Retriment Benfits</div>
+								<div class="headTitle">Retirement Benefits</div>
 								<%-- Content Page starts --%>
 								<div class="line">
 									<div class="quarter leftmar">
@@ -86,28 +86,11 @@
 											</form:select>
 										</div>
 								</div>
-								<div class="line">
-									<div class="quarter leftmar">
-										Transport Amount<span class="mandatory">*</span>
-									</div>
-									<div class="quarter">
-										<form:input path="transportAmt" id="transportAmt" onkeyup="javascript:totBenfitAmt()"  onkeypress="javascript:return checkFloat(event,'transportAmt');"/>
-									&nbsp;
-									</div>
-								</div>
 								
-								<div class="line">
+								
+										<div class="line">
 									<div class="quarter leftmar">
-										No Of Persons<span class="mandatory">*</span>
-									</div>
-									<div class="quarter">
-										<form:input path="noOfPerson" id="noOfPerson" onkeyup="noOFPeople()" onkeypress="javascript:return checkFloat(event,'noOfPerson');" />
-									&nbsp;
-									</div>
-								</div>
-									<div class="line">
-									<div class="quarter leftmar">
-										Retriment Date<span class="mandatory">*</span>
+										Retirement Date<span class="mandatory">*</span>
 									</div>
 									<div class="quarter">
 											<form:input path="retrimentDate" id="retrimentDate"
@@ -128,6 +111,7 @@
 									
 										</div>
 								</div>
+								
 								<div class="line">
 									<div class="quarter leftmar">
 										Fair Money<span class="mandatory">*</span>
@@ -138,9 +122,38 @@
 									</div>
 								</div>
 								
+								
+									<div class="line">
+									<div class="quarter leftmar">
+										No Of Persons<span class="mandatory">*</span>
+									</div>
+									<div class="quarter">
+										<form:input path="noOfPerson" id="noOfPerson" onkeyup="noOFPeople()" onkeypress="javascript:return checkFloat(event,'noOfPerson');" />
+									&nbsp;
+									</div>
+								</div>
+								
 								<div class="line">
 									<div class="quarter leftmar">
-										No Of TONS (Luggage)<span class="mandatory">*</span>
+										Transport Amount<span class="mandatory">*</span>
+									</div>
+									<div class="quarter">
+										<form:input path="transportAmt" id="transportAmt" onkeyup="javascript:totBenfitAmt()"  onkeypress="javascript:return checkFloat(event,'transportAmt');"/>
+									&nbsp;
+									</div>
+								</div>
+								
+							
+								
+								
+							
+								
+								
+							
+								
+								<div class="line">
+									<div class="quarter leftmar">
+										Luggage Wait (in TONS)<span class="mandatory">*</span>
 									</div>
 									<div class="quarter">
 										<form:input path="noofTons" id="noofTons" onkeyup="javascript:noOfTons()" onkeypress="javascript:return checkFloat(event,'noofTons');" />
