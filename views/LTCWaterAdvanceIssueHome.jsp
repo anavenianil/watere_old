@@ -27,10 +27,7 @@
 <script type="text/javascript" src="script/ltc.js"></script>
 <script type="text/javascript" src="script/tada.js"></script>
 
-
-
 <title>TadaAdvanceCumRequest</title>
-
 </head>
 <body>
 	<form:form method="post" commandName="ltcwater"
