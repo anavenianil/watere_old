@@ -147,7 +147,7 @@
 															value="${tadaWaterRequestBean.tadaWaterApprovalRequestDTO.noOfDays}"
 															onkeypress="javascript:return checkInt(event);"
 															onkeyup="javascript:multiplyFunction()" /></td>
-													<td><b>Per Day Amount</br> ( Food And Accomidation ):
+													<td><b>Per Day Amount</br> ( Night out Allowance ):
 													</b></td>
 													<td><form:input path="perDayFoodandAccmAmt"
 															id="perDayFoodandAccmAmt" maxlength="30"
@@ -159,7 +159,7 @@
 
 												</tr>
 												<tr>
-													<td><b>Total Amount For Food And Accomidation :</b></td>
+													<td><b>Total Amount For Night out Allowance :</b></td>
 													<td><form:input path="foodandAccmAmt" readonly="true"
 															id="foodandAccmAmt" maxlength="30"
 															value="${tadaWaterRequestBean.tadaWaterApprovalRequestDTO.foodandAccmAmt}"
@@ -201,10 +201,10 @@
 
 
 												<tr>
-													<td><b>DV NO :</b> <span class="mandatory">*</span></td>
+													<td><b>PV NO :</b> <span class="mandatory">*</span></td>
 													<td><form:input path="dvno" id="dvno" /></td>
 
-													<td><b>DV Date :</b> <span class="mandatory">*</span></td>
+													<td><b>PV Date :</b> <span class="mandatory">*</span></td>
 													<td><form:input path="dvDate" id="dvDate"
 															cssClass="dateClass" readonly="true"
 															onclick="javascript:clearDateText('dvDate');" /> &nbsp;

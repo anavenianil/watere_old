@@ -116,7 +116,7 @@
 											<td><form:input path="noOfDays" id="noOfDays"  readonly="true" 
 													maxlength="30"
 													onkeypress="javascript:return checkInt(event);"   onkeyup="javascript:multiplyFunction()"/></td>
-											<td>Per Day Amount</br> ( Food And Accomidation ): <span class="mandatory">*</span></td>
+											<td>Per Day Amount</br> ( Night out Allowance ): <span class="mandatory">*</span></td>
 											<td><form:input path="perDayFoodandAccmAmt"
 													id="perDayFoodandAccmAmt" maxlength="30" 
 													onkeypress="javascript:return checkInt(event);"  onkeyup="javascript:multiplyFunction()" /></td>
@@ -125,7 +125,7 @@
 
 										</tr>
 										<tr>
-											<td>Total Amount For Food And Accomidation :</td>
+											<td>Total Amount For Night out Allowance :</td>
 											<td><form:input path="foodandAccmAmt"  readonly="true"
 													id="foodandAccmAmt" maxlength="30"
 													onkeypress="javascript:return checkInt(event);"  onkeyup="javascript:multiplyFunction()"/></td>
@@ -145,7 +145,7 @@
 											</br>
 										</tr>
 										<tr>
-											<td>Taxi Amount : <span class="mandatory">*</span></td>
+											<td>Taxi Amount : <span class="mandatory"></span></td>
 											<td><form:input path="taxiAmt" id="taxiAmt"   
 													maxlength="30"
 													onkeypress="javascript:return checkInt(event);"  onkeyup="javascript:multiplyFunction()"/></td>

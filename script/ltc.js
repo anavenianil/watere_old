@@ -535,7 +535,9 @@ function issueLtcAdvance(){
 			}
 			status = false;
 		}
-	/*	if ($jq('#ltcadvAdminDvno').val()=='') {
+	
+//		un commented by bkr according to ravi sir requirment
+		if ($jq('#ltcadvAdminDvno').val()=='') {
 			errorMessage += "Please Enter Dvno.\n";
 			if(status){
 			$jq('#ltcadvAdminDvno').focus();
@@ -548,7 +550,7 @@ function issueLtcAdvance(){
 			$jq('#ltcadvAdminDvDate').focus();
 			}
 			status = false;
-		}*/
+		}
 		
 		
 	}

@@ -107,8 +107,6 @@ public class LeaveWaterRequestProcess extends TxRequestProcess {
 			//this if block addedby bkr 23/06/2016 for amend leave purpose
 			if(leaveWRPB.getAmendRequestId()!=null){
 				
-				//System.out.println("leaveWRPB.getAmendRequestId()  "+leaveWRPB.getAmendRequestId());
-				
 				Session session1 = null;
 				session1 = hibernateUtils.getSession();
 				try{
@@ -140,11 +138,6 @@ public class LeaveWaterRequestProcess extends TxRequestProcess {
 										.aliasToBean(ErpAvailableLeaveSaveDTO.class))
 						.uniqueResult();
 				
-				
-				
-				
-				
-
 				session = null;
 				session = hibernateUtils.getSession();
 				
@@ -156,7 +149,6 @@ public class LeaveWaterRequestProcess extends TxRequestProcess {
 					.setString(1, erpAvailableLeaveSaveDTO2.getSfID())
 					.executeUpdate();
 					
-					
 				} else{
 					session.createQuery(
 							"update ErpEmpLeavesDTO set noOfDays=noOfDays+? where sfID=? and leaveCode='"+erpAvailableLeaveSaveDTO2.getLeaveType()+"' ")
@@ -166,11 +158,6 @@ public class LeaveWaterRequestProcess extends TxRequestProcess {
 							.executeUpdate();
 					
 				}
-				
-				
-				
-				
-				
 				
 			}
 

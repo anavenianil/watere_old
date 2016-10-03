@@ -121,12 +121,10 @@ public class LeaveWaterRequestController {
 
 				// System.out.println("Prescriptiondoc() Name :: "+leaveWaterBean.getPrescriptiondoc());
 
-				File reportFile = new File(session.getServletContext()
-						.getResource("/repository/").getPath());
+				File reportFile = new File(session.getServletContext().getResource("/repository/").getPath());
 
 				if (leaveWaterBean.getPrescriptionFile() != null) {
 					if (!leaveWaterBean.getPrescriptionFile().isEmpty()) {
-
 						String fileName = fileUpload.uploadFile(
 								leaveWaterBean.getPrescriptionFile(),
 								"PrescriptionCertificate",

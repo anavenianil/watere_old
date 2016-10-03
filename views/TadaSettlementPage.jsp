@@ -106,7 +106,7 @@
 												<tr>
 													<td><b>No.of Days :</b>
 														${tadaWaterRequestBean.tadaWaterApprovalRequestDTO.noOfDays}</td>
-													<td><b>Per Day Amount</br> ( Food And Accomidation ):</b>
+													<td><b>Per Day Amount</br> ( Night out Allowance ):</b>
 														${tadaWaterRequestBean.tadaWaterApprovalRequestDTO.perDayFoodandAccmAmt}
 													</td>
 
@@ -114,7 +114,7 @@
 
 												</tr>
 												<tr>
-													<td><b>Total Amount For Food And Accomidation :</b>
+													<td><b>Total Amount For Night out Allowance :</b>
 														${tadaWaterRequestBean.tadaWaterApprovalRequestDTO.foodandAccmAmt}</td>
 													<td><b>Transit Amount :</b>
 														${tadaWaterRequestBean.tadaWaterApprovalRequestDTO.transitAmt}</td>

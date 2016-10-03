@@ -41,7 +41,7 @@
 	</div>
 	
 	<div class="line">
-		<div class="quarter bold">Amount for Food and Accomidation  </div>
+		<div class="quarter bold">Amount for Night out Allowance  </div>
 		<div class="quarter" id="foodandAccmAmt">: TZS&nbsp; ${workflowmap.tadaWaterApprovalRequestDTO.foodandAccmAmt} /-</div>
 	<div >
 		<div class="quarter bold">Amount For Fare </div>

@@ -697,11 +697,11 @@ function submitTadaAdvanceCumReq(){
 		status = false;
 	}
 	if ($jq('#taxiAmt').val()=='') {
-		errorMessage += "Please Enter taxiAmt.\n";
+	/*	errorMessage += "Please Enter taxiAmt.\n";
 		if(status){
 		$jq('#taxiAmt').focus();
 		}
-		status = false;
+		status = false;*/
 	}
 	if ($jq('#perDayFoodandAccmAmt').val()=='') {
 		errorMessage += "Please Enter perDayFoodandAccmAmt.\n";
@@ -730,6 +730,12 @@ function submitTadaAdvanceCumReq(){
 	var foodandAccmAmt=$jq('#foodandAccmAmt').val();
 	var daAmt=$jq('#daAmt').val();
 	var taxiAmt=$jq('#taxiAmt').val();
+	
+	if (taxiAmt==='') {
+		taxiAmt=0;
+	}
+	
+	
 	var totalAmt=$jq('#totalAmt').val();
 	
 	var transitAmt=$jq('#transitAmt').val();
@@ -840,6 +846,11 @@ function multiplyFunction(){
 	
 	var transit=$jq('#transitAmt').val();
 	var taxi=$jq('#taxiAmt').val();
+	if(taxi==="" || taxi===null){
+		taxi=0;
+	}
+	
+	
 	var daamt=$jq('#daAmt').val();
 	var foodamt=$jq('#foodandAccmAmt').val();
 	var sum1=(parseInt(transit)+parseInt(taxi)+parseInt(foodamt)+parseInt(daamt));

@@ -176,9 +176,10 @@
 															</tr>
 															
 															
-																<tr style="display: none">
-																<td>dvno : <span class="mandatory">*</span> <form:input
-																		path="ltcadvAdminDvno" id="ltcadvAdminDvno" />DVDate. : <span
+																<!-- <tr style="display: none"> -->
+																<tr>
+																<td>PV No : <span class="mandatory">*</span> <form:input
+																		path="ltcadvAdminDvno" id="ltcadvAdminDvno" />PV Date. : <span
 																	class="mandatory">*</span>
 																</td>
 
