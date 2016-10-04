@@ -667,9 +667,6 @@ function noOfdays(){
 		if(a=="Dec"){return  12;}
 	}
 
-
-
-
 function submitLeaveDays(){
 	
 	var status = true;

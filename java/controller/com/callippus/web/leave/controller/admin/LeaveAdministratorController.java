@@ -99,12 +99,9 @@ public class LeaveAdministratorController {
 				// added by bkr 14/06/2016
 				leaveBean = leaveRequestProcess.geterpEmpLeaveBalance(leaveBean);
 				session.setAttribute(CPSConstants.JSONEMPAVAILLEAVESLIST, JSONSerializer.toJSON(leaveBean.getSetErpEmpAppliedLeavesList()));
-				
 				//added 29/06/2016
 				leaveRequestProcess.getEmployeeAppliedLeavesList(leaveBean);
 				session.setAttribute(CPSConstants.ERPAPPLIEDLEAVESLIST, leaveBean.setErpAppliedLeavesList);
-
-				
 				viewName = CPSConstants.ERPEMPLEAVEBALANEHOME;
 			}
 			else if (CPSUtils.compareStrings("spellsDetails", leaveBean.getParam())) {

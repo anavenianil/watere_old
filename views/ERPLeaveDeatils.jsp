@@ -70,7 +70,7 @@
 					<c:if test="${dataList.leaveCode eq 'AL'}">
 								<c:choose>
 										<c:when test="${empty leaveAdmin.erpUsedLeavesDTO.aL1 && empty leaveAdmin.erpUsedLeavesDTO.cL1 }">0</c:when>
-										<c:otherwise>${leaveAdmin.erpUsedLeavesDTO.aL1 + leaveAdmin.erpUsedLeavesDTO.cL1 }</c:otherwise>
+										<c:otherwise>${leaveAdmin.erpUsedLeavesDTO.aL1 + leaveAdmin.erpUsedLeavesDTO.cL1 } [ ${leaveAdmin.erpUsedLeavesDTO.aL1 } AL , ${leaveAdmin.erpUsedLeavesDTO.cL1 } CL ]</c:otherwise>
 								</c:choose>
 					</c:if>
 					<c:if test="${dataList.leaveCode eq 'SL'}">

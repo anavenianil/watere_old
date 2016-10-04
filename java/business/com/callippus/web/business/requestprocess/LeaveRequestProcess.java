@@ -3697,7 +3697,6 @@ public class LeaveRequestProcess extends TxRequestProcess {
 		ErpEmpLeavesDTO erpEmpLeavesDTO=null;
 		try {
 			session = hibernateUtils.getSession();
-			
 			//sql="select leave.ANNUAL_LEAVES AS annualLeaves,leave.MATERNITY_LEAVES AS maternityLeaves,leave.PETERNITY_LEAVES AS peternityLeaves,leave.SICK_LEAVES AS sickLeaves FROM ERP_AVAILABLE_LEAVES leave WHERE leave.SFID='"+leaveBean.getSfID()+"'";
 			//	erpAvailableLeavesDTO=(ErpAvailableLeavesDTO) session.createSQLQuery(sql).addScalar("annualLeaves", Hibernate.INTEGER).addScalar("maternityLeaves", Hibernate.INTEGER).addScalar("peternityLeaves", Hibernate.INTEGER).addScalar("sickLeaves", Hibernate.INTEGER).setResultTransformer(Transformers.aliasToBean(ErpAvailableLeavesDTO.class)).uniqueResult();
 			//leaveBean.setErpAvailableLeavesDTO(erpAvailableLeavesDTO);
@@ -3779,10 +3778,6 @@ public class LeaveRequestProcess extends TxRequestProcess {
 		}catch(Exception e){
 			throw e;
 		}
-		
-		
-		
-		//////////////////////////////
 		
 		return erpAppliedLeavesList;
 	}

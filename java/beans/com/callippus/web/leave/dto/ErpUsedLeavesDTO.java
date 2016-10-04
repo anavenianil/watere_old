@@ -11,8 +11,6 @@ public class ErpUsedLeavesDTO {
 	private String aL1;
 	private String sL1;
 	private String cL1;
-	
-	
 	public String getcL1() {
 		return cL1;
 	}

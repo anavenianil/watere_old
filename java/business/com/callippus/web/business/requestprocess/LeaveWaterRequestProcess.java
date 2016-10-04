@@ -684,7 +684,6 @@ public class LeaveWaterRequestProcess extends TxRequestProcess {
 			message = CPSConstants.FAILED;
 			throw e;
 		}
-
 		return leaveWRPB.getMessage();
 
 	}
@@ -707,8 +706,6 @@ public class LeaveWaterRequestProcess extends TxRequestProcess {
 		}
 		return leaveWRPB.getMessage();
 	}
-	
-	
 	
 	@SuppressWarnings("unchecked")
 	public WorkFlowMappingBean getLeaveRequestDetailsCancel(
