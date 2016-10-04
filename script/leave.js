@@ -592,6 +592,8 @@ function submitErpLeaveApplication(){
 						document.forms[0].param.value = "erpLeaveApplyDetails";
 						document.forms[0].action = "workflowmap.htm";
 						document.forms[0].submit();	
+					}else{
+						clearErpLeaveApplication();
 					}
 					 }
 					// alert('success');

@@ -12,6 +12,8 @@ import javax.servlet.http.HttpSession;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperPrint;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
@@ -30,15 +32,15 @@ import com.callippus.web.beans.test.TestDetailsBean;
 import com.callippus.web.controller.common.CPSConstants;
 import com.callippus.web.controller.common.CPSUtils;
 import com.callippus.web.controller.common.FileUpload;
-import com.callippus.web.controller.common.HibernateUtils;
 import com.callippus.web.controller.common.JasperReportCreator;
 import com.callippus.web.controller.exception.ResultStatus;
 import com.callippus.web.controller.exception.SetErpException;
-import com.callippus.web.dao.reportDetails.IReportDetailsDAO;
 
 @Controller
 @SessionAttributes
 public class TestDetailsController {
+	
+	private static Log log = LogFactory.getLog(TestDetailsController.class);
 
 	@Autowired
 	private com.callippus.web.controller.common.HibernateUtils hibernateUtils;
@@ -215,6 +217,9 @@ public class TestDetailsController {
 			@ModelAttribute(value = "test") TestDetailsBean testBean,
 			BindingResult result, HttpServletRequest request,
 			HttpServletResponse response, HttpSession session) throws Exception {
+		
+		
+		log.debug("Generete Report name is :: "+testBean.getParam());
 
 		InputStream jasperStream = null;
 		HashMap<String, String> params = null;

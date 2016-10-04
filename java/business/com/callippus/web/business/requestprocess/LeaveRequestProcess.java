@@ -3717,11 +3717,6 @@ public class LeaveRequestProcess extends TxRequestProcess {
 		return leaveBean;
 	}
 
-	/*public void getErpAppliedLeavesList(LeaveAdministratorBean leaveBean) {
-		// TODO Auto-generated method stub
-		
-	}*/
-	
 	@SuppressWarnings("unchecked")
 	public List<ErpAvailableLeaveSaveDTO> getEmployeeAppliedLeavesList(
 			LeaveAdministratorBean leaveBean) throws Exception {
@@ -3745,7 +3740,6 @@ public class LeaveRequestProcess extends TxRequestProcess {
 			throw e;
 		}
 		
-		
 		////////////////
 		
 		Session session1=null;
@@ -3768,8 +3762,6 @@ public class LeaveRequestProcess extends TxRequestProcess {
 											+ " from ERP_LEAVE_REQUEST_DETAILS where SFID='"+leaveBean.getSfID()+"' ";
 		
 			
-			System.out.println(sql1);
-			
 			erpUsedLeavesDTO = (ErpUsedLeavesDTO) session1
 					.createSQLQuery(sql1)
 					.addScalar("aL1", Hibernate.STRING)
@@ -3786,15 +3778,6 @@ public class LeaveRequestProcess extends TxRequestProcess {
 		}catch(Exception e){
 			throw e;
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		

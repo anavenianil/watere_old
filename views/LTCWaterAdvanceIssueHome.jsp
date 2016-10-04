@@ -32,8 +32,6 @@
 <body>
 	<form:form method="post" commandName="ltcwater"
 		name="tadaWaterApproval" id="tadaWaterApproval">
-
-
 			<div class="Innermaindiv">
 				<div class="header"></div>
 				<div><jsp:include page="MenuLinks.jsp" /></div>
@@ -55,9 +53,6 @@
 											& Phone No. </b>:&nbsp;${ltcwater.empDetailsList.userSfid}&nbsp;&nbsp;&
 										&nbsp;${ltcwater.empDetailsList.personalNumber}</br> </br>
 									</div>
-
-
-
 									<div>
 										<div>
 											<b>Directorate in which working</b> &nbsp;
