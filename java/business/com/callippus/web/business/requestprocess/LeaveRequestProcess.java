@@ -3758,7 +3758,8 @@ public class LeaveRequestProcess extends TxRequestProcess {
 			String sql1="select unique (select sum(NO_OF_DAYS) FROM ERP_LEAVE_REQUEST_DETAILS  where STATUS='2' and LEAVE_TYPE_ID='AL' and SFID='"+leaveBean.getSfID()+"') AS aL1, "
 					+ "(select sum(NO_OF_DAYS) FROM ERP_LEAVE_REQUEST_DETAILS  where STATUS='2' and LEAVE_TYPE_ID='SL' and SFID='"+leaveBean.getSfID()+"') AS sL1, "
 							+ " (select sum(NO_OF_DAYS) FROM ERP_LEAVE_REQUEST_DETAILS  where STATUS='2' and LEAVE_TYPE_ID='PL' and SFID='"+leaveBean.getSfID()+"') AS pL1 ,  "
-								+ "(select sum(NO_OF_DAYS) FROM ERP_LEAVE_REQUEST_DETAILS  where STATUS='2' and LEAVE_TYPE_ID='ML' and SFID='"+leaveBean.getSfID()+"') AS mL1   "
+								+ "(select sum(NO_OF_DAYS) FROM ERP_LEAVE_REQUEST_DETAILS  where STATUS='2' and LEAVE_TYPE_ID='ML' and SFID='"+leaveBean.getSfID()+"') AS mL1 ,  "
+										+ "(select sum(NO_OF_DAYS) FROM ERP_LEAVE_REQUEST_DETAILS  where STATUS='2' and LEAVE_TYPE_ID='CL' and SFID='"+leaveBean.getSfID()+"') AS cL1  "
 											+ " from ERP_LEAVE_REQUEST_DETAILS where SFID='"+leaveBean.getSfID()+"' ";
 		
 			
@@ -3767,7 +3768,7 @@ public class LeaveRequestProcess extends TxRequestProcess {
 					.addScalar("aL1", Hibernate.STRING)
 					.addScalar("sL1", Hibernate.STRING)
 					.addScalar("pL1", Hibernate.STRING)
-					.addScalar("mL1", Hibernate.STRING)
+					.addScalar("mL1", Hibernate.STRING).addScalar("cL1", Hibernate.STRING)
 				//	.addScalar("pL", Hibernate.INTEGER)
 					//.addScalar("mL", Hibernate.INTEGER)
 					.setResultTransformer(

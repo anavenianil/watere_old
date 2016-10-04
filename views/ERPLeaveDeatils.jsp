@@ -29,7 +29,7 @@
 											<fmt:formatNumber value="${dataList.noOfDays}" maxFractionDigits="3"/>
 										</c:when>
 										<c:otherwise>
-											<fmt:formatNumber value="${dataList.noOfDays + leaveAdmin.erpUsedLeavesDTO.aL1}" maxFractionDigits="3"/>
+											<fmt:formatNumber value="${dataList.noOfDays + leaveAdmin.erpUsedLeavesDTO.aL1 +  leaveAdmin.erpUsedLeavesDTO.cL1}" maxFractionDigits="3"/>
 										</c:otherwise>
 								</c:choose>
 					</c:if>
@@ -69,8 +69,8 @@
 					<display:column title="Used Leave Balance"  style="width:20%;" >&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b><font color="red">
 					<c:if test="${dataList.leaveCode eq 'AL'}">
 								<c:choose>
-										<c:when test="${empty leaveAdmin.erpUsedLeavesDTO.aL1}">0</c:when>
-										<c:otherwise>${leaveAdmin.erpUsedLeavesDTO.aL1 }</c:otherwise>
+										<c:when test="${empty leaveAdmin.erpUsedLeavesDTO.aL1 && empty leaveAdmin.erpUsedLeavesDTO.cL1 }">0</c:when>
+										<c:otherwise>${leaveAdmin.erpUsedLeavesDTO.aL1 + leaveAdmin.erpUsedLeavesDTO.cL1 }</c:otherwise>
 								</c:choose>
 					</c:if>
 					<c:if test="${dataList.leaveCode eq 'SL'}">

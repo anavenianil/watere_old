@@ -10,8 +10,15 @@ public class ErpUsedLeavesDTO {
 	private String mL1;
 	private String aL1;
 	private String sL1;
+	private String cL1;
 	
 	
+	public String getcL1() {
+		return cL1;
+	}
+	public void setcL1(String cL1) {
+		this.cL1 = cL1;
+	}
 	public String getaL1() {
 		return aL1;
 	}
@@ -59,6 +66,30 @@ public class ErpUsedLeavesDTO {
 	}
 	public void setpL(int pL) {
 		this.pL = pL;
+	}
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("ErpUsedLeavesDTO [aL=");
+		builder.append(aL);
+		builder.append(", sL=");
+		builder.append(sL);
+		builder.append(", mL=");
+		builder.append(mL);
+		builder.append(", pL=");
+		builder.append(pL);
+		builder.append(", pL1=");
+		builder.append(pL1);
+		builder.append(", mL1=");
+		builder.append(mL1);
+		builder.append(", aL1=");
+		builder.append(aL1);
+		builder.append(", sL1=");
+		builder.append(sL1);
+		builder.append(", cL1=");
+		builder.append(cL1);
+		builder.append("]");
+		return builder.toString();
 	}
 	
 	

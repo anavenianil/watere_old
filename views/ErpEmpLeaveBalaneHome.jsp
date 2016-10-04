@@ -23,7 +23,7 @@
 		<div>
 			<div class="Innermaindiv">
 				<div class="header"></div>
-				<div><jsp:include page="MenuLinks.jsp" /></div>					
+				<div><jsp:include page="MenuLinks.jsp" /></div>
 				<div class="mainDisplay">
 					<div class="whitebox1">
 						<div class="whitebox_t">
@@ -38,37 +38,28 @@
 
 									<%-- Content Page starts --%>
 									<div class="line" id="result"></div>
-									
-									
-									
-									
 									<div class="message"></div>
-									
-								
-										<div id="result" class="line">
-													<jsp:include page="ERPLeaveDeatils.jsp" />
-										</div>
-										<div class="line">
-											Note :</br> <font color="#ff0000">
-											<!-- 1) First Half Sick Leaves are Consider to Paid Leaves,Next Half are consider to Half paid leaves</br> -->
-											1) Maternity Leave applicable for <b>WOMEN</b> Employees</br>
-											2) Paternity Leave applicable for <b>MEN</b> Employees
-									</font>	</div>
+									<div id="result" class="line">
+										<jsp:include page="ERPLeaveDeatils.jsp" />
+									</div>
+									<div class="line">
+										Note :</br> <font color="#ff0000"> <!-- 1) First Half Sick Leaves are Consider to Paid Leaves,Next Half are consider to Half paid leaves</br> -->
+											1) Maternity Leave applicable for <b>WOMEN</b> Employees</br> 2)
+											Paternity Leave applicable for <b>MEN</b> Employees
+										</font>
+									</div>
 
-									<div class="line" >
+									<div class="line">
 										<div class="expbutton">
 											<a onclick="javascript:ShowLeavesList('showMydiv')"> <span>Deatils</span></a>
 										</div>
 									</div>
-									
+
 									<div class="line" id="showMydiv" style="display: none">
 										<jsp:include page="ERPLeaveTXNDetailsList.jsp" />
 									</div>
-									
-									
-									
-									<%-- Content Page end --%>
 
+									<%-- Content Page end --%>
 								</div>
 								<div>&nbsp;</div>
 							</div>
@@ -79,17 +70,17 @@
 							</div>
 						</div>
 					</div>
-				</div>				
+				</div>
 			</div>
-			<div><jsp:include page="Footer.jsp" /></div>			
+			<div><jsp:include page="Footer.jsp" /></div>
 		</div>
-		<form:hidden path="param"/>
-		<form:hidden path="type"/>
-		</form:form>
-		<script>
+		<form:hidden path="param" />
+		<form:hidden path="type" />
+	</form:form>
+	<script>
 			resetErpEnterAvailableLeaves();
 			JsonErpAvailabeLeavesList=<%= (net.sf.json.JSONArray)session.getAttribute("JsonErpAvailabeLeavesList") %>;			
 		</script>
-	</body>
+</body>
 </html>
 <!-- End:EnterAvailableLeaves.jsp -->
