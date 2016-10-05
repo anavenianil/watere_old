@@ -215,7 +215,7 @@
  
  
  <tr>
-													<td><b>Amount Issed By :</b>
+													<td><b>Mode Of Payment  :</b>
 														${tadaWaterRequestBean.tadaWaterApprovalRequestDTO.cashorcheck}</td>
 														
 												</tr>

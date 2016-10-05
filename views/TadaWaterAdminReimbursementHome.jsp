@@ -219,7 +219,7 @@
 												</tr>
 
 												<tr>
-													<td>Amount Issued By <span class="mandatory">*</span>
+													<td>Mode Of Payment  <span class="mandatory">*</span>
 
 														<form:radiobutton path="reimcashorcheck"
 															id="reimcashorcheck1" value="CHEQUE"

@@ -182,7 +182,7 @@
 
 								<div class="line">
 									<div class="quarter leftmar">
-										Amount Issued By<span class="mandatory">*</span>
+										Mode Of Payment <span class="mandatory">*</span>
 									</div>
 									<div class="quarter">
 										<form:radiobutton path="cashorcheck" id="cashorcheck1"

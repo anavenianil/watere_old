@@ -224,7 +224,7 @@
 												</tr>
 
 												<tr>
-													<td><b>Amount Issued By </b><span class="mandatory">*</span>
+													<td><b>Mode Of Payment </b><span class="mandatory">*</span>
 
 														<form:radiobutton path="cashorcheck" id="cashorcheck1"
 															value="CHEQUE" onclick="javascript:chequeFields('show')" />
