@@ -51,7 +51,7 @@
 
 									<div class="line">
 										<div class="expbutton">
-											<a onclick="javascript:ShowLeavesList('showMydiv')"> <span>Deatils</span></a>
+											<a onclick="javascript:ShowLeavesList('showMydiv')"> <span>Details</span></a>
 										</div>
 									</div>
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!-- Begin:RetrimentHomePage.jsp-->
+<!-- Begin:RetrimentAmountIssueHome.jsp-->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="/tags/spring-form" prefix="form"%>
 <%@ taglib uri="/tags/jstl-c" prefix="c" %>
@@ -73,4 +73,4 @@
 
 	</script>
 </html>
-<!-- End:RetrimentHomePage.jsp -->
+<!-- End:RetrimentAmountIssueHome.jsp -->

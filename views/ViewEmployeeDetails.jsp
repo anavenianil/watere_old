@@ -134,7 +134,8 @@
                	      								<form:options items="${sessionScope.maritalList}" itemValue="id" itemLabel="name"/>
                	   								</form:select>
 											</div>
-											<div class="quarter">Religion<span class="mandatory">*</span></div>
+										<!-- 	<div class="quarter">Religion<span class="mandatory">*</span></div> -->
+											<div class="quarter">State<span class="mandatory">*</span></div>
 											<div class="quarter">
 												<form:select path="religion" id="religion"  cssClass="formSelect"  disabled="true">
 													<form:option value="Select">Select</form:option>
@@ -163,12 +164,12 @@
 											
 										</div>
 											<div class="line">
-											<div class="quarter">Blood Group<span class="mandatory">*</span></div>
+											<div class="quarter">Blood Group<span class="mandatory"></span></div>
 											<div class="quarter"><form:select path="blood" id="blood" cssClass="formSelect" >
 																	<form:option value="Select">Select</form:option>
                	      												<form:options items="${sessionScope.bloodList}" itemValue="id" itemLabel="name"/>
                	   												</form:select></div>
-											<div class="quarter">Residence Number</div>
+											<div class="quarter">National Id</div>
 											<div class="quarter"><form:input path="residenceNo" id="residenceNo" maxlength="15"/></div>
 											
 										</div>
@@ -205,7 +206,7 @@
 									<div>
 										
 											<div class="line">
-												<div class="quarter">Appointment Type<span class="mandatory">*</span></div>
+												<div class="quarter">Appointment Type<span class="mandatory"></span></div>
 												<div class="quarter">
 													<form:select path="appointmentTypeId" id="appointmentTypeId" cssClass="formSelect"  disabled="true">
 														<form:option value="Select">Select</form:option>

@@ -203,8 +203,9 @@
 											
 										</div>
 										<div class="line">									
-											<div class="quarter">Residence Number</div>
-											<div class="quarter"><form:input path="residenceNo" id="residenceNo" maxlength="15" cssClass="formSelect" onkeypress="return checkInt(event);"/></div>
+											<!-- <div class="quarter">Residence Number</div> -->
+											<div class="quarter"> National Id</div>
+											<div class="quarter"><form:input path="residenceNo" id="residenceNo" maxlength="15" cssClass="formSelect" /></div>
 											<div class="quarter">Nationality<span class="mandatory">*</span></div>
 											      <div class="quarter">
 												       <form:select path="nationalityId" id="nationalityId" cssClass="formSelect" >
@@ -306,7 +307,8 @@
 									</div>	
 									
 									<div class="line">
-									<div class="quarter">Religion<span class="mandatory">*</span></div>
+								<!-- 	<div class="quarter">Religion<span class="mandatory">*</span></div> -->
+									<div class="quarter">State<span class="mandatory">*</span></div>
 											<div class="quarter">
 											<form:select path="religion" id="religion" cssClass="formSelect" >
 													<form:option value="Select">Select</form:option>

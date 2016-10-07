@@ -4234,13 +4234,13 @@ function saveEditEmployee() {
 			flag = false;
 		}
 	}
-	if (document.getElementById('blood').value == 'Select') {
+/*	if (document.getElementById('blood').value == 'Select') {
 		errorMessage += "Please Select Blood Group\n";
 		if (flag) {
 			document.getElementById('blood').focus();
 			flag = false;
 		}
-	}
+	}*/
 	if (document.getElementById('personalNumber').value == '') {
 		errorMessage += "Please Enter Mobile Number\n";
 		if (flag) {
@@ -4279,14 +4279,14 @@ function saveEditEmployee() {
 			flag = false;
 		}
 	}
-	if (!document.getElementById('residenceNo').value == '') {
+/*	if (!document.getElementById('residenceNo').value == '') {
 		check=document.getElementById('residenceNo').value;
 		if(!validateInteger(check)) {
 			errorMessage += "Residency Number Is Not Valid \n";
 			document.getElementById('residenceNo').focus();
 			flag = false;
 		}
-	}
+	}*/
 	if (!document.getElementById('personalNumber').value == '') {
 		check=document.getElementById('personalNumber').value;
 		if(!validateInteger(check)) {
@@ -4303,13 +4303,13 @@ function saveEditEmployee() {
 			flag = false;
 		}
 	}
-	if (document.getElementById('appointmentTypeId').value == 'Select') {
+/*	if (document.getElementById('appointmentTypeId').value == 'Select') {
 		errorMessage += "Please Select Appointment Type \n";
 		if (flag) {
 			document.getElementById('appointmentTypeId').focus();
 			flag = false;
 		}
-	}
+	}*/
 	if (document.getElementById('employmentTypeId').value == 'Select') {
 		errorMessage += "Please Select Employment Type \n";
 		if (flag) {
@@ -7914,14 +7914,14 @@ function otherEmployeeDetails() {
 			flag = false;
 		}
 	}*/
-	if (!document.getElementById('residenceNo').value == '') {
+	/*if (!document.getElementById('residenceNo').value == '') {
 		check=document.getElementById('residenceNo').value;
 		if(!validateInteger(check)) {
 			errorMessage += "Residency Number Takes Only Number \n";
 			document.getElementById('residenceNo').focus();
 			flag = false;
 		}
-	}
+	}*/
 	if (!document.getElementById('personalNumber').value == '') {
 		check=document.getElementById('personalNumber').value;
 		if(!validateInteger(check)) {
