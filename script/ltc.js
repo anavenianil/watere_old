@@ -10,7 +10,7 @@ function annualLeaveReport(){
 	var year=$jq('#ltcYear').val();
 	if(year!=0){
 		var ltcYear=$jq('#ltcYear').val();
-		window.open('reports.htm?status=4&param=AnnualLeave&ltcYear='+ltcYear);
+		window.open('reports.htm?status=2&param=AnnualLeave&ltcYear='+ltcYear);
 		Location.load();
 	}else{
 		alert("Please Select Annual Year");

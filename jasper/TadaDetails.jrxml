@@ -8,7 +8,7 @@
 	<parameter name="fromDate" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[select sysdate,e.sfid,e.NAME_IN_SERVICE_BOOK,l.FROM_DATE,l.TO_DATE,l.TOTAL_AMT,l.CLAIM_PURPOSE from EMP_MASTER e,
-TADA_WATER_ADV_REQUEST_DETAILS l where l.sfid=e.sfid and  STAGE_STATUS=4 and FROM_DATE between $P{fromDate} and $P{toDate}]]>
+TADA_WATER_ADV_REQUEST_DETAILS l where l.sfid=e.sfid and  STAGE_STATUS=$P{status} and FROM_DATE between $P{fromDate} and $P{toDate}]]>
 	</queryString>
 	<field name="SYSDATE" class="java.sql.Timestamp"/>
 	<field name="SFID" class="java.lang.String"/>
@@ -33,7 +33,7 @@ TADA_WATER_ADV_REQUEST_DETAILS l where l.sfid=e.sfid and  STAGE_STATUS=4 and FRO
 				</staticText>
 			</frame>
 			<image>
-				<reportElement x="0" y="1" width="128" height="82" uuid="92d7debc-7d34-4205-88dc-02681d45c5bc"/>
+				<reportElement x="2" y="1" width="128" height="82" uuid="af908bc3-952e-4d5a-98dc-a7d52db6c5fb"/>
 				<imageExpression><![CDATA["../images/watererp.png"]]></imageExpression>
 			</image>
 		</band>

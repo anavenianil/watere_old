@@ -16,7 +16,9 @@ var tdEditFlag=true;
 function generateTaReport(){
 	var fromDate=$jq('#fromDate').val();
 	var toDate=$jq('#toDate').val();
-	window.open('reports.htm?status=5&param=TadaDetails&fromDate='+fromDate+'&toDate='+toDate);
+	//window.open('reports.htm?status=5&param=TadaDetails&fromDate='+fromDate+'&toDate='+toDate);
+	
+	window.open('reports.htm?status=2&param=TadaDetails&fromDate='+fromDate+'&toDate='+toDate);
 	
 //	$jq.post('reports.htm?status=1&param=TadaDetails&fromDate='+fromDate+'&toDate='+toDate)
 	
