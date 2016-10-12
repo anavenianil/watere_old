@@ -165,7 +165,9 @@
 										<tr>
 										<td class="layer" valign="top">
 										<%--Delegated Layer starts --%>
-														<div class="line" id="delegatedDiv" >
+												
+												<!--commented by bkr 10/10/2016  -->
+												<%-- 		<div class="line" id="delegatedDiv" >
 															<table width="100%" cellpadding="2" cellspacing="0" align="center" border="1" class="dashboard" bordercolor="#10519a" id="delegatedTable">
 																<tr class="dashboardHeaderDR">
 																	<th colspan="3" align="center">Delegated Requests</th>
@@ -199,21 +201,23 @@
 															</table>
 															
 															<script>gridStyle("delegatedTable")</script>
-														</div>
+														</div> --%>
 													
 													<%--Delegated Layer end --%>
 													</td>
 										<td class="layer" valign="top">
 
 													<%--Alerts Layer starts --%>
-													<div class="line" id="myAlertsDiv" >
+													<!--commented by bkr 10/10/2016  -->
+													<%-- <div class="line" id="myAlertsDiv" >
 														<jsp:include page="MyAlerts.jsp"></jsp:include>
-													</div>
+													</div> --%>
 													<%--Alerts Layer end --%>
 													</td>
 										<td class="layer" valign="top">
 										<%--Escalated Layer starts --%>
-														<div class="line" id="escalatedDiv" >
+										<!--commented by bkr 10/10/2016  -->
+													<%-- 	<div class="line" id="escalatedDiv" >
 															<table width="100%" cellpadding="2" cellspacing="0" align="center" border="1" class="dashboard" bordercolor="#10519a">
 																<tr class="dashboardHeaderER">
 																	<th colspan="3" align="center">Escalated Requests</th>
@@ -246,7 +250,7 @@
 																</c:if>	
 															</table>															
 															<script>gridStyle("escalatedTable")</script>
-														</div>										
+														</div>	 --%>									
 													<%--Escalated Layer end --%>
 										</td>
 										
