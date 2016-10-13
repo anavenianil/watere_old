@@ -685,7 +685,7 @@
 					</c:if> --%>
 					<li><a href="#">Master Tables</a>
 						<ul>
-							<li><a href="javascript:masterData('state')">State</a></li>
+							<li><a href="javascript:masterData('state')"><!-- State -->Region</a></li>
 							<li><a href="javascript:masterData('district')">District</a></li>
 							<!-- <li><a href="#">BankNames</a></li> -->
 						</ul></li>

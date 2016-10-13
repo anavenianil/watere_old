@@ -44,7 +44,7 @@
 									
 									<c:if test="${sessionScope.level eq 'parent'}">
 										<div class="line">
-											<div class="quarter bold" style="margin-left:8px;" id="parentLable" >State Name</div>
+											<div class="quarter bold" style="margin-left:8px;" id="parentLable" ><!-- State -->Region Name</div>
 											<div class="quarter">
 												<form:select path="parentID" id="parentID" cssClass="formSelect" onmouseover="setSelectWidth('#parentID')" >
 													<form:option value="select" >Select</form:option>

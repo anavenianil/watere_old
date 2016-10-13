@@ -170,7 +170,7 @@ jqueryslidemenu.init({
 									<li><a href="javascript:masterData('reservation')">Reservation Master</a></li>
 								</c:if>																					
 								<c:if test="${menuLinks.state=='1'}">
-									<li><a href="javascript:masterData('state')">State</a></li>
+									<li><a href="javascript:masterData('state')">State1</a></li>
 								</c:if>	
 								<c:if test="${menuLinks.subcategory=='1'}">
 									<li><a href="javascript:masterData('subcategory')">Sub Category</a></li>

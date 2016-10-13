@@ -97,7 +97,7 @@
 						maxlength="100" />
 				</spring:bind>
 			</div>
-			<div class="quarter">State</div>
+			<div class="quarter"><!-- State -->Region</div>
 			<div class="quarter">
 				<spring:bind path="nominee">
 					<form:select path="nominee.stateId"

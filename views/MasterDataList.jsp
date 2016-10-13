@@ -26,7 +26,7 @@
 				<display:column titleKey="${sessionScope.masterType}.name" style="width:30%" sortable="true">&nbsp;${dataList.name}</display:column>
 				<c:if test="${sessionScope.level eq 'parent'}">
 					<c:if test="${sessionScope.masterType == 'district'}">
-						<display:column title="State Name" style="width:30%" >&nbsp;${dataList.state}</display:column>
+						<display:column title="Region Name" style="width:30%" >&nbsp;${dataList.state}</display:column>
 						<display:column title="Description" style="width:20%">&nbsp;${dataList.description}</display:column>
 						<display:column style="width:8%;text-align:center" title="Edit">
 							<img src="./images/edit.gif"

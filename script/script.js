@@ -476,8 +476,10 @@ function lables(type) {
 		document.getElementById('labelType').innerHTML = "Reservation Name<span class='mandatory'>*</span>";
 	} else if (type == 'state') {
 		document.title = "State Master";
-		document.getElementById('headTitle').innerHTML = "Create State";
-		document.getElementById('labelType').innerHTML = "State Name<span class='mandatory'>*</span>";
+		//document.getElementById('headTitle').innerHTML = "Create State";
+		document.getElementById('headTitle').innerHTML = "Create Region";
+		//document.getElementById('labelType').innerHTML = "State Name<span class='mandatory'>*</span>";
+		document.getElementById('labelType').innerHTML = "Region Name<span class='mandatory'>*</span>";
 	} else if (type == 'district') {
 		document.title = "District Master";
 		document.getElementById('headTitle').innerHTML = "Create District";

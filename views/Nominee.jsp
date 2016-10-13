@@ -94,7 +94,7 @@
 											<div class="line">
 												<div class="quarter">City<span class="mandatory">*</span></div>
 												<div class="quarter"><form:input path="city" id="city" maxlength="100" onkeypress="javascript:return checkChar(event);"/></div>
-												<div class="quarter">State</div>
+												<div class="quarter"><!-- State -->Region</div>
 												<div class="quarter">
 													<form:select path="stateId"  id="stateId" cssClass="formSelect" onmouseover="setSelectWidth('#stateId')" onchange="javascript:getDistrictList('stateId','districtId')">
 														<form:option value="select">Select</form:option>
