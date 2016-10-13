@@ -173,7 +173,7 @@
 													<td><b>Settlement Date :</b><span class="mandatory">*</span></td>
 													<td><form:input path="waterSettlementDate"
 															id="waterSettlementDate" cssClass="dateClass"
-															readonly="true" onchange="javascript:noOfdays()"
+															readonly="true" 
 															onclick="javascript:clearDateText('waterSettlementDate');" />
 														&nbsp; <img src="./images/calendar.gif"
 														id="date_start_trigger3" /> <script

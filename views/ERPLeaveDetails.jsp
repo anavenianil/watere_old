@@ -19,6 +19,10 @@
 			<c:if test="${workflowmap.erpAvailableLeaveSaveDTO.leaveType=='CL'}">: Compassionate Leave </c:if>
 			<c:if test="${workflowmap.erpAvailableLeaveSaveDTO.leaveType=='ML'}">: Maternity Leave</c:if>
 			<c:if test="${workflowmap.erpAvailableLeaveSaveDTO.leaveType=='PL'}">: Paternity Leave</c:if>
+			
+			<!--added by bkr 13/10/2016  -->
+			<c:if test="${workflowmap.erpAvailableLeaveSaveDTO.leaveType=='ComL'}">: Compassionate Leave</c:if>
+			
 	<%-- 		<div class="quarter" id="nod">: ${workflowmap.erpAvailableLeaveSaveDTO.leaveType}</div> --%>
 		</div>
 		<div class="line">

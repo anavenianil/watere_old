@@ -64,6 +64,22 @@
 										</c:otherwise>
 								</c:choose>
 					</c:if>
+					
+					<!--added by bkr 13/10/2016  -->
+					<c:if test="${dataList.leaveCode eq 'ComL'}">
+
+								<c:choose>
+										<c:when test="${empty leaveAdmin.erpUsedLeavesDTO.comL1}">
+											<fmt:formatNumber value="${dataList.noOfDays}" maxFractionDigits="3"/>
+										</c:when>
+										<c:otherwise>
+											<fmt:formatNumber value="${dataList.noOfDays + leaveAdmin.erpUsedLeavesDTO.comL1}" maxFractionDigits="3"/>
+										</c:otherwise>
+								</c:choose>
+					</c:if>
+					
+					
+					
 					</font></b></display:column>
 					<display:column title="Available Leave Balance"  style="width:20%;" >&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b><font color="green">${dataList.noOfDays}</font></b></display:column>
 					<display:column title="Used Leave Balance"  style="width:20%;" >&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b><font color="red">
@@ -89,6 +105,13 @@
 								<c:choose>
 										<c:when test="${empty leaveAdmin.erpUsedLeavesDTO.mL1}">0</c:when>
 										<c:otherwise>${leaveAdmin.erpUsedLeavesDTO.mL1 }</c:otherwise>
+								</c:choose>
+					</c:if>
+					
+					<c:if test="${dataList.leaveCode eq 'ComL'}">
+								<c:choose>
+										<c:when test="${empty leaveAdmin.erpUsedLeavesDTO.comL1}">0</c:when>
+										<c:otherwise>${leaveAdmin.erpUsedLeavesDTO.comL1 }</c:otherwise>
 								</c:choose>
 					</c:if>
 					</font></b></display:column>

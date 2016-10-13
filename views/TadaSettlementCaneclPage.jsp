@@ -123,7 +123,7 @@
 												</tr>
 												<tr>
 
-													<td><b>DA amount :</b>
+													<td><b><!-- DA  -->Fare Amount :</b>
 														${tadaWaterRequestBean.tadaWaterApprovalRequestDTO.daAmt}</td>
 
 												</tr>

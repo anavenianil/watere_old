@@ -25,6 +25,8 @@
 				<c:if test="${leaveList.leaveType=='PL'}">Peternity Leave</c:if>
 				<c:if test="${leaveList.leaveType=='SL'}">Sick Leave</c:if>
 				<c:if test="${leaveList.leaveType=='CL'}">Compassionate Leave</c:if>
+				
+				<c:if test="${leaveList.leaveType=='ComL'}">Compassionate Leave</c:if>
 			</display:column>
 			<display:column title="From Date" style="width:10%">
 				<fmt:formatDate pattern="dd-MMM-yyyy" value="${leaveList.fromDate}" />

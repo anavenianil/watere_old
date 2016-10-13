@@ -65,19 +65,13 @@ public class TadaWaterRequestController implements Serializable {
 				viewName = CPSConstants.TADAADVANCECUMREQUESTHOME;
 			} else if(CPSUtils.compareStrings(CPSConstants.TADAWATERSETTLEMENTS, tadaWaterRequestBean.getParam())){
 				
-				
 				session.setAttribute(CPSConstants.TADAFINADVLIST, (JSONArray) JSONSerializer.toJSON(tadaWaterRequestProcess.getFinAdvDetails(tadaWaterRequestBean)));
-				
 				log.debug("TadaWaterRequestController --> added 11/05/2016    1");
 				
 				session.setAttribute(CPSConstants.TADAWATERSETTLEMENTLIST, (JSONArray) JSONSerializer.toJSON(tadaWaterRequestProcess.getTadaWaterSettlementDetails(tadaWaterRequestBean)));
 				
-				
 				log.debug("TadaWaterRequestController --> added 11/05/2016    2");
-				
 				session.setAttribute(CPSConstants.TADAWATERREIMBURSEMENTLIST, (JSONArray) JSONSerializer.toJSON(tadaWaterRequestProcess.getTadaWaterReimbursementDetails(tadaWaterRequestBean)));
-				
-				
 				
 				viewName = CPSConstants.TADAWATERFINSETTLEMENTS;
 			} else if(CPSUtils.compareStrings(CPSConstants.TADASUBMITREQUEST, tadaWaterRequestBean.getParam())){
@@ -96,8 +90,6 @@ public class TadaWaterRequestController implements Serializable {
 				session.setAttribute("tadaWaterAprovalRequestID",tadaWaterRequestBean.getRequestID());
 				session.setAttribute("tadaAprovalRequestID",tadaWaterRequestBean.getRequestID());
 				
-				
-				
 			} else if(CPSUtils.compareStrings(CPSConstants.TADAWATERREUESTDETAILS, tadaWaterRequestBean.getParam())){
 					log.debug("get watertadarequestdetails  --> param=waterRequestDetails");
 					TadaWaterRequestProcessBean tadaWaterRequestProcessBean = new TadaWaterRequestProcessBean();
@@ -106,7 +98,6 @@ public class TadaWaterRequestController implements Serializable {
 					
 					tadaWaterRequestBean = tadaWaterRequestBusiness.getEmpDetailsOne(tadaWaterRequestBean);
 					tadaWaterRequestBean = tadaWaterRequestBusiness.getDeptDetailsOne(tadaWaterRequestBean);
-					
 					tadaWaterRequestBean=tadaWaterRequestBusiness.getCurrentWaterReqIdDetails(tadaWaterRequestBean);
 					session.setAttribute(CPSConstants.BANKNAMESLIST, (JSONArray) JSONSerializer.toJSON(tadaWaterRequestProcess.getBankNamesList(tadaWaterRequestBean)));
 					tadaWaterRequestBean = tadaWaterRequestBusiness.getBankNameDetails(tadaWaterRequestBean);
@@ -135,10 +126,7 @@ public class TadaWaterRequestController implements Serializable {
 					tadaWaterRequestBean = tadaWaterRequestBusiness.getEmpDetails(tadaWaterRequestBean);
 					tadaWaterRequestBean = tadaWaterRequestBusiness.getDeptDetails(tadaWaterRequestBean);
 					
-					
 					session.setAttribute(CPSConstants.TADAFINADVLIST, (JSONArray) JSONSerializer.toJSON(tadaWaterRequestProcess.getFinAdvCompletedDetails(tadaWaterRequestBean)));
-					
-
 					
 					//TadaWaterSettelement.jsp
 					viewName = CPSConstants.TADAWATERSETTELEMENT;

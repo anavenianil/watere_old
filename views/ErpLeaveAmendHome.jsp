@@ -99,6 +99,13 @@
 														<c:if test="${LeaveWaterRequest.erpAvailableLeaveSaveDTO.leaveType eq 'CL'}">
 														<option value="${LeaveWaterRequest.erpAvailableLeaveSaveDTO.leaveType}">Compassionate Leave</option>
 														</c:if>
+														
+														<!--added by bkr 13/10/2016  -->
+														<c:if test="${LeaveWaterRequest.erpAvailableLeaveSaveDTO.leaveType eq 'ComL'}">
+														<option value="${LeaveWaterRequest.erpAvailableLeaveSaveDTO.leaveType}">Compassionate Leave</option>
+														</c:if>
+														
+														
 													</select>
 												</div>
 											</div>

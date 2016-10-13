@@ -149,6 +149,18 @@ public class SQLLeaveAdministratorDAO implements ILeaveAdministratorDAO, Seriali
 			session.flush();
 			session.clear();
 			
+			//added by bkr 13/10/2016
+			erpEmpLeavesDTO.setSfID(leaveBean.getEntrySfid());
+			erpEmpLeavesDTO.setLeaveType("Compassionate Leave");//compassionateLeaves
+			erpEmpLeavesDTO.setLeaveCode("ComL");
+			erpEmpLeavesDTO.setStatus(1);
+			erpEmpLeavesDTO.setNoOfDays(leaveBean.getCompassionateLeaves());
+			session = hibernateUtils.getSession();
+			session.createCriteria(ErpEmpLeavesDTO.class);
+			session.save(erpEmpLeavesDTO);
+			session.flush();
+			session.clear();
+			
 		} catch (Exception e) {
 			throw e;
 		

@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!-- LTCSettlementPage.jsp -->
+<!-- LTCWATERCancelRequest.jsp -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="/tags/spring-form" prefix="form"%>
@@ -241,7 +241,7 @@
 										<tr>
 										<td><b>Settlement / Cancel Apply Date : <span class="mandatory">*</span></b></td>
 											<td><form:input path="ltcsettleOrReimApplyDate" id="ltcsettleOrReimApplyDate"
-													cssClass="dateClass" readonly="true" onchange="javascript:noOfdays()"
+													cssClass="dateClass" readonly="true"  
 													onclick="javascript:clearDateText('ltcsettleOrReimApplyDate');" /> &nbsp;
 												<img src="./images/calendar.gif" id="date_start_trigger3" />
 												<script type="text/javascript">
@@ -295,4 +295,4 @@
 
 </body>
 </html>
-<!-- End:LTCSettlementPage.jsp -->
+<!-- End:LTCWATERCancelRequest.jsp-->

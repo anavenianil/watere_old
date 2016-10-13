@@ -61,6 +61,11 @@
 										<div class="quarter"><form:input path="peternityLeaves" id="peternityLeaves" maxlength="4"  onkeypress="javascript:return checkInt(event);"/></div>
 										<%-- <div class="half">Note : In entire service an employee can able to take max of 90 days on without medical certificate</div>--%>
 									</div>
+									
+									<div class="line">
+										<div class="quarter leftmar">Compassionate Leave <font color="green">Balance</font>&nbsp;<span class="failure">*</span></div>
+										<div class="quarter"><form:input path="compassionateLeaves" id="compassionateLeaves" maxlength="4" onkeypress="javascript:return checkInt(event);"/></div>
+									</div>
 								
 									
 								

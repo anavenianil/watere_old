@@ -86,6 +86,8 @@
 													<c:if test="${LeaveWaterRequest.erpAvailableLeaveSaveDTO.leaveType == 'CL'}">Compassionate Leave</c:if>
 													<c:if test="${LeaveWaterRequest.erpAvailableLeaveSaveDTO.leaveType == 'ML'}">Maternity Leave</c:if>
 													<c:if test="${LeaveWaterRequest.erpAvailableLeaveSaveDTO.leaveType == 'PL'}">Peternity Leave</c:if>
+													
+													<c:if test="${LeaveWaterRequest.erpAvailableLeaveSaveDTO.leaveType == 'ComL'}">Compassionate Leave</c:if>
 												</div>
 											</div>
 											<div class="line">

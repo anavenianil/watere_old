@@ -200,7 +200,7 @@
 													<td><b>Reimbursement Date :</b><span class="mandatory">*</span></td>
 													<td><form:input path="waterReimbursementDate"
 															id="waterReimbursementDate" cssClass="dateClass"
-															readonly="true" onchange="javascript:noOfdays()"
+															readonly="true" 
 															onclick="javascript:clearDateText('waterReimbursementDate');" />
 														&nbsp; <img src="./images/calendar.gif"
 														id="date_start_trigger3" /> <script

@@ -11,6 +11,14 @@ public class ErpUsedLeavesDTO {
 	private String aL1;
 	private String sL1;
 	private String cL1;
+	private String comL1;
+	
+	public String getComL1() {
+		return comL1;
+	}
+	public void setComL1(String comL1) {
+		this.comL1 = comL1;
+	}
 	public String getcL1() {
 		return cL1;
 	}

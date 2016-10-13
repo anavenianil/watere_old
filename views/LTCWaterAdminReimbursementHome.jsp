@@ -29,7 +29,7 @@
 
 
 
-<title>TadaAdvanceCumRequest</title>
+<title>Annual Leave</title>
 
 </head>
 <body>
@@ -169,7 +169,7 @@
 													<td><b>Reimbursement Date :</b><span class="mandatory">*</span></td>
 													<td><form:input path="reimbursementAdminDate"
 															id="reimbursementAdminDate" cssClass="dateClass"
-															readonly="true" onchange="javascript:noOfdays()"
+															readonly="true" 
 															onclick="javascript:clearDateText('reimbursementAdminDate');" />
 														&nbsp; <img src="./images/calendar.gif"
 														id="date_start_trigger3" /> <script

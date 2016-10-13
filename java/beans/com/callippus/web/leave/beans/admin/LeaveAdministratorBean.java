@@ -122,6 +122,9 @@ public class LeaveAdministratorBean {
 	private int maternityLeaves;
 	private int peternityLeaves;
 	
+	private int compassionateLeaves; 
+	
+	
 	private List<ErpAvailableLeavesDTO> entryErpLeaves;
 	
 	  private ErpAvailableLeavesDTO erpAvailableLeavesDTO;
@@ -1155,5 +1158,15 @@ public class LeaveAdministratorBean {
 	public void setType(String type) {
 		this.type = type;
 	}
+
+	public int getCompassionateLeaves() {
+		return compassionateLeaves;
+	}
+
+	public void setCompassionateLeaves(int compassionateLeaves) {
+		this.compassionateLeaves = compassionateLeaves;
+	}
+
+
 
 }

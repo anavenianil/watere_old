@@ -124,7 +124,7 @@
 												</tr>
 												<tr>
 
-													<td><b>DA amount :</b>
+													<td><b>Fare amount :</b>
 														${tadaWaterRequestBean.tadaWaterApprovalRequestDTO.daAmt}</td>
 
 												</tr>
@@ -171,7 +171,7 @@
 										<tr>
 										<td><b>Settlement / Reimbursement Apply Date : <span class="mandatory">*</span></b></td>
 											<td><form:input path="settleOrReimApplyDate" id="settleOrReimApplyDate"
-													cssClass="dateClass" readonly="true" onchange="javascript:noOfdays()"
+													cssClass="dateClass" readonly="true" 
 													onclick="javascript:clearDateText('settleOrReimApplyDate');" /> &nbsp;
 												<img src="./images/calendar.gif" id="date_start_trigger3" />
 												<script type="text/javascript">

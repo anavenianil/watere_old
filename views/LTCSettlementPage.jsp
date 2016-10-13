@@ -246,7 +246,7 @@
 										<tr>
 										<td><b>Settlement / Reimbursement Apply Date : <span class="mandatory">*</span></b></td>
 											<td><form:input path="ltcsettleOrReimApplyDate" id="ltcsettleOrReimApplyDate"
-													cssClass="dateClass" readonly="true" onchange="javascript:noOfdays()"
+													cssClass="dateClass" readonly="true" 
 													onclick="javascript:clearDateText('ltcsettleOrReimApplyDate');" /> &nbsp;
 												<img src="./images/calendar.gif" id="date_start_trigger3" />
 												<script type="text/javascript">

@@ -370,6 +370,12 @@ function submitErpEnterAvailableLeaves(){
 	var sickLeaves=$jq('#sickLeaves').val();
 	var maternityLeaves=$jq('#maternityLeaves').val();
 	var peternityLeaves=$jq('#peternityLeaves').val();
+	
+	//added bkr 13/10/2016
+	var compassionateLeaves=$jq('#compassionateLeaves').val();
+	
+	
+	
 	if(entrySfid==='' ){
 		errorMessage += "Please Enter Employee ID\n";
 		if(status){
@@ -405,6 +411,18 @@ function submitErpEnterAvailableLeaves(){
 		}
 		status = false;
 	}
+	
+	//added bkr 13/10/2016
+	if(compassionateLeaves===''){
+		errorMessage += "Please Enter No.of Compassionate Leaves \n";
+		if(status){
+		$jq('#compassionateLeaves').focus();
+		}
+		status = false;
+	}
+	
+	
+	
 	if(entrySfid.length < 4){
 		errorMessage += "Please Enter Employee ID minimum 6 Characters \n";
 		if(status){
@@ -421,6 +439,8 @@ function submitErpEnterAvailableLeaves(){
 					"maternityLeaves" :maternityLeaves,
 					"sickLeaves" :sickLeaves,
 					"annualLeaves" :annualLeaves,
+					//added by bkr 13/10/2016
+					"compassionateLeaves" :compassionateLeaves,
 					"param" : "ErpEmpLeavesEntrySave",
 					"type" :"ERP Leave"			
 			};
@@ -449,6 +469,7 @@ function resetErpEnterAvailableLeaves(){
 	$jq('#sickLeaves').val('');
 	$jq('#maternityLeaves').val('');
 	$jq('#peternityLeaves').val('');
+	$jq('#compassionateLeaves').val('');
 }
 
 function fillErpAvailableLeaves(sfidValue) {
