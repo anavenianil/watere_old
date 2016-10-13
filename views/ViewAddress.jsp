@@ -148,7 +148,7 @@
 									<div class="quarter">
 										<form:input path="email" id="email" maxlength="100"/>
 									</div>
-									<div class="quarter">Nearest Railway Station<span class="mandatory">*</span></div>
+									<div class="quarter"><!-- Nearest Railway Station -->Nearest Bus Station/ Railway Station <span class="mandatory">*</span></div>
 									<div class="quarter">
 										<form:input path="nearestRyStation" id="nearestRyStation" maxlength="200" onkeypress="return checkChar(event);"/>
 									</div>
