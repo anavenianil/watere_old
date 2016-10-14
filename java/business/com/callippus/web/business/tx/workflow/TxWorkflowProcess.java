@@ -354,7 +354,15 @@ public class TxWorkflowProcess {
 	 * @throws Exception
 	 */
 	public RequestBean getWorkFlowAssignedSfid(RequestBean rb, RequestBean rb1,List<RequestBean> reqList) throws Exception {
-		log.debug("::<<<<<TxWorkflowProcess<<<<<Method>>>>>>>>>>>>>>>getWorkFlowAssignedSfid(RequestBean rb)>>>>>>>>>");
+		log.debug("::<<<<<TxWorkflowProcess<<<<< Method>>>>>>>>>>>>>>>getWorkFlowAssignedSfid(RequestBean rb)>>>>>>>>>");
+		
+		log.debug("1.rb parentID   ::   "+rb.getParentID());
+		log.debug("2.rb SFID   ::    "+rb.getSfID());
+		log.debug("3.rb Role  ::   "+rb.getRole());
+		log.debug("4.rb StageId  ::   "+rb.getStageID());
+		
+	
+		
 		Session session = null;
 		String result = null;
 		try {
@@ -374,6 +382,8 @@ public class TxWorkflowProcess {
                   
 			if (!CPSUtils.isNull(workFlowMappingBean)) {
 
+				log.debug("5.workFlowMappingBean.getRelation()  ::   "+workFlowMappingBean.getRelation());
+				
 				/**
 				 * Check whether the relationship type is absolute or relative. If the relationship is absolute, then to_role column contains the instance id, so get the sfid mapped to that instance
 				 * else if the relationship type is relative find the assigned sfid depends on the to_role column else if the relationship type is department find the department head role
@@ -386,6 +396,9 @@ public class TxWorkflowProcess {
 //					}else{
 						result = getAssignedID(rb.getSfID(), workFlowMappingBean.getTo(), rb.getRequesterOfficeID(), CPSConstants.APPROVED, rb.getOrgRoleID(), rb.getRequestID());
 //					}
+						
+					log.debug("6.result  ::   "+result);
+						
 					if (!CPSUtils.isNullOrEmpty(result)) {
 						rb.setParentID(result.split("#")[0]);
 						rb.setRoleID(result.split("#")[1]);
@@ -394,6 +407,8 @@ public class TxWorkflowProcess {
 				} else if (CPSUtils.compareStrings(workFlowMappingBean.getRelation(), CPSConstants.WORKFLOWRELATIONABSID)) {
 					// ABSOLUTE
 					result = getInstanceSFID(workFlowMappingBean.getTo());
+					log.debug("7.result  ::   "+result);
+					log.debug("7.-1 rb1.getParentID()  ::   "+rb1.getParentID());
 					if (!CPSUtils.isNullOrEmpty(result)) {
 						rb.setParentID(result.split("#")[0]);
 						rb.setRoleID(result.split("#")[1]);
@@ -401,6 +416,8 @@ public class TxWorkflowProcess {
 				} else if (CPSUtils.compareStrings(workFlowMappingBean.getRelation(), CPSConstants.WORKFLOWRELATIONDEPID)) {
 					// DEPARTMENT
 					result = getDependentDetails(workFlowMappingBean.getTo(), rb);
+					log.debug("8.result  ::   "+result);
+					log.debug("8.-1 rb1.getParentID()  ::   "+rb1.getParentID());
 					if (!CPSUtils.isNullOrEmpty(result)) {
 						rb.setParentID(result.split("#")[0]);
 						rb.setRoleID(result.split("#")[1]);
@@ -409,6 +426,8 @@ public class TxWorkflowProcess {
 				else if (CPSUtils.compareStrings(workFlowMappingBean.getRelation(), CPSConstants.WORKFLOWRELATIONDYNAMICID)) {
 					// DYNAMIC(for TADA)
 					result = getDynamicDetails(rb);
+					log.debug("9.result  ::   "+result);
+					log.debug("9.-1 rb1.getParentID()  ::   "+rb1.getParentID());
 					if (!CPSUtils.isNullOrEmpty(result)) {
 						rb.setParentID(result.split("#")[0]);
 						rb.setRoleID(result.split("#")[1]);
@@ -422,7 +441,10 @@ public class TxWorkflowProcess {
 				
 				/**
 				 * Iterate this loop till the parent ID is different and the requester & assigned employee is different.
+				 * This is a recursive call checking for next stage parent. Next stage parent should be different from Requester
 				 */
+				log.debug("10.rb.getRequestTypeID()  ::   "+rb.getRequestTypeID());
+				log.debug("10.-1 rb1.getParentID()  ::   "+rb1.getParentID());
 				if(CPSUtils.compareStrings(rb.getRequestTypeID(), "46") || CPSUtils.compareStrings(rb.getRequestTypeID(), "45")){
 					if(CPSUtils.isNullOrEmpty(reqList)){
 						reqList=new ArrayList<RequestBean>();
@@ -438,8 +460,14 @@ public class TxWorkflowProcess {
 						rb.setRequesterOfficeID(rb.getRequesterOfficeID());
 					rb = getWorkFlowAssignedSfid(rb, rb1,reqList);
 				} else{
-					if (CPSUtils.isNullOrEmpty(rb1.getParentID()) || CPSUtils.compareStrings(rb1.getParentID(), rb.getParentID())
-							|| checkRequestAssigned(rb.getRequestID(), rb.getParentID(), rb.getRoleID())) {
+					log.debug("11.-1 rb1.getParentID()  ::   "+rb1.getParentID());
+					log.debug("11.rb1.getParentID()  ::   "+rb1.getParentID());
+					log.debug("12.rb.getParentID()  ::   "+rb.getParentID());
+					
+					if (CPSUtils.isNullOrEmpty(rb1.getParentID()) || CPSUtils.compareStrings(rb1.getParentID(), rb.getParentID())) {
+//						Commented by Gattu/BKR dtd 14/Oct/16 to bypass forward checking of request already processed by same user.
+// 						Ex: TADA Process: MD > Finance Mgr > MD will be allowed now. With below condition, it was not allowed.
+//						|| checkRequestAssigned(rb.getRequestID(), rb.getParentID(), rb.getRoleID())) {
 						if (CPSUtils.isNullOrEmpty(rb1.getSfID())) {
 							rb1.setSfID(rb.getSfID());
 							rb1.setRequesterOfficeID(rb.getRequesterOfficeID());
@@ -452,8 +480,12 @@ public class TxWorkflowProcess {
 						rb1.setStageID(String.valueOf((Integer.parseInt(rb.getStageID()))));
 
 						rb.setRequesterOfficeID(rb.getRoleID());
+						log.debug("13.-1 rb1.getParentID()  ::   "+rb1.getParentID());
+						log.debug("13.About to invoke recursive call with rb.getSfID() ::   "+rb.getSfID() +", and rb1.getSfID()" + rb1.getSfID());
 						rb = getWorkFlowAssignedSfid(rb, rb1,reqList);
 					} else {
+						log.debug("14.-1 rb1.getParentID()  ::   "+rb1.getParentID());
+						log.debug("14.Else block");
 						rb.setSfID(rb1.getSfID());
 						rb.setRequesterOfficeID(rb1.getRequesterOfficeID());
 						rb.setParentID(rb1.getParentID());
@@ -509,6 +541,7 @@ public class TxWorkflowProcess {
 					}
 				}
 			}else{
+				log.debug("15.Else block: rb1.getSfID(), rb1.getRequesterOfficeID(), rb1.getStageID() to set" + rb1.getSfID() +","+ rb1.getRequesterOfficeID() +"," + String.valueOf(Integer.parseInt(rb1.getStageID()) - 1)) ;
 				if (CPSUtils.compareStrings(rb.getSfID(), rb.getParentID())) {
 					rb.setSfID(rb1.getSfID());
 					rb.setRequesterOfficeID(rb1.getRequesterOfficeID());
@@ -620,6 +653,9 @@ public class TxWorkflowProcess {
 		try {
 			session = hibernateUtils.getSession();
 
+			log.debug("Check request already assigned:");
+			log.debug("select to_char(id) from request_workflow_history where request_id='" + requestID + "' and assigned_to='" + parentID + "' and assigned_role_id='" +roleID+ "'");
+			
 			String historyID = (String)session.createSQLQuery("select to_char(id) from request_workflow_history where request_id=? and assigned_to=? and assigned_role_id=?").setString(0, requestID)
 					.setString(1, parentID).setString(2, roleID).uniqueResult();
 
