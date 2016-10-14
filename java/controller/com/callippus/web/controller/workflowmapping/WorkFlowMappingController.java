@@ -375,14 +375,10 @@ public class WorkFlowMappingController {
 				
 			}  else if (CPSUtils.compareStrings(CPSConstants.ERPLEAVEAPPLYDETAILS, workBeanMap.getParam())) {
 				
-				
-				
 				//added by bkr 21/06/2016 erp leave cancel
 				workBeanMap.setSfid(session.getAttribute(CPSConstants.SFID).toString());
 				workBeanMap = workFlowMappingBusiness.getRequestDetails(workBeanMap);
-				
 				if(CPSUtils.compareStrings(workBeanMap.getRequestsuccess(), CPSConstants.REQUESTSUCCESS)){
-					
 					//imp
 					workBeanMap = workFlowMappingBusiness.getChangedDetails(workBeanMap);
 					

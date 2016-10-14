@@ -140,8 +140,6 @@ public class TadaWaterRequestController implements Serializable {
 					tadaWaterRequestBean = tadaWaterRequestBusiness.getEmpDetails(tadaWaterRequestBean);
 					tadaWaterRequestBean = tadaWaterRequestBusiness.getDeptDetails(tadaWaterRequestBean);
 					
-					
-					
 					tadaWaterRequestBean=tadaWaterRequestBusiness.getCurrentWaterReqIdDetail(tadaWaterRequestBean);
 					
 					viewName = CPSConstants.TADAWATERSETTLEMENTTHOME;
@@ -155,8 +153,6 @@ public class TadaWaterRequestController implements Serializable {
 					tadaWaterRequestBean = tadaWaterRequestBusiness.getEmpDetails(tadaWaterRequestBean);
 					tadaWaterRequestBean = tadaWaterRequestBusiness.getDeptDetails(tadaWaterRequestBean);
 					
-					
-					
 					tadaWaterRequestBean=tadaWaterRequestBusiness.getCurrentWaterReqIdDetail(tadaWaterRequestBean);
 					
 					viewName = CPSConstants.TADASETTLEMENTCANECLPAGE;
@@ -167,13 +163,11 @@ public class TadaWaterRequestController implements Serializable {
 				else if(CPSUtils.compareStrings(CPSConstants.TADAWATERSETTLEMENTREQUEST, tadaWaterRequestBean.getParam())){
 					log.debug("tadawater settlement page added 01/05/2016  3 ");
 					
-					
 					log.debug("tadawater advance upadate");
 					TadaWaterRequestProcessBean tadaWaterRequestProcessBean = new TadaWaterRequestProcessBean();
 					BeanUtils.copyProperties(tadaWaterRequestProcessBean, tadaWaterRequestBean);
 					tadaWaterRequestBean = tadaWaterRequestBusiness.getEmpDetails(tadaWaterRequestBean);
 					tadaWaterRequestBean = tadaWaterRequestBusiness.getDeptDetails(tadaWaterRequestBean);
-					
 					
 					tadaWaterRequestBean.setResult(tadaWaterRequestProcess.tadaWaterSettlementApply(tadaWaterRequestProcessBean));
 
@@ -183,18 +177,13 @@ public class TadaWaterRequestController implements Serializable {
 				} else if(CPSUtils.compareStrings(CPSConstants.TADAWATERSETTLEMENTDETAILS, tadaWaterRequestBean.getParam())){
 						log.debug("tadawater gettadaWaterSettlementDetails 11/05/2016");
 						
-						
 						TadaWaterRequestProcessBean tadaWaterRequestProcessBean = new TadaWaterRequestProcessBean();
 						BeanUtils.copyProperties(tadaWaterRequestProcessBean, tadaWaterRequestBean);
 						//tadaWaterRequestBean = tadaWaterRequestBusiness.getEmpDetails(tadaWaterRequestBean);
 						//tadaWaterRequestBean = tadaWaterRequestBusiness.getDeptDetails(tadaWaterRequestBean);
 						
-						
 						tadaWaterRequestBean = tadaWaterRequestBusiness.getEmpDetailsOne(tadaWaterRequestBean);
 						tadaWaterRequestBean = tadaWaterRequestBusiness.getDeptDetailsOne(tadaWaterRequestBean);
-						
-						
-						
 						
 						tadaWaterRequestBean=tadaWaterRequestBusiness.getCurrentWaterSettlementDetail(tadaWaterRequestBean);
 						
@@ -232,13 +221,9 @@ public class TadaWaterRequestController implements Serializable {
 				tadaWaterRequestBean = tadaWaterRequestBusiness.getEmpDetails(tadaWaterRequestBean);
 				tadaWaterRequestBean = tadaWaterRequestBusiness.getDeptDetails(tadaWaterRequestBean);
 				
-				
 				tadaWaterRequestBean.setResult(tadaWaterRequestProcess.tadaWaterAdminSettlement(tadaWaterRequestProcessBean));
-
 				
 				viewName = CPSConstants.TADAWATERFINSETTLEMENTS;
-				
-				
 				
 			} else if(CPSUtils.compareStrings(CPSConstants.TADAWATERADMINREIMBURSEMENT, tadaWaterRequestBean.getParam())){
 				
@@ -249,13 +234,9 @@ public class TadaWaterRequestController implements Serializable {
 			tadaWaterRequestBean = tadaWaterRequestBusiness.getEmpDetails(tadaWaterRequestBean);
 			tadaWaterRequestBean = tadaWaterRequestBusiness.getDeptDetails(tadaWaterRequestBean);
 			
-			
 			tadaWaterRequestBean.setResult(tadaWaterRequestProcess.tadaWaterAdminReimbursement(tadaWaterRequestProcessBean));
-
 			
 			viewName = CPSConstants.TADAWATERFINSETTLEMENTS;
-			
-			
 			
 		} else 	if (CPSUtils.compareStrings(CPSConstants.TADAWATERREPORTHOME,
 				tadaWaterRequestBean.getParam())) {
@@ -264,7 +245,6 @@ public class TadaWaterRequestController implements Serializable {
 
 			viewName = CPSConstants.TADAWATERREPORTHOMEPAGE;
 		}
-
 			
 			//tadaWaterSettlementRequest
 			mav = new ModelAndView(viewName, CPSConstants.TADA,

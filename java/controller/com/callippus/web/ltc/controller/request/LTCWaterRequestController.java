@@ -57,7 +57,6 @@ public class LTCWaterRequestController  implements Serializable {
 		HttpSession session = null;
 		String viewName = null;
 		
-		
 		try {
 			
 			session = request.getSession(true);
@@ -65,7 +64,6 @@ public class LTCWaterRequestController  implements Serializable {
 			if (CPSUtils.compareStrings(CPSConstants.LTCWATERHOME, ltcWaterRequestBean.getParam())) {
 				
 				log.debug("LTC HOME PAGE 1");
-				
 				ltcWaterRequestBean = ltcWaterRequestBusiness.getEmpDetails(ltcWaterRequestBean);
 				ltcWaterRequestBean = ltcWaterRequestBusiness.getDeptDetails(ltcWaterRequestBean);
 				ltcWaterRequestBean = ltcWaterRequestBusiness.getltcYearsList(ltcWaterRequestBean);
@@ -101,14 +99,8 @@ public class LTCWaterRequestController  implements Serializable {
 				LTCWaterRequestProcessBean ltcWaterRequestProcessBean = new LTCWaterRequestProcessBean();
 				//ltcWaterRequestBean = ltcWaterRequestBusiness.getEmpDetails(ltcWaterRequestBean);
 				//ltcWaterRequestBean = ltcWaterRequestBusiness.getDeptDetails(ltcWaterRequestBean);
-				
-				
 				ltcWaterRequestBean = ltcWaterRequestBusiness.getEmpDetailsOne(ltcWaterRequestBean);
 				ltcWaterRequestBean = ltcWaterRequestBusiness.getDeptDetailsOne(ltcWaterRequestBean);
-				
-				
-				
-				
 				
 				ltcWaterRequestBean=ltcWaterRequestBusiness.getCurrentWaterReqIdDetails(ltcWaterRequestBean);
 				ltcWaterRequestBean = ltcWaterRequestBusiness.getBankNameDetails(ltcWaterRequestBean);
@@ -166,13 +158,9 @@ public class LTCWaterRequestController  implements Serializable {
 				BeanUtils.copyProperties(ltcWaterRequestProcessBean, ltcWaterRequestBean);
 				//ltcWaterRequestBean = ltcWaterRequestBusiness.getEmpDetails(ltcWaterRequestBean);
 				//ltcWaterRequestBean = ltcWaterRequestBusiness.getDeptDetails(ltcWaterRequestBean);
-				
 
 				ltcWaterRequestBean = ltcWaterRequestBusiness.getEmpDetailsOne(ltcWaterRequestBean);
 				ltcWaterRequestBean = ltcWaterRequestBusiness.getDeptDetailsOne(ltcWaterRequestBean);
-				
-				
-				
 				
 				ltcWaterRequestBean=ltcWaterRequestBusiness.getCurrentWaterSettlementDetail(ltcWaterRequestBean);
 				viewName = CPSConstants.LTCWATERADMINSETTLEMENTHOME;
@@ -192,13 +180,11 @@ public class LTCWaterRequestController  implements Serializable {
 		LTCWaterRequestProcessBean ltcWaterRequestProcessBean = new LTCWaterRequestProcessBean();
 		BeanUtils.copyProperties(ltcWaterRequestProcessBean, ltcWaterRequestBean);
 		
-		
 		/*ltcWaterRequestBean = ltcWaterRequestBusiness.getEmpDetails(ltcWaterRequestBean);
 		ltcWaterRequestBean = ltcWaterRequestBusiness.getDeptDetails(ltcWaterRequestBean);*/
 		
 		ltcWaterRequestBean = ltcWaterRequestBusiness.getEmpDetailsOne(ltcWaterRequestBean);
 		ltcWaterRequestBean = ltcWaterRequestBusiness.getDeptDetailsOne(ltcWaterRequestBean);
-		
 		
 		ltcWaterRequestBean=ltcWaterRequestBusiness.getCurrentWaterReimbursementDetail(ltcWaterRequestBean);
 		ltcWaterRequestBean = ltcWaterRequestBusiness.getBankNameDetails(ltcWaterRequestBean);

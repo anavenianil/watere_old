@@ -85,13 +85,10 @@ public class TadaWaterRequestProcess  extends TxRequestProcess {
 				txRequestProcess.initWorkflow(rb);
 			}
 			
-			
 		} catch (Exception e) {
 			message = CPSConstants.FAILED;
 			throw e;
 		}
-		
-		
 		return tadaWRPB.getMessage();
 		
 	}
@@ -113,8 +110,6 @@ public class TadaWaterRequestProcess  extends TxRequestProcess {
 		}
 		return tadaWRPB;
 	}
-
-	
 	
 	@SuppressWarnings("unchecked")
 	public String submitTxnDetails(TadaWaterRequestProcessBean tadaWRPB) throws Exception {
@@ -130,8 +125,6 @@ public class TadaWaterRequestProcess  extends TxRequestProcess {
 		String minDate=null;
 		Criteria crit=null;
 		
-		
-		
 		try {
 			
 			tadaWaterApprDTO = new TadaWaterApprovalRequestDTO();
@@ -142,9 +135,7 @@ public class TadaWaterRequestProcess  extends TxRequestProcess {
 			tadaWaterApprDTO.setPhnNo(tadaWRPB.getEmpDetailsList().getPersonalNumber());
 			tadaWaterApprDTO.setDesignation(tadaWRPB.getEmpDetailsList().getDesignation());
 		//	tadaWaterApprDTO.setDeptName(tadaWRPB.getEmpDetailsList().getDirectorate());
-			
 			tadaWaterApprDTO.setDeptId(tadaWRPB.getEmpDetailsList().getDirectorate());
-			
 			tadaWaterApprDTO.setStatus("1");
 			tadaWaterApprDTO.setStageStatus(1);
 			//tadaWaterApprDTO.setStageStatus1("1");
@@ -191,9 +182,7 @@ public class TadaWaterRequestProcess  extends TxRequestProcess {
 		
 		sql=" select tdrd.REQUEST_ID AS requestId,tdrd.DEPARTMENT_ID AS deptId,tdrd.SFID AS sfid, tdrd.DESIGNATION_ID AS desigId,  tdrd.PHONE_NUMBER AS phnNo, tdrd.CLAIM_PURPOSE AS claimPurpose, tdrd.TRAVELLING_TO AS travellingTo,FROM_DATE AS fromDate,TO_DATE AS toDate, tdrd.FOOD_ACCM_AMT AS foodandAccmAmt,  tdrd.DA_AMT AS daAmt,  tdrd.TAXI_AMT AS taxiAmt, tdrd.TRANSIT_AMT AS transitAmt,  tdrd.TOTAL_AMT AS totalAmt,  tdrd.NOOF_DAYS  AS noOfDays,  tdrd.REMARKS AS reason,  tdrd.IP_ADDRESS AS ipAddress, tdrd.PERDAY_FD_ACC_AMT AS perDayFoodandAccmAmt,tdrd.STATUS AS status   FROM TADA_WATER_ADV_REQUEST_DETAILS tdrd WHERE tdrd.REQUEST_ID="+requestId+"";
 		
-		
 		tadaWaterApprovalRequestDTO=(TadaWaterApprovalRequestDTO) session.createSQLQuery(sql).addScalar("requestId", Hibernate.STRING).addScalar("deptId", Hibernate.INTEGER).addScalar("sfid", Hibernate.STRING).addScalar("desigId", Hibernate.INTEGER).addScalar("phnNo", Hibernate.STRING).addScalar("claimPurpose", Hibernate.STRING).addScalar("travellingTo", Hibernate.STRING).addScalar("fromDate", Hibernate.DATE).addScalar("toDate", Hibernate.DATE).addScalar("foodandAccmAmt", Hibernate.INTEGER).addScalar("daAmt",Hibernate.INTEGER).addScalar("taxiAmt", Hibernate.INTEGER).addScalar("transitAmt", Hibernate.INTEGER).addScalar("totalAmt", Hibernate.INTEGER).addScalar("noOfDays",Hibernate.INTEGER).addScalar("reason", Hibernate.STRING).addScalar("ipAddress", Hibernate.STRING).addScalar("perDayFoodandAccmAmt", Hibernate.INTEGER).addScalar("status", Hibernate.STRING).setResultTransformer(Transformers.aliasToBean(TadaWaterApprovalRequestDTO.class)).uniqueResult();
-		
 		
 		workflowMap.setTadaWaterApprovalRequestDTO(tadaWaterApprovalRequestDTO);
 		
@@ -245,10 +234,7 @@ public class TadaWaterRequestProcess  extends TxRequestProcess {
 	} catch (Exception e) {
 		throw e;
 	} finally {
-
-
 		session.flush();
-
 	}
 	return workflowMap;
 	}
@@ -293,8 +279,6 @@ public class TadaWaterRequestProcess  extends TxRequestProcess {
 						//rb.setMessage(tadaDomainObject.submitMroPaymentDetails(processBean));
 						}
 					} 
-						
-						
 						if(Integer.parseInt(processBean.getExcessAmount())<0 && accJson.length()==0 && mroPaymentJson.length()>0  ){
 					//		rb.setMessage(tadaDomainObject.submitMroPaymentDetails(processBean));
 							
@@ -324,8 +308,6 @@ public class TadaWaterRequestProcess  extends TxRequestProcess {
 			//	processBean.setApprovedStage("1");
 			//	tadaDomainObject.updateTxnDetails(processBean);
 			} else if((CPSUtils.compareStrings(CPSConstants.TADATDSETTLEMENTS, processBean.getRequestType()) || (CPSUtils.compareStrings(CPSConstants.TADATDREIMBURSEMENT, processBean.getRequestType()))) && CPSUtils.compareStrings(rb.getParentID(), "SF0794") ){
-			
-				
 			//	processBean.setApprovedStage("1");
 			//	tadaDomainObject.updateTxnDetails(processBean);
 			//	tadaDomainObject.submitMroDetails(processBean);
@@ -359,8 +341,6 @@ public class TadaWaterRequestProcess  extends TxRequestProcess {
 		}
 		return finAdvList;
 	}
-
-
 
 	public String tadaWaterSettlementApply(
 			TadaWaterRequestProcessBean tadaWaterRequestProcessBean) throws Exception{
@@ -536,10 +516,8 @@ public class TadaWaterRequestProcess  extends TxRequestProcess {
 			TadaWaterRequestProcessBean tadaWaterRequestProcessBean) throws Exception{
 		Session session=null;
 		try {
-			
 			session=hibernateUtils.getSession();
 			//	session.createQuery("update TadaWaterApprovalRequestDTO set reimcashorcheck=?,reimDvDate=?,reimDvno=?,waterReimbursementDate=?,reimbursementRemarks=? where requestId=?").setString(0, tadaWaterRequestProcessBean.getReimcashorcheck()).setDate(1,  tadaWaterRequestProcessBean.getReimDvDate()).setString(2, tadaWaterRequestProcessBean.getReimDvno()).setDate(3,  tadaWaterRequestProcessBean.getWaterReimbursementDate()).setString(4, tadaWaterRequestProcessBean.getReimbursementRemarks()).setString(5, tadaWaterRequestProcessBean.getRequestId()).executeUpdate();
-			
 			session.createQuery("update TadaWaterApprovalRequestDTO set reimcashorcheck=?,reimDvDate=?,reimDvno=?,waterReimbursementDate=?,reimbursementRemarks=?,reimBankName=?,reimBranchName=?,reimChequeNo=?,reimAdminDvno=?,reimAdminDvDate=?,stageStatus=6 where requestId=?").setString(0, tadaWaterRequestProcessBean.getReimcashorcheck()).setDate(1,  tadaWaterRequestProcessBean.getReimDvDate()).setString(2, tadaWaterRequestProcessBean.getReimDvno()).setDate(3,  tadaWaterRequestProcessBean.getWaterReimbursementDate()).setString(4, tadaWaterRequestProcessBean.getReimbursementRemarks()).setString(5, tadaWaterRequestProcessBean.getReimBankName()).setString(6, tadaWaterRequestProcessBean.getReimBranchName()).setString(7, tadaWaterRequestProcessBean.getReimChequeNo()).setString(8, tadaWaterRequestProcessBean.getReimAdminDvno()).setDate(9, tadaWaterRequestProcessBean.getReimAdminDvDate()).setString(10, tadaWaterRequestProcessBean.getRequestId()).executeUpdate();
 				
 		} catch (Exception e) {

@@ -300,8 +300,6 @@ public String approvedRequest(LTCWaterRequestProcessBean processBean) throws Exc
 					//rb.setMessage(tadaDomainObject.submitMroPaymentDetails(processBean));
 					}
 				} 
-					
-					
 					if(Integer.parseInt(processBean.getExcessAmount())<0 && accJson.length()==0 && mroPaymentJson.length()>0  ){
 				//		rb.setMessage(tadaDomainObject.submitMroPaymentDetails(processBean));
 						
@@ -351,8 +349,6 @@ public List<LTCWaterRequestDTO> getFinAdvDetails(LTCWaterRequestBean ltcWaterReq
 	try{
 		session=hibernateUtils.getSession();
 		
-		
-		
 		sql="select ltc.REQUEST_ID AS requestId,ltc.DEPARTMENT_ID AS deptName,ltc.SFID AS sfID,  "
 				+ "ltc.DESIGNATION_ID AS designation,  ltc.PHONE_NUMBER AS phnNo, ltc.LTC_TYPE AS typeOfLtc, "
 				+ " ltc.LTC_YEAR_ID AS ltcYear, ltc.HOMETOWNADDR AS hometownAddr,  "
@@ -396,7 +392,6 @@ public List<LTCWaterRequestDTO> getFinAdvCompletedDetails(LTCWaterRequestBean lt
 		
 		
 		finAdvList =session.createSQLQuery(sql).addScalar("requestId", Hibernate.STRING).addScalar("deptName", Hibernate.STRING).addScalar("sfID", Hibernate.STRING).addScalar("designation", Hibernate.INTEGER).addScalar("phnNo", Hibernate.STRING).addScalar("ltcYear", Hibernate.STRING).addScalar("hometownAddr", Hibernate.STRING).addScalar("nod", Hibernate.INTEGER).addScalar("noOfAdultsTickets", Hibernate.INTEGER).addScalar("noOfChildrenTickets", Hibernate.INTEGER).addScalar("leaveType",Hibernate.STRING).addScalar("status", Hibernate.INTEGER).addScalar("totalTicketsAmt", Hibernate.INTEGER).setResultTransformer(Transformers.aliasToBean(LTCWaterRequestDTO.class)).list();
-
 	
 	}catch(Exception e){
 		throw e;
@@ -586,11 +581,6 @@ public String submitLtcFamilyTxnDetails(LTCWaterRequestProcessBean ltcWRPB,Strin
 	
 }
 
-
-/*public void updateErpLTCRequestDetails(String requestID) {
-	// TODO Auto-generated method stub
-	
-}*/
 public String updateErpLTCRequestDetails(String requestID) throws Exception {
 	
 	try {
