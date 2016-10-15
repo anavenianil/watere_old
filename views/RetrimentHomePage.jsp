@@ -86,9 +86,7 @@
 											</form:select>
 										</div>
 								</div>
-								
-								
-										<div class="line">
+									<div class="line">
 									<div class="quarter leftmar">
 										Retirement Date<span class="mandatory">*</span>
 									</div>
@@ -143,13 +141,6 @@
 									</div>
 								</div>
 								
-							
-								
-								
-							
-								
-								
-							
 								
 								<div class="line">
 									<div class="quarter leftmar">
@@ -184,8 +175,6 @@
 			
 								</div>	
 								<hr></hr>
-								
-								
 									<div class="line" style="margin-left: 35%;">
 											<div class="expbutton"><a onclick="javascript:submitRetrimentDetails();"> <span>Submit</span></a></div>
 											<div class="expbutton"><a onclick="javascript:clearRetrimentDetails();"> <span>Clear</span></a></div>

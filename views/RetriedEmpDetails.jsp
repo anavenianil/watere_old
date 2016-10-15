@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!-- Begin:RetrimentHomePage.jsp-->
+<!-- Begin:RetriedEmpDetails.jsp-->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="/tags/spring-form" prefix="form"%>
 <%@ taglib uri="/tags/jstl-c" prefix="c" %>
@@ -82,8 +82,6 @@
 										
 										</div>
 										
-									
-										
 								</div>
 								<div class="line">
 								
@@ -95,8 +93,6 @@
 										<form:input path="retrimentAmt" id="retrimentAmt" readonly="true" value='${getretriedEmpDetails.retrimentAmt }'/>
 										&nbsp;
 									</div>
-									
-									
 									<div class="quarter leftmar">
 										No Of Persons<span class="mandatory">*</span>
 									</div>
@@ -104,11 +100,6 @@
 										<form:input path="noOfPerson" id="noOfPerson" readonly="true" value='${getretriedEmpDetails.noOfPerson }'/>
 									&nbsp;
 									</div>
-									
-										
-									
-									
-									
 								</div>
 									
 								<div class="line">
@@ -149,16 +140,14 @@
 
 								<div class="line">
 									<div class="quarter leftmar">
-										DV NO<span class="mandatory">*</span>
+										PV NO<span class="mandatory">*</span>
 									</div>
 									<div class="quarter">
 										<form:input path="dvno" id="dvno" />
 									&nbsp;
 									</div>
-									
-									
 									<div class="quarter leftmar">
-										DV DATE <span class="mandatory">*</span>
+										PV DATE <span class="mandatory">*</span>
 									</div>
 									<div class="quarter">
 										<form:input path="dvDate" id="dvDate"
