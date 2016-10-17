@@ -288,13 +288,14 @@ public class SQLTadaWaterRequestDAO implements ITadaWaterRequestDAO {
 			String requestId = tadaWaterRequestBean.getRequestId();
 
 			// retrive data from db
+			
 			sql = "select tdrd.REQUEST_ID AS requestId,tdrd.DEPARTMENT_ID AS deptId,tdrd.SFID AS sfid, "
 					+ "tdrd.DESIGNATION_ID AS desigId,  tdrd.PHONE_NUMBER AS phnNo, tdrd.CLAIM_PURPOSE AS claimPurpose, "
 					+ "tdrd.TRAVELLING_TO AS travellingTo, tdrd.FROM_DATE AS fromDate,tdrd.TO_DATE AS toDate, "
 					+ "tdrd.FOOD_ACCM_AMT AS foodandAccmAmt,  tdrd.DA_AMT AS daAmt,  tdrd.TAXI_AMT AS taxiAmt, "
 					+ "tdrd.TRANSIT_AMT AS transitAmt,  tdrd.TOTAL_AMT AS totalAmt,  tdrd.NOOF_DAYS  AS noOfDays,  "
 					+ "tdrd.REMARKS AS reason,  tdrd.IP_ADDRESS AS ipAddress, tdrd.PERDAY_FD_ACC_AMT AS perDayFoodandAccmAmt, tdrd.AMT_TYPE AS cashorcheck,"
-					+ "tdrd.STATUS AS status ,tdrd.ACTUAL_EXPENDITURE AS actualExpenditure ,tdrd.SETTLEORREIM_AMT AS settleOrReimAmt       "
+					+ "tdrd.STATUS AS status ,tdrd.ACTUAL_EXPENDITURE AS actualExpenditure ,tdrd.SETTLEORREIM_AMT AS settleOrReimAmt ,tdrd.SELORREIM_REMARKS AS  selOrReimRemarks     "
 					+ "FROM TADA_WATER_ADV_REQUEST_DETAILS tdrd "
 					+ "WHERE tdrd.REQUEST_ID=" + requestId + "";
 			tadaWaterApprovalRequestDTO = (TadaWaterApprovalRequestDTO) session
@@ -320,7 +321,7 @@ public class SQLTadaWaterRequestDAO implements ITadaWaterRequestDAO {
 					.addScalar("cashorcheck", Hibernate.STRING)
 					.addScalar("status", Hibernate.STRING)
 					.addScalar("actualExpenditure", Hibernate.INTEGER)
-					.addScalar("settleOrReimAmt", Hibernate.INTEGER)
+					.addScalar("settleOrReimAmt", Hibernate.INTEGER).addScalar("selOrReimRemarks", Hibernate.STRING)
 					.setResultTransformer(
 							Transformers
 									.aliasToBean(TadaWaterApprovalRequestDTO.class))
@@ -331,6 +332,7 @@ public class SQLTadaWaterRequestDAO implements ITadaWaterRequestDAO {
 
 		} catch (Exception e) {
 			throw e;
+			
 		}
 		return tadaWaterRequestBean;
 	}
@@ -355,7 +357,7 @@ public class SQLTadaWaterRequestDAO implements ITadaWaterRequestDAO {
 					+ "tdrd.FOOD_ACCM_AMT AS foodandAccmAmt,  tdrd.DA_AMT AS daAmt,  tdrd.TAXI_AMT AS taxiAmt, "
 					+ "tdrd.TRANSIT_AMT AS transitAmt,  tdrd.TOTAL_AMT AS totalAmt,  tdrd.NOOF_DAYS  AS noOfDays,  "
 					+ "tdrd.REMARKS AS reason,  tdrd.IP_ADDRESS AS ipAddress, tdrd.PERDAY_FD_ACC_AMT AS perDayFoodandAccmAmt, tdrd.AMT_TYPE AS cashorcheck,"
-					+ "tdrd.STATUS AS status ,tdrd.ACTUAL_EXPENDITURE AS actualExpenditure ,tdrd.SETTLEORREIM_AMT AS settleOrReimAmt       "
+					+ "tdrd.STATUS AS status ,tdrd.ACTUAL_EXPENDITURE AS actualExpenditure ,tdrd.SETTLEORREIM_AMT AS settleOrReimAmt ,tdrd.SELORREIM_REMARKS AS  selOrReimRemarks        "
 					+ "FROM TADA_WATER_ADV_REQUEST_DETAILS tdrd "
 					+ "WHERE tdrd.REQUEST_ID=" + requestId + "";
 
@@ -382,7 +384,7 @@ public class SQLTadaWaterRequestDAO implements ITadaWaterRequestDAO {
 					.addScalar("cashorcheck", Hibernate.STRING)
 					.addScalar("status", Hibernate.STRING)
 					.addScalar("actualExpenditure", Hibernate.INTEGER)
-					.addScalar("settleOrReimAmt", Hibernate.INTEGER)
+					.addScalar("settleOrReimAmt", Hibernate.INTEGER).addScalar("selOrReimRemarks", Hibernate.STRING)
 					.setResultTransformer(
 							Transformers
 									.aliasToBean(TadaWaterApprovalRequestDTO.class))

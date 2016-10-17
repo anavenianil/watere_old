@@ -158,6 +158,12 @@
 												</tr>
 												
 												
+												<tr>
+													<td><b>User Remarks :</b></td>
+													<td >
+													<textarea readonly="readonly">${ltcwater.ltcWaterRequestDTO.ltcselOrReimRemarks}</textarea>  </td>
+												
+												</tr>
 												
 												
 												<tr>

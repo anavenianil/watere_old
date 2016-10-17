@@ -167,6 +167,11 @@
 
 												</tr>
 												<tr>
+												<td><b>User Remarks :</b></td>
+												<td><textarea readonly="readonly">${tadaWaterRequestBean.tadaWaterApprovalRequestDTO.selOrReimRemarks}</textarea>
+												</td>
+												</tr>
+												<tr>
 													<td><b>Remarks : </b></td>
 													<td><form:textarea path="reimbursementRemarks"
 															id="reimbursementRemarks" rows="2" cols="30" /></td>

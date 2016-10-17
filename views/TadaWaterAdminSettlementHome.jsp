@@ -164,6 +164,13 @@
 															onkeypress="javascript:return checkInt(event);" /></td>
 
 												</tr>
+													<tr>
+												<td><b>User Remarks :</b></td>
+												<td><textarea readonly="readonly">${tadaWaterRequestBean.tadaWaterApprovalRequestDTO.selOrReimRemarks}</textarea>
+												</td>
+												</tr>
+												
+												
 												<tr>
 													<td><b>Remarks : </b></td>
 													<td><form:textarea path="settlementRemarks"

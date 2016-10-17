@@ -26,7 +26,7 @@
 <script type="text/javascript" src="script/calendar-hd.js"></script>
 <script type="text/javascript" src="script/calendar_us.js"></script>
 
-<title> Outside Employee Details</title>
+<title> Create Employee Details</title>
 
 </head>
 

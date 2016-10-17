@@ -290,19 +290,9 @@ public class SQLLTCWaterRequestDAO implements ILTCWaterRequestDAO {
 			}
 			String requestId=ltcWaterRequestBean.getRequestId();
 			
-			//retrive data from db
-		/*	sql="select tdrd.REQUEST_ID AS requestId,tdrd.DEPARTMENT_NAME AS deptName,tdrd.SFID AS sfid, "
-					+ "tdrd.DESIGNATION_ID AS desigId,  tdrd.PHONE_NUMBER AS phnNo, tdrd.CLAIM_PURPOSE AS claimPurpose, "
-					+ "tdrd.TRAVELLING_TO AS travellingTo, tdrd.FROM_DATE AS fromDate,tdrd.TO_DATE AS toDate, "
-					+ "tdrd.FOOD_ACCM_AMT AS foodandAccmAmt,  tdrd.DA_AMT AS daAmt,  tdrd.TAXI_AMT AS taxiAmt, "
-					+ "tdrd.TRANSIT_AMT AS transitAmt,  tdrd.TOTAL_AMT AS totalAmt,  tdrd.NOOF_DAYS  AS noOfDays,  "
-					+ "tdrd.REMARKS AS reason,  tdrd.IP_ADDRESS AS ipAddress, tdrd.PERDAY_FD_ACC_AMT AS perDayFoodandAccmAmt, tdrd.AMT_TYPE AS cashorcheck,"
-					+ "tdrd.STATUS AS status ,tdrd.ACTUAL_EXPENDITURE AS actualExpenditure ,tdrd.SETTLEORREIM_AMT AS settleOrReimAmt       "
-					+ "FROM TADA_WATER_ADV_REQUEST_DETAILS tdrd "
-					+ "WHERE tdrd.REQUEST_ID="+requestId+"";
-			ltcWaterRequestDTO=(LTCWaterRequestDTO) session.createSQLQuery(sql).addScalar("requestId", Hibernate.STRING).addScalar("deptName", Hibernate.STRING).addScalar("sfid", Hibernate.STRING).addScalar("desigId", Hibernate.INTEGER).addScalar("phnNo", Hibernate.STRING).addScalar("claimPurpose", Hibernate.STRING).addScalar("travellingTo", Hibernate.STRING).addScalar("fromDate", Hibernate.DATE).addScalar("toDate", Hibernate.DATE).addScalar("foodandAccmAmt", Hibernate.INTEGER).addScalar("daAmt",Hibernate.INTEGER).addScalar("taxiAmt", Hibernate.INTEGER).addScalar("transitAmt", Hibernate.INTEGER).addScalar("totalAmt", Hibernate.INTEGER).addScalar("noOfDays",Hibernate.INTEGER).addScalar("reason", Hibernate.STRING).addScalar("ipAddress", Hibernate.STRING).addScalar("perDayFoodandAccmAmt", Hibernate.INTEGER).addScalar("cashorcheck", Hibernate.STRING).addScalar("status", Hibernate.STRING).addScalar("actualExpenditure", Hibernate.INTEGER).addScalar("settleOrReimAmt", Hibernate.INTEGER).setResultTransformer(Transformers.aliasToBean(LTCWaterRequestDTO.class)).uniqueResult();
-			*/
+			//ltcselOrReimRemarks
 			
+			//retrive data from db
 			sql="select ltc.REQUEST_ID AS requestId,ltc.DEPARTMENT_ID AS deptName,ltc.SFID AS sfID,  "
 					+ "ltc.DESIGNATION_ID AS designation,  ltc.PHONE_NUMBER AS phnNo, ltc.LTC_TYPE AS typeOfLtc, "
 					+ " ltc.LTC_YEAR_ID AS ltcYear, ltc.HOMETOWNADDR AS hometownAddr,  "
@@ -310,11 +300,11 @@ public class SQLLTCWaterRequestDAO implements ILTCWaterRequestDAO {
 					+ " ltc.NOOF_ADULTS_TICKETS AS noOfAdultsTickets,  ltc.NOOF_CHILDREN_TICKETS  AS noOfChildrenTickets,  "
 					+ " ltc.LEAVE_TYPE AS leaveType,  ltc.STATUS AS status, "
 					+ " ltc.IPADDRESS AS ipAddress,ltc.TOTAL_TICKETS_AMT AS totalTicketsAmt,ltc.AMOUNT_ADULTS AS amountAdults,ltc.AMOUNT_CHILDREN AS amountChildren,ltc.TOTAL_ADULTS_AMT AS adultsTotAmt,ltc.TOTAL_CHILDREN_AMT AS childrenTotAmt,ltc.STARTHOLIDAY AS startHoliday,ltc.RETURNHOLIDAY AS returnHoliday,  "
-					+ "ltc.REF_LETTER_DATE AS refLetterDate,ltc.REF_LETTER_NO AS refLetterNo,ltc.SETTLEORREIM_AMT AS ltcsettleOrReimAmt,ltc.ACTUAL_EXPENDITURE AS ltcactualExpenditure,ltc.OTHER_AMT as otherAmt "
+					+ "ltc.REF_LETTER_DATE AS refLetterDate,ltc.REF_LETTER_NO AS refLetterNo,ltc.SETTLEORREIM_AMT AS ltcsettleOrReimAmt,ltc.ACTUAL_EXPENDITURE AS ltcactualExpenditure,ltc.OTHER_AMT as otherAmt,ltc.SETTLEMENT_REMARKS AS ltcselOrReimRemarks "
 					+ " FROM LTC_WATER_REQUEST_DETAILS ltc "
 					+ "WHERE ltc.REQUEST_ID="+requestId+"";
 					
-			ltcWaterRequestDTO=(LTCWaterRequestDTO)	session.createSQLQuery(sql).addScalar("requestId", Hibernate.STRING).addScalar("deptName", Hibernate.STRING).addScalar("sfID", Hibernate.STRING).addScalar("designation", Hibernate.INTEGER).addScalar("phnNo", Hibernate.STRING).addScalar("ltcYear", Hibernate.STRING).addScalar("hometownAddr", Hibernate.STRING).addScalar("nod", Hibernate.INTEGER).addScalar("noOfAdultsTickets", Hibernate.INTEGER).addScalar("noOfChildrenTickets", Hibernate.INTEGER).addScalar("leaveType",Hibernate.STRING).addScalar("status", Hibernate.INTEGER).addScalar("ipAddress", Hibernate.STRING).addScalar("totalTicketsAmt", Hibernate.INTEGER).addScalar("amountAdults", Hibernate.INTEGER).addScalar("amountChildren", Hibernate.INTEGER).addScalar("adultsTotAmt", Hibernate.INTEGER).addScalar("childrenTotAmt", Hibernate.INTEGER).addScalar("startHoliday", Hibernate.DATE).addScalar("returnHoliday", Hibernate.DATE).addScalar("refLetterDate", Hibernate.DATE).addScalar("refLetterNo", Hibernate.STRING).addScalar("ltcsettleOrReimAmt", Hibernate.INTEGER).addScalar("ltcactualExpenditure", Hibernate.INTEGER).addScalar("otherAmt", Hibernate.INTEGER).setResultTransformer(Transformers.aliasToBean(LTCWaterRequestDTO.class)).uniqueResult();
+			ltcWaterRequestDTO=(LTCWaterRequestDTO)	session.createSQLQuery(sql).addScalar("requestId", Hibernate.STRING).addScalar("deptName", Hibernate.STRING).addScalar("sfID", Hibernate.STRING).addScalar("designation", Hibernate.INTEGER).addScalar("phnNo", Hibernate.STRING).addScalar("ltcYear", Hibernate.STRING).addScalar("hometownAddr", Hibernate.STRING).addScalar("nod", Hibernate.INTEGER).addScalar("noOfAdultsTickets", Hibernate.INTEGER).addScalar("noOfChildrenTickets", Hibernate.INTEGER).addScalar("leaveType",Hibernate.STRING).addScalar("status", Hibernate.INTEGER).addScalar("ipAddress", Hibernate.STRING).addScalar("totalTicketsAmt", Hibernate.INTEGER).addScalar("amountAdults", Hibernate.INTEGER).addScalar("amountChildren", Hibernate.INTEGER).addScalar("adultsTotAmt", Hibernate.INTEGER).addScalar("childrenTotAmt", Hibernate.INTEGER).addScalar("startHoliday", Hibernate.DATE).addScalar("returnHoliday", Hibernate.DATE).addScalar("refLetterDate", Hibernate.DATE).addScalar("refLetterNo", Hibernate.STRING).addScalar("ltcsettleOrReimAmt", Hibernate.INTEGER).addScalar("ltcactualExpenditure", Hibernate.INTEGER).addScalar("otherAmt", Hibernate.INTEGER).addScalar("ltcselOrReimRemarks", Hibernate.STRING).setResultTransformer(Transformers.aliasToBean(LTCWaterRequestDTO.class)).uniqueResult();
 			
 			
 			ltcWaterRequestBean.setLtcWaterRequestDTO(ltcWaterRequestDTO);
@@ -339,15 +329,7 @@ public class SQLLTCWaterRequestDAO implements ILTCWaterRequestDAO {
 			String requestId=ltcWaterRequestBean.getRequestId();
 			
 			//retrive data from db
-	/*		sql="select tdrd.REQUEST_ID AS requestId,tdrd.DEPARTMENT_NAME AS deptName,tdrd.SFID AS sfid, "
-					+ "tdrd.DESIGNATION_ID AS desigId,  tdrd.PHONE_NUMBER AS phnNo, tdrd.CLAIM_PURPOSE AS claimPurpose, "
-					+ "tdrd.TRAVELLING_TO AS travellingTo, tdrd.FROM_DATE AS fromDate,tdrd.TO_DATE AS toDate, "
-					+ "tdrd.FOOD_ACCM_AMT AS foodandAccmAmt,  tdrd.DA_AMT AS daAmt,  tdrd.TAXI_AMT AS taxiAmt, "
-					+ "tdrd.TRANSIT_AMT AS transitAmt,  tdrd.TOTAL_AMT AS totalAmt,  tdrd.NOOF_DAYS  AS noOfDays,  "
-					+ "tdrd.REMARKS AS reason,  tdrd.IP_ADDRESS AS ipAddress, tdrd.PERDAY_FD_ACC_AMT AS perDayFoodandAccmAmt, tdrd.AMT_TYPE AS cashorcheck,"
-					+ "tdrd.STATUS AS status ,tdrd.ACTUAL_EXPENDITURE AS actualExpenditure ,tdrd.SETTLEORREIM_AMT AS settleOrReimAmt       "
-					+ "FROM TADA_WATER_ADV_REQUEST_DETAILS tdrd "
-					+ "WHERE tdrd.REQUEST_ID="+requestId+"";*/
+
 			
 			
 			sql="select ltc.REQUEST_ID AS requestId,ltc.DEPARTMENT_ID AS deptName,ltc.SFID AS sfID,  "
@@ -357,14 +339,14 @@ public class SQLLTCWaterRequestDAO implements ILTCWaterRequestDAO {
 					+ " ltc.NOOF_ADULTS_TICKETS AS noOfAdultsTickets,  ltc.NOOF_CHILDREN_TICKETS  AS noOfChildrenTickets,  "
 					+ " ltc.LEAVE_TYPE AS leaveType,  ltc.STATUS AS status, "
 					+ " ltc.IPADDRESS AS ipAddress,ltc.TOTAL_TICKETS_AMT AS totalTicketsAmt,ltc.AMOUNT_ADULTS AS amountAdults,ltc.AMOUNT_CHILDREN AS amountChildren,ltc.TOTAL_ADULTS_AMT AS adultsTotAmt,ltc.TOTAL_CHILDREN_AMT AS childrenTotAmt,ltc.STARTHOLIDAY AS startHoliday,ltc.RETURNHOLIDAY AS returnHoliday,  "
-					+ "ltc.REF_LETTER_DATE AS refLetterDate,ltc.REF_LETTER_NO AS refLetterNo,ltc.SETTLEORREIM_AMT AS ltcsettleOrReimAmt,ltc.ACTUAL_EXPENDITURE AS ltcactualExpenditure,ltc.OTHER_AMT as otherAmt "
+					+ "ltc.REF_LETTER_DATE AS refLetterDate,ltc.REF_LETTER_NO AS refLetterNo,ltc.SETTLEORREIM_AMT AS ltcsettleOrReimAmt,ltc.ACTUAL_EXPENDITURE AS ltcactualExpenditure,ltc.OTHER_AMT as otherAmt,ltc.SETTLEMENT_REMARKS AS ltcselOrReimRemarks "
 					+ " FROM LTC_WATER_REQUEST_DETAILS ltc "
 					+ "WHERE ltc.REQUEST_ID="+requestId+"";
 			
 			
 			
 			//ltcWaterRequestDTO=(LTCWaterRequestDTO) session.createSQLQuery(sql).addScalar("requestId", Hibernate.STRING).addScalar("deptName", Hibernate.STRING).addScalar("sfid", Hibernate.STRING).addScalar("desigId", Hibernate.INTEGER).addScalar("phnNo", Hibernate.STRING).addScalar("claimPurpose", Hibernate.STRING).addScalar("travellingTo", Hibernate.STRING).addScalar("fromDate", Hibernate.DATE).addScalar("toDate", Hibernate.DATE).addScalar("foodandAccmAmt", Hibernate.INTEGER).addScalar("daAmt",Hibernate.INTEGER).addScalar("taxiAmt", Hibernate.INTEGER).addScalar("transitAmt", Hibernate.INTEGER).addScalar("totalAmt", Hibernate.INTEGER).addScalar("noOfDays",Hibernate.INTEGER).addScalar("reason", Hibernate.STRING).addScalar("ipAddress", Hibernate.STRING).addScalar("perDayFoodandAccmAmt", Hibernate.INTEGER).addScalar("cashorcheck", Hibernate.STRING).addScalar("status", Hibernate.STRING).addScalar("actualExpenditure", Hibernate.INTEGER).addScalar("settleOrReimAmt", Hibernate.INTEGER).setResultTransformer(Transformers.aliasToBean(LTCWaterRequestDTO.class)).uniqueResult();
-			ltcWaterRequestDTO=(LTCWaterRequestDTO)	session.createSQLQuery(sql).addScalar("requestId", Hibernate.STRING).addScalar("deptName", Hibernate.STRING).addScalar("sfID", Hibernate.STRING).addScalar("designation", Hibernate.INTEGER).addScalar("phnNo", Hibernate.STRING).addScalar("ltcYear", Hibernate.STRING).addScalar("hometownAddr", Hibernate.STRING).addScalar("nod", Hibernate.INTEGER).addScalar("noOfAdultsTickets", Hibernate.INTEGER).addScalar("noOfChildrenTickets", Hibernate.INTEGER).addScalar("leaveType",Hibernate.STRING).addScalar("status", Hibernate.INTEGER).addScalar("ipAddress", Hibernate.STRING).addScalar("totalTicketsAmt", Hibernate.INTEGER).addScalar("amountAdults", Hibernate.INTEGER).addScalar("amountChildren", Hibernate.INTEGER).addScalar("adultsTotAmt", Hibernate.INTEGER).addScalar("childrenTotAmt", Hibernate.INTEGER).addScalar("startHoliday", Hibernate.DATE).addScalar("returnHoliday", Hibernate.DATE).addScalar("refLetterDate", Hibernate.DATE).addScalar("refLetterNo", Hibernate.STRING).addScalar("ltcsettleOrReimAmt", Hibernate.INTEGER).addScalar("ltcactualExpenditure", Hibernate.INTEGER).addScalar("otherAmt", Hibernate.INTEGER).setResultTransformer(Transformers.aliasToBean(LTCWaterRequestDTO.class)).uniqueResult();
+			ltcWaterRequestDTO=(LTCWaterRequestDTO)	session.createSQLQuery(sql).addScalar("requestId", Hibernate.STRING).addScalar("deptName", Hibernate.STRING).addScalar("sfID", Hibernate.STRING).addScalar("designation", Hibernate.INTEGER).addScalar("phnNo", Hibernate.STRING).addScalar("ltcYear", Hibernate.STRING).addScalar("hometownAddr", Hibernate.STRING).addScalar("nod", Hibernate.INTEGER).addScalar("noOfAdultsTickets", Hibernate.INTEGER).addScalar("noOfChildrenTickets", Hibernate.INTEGER).addScalar("leaveType",Hibernate.STRING).addScalar("status", Hibernate.INTEGER).addScalar("ipAddress", Hibernate.STRING).addScalar("totalTicketsAmt", Hibernate.INTEGER).addScalar("amountAdults", Hibernate.INTEGER).addScalar("amountChildren", Hibernate.INTEGER).addScalar("adultsTotAmt", Hibernate.INTEGER).addScalar("childrenTotAmt", Hibernate.INTEGER).addScalar("startHoliday", Hibernate.DATE).addScalar("returnHoliday", Hibernate.DATE).addScalar("refLetterDate", Hibernate.DATE).addScalar("refLetterNo", Hibernate.STRING).addScalar("ltcsettleOrReimAmt", Hibernate.INTEGER).addScalar("ltcactualExpenditure", Hibernate.INTEGER).addScalar("otherAmt", Hibernate.INTEGER).addScalar("ltcselOrReimRemarks", Hibernate.STRING).setResultTransformer(Transformers.aliasToBean(LTCWaterRequestDTO.class)).uniqueResult();
 			
 			ltcWaterRequestBean.setLtcWaterRequestDTO(ltcWaterRequestDTO);
 			
